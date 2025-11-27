@@ -11,60 +11,63 @@ const Navigation = () => {
     { name: "Mieten", href: "#mieten" },
     { name: "Produzieren", href: "#produzieren" },
     { name: "Über uns", href: "#ueber-uns" },
-    { name: "Kontakt", href: "#kontakt" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <nav className="container mx-auto px-4 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/98 backdrop-blur-md border-b border-border">
+      <nav className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - Bold and Minimalist */}
           <a href="/" className="flex flex-col">
-            <span className="text-2xl font-bold tracking-tight">SENDESAAL</span>
-            <span className="text-sm tracking-widest text-muted-foreground">BREMEN</span>
+            <span className="text-3xl font-bold tracking-tighter">SENDESAAL</span>
+            <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase">Bremen</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-colors tracking-wide"
               >
                 {link.name}
               </a>
             ))}
-            <Button size="sm" className="ml-4">
-              Tickets kaufen
+          </div>
+
+          {/* CTA Button - Desktop */}
+          <div className="hidden lg:block">
+            <Button className="font-medium">
+              Tickets
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="lg:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border pt-4">
-            <div className="flex flex-col gap-4">
+          <div className="lg:hidden mt-6 pb-6 border-t border-border pt-6">
+            <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium hover:text-primary transition-colors"
+                  className="text-base font-medium hover:text-primary transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
                 </a>
               ))}
-              <Button size="sm" className="w-full mt-2">
+              <Button className="w-full mt-4 font-medium">
                 Tickets kaufen
               </Button>
             </div>

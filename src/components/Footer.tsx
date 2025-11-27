@@ -22,19 +22,19 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-secondary text-secondary-foreground">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-sendesaal-dark border-t border-border">
+      <div className="container mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Brand */}
-          <div>
+          <div className="lg:col-span-2">
             <div className="flex flex-col mb-6">
-              <span className="text-2xl font-bold tracking-tight">SENDESAAL</span>
-              <span className="text-sm tracking-widest text-secondary-foreground/70">BREMEN</span>
+              <span className="text-3xl font-bold tracking-tighter">SENDESAAL</span>
+              <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase">Bremen</span>
             </div>
-            <p className="text-secondary-foreground/70 mb-6">
+            <p className="text-xl font-medium mb-8 text-foreground/90">
               musik. live. erleben.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-5">
               <a 
                 href="https://facebook.com" 
                 target="_blank" 
@@ -42,7 +42,7 @@ const Footer = () => {
                 className="hover:text-primary transition-colors"
                 aria-label="Facebook"
               >
-                <Facebook size={20} />
+                <Facebook size={22} />
               </a>
               <a 
                 href="https://instagram.com" 
@@ -51,27 +51,27 @@ const Footer = () => {
                 className="hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
-                <Instagram size={20} />
+                <Instagram size={22} />
               </a>
               <a 
                 href="mailto:info@sendesaal-bremen.de"
                 className="hover:text-primary transition-colors"
                 aria-label="E-Mail"
               >
-                <Mail size={20} />
+                <Mail size={22} />
               </a>
             </div>
           </div>
 
           {/* Links */}
           <div>
-            <h3 className="font-bold mb-4">Programm</h3>
-            <ul className="space-y-2">
+            <h3 className="font-bold mb-6 text-sm uppercase tracking-wider">Programm</h3>
+            <ul className="space-y-3">
               {footerLinks.programm.map((link) => (
                 <li key={link.name}>
                   <a 
                     href={link.href}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors text-sm"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}
                   </a>
@@ -81,13 +81,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-bold mb-4">Services</h3>
-            <ul className="space-y-2">
+            <h3 className="font-bold mb-6 text-sm uppercase tracking-wider">Services</h3>
+            <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <a 
                     href={link.href}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors text-sm"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}
                   </a>
@@ -97,13 +97,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-bold mb-4">Über uns</h3>
-            <ul className="space-y-2">
+            <h3 className="font-bold mb-6 text-sm uppercase tracking-wider">Über uns</h3>
+            <ul className="space-y-3">
               {footerLinks.about.map((link) => (
                 <li key={link.name}>
                   <a 
                     href={link.href}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors text-sm"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.name}
                   </a>
@@ -114,10 +114,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-secondary-foreground/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-foreground/70">
-            <p>© 2025 Sendesaal Bremen. Alle Rechte vorbehalten.</p>
-            <div className="flex gap-6">
+        <div className="pt-10 border-t border-border/50">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground">
+            <p>© 2025 Sendesaal Bremen</p>
+            <div className="flex gap-8">
               <a href="#impressum" className="hover:text-primary transition-colors">
                 Impressum
               </a>
@@ -125,7 +125,7 @@ const Footer = () => {
                 Datenschutz
               </a>
               <a href="#cookies" className="hover:text-primary transition-colors">
-                Cookie-Einstellungen
+                Cookies
               </a>
             </div>
           </div>
