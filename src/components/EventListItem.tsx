@@ -53,15 +53,15 @@ const EventListItem = ({
             </div>
           </div>
 
-          <h3 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-primary transition-colors">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black mb-3 group-hover:text-primary transition-colors uppercase tracking-tight leading-tight">
             {title}
           </h3>
           
-          <p className="text-base font-medium text-foreground/90 mb-3">
+          <p className="text-xl md:text-2xl font-light text-foreground/90 mb-4">
             {artist}
           </p>
 
-          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+          <p className="text-base text-muted-foreground leading-relaxed line-clamp-2 font-light">
             {description}
           </p>
         </div>
@@ -69,14 +69,14 @@ const EventListItem = ({
         {/* CTA */}
         <div className="md:col-span-2 flex md:flex-col gap-3 md:justify-center md:items-end">
           <Button 
-            className="flex-1 md:w-full font-medium"
+            className="flex-1 md:w-full font-bold uppercase tracking-wide text-sm py-6 h-auto"
             size="lg"
           >
             Tickets
           </Button>
           <Button 
             variant="outline" 
-            className="flex-1 md:w-full font-medium"
+            className="flex-1 md:w-full font-bold uppercase tracking-wide text-sm py-6 h-auto"
             size="lg"
           >
             Details

@@ -19,17 +19,17 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo - Bold and Minimalist */}
           <a href="/" className="flex flex-col">
-            <span className="text-3xl font-bold tracking-tighter">SENDESAAL</span>
-            <span className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase">Bremen</span>
+            <span className="text-4xl md:text-5xl font-black tracking-tighter">SENDESAAL</span>
+            <span className="text-[11px] tracking-[0.35em] text-muted-foreground uppercase font-light">Bremen</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-12">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium hover:text-primary transition-colors tracking-wide"
+                className="text-base font-semibold hover:text-primary transition-colors tracking-wide uppercase text-xs"
               >
                 {link.name}
               </a>

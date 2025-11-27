@@ -32,13 +32,13 @@ const HighlightsSection = () => {
   return (
     <section className="py-16 bg-primary">
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground">
+        <div className="flex items-center justify-between mb-16">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-primary-foreground uppercase tracking-tighter">
             Highlights
           </h2>
           <Button 
             variant="outline" 
-            className="hidden md:inline-flex bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-0 font-medium"
+            className="hidden md:inline-flex bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-0 font-bold text-base uppercase tracking-wide"
           >
             Alle ansehen
           </Button>
@@ -65,10 +65,10 @@ const HighlightsSection = () => {
                   </div>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-primary-foreground mb-1 group-hover:opacity-80 transition-opacity">
+              <h3 className="text-3xl md:text-4xl font-black text-primary-foreground mb-2 group-hover:opacity-80 transition-opacity uppercase tracking-tight">
                 {event.title}
               </h3>
-              <p className="text-primary-foreground/80 font-medium">{event.subtitle}</p>
+              <p className="text-primary-foreground/90 font-light text-lg">{event.subtitle}</p>
             </div>
           ))}
         </div>
