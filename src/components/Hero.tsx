@@ -14,21 +14,21 @@ const Hero = () => {
 
       {/* Content - Left Aligned like Bimhuis */}
       <div className="relative z-10 container mx-auto px-6">
-        <div className="max-w-3xl">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[0.95] tracking-tight">
+        <div className="max-w-5xl">
+          <h1 className="text-7xl md:text-8xl lg:text-[10rem] font-black mb-12 leading-[0.85] tracking-tighter uppercase">
             musik.<br />live.<br />erleben.
           </h1>
           
-          <p className="text-base md:text-lg text-foreground/80 mb-10 max-w-xl leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-foreground/90 mb-12 max-w-2xl leading-relaxed font-light">
             Ein denkmalgeschützter Konzertraum mit außergewöhnlich guter Akustik. 
             Von feinster Klassik über wegweisenden Jazz bis hin zu experimentellen Formaten.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="text-base px-8 font-medium">
+          <div className="flex flex-col sm:flex-row gap-6">
+            <Button size="lg" className="text-lg px-12 py-6 h-auto font-bold uppercase tracking-wider">
               Programm ansehen
             </Button>
-            <Button size="lg" variant="outline" className="text-base px-8 font-medium border-foreground/30 hover:bg-foreground/10">
+            <Button size="lg" variant="outline" className="text-lg px-12 py-6 h-auto font-bold uppercase tracking-wider border-2 border-foreground/30 hover:bg-foreground/10">
               Tickets
             </Button>
           </div>
