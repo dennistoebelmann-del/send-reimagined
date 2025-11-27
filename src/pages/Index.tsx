@@ -1,16 +1,18 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import ProgramSection from "@/components/ProgramSection";
+import HighlightsSection from "@/components/HighlightsSection";
+import AgendaSection from "@/components/AgendaSection";
 import InfoSection from "@/components/InfoSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navigation />
       <main>
         <Hero />
-        <ProgramSection />
+        <HighlightsSection />
+        <AgendaSection />
         <InfoSection />
       </main>
       <Footer />
