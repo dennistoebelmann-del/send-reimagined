@@ -1,14 +1,19 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-concert-hall.jpg";
 
 const Hero = () => {
   return (
     <section className="relative h-[90vh] flex items-center justify-start overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      {/* Background Video with Overlay */}
+      <div className="absolute inset-0">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-overlay" />
       </div>
 
