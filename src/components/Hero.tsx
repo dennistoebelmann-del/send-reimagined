@@ -66,7 +66,7 @@ const Hero = () => {
                   x: useTransform(x, (value) => value * (index + 1) * 0.3),
                   y: useTransform(y, (value) => value * (index + 1) * 0.3),
                 }}
-                className="cursor-default inline-block"
+                className="cursor-default block"
               >
                 {line}
                 {index < lines.length - 1 && <br />}
