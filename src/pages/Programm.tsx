@@ -155,16 +155,16 @@ const Programm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white text-black">
       <Navigation />
-      <main className="pt-24 pb-20">
+      <main className="pt-36 pb-20">
         <div className="container mx-auto px-6">
           {/* Header */}
           <div className="mb-12">
             <p className="text-primary font-bold uppercase tracking-wide mb-2">
               Saison 2025/26
             </p>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter text-black">
               Programm
             </h1>
           </div>
@@ -180,8 +180,8 @@ const Programm = () => {
                   className={cn(
                     "px-5 py-2.5 text-sm font-bold uppercase tracking-wide transition-all border",
                     activeFilter === cat.id
-                      ? "bg-foreground text-background border-foreground"
-                      : "bg-transparent text-foreground border-border hover:border-foreground"
+                      ? "bg-black text-white border-black"
+                      : "bg-transparent text-black border-gray-300 hover:border-black"
                   )}
                 >
                   {cat.label}
@@ -197,8 +197,8 @@ const Programm = () => {
                   <Button
                     variant="outline"
                     className={cn(
-                      "w-[150px] justify-start text-left font-normal",
-                      !startDate && "text-muted-foreground"
+                      "w-[150px] justify-start text-left font-normal border-gray-300 text-black hover:bg-gray-50",
+                      !startDate && "text-gray-500"
                     )}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
@@ -222,8 +222,8 @@ const Programm = () => {
                   <Button
                     variant="outline"
                     className={cn(
-                      "w-[150px] justify-start text-left font-normal",
-                      !endDate && "text-muted-foreground"
+                      "w-[150px] justify-start text-left font-normal border-gray-300 text-black hover:bg-gray-50",
+                      !endDate && "text-gray-500"
                     )}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
@@ -242,12 +242,12 @@ const Programm = () => {
               </Popover>
 
               {/* View Toggle */}
-              <div className="flex items-center border border-border">
+              <div className="flex items-center border border-gray-300">
                 <button
                   onClick={() => setViewMode("list")}
                   className={cn(
                     "p-2.5 transition-colors",
-                    viewMode === "list" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"
+                    viewMode === "list" ? "bg-black text-white" : "text-gray-500 hover:text-black"
                   )}
                 >
                   <List className="w-5 h-5" />
@@ -256,7 +256,7 @@ const Programm = () => {
                   onClick={() => setViewMode("grid")}
                   className={cn(
                     "p-2.5 transition-colors",
-                    viewMode === "grid" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"
+                    viewMode === "grid" ? "bg-black text-white" : "text-gray-500 hover:text-black"
                   )}
                 >
                   <LayoutGrid className="w-5 h-5" />
@@ -271,14 +271,14 @@ const Programm = () => {
               {filteredEvents.map((event) => (
                 <div
                   key={event.id}
-                  className="grid grid-cols-1 md:grid-cols-[180px_200px_1fr_auto] gap-6 items-center py-8 border-t border-border"
+                  className="grid grid-cols-1 md:grid-cols-[180px_200px_1fr_auto] gap-6 items-center py-8 border-t border-gray-200"
                 >
                   {/* Date & Time */}
                   <div>
                     <p className="text-primary font-bold text-sm uppercase tracking-wide">
                       {formatDateGerman(event.date)}
                     </p>
-                    <p className="text-3xl font-black">{event.time}</p>
+                    <p className="text-3xl font-black text-black">{event.time}</p>
                   </div>
 
                   {/* Image */}
@@ -295,12 +295,12 @@ const Programm = () => {
                     <h3 className="text-2xl md:text-3xl font-black text-primary uppercase tracking-tight mb-1">
                       {event.title}
                     </h3>
-                    <p className="text-muted-foreground mb-3">{event.subtitle}</p>
+                    <p className="text-gray-600 mb-3">{event.subtitle}</p>
                     <div className="flex flex-wrap gap-2">
                       {event.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 text-xs font-bold uppercase tracking-wide border border-border"
+                          className="px-3 py-1 text-xs font-bold uppercase tracking-wide border border-gray-300 text-black"
                         >
                           {tag}
                         </span>
@@ -330,10 +330,10 @@ const Programm = () => {
                   <p className="text-primary font-bold text-sm uppercase tracking-wide mb-1">
                     {formatDateGerman(event.date)} · {event.time}
                   </p>
-                  <h3 className="text-xl font-black uppercase tracking-tight mb-1">
+                  <h3 className="text-xl font-black uppercase tracking-tight mb-1 text-black">
                     {event.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-3">{event.subtitle}</p>
+                  <p className="text-gray-600 text-sm mb-3">{event.subtitle}</p>
                   <Button className="font-bold uppercase tracking-wide w-full">
                     Tickets
                   </Button>
@@ -344,7 +344,7 @@ const Programm = () => {
 
           {filteredEvents.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-muted-foreground text-lg">
+              <p className="text-gray-500 text-lg">
                 Keine Veranstaltungen gefunden.
               </p>
             </div>
