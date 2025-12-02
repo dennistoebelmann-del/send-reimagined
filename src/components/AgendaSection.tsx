@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import EventListItem from "./EventListItem";
 import jazzImage from "@/assets/event-jazz.jpg";
@@ -5,6 +6,10 @@ import classicalImage from "@/assets/event-classical.jpg";
 import experimentalImage from "@/assets/event-experimental.jpg";
 
 const AgendaSection = () => {
+  const [activeFilter, setActiveFilter] = useState("alle");
+  
+  const filters = ["Alle", "Jazz", "Klassik", "Weltmusik", "Experimental"];
+
   const events = [
     {
       title: "Fire! Orchestra",
@@ -38,18 +43,30 @@ const AgendaSection = () => {
   return (
     <section id="programm" className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
-          <div>
-            <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-6 uppercase tracking-tighter">
-              Agenda
-            </h2>
-            <p className="text-muted-foreground text-xl md:text-2xl max-w-2xl font-light">
-              Entdecken Sie unser vielfältiges Programm – von Klassik über Jazz bis zu experimentellen Formaten.
-            </p>
+        <div className="mb-12">
+          <span className="text-primary font-bold text-sm uppercase tracking-widest mb-4 block">
+            Aktuelles Programm
+          </span>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-10 tracking-tight">
+            Konzerte
+          </h2>
+          
+          {/* Filter Chips */}
+          <div className="flex flex-wrap items-center gap-4 md:gap-8">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter.toLowerCase())}
+                className={`text-sm md:text-base font-bold uppercase tracking-wide transition-all ${
+                  activeFilter === filter.toLowerCase()
+                    ? "bg-primary text-primary-foreground px-6 py-2.5 rounded-full"
+                    : "text-foreground hover:text-primary"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
           </div>
-          <Button size="lg" variant="outline" className="font-bold shrink-0 text-base uppercase tracking-wide px-8 py-6 h-auto">
-            Vollständiges Programm
-          </Button>
         </div>
 
         <div className="space-y-0">
