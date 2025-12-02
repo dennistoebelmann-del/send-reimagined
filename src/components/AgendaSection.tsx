@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import EventListItem from "./EventListItem";
 import jazzImage from "@/assets/event-jazz.jpg";
@@ -178,8 +179,8 @@ const AgendaSection = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <Button size="lg" className="font-bold px-12 text-base uppercase tracking-wide py-6 h-auto">
-            Alle Konzerte ansehen
+          <Button asChild size="lg" className="font-bold px-12 text-base uppercase tracking-wide py-6 h-auto">
+            <Link to="/programm">Alle Konzerte ansehen</Link>
           </Button>
         </div>
       </div>

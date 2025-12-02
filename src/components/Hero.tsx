@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
@@ -83,8 +84,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button size="default" className="text-sm px-6 py-2 h-auto font-bold uppercase tracking-wider">
-              Programm ansehen
+            <Button asChild size="default" className="text-sm px-6 py-2 h-auto font-bold uppercase tracking-wider">
+              <Link to="/programm">Programm ansehen</Link>
             </Button>
             <Button size="default" variant="outline" className="text-sm px-6 py-2 h-auto font-bold uppercase tracking-wider border border-foreground/30 hover:bg-foreground/10">
               Saal Mieten
