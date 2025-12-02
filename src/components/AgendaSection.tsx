@@ -11,6 +11,7 @@ const AgendaSection = () => {
   const filters = ["Alle", "Jazz", "Klassik", "Weltmusik", "Experimental"];
 
   const events = [
+    // Jazz
     {
       title: "Fire! Orchestra",
       artist: "Mats Gustafsson & Ensemble",
@@ -19,7 +20,29 @@ const AgendaSection = () => {
       time: "20:00",
       location: "Sendesaal Bremen",
       image: jazzImage,
+      category: "jazz",
     },
+    {
+      title: "Tingvall Trio",
+      artist: "Martin Tingvall, Omar Rodriguez Calvo, Jürgen Spiegel",
+      description: "Nordischer Jazz trifft auf klassische Einflüsse – melodisch, virtuos und voller Emotionen.",
+      date: "Donnerstag, 9. Januar 2026",
+      time: "20:00",
+      location: "Sendesaal Bremen",
+      image: jazzImage,
+      category: "jazz",
+    },
+    {
+      title: "Esbjörn Svensson Memorial",
+      artist: "Dan Berglund & Magnus Öström",
+      description: "Ein Abend zu Ehren des legendären schwedischen Pianisten mit seinen ehemaligen Bandkollegen.",
+      date: "Freitag, 23. Januar 2026",
+      time: "20:30",
+      location: "Sendesaal Bremen",
+      image: jazzImage,
+      category: "jazz",
+    },
+    // Klassik
     {
       title: "Kammermusik Abend",
       artist: "Quatuor Ébène",
@@ -28,17 +51,95 @@ const AgendaSection = () => {
       time: "19:30",
       location: "Sendesaal Bremen",
       image: classicalImage,
+      category: "klassik",
     },
     {
+      title: "Klavierrezital",
+      artist: "Igor Levit",
+      description: "Der preisgekrönte Pianist spielt Bachs Goldberg-Variationen in einer unvergesslichen Interpretation.",
+      date: "Sonntag, 19. Januar 2026",
+      time: "18:00",
+      location: "Sendesaal Bremen",
+      image: classicalImage,
+      category: "klassik",
+    },
+    {
+      title: "Barocke Nacht",
+      artist: "Concerto Köln",
+      description: "Vivaldi, Bach und Händel in authentischer Aufführungspraxis mit historischen Instrumenten.",
+      date: "Samstag, 8. Februar 2026",
+      time: "19:30",
+      location: "Sendesaal Bremen",
+      image: classicalImage,
+      category: "klassik",
+    },
+    // Weltmusik
+    {
+      title: "Fado Noite",
+      artist: "Ana Moura",
+      description: "Die portugiesische Sängerin entführt Sie in die melancholische Welt des Fado.",
+      date: "Mittwoch, 15. Januar 2026",
+      time: "20:00",
+      location: "Sendesaal Bremen",
+      image: classicalImage,
+      category: "weltmusik",
+    },
+    {
+      title: "Silk Road Ensemble",
+      artist: "Yo-Yo Ma & Friends",
+      description: "Eine musikalische Reise entlang der Seidenstraße mit Künstlern aus aller Welt.",
+      date: "Samstag, 1. Februar 2026",
+      time: "19:30",
+      location: "Sendesaal Bremen",
+      image: jazzImage,
+      category: "weltmusik",
+    },
+    {
+      title: "Flamenco Puro",
+      artist: "Paco Peña",
+      description: "Authentischer Flamenco mit dem legendären Gitarristen und seinem Ensemble.",
+      date: "Freitag, 21. Februar 2026",
+      time: "20:30",
+      location: "Sendesaal Bremen",
+      image: experimentalImage,
+      category: "weltmusik",
+    },
+    // Experimental
+    {
       title: "Electronic Soundscapes",
-      artist: "Various Artists",
-      description: "Eine Reise durch elektronische Klanglandschaften mit experimentellen Künstlern aus ganz Europa.",
+      artist: "Nils Frahm",
+      description: "Eine Reise durch elektronische Klanglandschaften – zwischen Ambient, Techno und Neoklassik.",
       date: "Samstag, 20. Dezember 2025",
       time: "21:00",
       location: "Sendesaal Bremen",
       image: experimentalImage,
+      category: "experimental",
+    },
+    {
+      title: "Drone & Resonance",
+      artist: "Éliane Radigue & Stephen O'Malley",
+      description: "Minimalistische Klangwelten und tieffrequente Schwingungen in perfekter Akustik.",
+      date: "Donnerstag, 6. Februar 2026",
+      time: "20:00",
+      location: "Sendesaal Bremen",
+      image: experimentalImage,
+      category: "experimental",
+    },
+    {
+      title: "Prepared Piano",
+      artist: "Hauschka",
+      description: "Der Kölner Komponist verwandelt den Flügel in ein perkussives Wunderwerk.",
+      date: "Samstag, 28. Februar 2026",
+      time: "20:00",
+      location: "Sendesaal Bremen",
+      image: experimentalImage,
+      category: "experimental",
     },
   ];
+
+  const filteredEvents = activeFilter === "alle" 
+    ? events 
+    : events.filter(event => event.category === activeFilter);
 
   return (
     <section id="programm" className="py-20 bg-background">
@@ -70,8 +171,8 @@ const AgendaSection = () => {
         </div>
 
         <div className="space-y-0">
-          {events.map((event, index) => (
-            <EventListItem key={index} {...event} />
+          {filteredEvents.map((event, index) => (
+            <EventListItem key={`${event.category}-${index}`} {...event} />
           ))}
         </div>
 
