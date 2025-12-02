@@ -74,31 +74,31 @@ const Hero = () => {
             ))}
           </h1>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-lg md:text-xl lg:text-2xl text-foreground/90 mb-12 max-w-2xl leading-relaxed font-light"
-          >
-            Ein denkmalgeschützter Konzertraum mit außergewöhnlich guter Akustik. 
-            Von feinster Klassik über wegweisenden Jazz bis hin zu experimentellen Formaten.
-          </motion.p>
-
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-6"
+            className="flex flex-col sm:flex-row gap-4"
           >
-            <Button size="lg" className="text-lg px-12 py-6 h-auto font-bold uppercase tracking-wider">
+            <Button size="default" className="text-sm px-6 py-2 h-auto font-bold uppercase tracking-wider">
               Programm ansehen
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-12 py-6 h-auto font-bold uppercase tracking-wider border-2 border-foreground/30 hover:bg-foreground/10">
-              Tickets
+            <Button size="default" variant="outline" className="text-sm px-6 py-2 h-auto font-bold uppercase tracking-wider border border-foreground/30 hover:bg-foreground/10">
+              Saal Mieten
             </Button>
           </motion.div>
         </div>
       </div>
+
+      {/* Tagline - Bottom Right like Bimhuis */}
+      <motion.p 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="absolute bottom-12 right-6 md:right-12 text-xl md:text-2xl lg:text-3xl text-foreground italic font-light max-w-md text-right z-10"
+      >
+        Musik in ihrer reinsten Form – live, nah und mit unvergleichlicher Akustik.
+      </motion.p>
     </section>
   );
 };
