@@ -31,10 +31,10 @@ const HighlightsSection = () => {
 
   return (
     <section className="py-16 bg-primary relative overflow-hidden">
-      {/* Large decorative background text */}
-      <div className="absolute inset-0 flex items-start justify-center pointer-events-none select-none overflow-hidden">
+      {/* Large decorative background text - right aligned */}
+      <div className="absolute inset-0 flex items-start justify-end pointer-events-none select-none overflow-hidden">
         <span 
-          className="text-[12vw] md:text-[14vw] font-black uppercase tracking-tighter text-primary-foreground/10 whitespace-nowrap leading-none mt-4"
+          className="text-[20vw] md:text-[18vw] font-black uppercase tracking-tighter text-primary-foreground/10 whitespace-nowrap leading-none mt-4 pr-6"
           aria-hidden="true"
         >
           HIGHLIGHTS
@@ -42,16 +42,10 @@ const HighlightsSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex items-center justify-between mb-16">
+        <div className="mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground uppercase tracking-tighter">
             Highlights
           </h2>
-          <Button 
-            variant="outline" 
-            className="hidden md:inline-flex bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-0 font-bold text-sm uppercase tracking-wide"
-          >
-            Alle Konzerte ansehen
-          </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -83,14 +77,6 @@ const HighlightsSection = () => {
           ))}
         </div>
 
-        <div className="mt-10 text-center md:hidden">
-          <Button 
-            variant="outline" 
-            className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-0 font-medium"
-          >
-            Alle Highlights ansehen
-          </Button>
-        </div>
       </div>
     </section>
   );
