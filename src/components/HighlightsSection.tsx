@@ -42,7 +42,7 @@ const HighlightsSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="mb-16">
+        <div className="mb-16 pt-12 md:pt-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground uppercase tracking-tighter">
             Highlights
           </h2>
