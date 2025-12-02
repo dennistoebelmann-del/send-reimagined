@@ -30,17 +30,27 @@ const HighlightsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-primary">
-      <div className="container mx-auto px-6">
+    <section className="py-16 bg-primary relative overflow-hidden">
+      {/* Large decorative background text */}
+      <div className="absolute inset-0 flex items-start justify-center pointer-events-none select-none overflow-hidden">
+        <span 
+          className="text-[12vw] md:text-[14vw] font-black uppercase tracking-tighter text-primary-foreground/10 whitespace-nowrap leading-none mt-4"
+          aria-hidden="true"
+        >
+          HIGHLIGHTS
+        </span>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="flex items-center justify-between mb-16">
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-primary-foreground uppercase tracking-tighter">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground uppercase tracking-tighter">
             Highlights
           </h2>
           <Button 
             variant="outline" 
-            className="hidden md:inline-flex bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-0 font-bold text-base uppercase tracking-wide"
+            className="hidden md:inline-flex bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-0 font-bold text-sm uppercase tracking-wide"
           >
-            Alle ansehen
+            Alle Konzerte ansehen
           </Button>
         </div>
 
