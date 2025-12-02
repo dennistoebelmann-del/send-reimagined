@@ -47,7 +47,7 @@ const Hero = () => {
       {/* Content - Left Aligned like Bimhuis */}
       <div className="relative z-10 container mx-auto px-6">
         <div ref={containerRef} className="max-w-5xl">
-          <h1 className="text-7xl md:text-8xl lg:text-[10rem] font-black mb-12 leading-[0.85] tracking-tighter uppercase">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-12 leading-[0.9] tracking-tighter uppercase">
             {lines.map((line, index) => (
               <motion.div
                 key={line}
