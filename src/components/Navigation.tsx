@@ -1,26 +1,29 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import sendesaalLogo from "@/assets/sendesaal-logo.svg";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { name: "Programm", href: "#programm" },
-    { name: "Tickets", href: "#tickets" },
     { name: "Mieten", href: "#mieten" },
     { name: "Produzieren", href: "#produzieren" },
     { name: "Über uns", href: "#ueber-uns" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/98 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <nav className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
-          {/* Logo - Bold and Minimalist */}
-          <a href="/" className="flex flex-col">
-            <span className="text-4xl md:text-5xl font-black tracking-tighter">SENDESAAL</span>
-            <span className="text-[11px] tracking-[0.35em] text-muted-foreground uppercase font-light">Bremen</span>
+          {/* Logo */}
+          <a href="/" className="flex items-center">
+            <img 
+              src={sendesaalLogo} 
+              alt="Sendesaal Bremen" 
+              className="h-12 md:h-14 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -55,7 +58,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-6 pb-6 border-t border-border pt-6">
+          <div className="lg:hidden mt-6 pb-6 border-t border-border pt-6 bg-background/95 backdrop-blur-sm -mx-6 px-6">
             <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
                 <a
