@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import sendesaalLogo from "@/assets/sendesaal-logo.svg";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Programm", href: "#programm" },
@@ -14,7 +24,7 @@ const Navigation = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}>
       <nav className="container mx-auto px-6 py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -22,7 +32,7 @@ const Navigation = () => {
             <img 
               src={sendesaalLogo} 
               alt="Sendesaal Bremen" 
-              className="h-12 md:h-14 w-auto"
+              className={`h-12 md:h-14 w-auto transition-all duration-300 ${isScrolled ? "invert" : ""}`}
             />
           </a>
 
@@ -32,7 +42,7 @@ const Navigation = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-semibold hover:text-primary transition-colors tracking-wide uppercase text-xs"
+                className={`text-base font-semibold hover:text-primary transition-colors tracking-wide uppercase text-xs ${isScrolled ? "text-black" : "text-foreground"}`}
               >
                 {link.name}
               </a>
@@ -41,7 +51,7 @@ const Navigation = () => {
 
           {/* CTA Button - Desktop */}
           <div className="hidden lg:block">
-            <Button className="font-medium">
+            <Button className={`font-medium ${isScrolled ? "bg-primary text-white" : ""}`}>
               Tickets
             </Button>
           </div>
@@ -52,7 +62,7 @@ const Navigation = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={28} className={isScrolled ? "text-black" : ""} /> : <Menu size={28} className={isScrolled ? "text-black" : ""} />}
           </button>
         </div>
 
