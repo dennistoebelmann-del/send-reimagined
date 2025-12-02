@@ -98,7 +98,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="absolute bottom-12 right-6 md:right-12 text-xl md:text-2xl lg:text-3xl text-foreground italic font-light max-w-md text-right z-10"
+        className="absolute bottom-12 right-6 md:right-12 text-2xl text-foreground italic font-light max-w-md text-right z-10"
       >
         Musik in ihrer reinsten Form – live, nah und mit unvergleichlicher Akustik.
       </motion.p>
