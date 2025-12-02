@@ -4,7 +4,6 @@ import HighlightsSection from "@/components/HighlightsSection";
 import AgendaSection from "@/components/AgendaSection";
 import InfoSection from "@/components/InfoSection";
 import Footer from "@/components/Footer";
-import SectionDivider from "@/components/SectionDivider";
 
 const Index = () => {
   return (
@@ -12,11 +11,8 @@ const Index = () => {
       <Navigation />
       <main>
         <Hero />
-        <SectionDivider />
         <HighlightsSection />
-        <SectionDivider />
         <AgendaSection />
-        <SectionDivider />
         <InfoSection />
       </main>
       <Footer />
