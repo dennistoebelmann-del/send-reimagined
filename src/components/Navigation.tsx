@@ -32,25 +32,22 @@ const Navigation = () => {
             <img 
               src={sendesaalLogo} 
               alt="Sendesaal Bremen" 
-              className={`h-12 md:h-14 w-auto transition-all duration-300 ${isScrolled ? "invert" : ""}`}
+              className="h-12 md:h-14 w-auto transition-all duration-300"
+              style={isScrolled ? { filter: 'brightness(0)' } : {}}
             />
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-12">
+          {/* Desktop Navigation + CTA */}
+          <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-base font-semibold hover:text-primary transition-colors tracking-wide uppercase text-xs ${isScrolled ? "text-black" : "text-foreground"}`}
+                className={`font-semibold hover:text-primary transition-colors tracking-wide uppercase text-[14px] ${isScrolled ? "text-black" : "text-foreground"}`}
               >
                 {link.name}
               </a>
             ))}
-          </div>
-
-          {/* CTA Button - Desktop */}
-          <div className="hidden lg:block">
             <Button className={`font-medium ${isScrolled ? "bg-primary text-white" : ""}`}>
               Tickets
             </Button>
