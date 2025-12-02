@@ -137,9 +137,10 @@ const AgendaSection = () => {
     },
   ];
 
-  const filteredEvents = activeFilter === "alle" 
+  const filteredEvents = (activeFilter === "alle" 
     ? events 
-    : events.filter(event => event.category === activeFilter);
+    : events.filter(event => event.category === activeFilter)
+  ).slice(0, 6);
 
   return (
     <section id="programm" className="py-20 bg-background">
