@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import aboutHero from "@/assets/about-hero.jpg";
+import aboutHero from "@/assets/ueber-uns-hero.jpg";
 
 const sections = [
   { id: "historie", label: "Historie" },
