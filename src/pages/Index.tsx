@@ -5,6 +5,7 @@ import HighlightsSection from "@/components/HighlightsSection";
 import SectionDivider from "@/components/SectionDivider";
 import AgendaSection from "@/components/AgendaSection";
 import InfoSection from "@/components/InfoSection";
+import LeitbildSection from "@/components/LeitbildSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,6 +19,7 @@ const Index = () => {
         <SectionDivider />
         <AgendaSection />
         <InfoSection />
+        <LeitbildSection />
       </main>
       <Footer />
     </div>
