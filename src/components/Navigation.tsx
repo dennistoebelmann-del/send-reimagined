@@ -21,9 +21,9 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Programm", href: "/programm" },
+    { name: "Über uns", href: "/ueber-uns" },
     { name: "Mieten", href: "#mieten" },
     { name: "Produzieren", href: "#produzieren" },
-    { name: "Über uns", href: "#ueber-uns" },
   ];
 
   // On non-home pages or when scrolled, use dark style
