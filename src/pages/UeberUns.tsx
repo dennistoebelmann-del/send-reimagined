@@ -154,23 +154,21 @@ const UeberUns = () => {
         </div>
       </section>
 
-      {/* Sticky Sub-Navigation */}
-      <div
-        ref={subNavRef}
-        className={`sticky top-20 z-40 transition-all duration-300 ${
-          isSubNavSticky ? "bg-white shadow-md" : "bg-white"
-        }`}
-      >
-        <nav className="container mx-auto px-6">
-          <div className="flex items-center justify-center gap-2 md:gap-8 py-4 overflow-x-auto scrollbar-hide">
+      {/* Sticky Sub-Navigation - Floating Pill */}
+      <div className="sticky top-24 z-40 flex justify-center px-4">
+        <nav
+          ref={subNavRef}
+          className="bg-white/80 backdrop-blur-lg rounded-full shadow-lg border border-white/20 px-2 py-2 transition-all duration-300"
+        >
+          <div className="flex items-center gap-1 md:gap-2 overflow-x-auto scrollbar-hide">
             {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`px-4 py-2 text-sm font-medium uppercase tracking-wide whitespace-nowrap transition-all duration-300 ${
+                className={`px-4 md:px-5 py-2 text-xs md:text-sm font-medium uppercase tracking-wide whitespace-nowrap rounded-full transition-all duration-300 ${
                   activeSection === section.id
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-gray-500 hover:text-black"
+                    ? "bg-primary text-white shadow-md"
+                    : "text-gray-600 hover:bg-gray-100 hover:text-black"
                 }`}
               >
                 {section.label}
