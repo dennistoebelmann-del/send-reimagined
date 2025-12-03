@@ -6,6 +6,7 @@ import SectionDivider from "@/components/SectionDivider";
 import AgendaSection from "@/components/AgendaSection";
 import InfoSection from "@/components/InfoSection";
 import LeitbildSection from "@/components/LeitbildSection";
+import ProduktionSection from "@/components/ProduktionSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
         <AgendaSection />
         <InfoSection />
         <LeitbildSection />
+        <ProduktionSection />
       </main>
       <Footer />
     </div>
