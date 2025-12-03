@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Star } from "lucide-react";
 import aboutHero from "@/assets/about-hero.jpg";
 
 const LeitbildSection = () => {
@@ -55,11 +54,6 @@ const LeitbildSection = () => {
               />
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              
-              {/* Orange accent box */}
-              <div className="absolute bottom-0 right-0 w-20 h-20 md:w-24 md:h-24 bg-primary flex items-center justify-center">
-                <Star className="w-8 h-8 md:w-10 md:h-10 text-primary-foreground" strokeWidth={1.5} />
-              </div>
             </div>
           </motion.div>
         </div>
