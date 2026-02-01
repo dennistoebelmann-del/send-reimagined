@@ -7,16 +7,22 @@ const HighlightsSection = () => {
     {
       title: "Fire! Orchestra",
       subtitle: "Mats Gustafsson & Ensemble",
+      category: "Jazz",
+      date: "06 DEZ",
       image: jazzImage,
     },
     {
       title: "Streichquartett",
       subtitle: "Quatuor Ébène",
+      category: "Klassik",
+      date: "13 DEZ",
       image: classicalImage,
     },
     {
       title: "Electronic Live",
       subtitle: "Various Artists",
+      category: "Experimental",
+      date: "20 DEZ",
       image: experimentalImage,
     },
   ];
@@ -27,7 +33,7 @@ const HighlightsSection = () => {
         {/* Header */}
         <div className="flex items-center gap-4 mb-12">
           <div className="w-10 h-[1px] bg-[#E47C03]" />
-          <h2 className="text-[#E47C03] text-3xl md:text-4xl font-normal">
+          <h2 className="text-[#E47C03] text-3xl md:text-4xl font-normal italic">
             Highlights
           </h2>
         </div>
@@ -36,17 +42,34 @@ const HighlightsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {highlights.map((event, index) => (
             <div key={index} className="group cursor-pointer">
-              <div className="relative aspect-[4/5] overflow-hidden mb-4 bg-gray-200">
-                <img
-                  src={event.image}
-                  alt={event.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+              <div className="relative overflow-hidden bg-black">
+                {/* Category Tag */}
+                <div className="absolute top-0 left-0 z-10 bg-black px-3 py-1.5">
+                  <span className="text-white text-sm font-medium">{event.category}</span>
+                </div>
+                
+                {/* Date Badge */}
+                <div className="absolute top-10 left-0 z-10 bg-[#E47C03] px-3 py-1.5">
+                  <span className="text-white text-sm font-bold">{event.date}</span>
+                </div>
+                
+                {/* Image */}
+                <div className="aspect-[4/5]">
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                
+                {/* Title Footer */}
+                <div className="bg-black px-4 py-5">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                    {event.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{event.subtitle}</p>
+                </div>
               </div>
-              <h3 className="text-xl md:text-2xl font-normal text-black mb-1 group-hover:text-[#E47C03] transition-colors">
-                {event.title}
-              </h3>
-              <p className="text-gray-600 text-base">{event.subtitle}</p>
             </div>
           ))}
         </div>
