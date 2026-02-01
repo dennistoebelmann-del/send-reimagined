@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import EventListItem from "./EventListItem";
+import { Calendar, Clock, MapPin } from "lucide-react";
 import jazzImage from "@/assets/event-jazz.jpg";
 import classicalImage from "@/assets/event-classical.jpg";
 import experimentalImage from "@/assets/event-experimental.jpg";
@@ -12,13 +12,12 @@ const AgendaSection = () => {
   const filters = ["Alle", "Jazz", "Klassik", "Weltmusik", "Experimental"];
 
   const events = [
-    // Jazz
     {
       title: "Fire! Orchestra",
       artist: "Mats Gustafsson & Ensemble",
       description: "Grootse improvisatie en energie door dit orkest met strijkers, blazers, ritmesectie en elektronica.",
       date: "Samstag, 6. Dezember 2025",
-      time: "20:00",
+      time: "20",
       location: "Sendesaal Bremen",
       image: jazzImage,
       category: "jazz",
@@ -28,7 +27,7 @@ const AgendaSection = () => {
       artist: "Martin Tingvall, Omar Rodriguez Calvo, Jürgen Spiegel",
       description: "Nordischer Jazz trifft auf klassische Einflüsse – melodisch, virtuos und voller Emotionen.",
       date: "Donnerstag, 9. Januar 2026",
-      time: "20:00",
+      time: "20",
       location: "Sendesaal Bremen",
       image: jazzImage,
       category: "jazz",
@@ -38,28 +37,27 @@ const AgendaSection = () => {
       artist: "Dan Berglund & Magnus Öström",
       description: "Ein Abend zu Ehren des legendären schwedischen Pianisten mit seinen ehemaligen Bandkollegen.",
       date: "Freitag, 23. Januar 2026",
-      time: "20:30",
+      time: "20",
       location: "Sendesaal Bremen",
       image: jazzImage,
       category: "jazz",
     },
-    // Klassik
     {
       title: "Kammermusik Abend",
       artist: "Quatuor Ébène",
       description: "Ein außergewöhnliches Streichquartett präsentiert Werke von Beethoven und Schubert in intimer Atmosphäre.",
       date: "Freitag, 13. Dezember 2025",
-      time: "19:30",
+      time: "20",
       location: "Sendesaal Bremen",
       image: classicalImage,
       category: "klassik",
     },
     {
-      title: "Klavierrezital",
+      title: "Klavier Rezital",
       artist: "Igor Levit",
       description: "Der preisgekrönte Pianist spielt Bachs Goldberg-Variationen in einer unvergesslichen Interpretation.",
       date: "Sonntag, 19. Januar 2026",
-      time: "18:00",
+      time: "18",
       location: "Sendesaal Bremen",
       image: classicalImage,
       category: "klassik",
@@ -69,72 +67,10 @@ const AgendaSection = () => {
       artist: "Concerto Köln",
       description: "Vivaldi, Bach und Händel in authentischer Aufführungspraxis mit historischen Instrumenten.",
       date: "Samstag, 8. Februar 2026",
-      time: "19:30",
+      time: "20",
       location: "Sendesaal Bremen",
       image: classicalImage,
       category: "klassik",
-    },
-    // Weltmusik
-    {
-      title: "Fado Noite",
-      artist: "Ana Moura",
-      description: "Die portugiesische Sängerin entführt Sie in die melancholische Welt des Fado.",
-      date: "Mittwoch, 15. Januar 2026",
-      time: "20:00",
-      location: "Sendesaal Bremen",
-      image: classicalImage,
-      category: "weltmusik",
-    },
-    {
-      title: "Silk Road Ensemble",
-      artist: "Yo-Yo Ma & Friends",
-      description: "Eine musikalische Reise entlang der Seidenstraße mit Künstlern aus aller Welt.",
-      date: "Samstag, 1. Februar 2026",
-      time: "19:30",
-      location: "Sendesaal Bremen",
-      image: jazzImage,
-      category: "weltmusik",
-    },
-    {
-      title: "Flamenco Puro",
-      artist: "Paco Peña",
-      description: "Authentischer Flamenco mit dem legendären Gitarristen und seinem Ensemble.",
-      date: "Freitag, 21. Februar 2026",
-      time: "20:30",
-      location: "Sendesaal Bremen",
-      image: experimentalImage,
-      category: "weltmusik",
-    },
-    // Experimental
-    {
-      title: "Electronic Soundscapes",
-      artist: "Nils Frahm",
-      description: "Eine Reise durch elektronische Klanglandschaften – zwischen Ambient, Techno und Neoklassik.",
-      date: "Samstag, 20. Dezember 2025",
-      time: "21:00",
-      location: "Sendesaal Bremen",
-      image: experimentalImage,
-      category: "experimental",
-    },
-    {
-      title: "Drone & Resonance",
-      artist: "Éliane Radigue & Stephen O'Malley",
-      description: "Minimalistische Klangwelten und tieffrequente Schwingungen in perfekter Akustik.",
-      date: "Donnerstag, 6. Februar 2026",
-      time: "20:00",
-      location: "Sendesaal Bremen",
-      image: experimentalImage,
-      category: "experimental",
-    },
-    {
-      title: "Prepared Piano",
-      artist: "Hauschka",
-      description: "Der Kölner Komponist verwandelt den Flügel in ein perkussives Wunderwerk.",
-      date: "Samstag, 28. Februar 2026",
-      time: "20:00",
-      location: "Sendesaal Bremen",
-      image: experimentalImage,
-      category: "experimental",
     },
   ];
 
@@ -144,42 +80,109 @@ const AgendaSection = () => {
   ).slice(0, 6);
 
   return (
-    <section id="programm" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="mb-12">
-          <span className="text-primary font-bold text-sm uppercase tracking-widest mb-4 block">
-            Aktuelles Programm
-          </span>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-10 tracking-tight">
-            Konzerte
+    <section id="programm" className="py-16 md:py-24 bg-black">
+      <div className="container mx-auto px-6 md:px-16">
+        {/* Header */}
+        <div className="flex items-center gap-4 mb-10">
+          <div className="w-10 h-[1px] bg-[#E47C03]" />
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-normal">
+            Programm
           </h2>
-          
-          {/* Filter Chips */}
-          <div className="flex flex-wrap items-center gap-4 md:gap-8">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter.toLowerCase())}
-                className={`text-sm md:text-base font-bold uppercase tracking-wide transition-all ${
-                  activeFilter === filter.toLowerCase()
-                    ? "bg-primary text-primary-foreground px-6 py-2.5 rounded-full"
-                    : "text-foreground hover:text-primary"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
         </div>
-
-        <div className="space-y-0">
-          {filteredEvents.map((event, index) => (
-            <EventListItem key={`${event.category}-${index}`} {...event} />
+        
+        {/* Filter Chips */}
+        <div className="flex flex-wrap items-center mb-12">
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter.toLowerCase())}
+              className={`px-8 py-4 text-base font-bold transition-all ${
+                activeFilter === filter.toLowerCase()
+                  ? "bg-[#CF3D11] text-white"
+                  : "bg-transparent text-white hover:text-[#E47C03]"
+              }`}
+            >
+              {filter}
+            </button>
           ))}
         </div>
 
+        {/* Events List */}
+        <div className="space-y-12">
+          {filteredEvents.map((event, index) => (
+            <div key={`${event.category}-${index}`} className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center justify-between">
+              {/* Left: Image + Content */}
+              <div className="flex flex-col md:flex-row gap-6 md:gap-12 flex-1">
+                {/* Image */}
+                <div className="w-full md:w-[300px] lg:w-[365px] h-[200px] md:h-[210px] flex-shrink-0 bg-gray-700">
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Content */}
+                <div className="flex-1 space-y-3">
+                  {/* Meta info */}
+                  <div className="flex flex-wrap items-center gap-4 text-white text-sm md:text-base">
+                    <div className="flex items-center gap-2">
+                      <Calendar size={14} className="text-white" />
+                      <span>{event.date}</span>
+                    </div>
+                    <div className="w-5 h-[1px] bg-[#E47C03]" />
+                    <div className="flex items-center gap-2">
+                      <Clock size={14} className="text-white" />
+                      <span>{event.time} Uhr</span>
+                    </div>
+                    <div className="w-5 h-[1px] bg-[#E47C03]" />
+                    <div className="flex items-center gap-2">
+                      <MapPin size={14} className="text-white" />
+                      <span>{event.location}</span>
+                    </div>
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-normal">
+                    {event.title}
+                  </h3>
+                  
+                  {/* Artist */}
+                  <p className="text-white text-lg md:text-xl font-normal">
+                    {event.artist}
+                  </p>
+                  
+                  {/* Description */}
+                  <p className="text-white text-sm md:text-base font-normal">
+                    {event.description}
+                  </p>
+                </div>
+              </div>
+              
+              {/* Right: Buttons */}
+              <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-[180px]">
+                <Button 
+                  variant="outline"
+                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-white border-white hover:bg-white/10 bg-transparent"
+                >
+                  Details
+                </Button>
+                <Button 
+                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white border border-white"
+                >
+                  Tickets
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
         <div className="mt-16 text-center">
-          <Button asChild size="lg" className="font-bold px-12 text-base uppercase tracking-wide py-6 h-auto">
+          <Button 
+            asChild 
+            className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-16 py-4 h-auto text-base border border-white"
+          >
             <Link to="/programm">Alle Konzerte ansehen</Link>
           </Button>
         </div>

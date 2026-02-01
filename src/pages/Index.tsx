@@ -1,8 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import HeroDivider from "@/components/HeroDivider";
 import HighlightsSection from "@/components/HighlightsSection";
-import SectionDivider from "@/components/SectionDivider";
+import OrangeBarsTransition from "@/components/OrangeBarsTransition";
 import AgendaSection from "@/components/AgendaSection";
 import InfoSection from "@/components/InfoSection";
 import LeitbildSection from "@/components/LeitbildSection";
@@ -11,15 +10,16 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Navigation />
       <main>
         <Hero />
-        <HeroDivider />
         <HighlightsSection />
-        <SectionDivider />
+        <OrangeBarsTransition toBlack={true} />
         <AgendaSection />
+        <OrangeBarsTransition toBlack={false} />
         <InfoSection />
+        <OrangeBarsTransition toBlack={true} />
         <LeitbildSection />
         <ProduktionSection />
       </main>
