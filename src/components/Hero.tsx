@@ -1,13 +1,29 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const toggleVideo = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-[#D9D9D9]">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0">
         <video 
+          ref={videoRef}
           autoPlay 
           loop 
           muted 
@@ -52,9 +68,19 @@ const Hero = () => {
 
       {/* Play/Pause Button - Bottom Right */}
       <div className="absolute bottom-32 right-8 z-20">
-        <button className="w-12 h-12 rounded-full bg-black border border-white flex items-center justify-center gap-1">
-          <div className="w-[3px] h-[11px] bg-white" />
-          <div className="w-[3px] h-[11px] bg-white" />
+        <button 
+          onClick={toggleVideo}
+          className="w-12 h-12 rounded-full bg-black border border-white flex items-center justify-center gap-1"
+          aria-label={isPlaying ? "Video pausieren" : "Video abspielen"}
+        >
+          {isPlaying ? (
+            <>
+              <div className="w-[3px] h-[11px] bg-white" />
+              <div className="w-[3px] h-[11px] bg-white" />
+            </>
+          ) : (
+            <div className="w-0 h-0 border-l-[10px] border-l-white border-y-[6px] border-y-transparent ml-1" />
+          )}
         </button>
       </div>
 
