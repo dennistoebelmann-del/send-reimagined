@@ -21,13 +21,10 @@ const Navigation = () => {
       
       // Show/hide based on scroll direction
       if (currentScrollY < 50) {
-        // Always show at top of page
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY.current) {
-        // Scrolling down - hide
         setIsVisible(false);
       } else {
-        // Scrolling up - show
         setIsVisible(true);
       }
       
@@ -42,10 +39,11 @@ const Navigation = () => {
     { name: "Programm", href: "/programm" },
     { name: "Mieten", href: "#mieten" },
     { name: "Produzieren", href: "#produzieren" },
+    { name: "Unterstützen", href: "#unterstuetzen" },
     { name: "Über uns", href: "/ueber-uns" },
   ];
 
-  // On non-home pages or when scrolled, use dark style
+  // On non-home pages or when scrolled, use dark style (black text on white bg)
   const useDarkStyle = !isHomePage || isScrolled;
 
   return (
@@ -56,26 +54,28 @@ const Navigation = () => {
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}
     >
-      <nav className="container mx-auto px-6 py-5">
+      <nav className="container mx-auto px-6 md:px-16 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
               src={sendesaalLogo} 
               alt="Sendesaal Bremen" 
-              className="h-12 md:h-14 w-auto transition-all duration-300"
+              className="h-10 md:h-12 w-auto transition-all duration-300"
               style={useDarkStyle ? { filter: 'brightness(0)' } : {}}
             />
           </Link>
 
           {/* Desktop Navigation + CTA */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center">
             {navLinks.map((link) => (
               link.href.startsWith("/") ? (
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={`font-semibold hover:text-primary transition-colors tracking-wide uppercase text-[14px] ${useDarkStyle ? "text-black" : "text-foreground"}`}
+                  className={`px-6 py-4 font-bold text-[16px] transition-colors ${
+                    useDarkStyle ? "text-black hover:text-[#E47C03]" : "text-white hover:text-[#E47C03]"
+                  }`}
                 >
                   {link.name}
                 </Link>
@@ -83,13 +83,18 @@ const Navigation = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`font-semibold hover:text-primary transition-colors tracking-wide uppercase text-[14px] ${useDarkStyle ? "text-black" : "text-foreground"}`}
+                  className={`px-6 py-4 font-bold text-[16px] transition-colors ${
+                    useDarkStyle ? "text-black hover:text-[#E47C03]" : "text-white hover:text-[#E47C03]"
+                  }`}
                 >
                   {link.name}
                 </a>
               )
             ))}
-            <Button asChild className={`font-medium ${useDarkStyle ? "bg-primary text-white" : ""}`}>
+            <Button 
+              asChild 
+              className="ml-4 bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
+            >
               <Link to="/programm">Tickets</Link>
             </Button>
           </div>
@@ -100,20 +105,24 @@ const Navigation = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={28} className={useDarkStyle ? "text-black" : ""} /> : <Menu size={28} className={useDarkStyle ? "text-black" : ""} />}
+            {isMenuOpen ? (
+              <X size={28} className={useDarkStyle ? "text-black" : "text-white"} />
+            ) : (
+              <Menu size={28} className={useDarkStyle ? "text-black" : "text-white"} />
+            )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-6 pb-6 border-t border-border pt-6 bg-background/95 backdrop-blur-sm -mx-6 px-6">
-            <div className="flex flex-col gap-6">
+          <div className="lg:hidden mt-6 pb-6 border-t border-gray-200 pt-6 bg-white -mx-6 px-6">
+            <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 link.href.startsWith("/") ? (
                   <Link
                     key={link.name}
                     to={link.href}
-                    className="text-base font-medium hover:text-primary transition-colors"
+                    className="text-base font-bold text-black hover:text-[#E47C03] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -122,15 +131,18 @@ const Navigation = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-base font-medium hover:text-primary transition-colors"
+                    className="text-base font-bold text-black hover:text-[#E47C03] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
                   </a>
                 )
               ))}
-              <Button asChild className="w-full mt-4 font-medium">
-                <Link to="/programm">Tickets kaufen</Link>
+              <Button 
+                asChild 
+                className="w-full mt-4 bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold py-4 h-auto"
+              >
+                <Link to="/programm" onClick={() => setIsMenuOpen(false)}>Tickets</Link>
               </Button>
             </div>
           </div>

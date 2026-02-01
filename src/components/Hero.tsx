@@ -1,36 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 25, stiffness: 150 };
-  const x = useSpring(mouseX, springConfig);
-  const y = useSpring(mouseY, springConfig);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        mouseX.set((e.clientX - centerX) * 0.03);
-        mouseY.set((e.clientY - centerY) * 0.03);
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  const lines = ["musik.", "live.", "erleben."];
-
   return (
-    <section className="relative h-[90vh] flex items-center justify-start overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-[#D9D9D9]">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0">
         <video 
@@ -43,66 +17,58 @@ const Hero = () => {
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
         {/* Top gradient for navbar visibility */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background/80 via-background/40 to-transparent" />
-        {/* Bottom gradient */}
-        <div className="absolute inset-0 bg-gradient-overlay" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/50 to-transparent" />
       </div>
 
-      {/* Content - Left Aligned like Bimhuis */}
-      <div className="relative z-10 container mx-auto px-6">
-        <div ref={containerRef} className="max-w-5xl">
-          <h1 className="text-7xl md:text-8xl lg:text-[10rem] font-black mb-12 leading-[0.85] tracking-tighter uppercase">
-            {lines.map((line, index) => (
-              <motion.div
-                key={line}
-                initial={{ opacity: 0, x: -100, filter: "blur(10px)" }}
-                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                transition={{
-                  duration: 1,
-                  delay: index * 0.2,
-                  ease: [0.23, 1, 0.32, 1]
-                }}
-                whileHover={{
-                  x: 20,
-                  transition: { duration: 0.3, ease: "easeOut" }
-                }}
-                style={{
-                  x: useTransform(x, (value) => value * (index + 1) * 0.3),
-                  y: useTransform(y, (value) => value * (index + 1) * 0.3),
-                }}
-                className="cursor-default block"
-              >
-                {line}
-                {index < lines.length - 1 && <br />}
-              </motion.div>
-            ))}
-          </h1>
+      {/* Content - Left Aligned */}
+      <div className="relative z-10 container mx-auto px-6 md:px-16 pt-24">
+        <div className="max-w-3xl">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-[80px] md:text-[100px] lg:text-[128px] font-normal text-white leading-[1] mb-8"
+            style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+          >
+            Musik.<br/>
+            Live.<br/>
+            Erleben.
+          </motion.h1>
           
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4"
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <Button asChild size="default" className="text-sm px-6 py-2 h-auto font-bold uppercase tracking-wider">
-              <Link to="/programm">Programm ansehen</Link>
-            </Button>
-            <Button size="default" variant="outline" className="text-sm px-6 py-2 h-auto font-bold uppercase tracking-wider border border-foreground/30 hover:bg-foreground/10">
-              Saal Mieten
+            <Button 
+              asChild 
+              className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold uppercase tracking-wide px-8 py-4 h-auto text-base border border-white"
+            >
+              <Link to="/programm">Programm</Link>
             </Button>
           </motion.div>
         </div>
       </div>
 
-      {/* Tagline - Bottom Right like Bimhuis */}
-      <motion.p 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        className="absolute bottom-12 right-6 md:right-12 text-2xl text-foreground italic font-light max-w-md text-right z-10"
-      >
-        Musik in ihrer reinsten Form – live, nah und mit unvergleichlicher Akustik.
-      </motion.p>
+      {/* Play/Pause Button - Bottom Right */}
+      <div className="absolute bottom-32 right-8 z-20">
+        <button className="w-12 h-12 rounded-full bg-black border border-white flex items-center justify-center gap-1">
+          <div className="w-[3px] h-[11px] bg-white" />
+          <div className="w-[3px] h-[11px] bg-white" />
+        </button>
+      </div>
+
+      {/* White Curved Bottom Edge */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <svg 
+          viewBox="0 0 1440 100" 
+          preserveAspectRatio="none" 
+          className="w-full h-[80px] md:h-[100px]"
+          fill="white"
+        >
+          <ellipse cx="720" cy="100" rx="900" ry="100" />
+        </svg>
+      </div>
     </section>
   );
 };
