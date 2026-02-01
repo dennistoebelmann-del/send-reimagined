@@ -42,14 +42,14 @@ const HighlightsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {highlights.map((event, index) => (
             <div key={index} className="group cursor-pointer">
-              <div className="relative overflow-hidden bg-black">
-              {/* Category Tag */}
-                <div className="absolute top-0 left-0 z-10 bg-black px-4 py-2">
+              <div className="relative overflow-visible bg-black">
+                {/* Category Tag - 50% outside left */}
+                <div className="absolute top-4 z-10 bg-black px-4 py-2 -left-6">
                   <span className="text-white text-sm font-medium">{event.category}</span>
                 </div>
                 
-                {/* Date Badge - offset to the right */}
-                <div className="absolute top-11 left-4 z-10 bg-[#E47C03] px-4 py-1.5">
+                {/* Date Badge - 50% outside left, offset below */}
+                <div className="absolute top-14 z-10 bg-[#E47C03] px-4 py-1.5 -left-6">
                   <span className="text-white text-sm font-bold">{event.date}</span>
                 </div>
                 
