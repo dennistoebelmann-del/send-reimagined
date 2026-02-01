@@ -43,23 +43,25 @@ const HighlightsSection = () => {
           {highlights.map((event, index) => (
             <div key={index} className="group cursor-pointer">
               <div className="relative overflow-visible bg-black">
-                {/* Category Tag - 50% outside left */}
-                <div className="absolute top-4 z-10 bg-black px-4 py-2 -left-6">
+                {/* Category Tag - 16px outside left */}
+                <div className="absolute top-4 z-10 bg-black px-4 py-2 -left-4">
                   <span className="text-white text-sm font-medium">{event.category}</span>
                 </div>
                 
-                {/* Date Badge - 50% outside left, offset below */}
-                <div className="absolute top-14 z-10 bg-[#E47C03] px-4 py-1.5 -left-6">
+                {/* Date Badge - 16px outside left, offset below */}
+                <div className="absolute top-14 z-10 bg-[#E47C03] px-4 py-1.5 -left-4">
                   <span className="text-white text-sm font-bold">{event.date}</span>
                 </div>
                 
                 {/* Image */}
-                <div className="aspect-[4/5]">
+                <div className="aspect-[4/5] relative overflow-hidden">
                   <img
                     src={event.image}
                     alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
                   />
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-[#E47C03]/0 group-hover:bg-[#E47C03]/20 transition-all duration-500" />
                 </div>
                 
                 {/* Title Footer */}
