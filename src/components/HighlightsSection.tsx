@@ -39,7 +39,7 @@ const HighlightsSection = () => {
         </div>
 
         {/* Event Cards Grid */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-[65px]">
+        <div className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-[101px]">
           {highlights.map((event, index) => (
             <div key={index} className="group cursor-pointer w-full sm:w-[365px]">
               <div className="relative overflow-visible bg-black h-[595px] flex flex-col">
