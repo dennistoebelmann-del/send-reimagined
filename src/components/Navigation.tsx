@@ -57,14 +57,15 @@ const Navigation = () => {
     >
       <nav className="container mx-auto px-6 md:px-16 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo with black background */}
           <Link to="/" className="flex items-center">
-            <img 
-              src={sendesaalLogo} 
-              alt="Sendesaal Bremen" 
-              className="h-10 md:h-12 w-auto transition-all duration-300"
-              style={useDarkStyle ? { filter: 'brightness(0)' } : {}}
-            />
+            <div className="bg-black px-3 py-2">
+              <img 
+                src={sendesaalLogo} 
+                alt="Sendesaal Bremen" 
+                className="h-10 md:h-12 w-auto transition-all duration-300"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation + CTA */}
