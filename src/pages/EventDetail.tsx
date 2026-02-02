@@ -329,7 +329,7 @@ END:VCALENDAR`;
         </div>
 
         {/* Content - Bottom Left */}
-        <div className="absolute bottom-24 left-0 right-0 z-10">
+        <div className="absolute bottom-32 md:bottom-40 left-0 right-0 z-10">
           <div className="container mx-auto px-6 md:px-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
