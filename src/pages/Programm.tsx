@@ -355,10 +355,11 @@ const EventCard = ({ event }: { event: Event }) => {
       {/* Right: Buttons */}
       <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-[180px]">
         <Button 
+          asChild
           variant="outline"
           className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-[#CF3D11] border-[#CF3D11] hover:bg-[#CF3D11]/10 bg-transparent"
         >
-          Details
+          <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <Button 
           className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white"
