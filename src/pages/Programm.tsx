@@ -265,7 +265,7 @@ const Programm = () => {
       {/* Vielfalt erleben Section */}
       <section className="bg-white">
         {/* Header */}
-        <div className="container mx-auto px-6 md:px-16 pt-8">
+        <div className="container mx-auto px-6 md:px-16 pt-16 md:pt-24">
           <div className="text-center mb-8">
             <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal mb-4">
               Vielfalt erleben
