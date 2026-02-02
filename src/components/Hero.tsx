@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
-import sendesaalLogo from "@/assets/sendesaal-logo.svg";
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -40,21 +39,17 @@ const Hero = () => {
       {/* Content - Left Aligned */}
       <div className="relative z-10 container mx-auto px-6 md:px-16 pt-24">
         <div className="max-w-3xl">
-          {/* Logo with black background */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
+            transition={{ duration: 0.8 }}
+            className="text-[80px] md:text-[100px] lg:text-[128px] font-normal text-white leading-[1] mb-8"
+            style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
           >
-            <div className="inline-block bg-black px-4 py-3">
-              <img 
-                src={sendesaalLogo} 
-                alt="Sendesaal Bremen" 
-                className="h-16 md:h-20 lg:h-24 w-auto"
-              />
-            </div>
-          </motion.div>
+            Musik.<br/>
+            Live.<br/>
+            Erleben.
+          </motion.h1>
 
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -71,7 +66,7 @@ const Hero = () => {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             <Button 
               asChild 
