@@ -1,9 +1,15 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Users, Timer, Coffee, Building2, Ticket, Share2, CalendarPlus, ExternalLink } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, Timer, Coffee, Building2, Ticket, Share2, CalendarPlus, ExternalLink, HelpCircle } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 // Import images
 import eventClassical from "@/assets/event-classical.jpg";
@@ -522,6 +528,85 @@ END:VCALENDAR`;
               )}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-6 md:px-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <HelpCircle size={28} className="text-primary" />
+              <h2 className="text-2xl md:text-3xl font-bold text-black uppercase tracking-wide">
+                Häufige Fragen
+              </h2>
+            </div>
+
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1" className="border-b border-gray-200">
+                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+                  Wo kann ich Tickets kaufen?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 pb-5">
+                  {event.isExternalTicket 
+                    ? `Tickets für diese Veranstaltung erhalten Sie über unseren Partner ${event.externalPartner}. Klicken Sie einfach auf den Button "Tickets kaufen" unten auf der Seite.`
+                    : "Tickets für diese Veranstaltung können Sie direkt über unsere Website kaufen. Klicken Sie auf den Button \"Plätze wählen\" unten auf der Seite."
+                  }
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="border-b border-gray-200">
+                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+                  Gibt es eine Abendkasse?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 pb-5">
+                  Ja, sofern noch Karten verfügbar sind, öffnet unsere Abendkasse 45 Minuten vor Veranstaltungsbeginn. Wir empfehlen jedoch den Vorverkauf, da viele Konzerte schnell ausverkauft sind.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="border-b border-gray-200">
+                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+                  Ist der Sendesaal barrierefrei?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 pb-5">
+                  Der Sendesaal ist barrierefrei zugänglich. Es gibt Rollstuhlplätze im Parkett sowie eine behindertengerechte Toilette. Bitte informieren Sie uns bei der Buchung über Ihre Bedürfnisse, damit wir Ihren Besuch optimal planen können.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="border-b border-gray-200">
+                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+                  Gibt es Ermäßigungen?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 pb-5">
+                  Studierende, Auszubildende, Schwerbehinderte und Inhaber des Bremen-Passes erhalten eine Ermäßigung von 20% auf reguläre Eintrittspreise (bei Vorlage eines gültigen Ausweises). Diese Ermäßigung gilt nicht für Sonderveranstaltungen.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="border-b border-gray-200">
+                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+                  Wie komme ich zum Sendesaal?
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600 pb-5">
+                  Der Sendesaal befindet sich in der Bürgermeister-Spitta-Allee 45, 28215 Bremen. Mit öffentlichen Verkehrsmitteln erreichen Sie uns mit der Straßenbahn Linie 4 (Haltestelle "Bürgerpark"). Parkplätze stehen in begrenzter Anzahl auf dem Gelände zur Verfügung.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            <div className="mt-8 text-center">
+              <Link 
+                to="/tickets" 
+                className="text-primary hover:underline font-medium"
+              >
+                Alle FAQ zum Ticketkauf ansehen →
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
