@@ -50,18 +50,6 @@ const Hero = () => {
             Live.<br/>
             Erleben.
           </motion.h1>
-
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-[80px] md:text-[100px] lg:text-[128px] font-normal text-white leading-[1] mb-8"
-            style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
-          >
-            Musik.<br/>
-            Live.<br/>
-            Erleben.
-          </motion.h1>
           
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
