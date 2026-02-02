@@ -234,7 +234,7 @@ const Programm = () => {
 
       {/* Orange Bars Divider - only show if there are more events */}
       {secondGroup.length > 0 && (
-        <OrangeBarsTransition toBlack={false} />
+        <OrangeBarsTransition />
       )}
 
       {/* Second Group of Events */}
@@ -260,7 +260,7 @@ const Programm = () => {
       )}
 
       {/* Orange Bars Transition to Vielfalt Section */}
-      <OrangeBarsTransition toBlack={false} />
+      <OrangeBarsTransition />
 
       {/* Vielfalt erleben Section */}
       <section className="bg-white">

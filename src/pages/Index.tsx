@@ -15,11 +15,11 @@ const Index = () => {
       <main>
         <Hero />
         <HighlightsSection />
-        <OrangeBarsTransition toBlack={true} />
+        <OrangeBarsTransition />
         <AgendaSection />
-        <OrangeBarsTransition toBlack={false} />
+        <OrangeBarsTransition />
         <InfoSection />
-        <OrangeBarsTransition toBlack={true} />
+        <OrangeBarsTransition />
         <LeitbildSection />
         <ProduktionSection />
       </main>
