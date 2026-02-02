@@ -141,9 +141,9 @@ const Programm = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-[#D9D9D9]">
-        {/* Background Image with Overlay */}
+      {/* Hero Section - Compact */}
+      <section className="relative h-[50vh] overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0">
           <img 
             src={heroConcertHall}
@@ -152,35 +152,6 @@ const Programm = () => {
           />
           {/* Top gradient for navbar visibility */}
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/50 to-transparent" />
-        </div>
-
-        {/* Content - Left Aligned */}
-        <div className="relative z-10 container mx-auto px-6 md:px-16 pt-24">
-          <div className="max-w-3xl">
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-[80px] md:text-[100px] lg:text-[128px] font-normal text-white leading-[1] mb-8"
-              style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
-            >
-              Musik.<br/>
-              Live.<br/>
-              Erleben.
-            </motion.h1>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <Button 
-                className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold uppercase tracking-wide px-8 py-4 h-auto text-base border border-white"
-              >
-                Programm
-              </Button>
-            </motion.div>
-          </div>
         </div>
 
         {/* White Curved Bottom Edge */}
