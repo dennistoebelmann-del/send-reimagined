@@ -4,8 +4,7 @@ import HighlightsSection from "@/components/HighlightsSection";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
 import AgendaSection from "@/components/AgendaSection";
 import InfoSection from "@/components/InfoSection";
-import LeitbildSection from "@/components/LeitbildSection";
-import ProduktionSection from "@/components/ProduktionSection";
+import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,8 +19,7 @@ const Index = () => {
         <OrangeBarsTransition />
         <InfoSection />
         <OrangeBarsTransition />
-        <LeitbildSection />
-        <ProduktionSection />
+        <NewsletterSection />
       </main>
       <Footer />
     </div>
