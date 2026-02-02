@@ -42,6 +42,7 @@ const events = [
     description: "Grootse improvisatie en energie door dit orkest met strijkers, blazers, ritmesectie en elektronica.",
     category: "jazz",
     image: eventJazz,
+    externalTicketing: true,
   },
   {
     id: 2,
@@ -53,6 +54,7 @@ const events = [
     description: "Nordischer Jazz trifft auf klassische Einflüsse – melodisch, virtuos und voller Emotionen.",
     category: "jazz",
     image: eventJazz,
+    externalTicketing: false,
   },
   {
     id: 3,
@@ -64,6 +66,7 @@ const events = [
     description: "Ein Abend zu Ehren des legendären schwedischen Pianisten mit seinen ehemaligen Bandkollegen.",
     category: "jazz",
     image: eventJazz,
+    externalTicketing: true,
   },
   {
     id: 4,
@@ -75,6 +78,7 @@ const events = [
     description: "Ein außergewöhnliches Streichquartett präsentiert Werke von Beethoven und Schubert in intimer Atmosphäre.",
     category: "klassik",
     image: eventClassical,
+    externalTicketing: false,
   },
   {
     id: 5,
@@ -86,6 +90,7 @@ const events = [
     description: "Der preisgekrönte Pianist spielt Bachs Goldberg-Variationen in einer unvergesslichen Interpretation.",
     category: "klassik",
     image: eventClassical,
+    externalTicketing: false,
   },
   {
     id: 6,
@@ -97,6 +102,7 @@ const events = [
     description: "Vivaldi, Bach und Händel in authentischer Aufführungspraxis mit historischen Instrumenten.",
     category: "klassik",
     image: eventClassical,
+    externalTicketing: true,
   },
 ];
 
@@ -292,6 +298,7 @@ interface Event {
   description: string;
   category: string;
   image: string;
+  externalTicketing: boolean;
 }
 
 const EventCard = ({ event }: { event: Event }) => {
@@ -356,7 +363,7 @@ const EventCard = ({ event }: { event: Event }) => {
         <Button 
           className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white"
         >
-          Tickets
+          {event.externalTicketing ? "Tickets (externer Veranstalter)" : "Tickets"}
         </Button>
       </div>
     </div>
