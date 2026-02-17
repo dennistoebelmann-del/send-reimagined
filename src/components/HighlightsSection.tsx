@@ -33,7 +33,7 @@ const HighlightsSection = () => {
         {/* Header */}
         <div className="flex items-center gap-4 mb-12">
           <div className="w-10 h-[1px] bg-[#E47C03]" />
-          <h2 className="text-[#E47C03] text-3xl md:text-4xl font-normal italic">
+          <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
             Highlights
           </h2>
         </div>
