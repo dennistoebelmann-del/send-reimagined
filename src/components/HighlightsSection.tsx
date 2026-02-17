@@ -43,13 +43,13 @@ const HighlightsSection = () => {
           {highlights.map((event, index) => (
             <div key={index} className="group cursor-pointer">
               <div className="relative overflow-visible bg-black aspect-[365/595] flex flex-col">
-                {/* Category Tag - 16px outside left */}
-                <div className="absolute top-4 z-10 bg-black px-4 py-2 -left-4">
+                {/* Category Tag - 50% above card */}
+                <div className="absolute -top-5 z-10 bg-black px-4 py-2.5 -left-4">
                   <span className="text-white text-sm font-medium">{event.category}</span>
                 </div>
                 
-                {/* Date Badge - 16px outside left, offset below */}
-                <div className="absolute top-14 z-10 bg-[#E47C03] px-4 py-1.5 -left-4">
+                {/* Date Badge - directly below category */}
+                <div className="absolute top-6 z-10 bg-[#E47C03] px-4 py-1.5 -left-4">
                   <span className="text-white text-sm font-bold">{event.date}</span>
                 </div>
                 
