@@ -130,10 +130,12 @@ const UeberUns = () => {
       <main className="bg-white">
 
         {/* OrangeBars before Historie */}
-        <OrangeBarsTransition />
+        <div className="pt-16 md:pt-24">
+          <OrangeBarsTransition />
+        </div>
 
         {/* Historie Section */}
-        <section id="historie" className="pt-8 pb-24 md:pb-32">
+        <section id="historie" className="pt-10 pb-24 md:pb-32">
           <div className="container mx-auto px-6">
             <SectionHeader title="Historie" subtitle="Sieben Jahrzehnte Musikgeschichte in einem Raum." />
 
