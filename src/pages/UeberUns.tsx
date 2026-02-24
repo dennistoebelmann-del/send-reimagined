@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import OrangeBarsTransition from "@/components/OrangeBarsTransition";
 import aboutHero from "@/assets/ueber-uns-hero.jpg";
 
 const sections = [
@@ -13,12 +14,12 @@ const sections = [
 ];
 
 const timelineEvents = [
-  { year: "1952", title: "Gründung", description: "Radio Bremen errichtet den Sendesaal als modernsten Rundfunksaal Europas." },
-  { year: "1962", title: "Goldene Ära", description: "Internationale Künstler entdecken die einzigartige Akustik für Aufnahmen." },
-  { year: "1999", title: "Wendepunkt", description: "Radio Bremen gibt den Saal auf. Die Zukunft ist ungewiss." },
-  { year: "2006", title: "Rettung", description: "Engagierte Bürger gründen den Förderverein zur Erhaltung." },
-  { year: "2010", title: "Wiedereröffnung", description: "Der Sendesaal öffnet als unabhängiger Konzertsaal seine Türen." },
-  { year: "Heute", title: "Lebendiges Denkmal", description: "Über 100 Konzerte jährlich machen den Saal zu einem kulturellen Zentrum." },
+  { year: "1952", title: "Gründung", description: "Radio Bremen errichtet den Sendesaal als\nmodernsten Rundfunksaal der Welt.", side: "left" },
+  { year: "1962", title: "Goldene Ära", description: "Internationale Künstler entdecken die einzigartige\nAkustik für Aufnahmen.", side: "right" },
+  { year: "1999", title: "Wendepunkt", description: "Radio Bremen gibt den Saal auf.\nDie Zukunft ist ungewiss.", side: "left" },
+  { year: "2006", title: "Rettung", description: "Engagierte Bürger gründen den Förderverein\nzur Erhaltung.", side: "right" },
+  { year: "2010", title: "Wiedereröffnung", description: "Der Sendesaal öffnet als unabhängiger\nKonzertsaal seine Türen.", side: "left" },
+  { year: "Heute", title: "Lebendiges Denkmal", description: "Über 100 Konzerte jährlich machen den Saal\nzu einem kulturellem Zentrum.", side: "right" },
 ];
 
 const teamMembers = [
@@ -37,37 +38,11 @@ const acousticStats = [
   { value: "12", unit: "m", label: "Deckenhöhe" },
 ];
 
-const partners = [
-  { name: "Radio Bremen", logo: "https://via.placeholder.com/200x80?text=Radio+Bremen" },
-  { name: "Sparkasse Bremen", logo: "https://via.placeholder.com/200x80?text=Sparkasse" },
-  { name: "Die Senatorin für Kultur", logo: "https://via.placeholder.com/200x80?text=Kultursenatorin" },
-  { name: "WFB Bremen", logo: "https://via.placeholder.com/200x80?text=WFB" },
-  { name: "Karin und Uwe Hollweg Stiftung", logo: "https://via.placeholder.com/200x80?text=Hollweg+Stiftung" },
-  { name: "Waldemar Koch Stiftung", logo: "https://via.placeholder.com/200x80?text=Koch+Stiftung" },
-];
-
 const UeberUns = () => {
   const [activeSection, setActiveSection] = useState("historie");
-  const [isSubNavSticky, setIsSubNavSticky] = useState(false);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const subNavRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (subNavRef.current) {
-        const subNavTop = subNavRef.current.getBoundingClientRect().top;
-        setIsSubNavSticky(subNavTop <= 80);
-      }
-
-      // Update active section based on scroll position
       for (const section of sections) {
         const element = document.getElementById(section.id);
         if (element) {
@@ -79,7 +54,6 @@ const UeberUns = () => {
         }
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -89,10 +63,7 @@ const UeberUns = () => {
     if (element) {
       const offset = 160;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
     }
   };
 
@@ -101,74 +72,51 @@ const UeberUns = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative h-[70vh] min-h-[500px] overflow-hidden">
-        <motion.div
-          style={{ y: heroY }}
-          className="absolute inset-0"
-        >
-          <img
-            src={aboutHero}
-            alt="Sendesaal Bremen Interior"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </motion.div>
+      <section className="relative h-[480px] overflow-hidden">
+        <img
+          src={aboutHero}
+          alt="Sendesaal Bremen Interior"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/30" />
 
-        <motion.div
-          style={{ opacity: heroOpacity }}
-          className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
-        >
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tight"
+            className="text-5xl md:text-7xl lg:text-8xl text-white font-normal"
           >
-            Mehr als nur
-            <br />
-            ein Saal.
+            Mehr als nur ein Saal.
           </motion.h1>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-6 text-lg md:text-xl text-white/90 max-w-2xl font-light italic"
+            className="mt-6 bg-black px-4 py-2 inline-flex"
           >
-            Ein Weltklasse-Studio. Ein lebendiges Denkmal. Ein Zuhause für die Musik.
-          </motion.p>
-        </motion.div>
-
-        {/* Concave Divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg
-            viewBox="0 0 1440 60"
-            preserveAspectRatio="none"
-            className="w-full h-12 md:h-16 block"
-            fill="none"
-          >
-            <path
-              d="M0 0 L0 60 L1440 60 L1440 0 Q1080 40 720 40 Q360 40 0 0 Z"
-              fill="white"
-            />
-          </svg>
+            <span className="text-white text-lg md:text-xl font-normal">
+              Ein Weltklasse-Studio. Ein lebendiges Denkmal. Ein Zuhause für die Musik.
+            </span>
+          </motion.div>
         </div>
+
+        {/* Concave white ellipse */}
+        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-white" />
       </section>
 
       {/* Sticky Sub-Navigation - Floating Pill */}
       <div className="sticky top-24 z-40 flex justify-center px-4">
-        <nav
-          ref={subNavRef}
-          className="bg-white/80 backdrop-blur-lg rounded-full shadow-lg border border-white/20 px-2 py-2 transition-all duration-300"
-        >
-          <div className="flex items-center gap-1 md:gap-2 overflow-x-auto scrollbar-hide">
+        <nav className="bg-white/80 backdrop-blur-lg rounded-full shadow-lg border border-neutral-200 px-2 py-2 transition-all duration-300">
+          <div className="flex items-center gap-1 md:gap-6 overflow-x-auto scrollbar-hide">
             {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`px-4 md:px-5 py-2 text-xs md:text-sm font-medium uppercase tracking-wide whitespace-nowrap rounded-full transition-all duration-300 ${
+                className={`px-4 md:px-5 py-2 text-sm md:text-base whitespace-nowrap rounded-full transition-all duration-300 ${
                   activeSection === section.id
-                    ? "bg-primary text-white shadow-md"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-black"
+                    ? "font-bold text-black"
+                    : "font-normal text-black/70 hover:text-black"
                 }`}
               >
                 {section.label}
@@ -180,117 +128,94 @@ const UeberUns = () => {
 
       {/* Content Sections */}
       <main className="bg-white">
+
+        {/* OrangeBars before Historie */}
+        <OrangeBarsTransition />
+
         {/* Historie Section */}
-        <section id="historie" className="py-24 md:py-32">
+        <section id="historie" className="pt-8 pb-24 md:pb-32">
           <div className="container mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-black uppercase tracking-tight">
-                Historie
-              </h2>
-              <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-                Sieben Jahrzehnte Musikgeschichte in einem Raum
-              </p>
-            </motion.div>
+            <SectionHeader title="Historie" subtitle="Sieben Jahrzehnte Musikgeschichte in einem Raum." />
 
             {/* Timeline */}
-            <div className="relative max-w-4xl mx-auto">
-              {/* Vertical line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gray-200" />
+            <div className="relative max-w-4xl mx-auto mt-16">
+              {/* Vertical center line */}
+              <div className="absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-black" />
 
               {timelineEvents.map((event, index) => (
                 <motion.div
                   key={event.year}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`relative flex items-center mb-12 ${
-                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                  }`}
+                  transition={{ delay: index * 0.08 }}
+                  className="relative mb-16 last:mb-0"
                 >
-                  <div className={`w-1/2 ${index % 2 === 0 ? "pr-12 text-right" : "pl-12 text-left"}`}>
-                    <span className="text-primary font-black text-2xl">{event.year}</span>
-                    <h3 className="text-xl font-bold text-black mt-1">{event.title}</h3>
-                    <p className="text-gray-600 mt-2">{event.description}</p>
-                  </div>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg" />
-                  <div className="w-1/2" />
+                  {/* Horizontal orange connector line */}
+                  <div
+                    className={`absolute top-[38px] w-10 h-px bg-primary ${
+                      event.side === "left" ? "right-1/2 mr-0" : "left-1/2 ml-0"
+                    }`}
+                    style={event.side === "left" ? { right: "50%"} : { left: "50%" }}
+                  />
+
+                  {event.side === "left" ? (
+                    <div className="flex">
+                      <div className="w-1/2 pr-12 text-right">
+                        <div className="inline-block bg-black px-3 py-1 mb-3">
+                          <span className="text-white text-lg font-bold">{event.year}</span>
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-normal text-black">{event.title}</h3>
+                        <p className="text-black text-base mt-2 whitespace-pre-line">{event.description}</p>
+                      </div>
+                      <div className="w-1/2" />
+                    </div>
+                  ) : (
+                    <div className="flex">
+                      <div className="w-1/2" />
+                      <div className="w-1/2 pl-12 text-left">
+                        <div className="inline-block bg-black px-3 py-1 mb-3">
+                          <span className="text-white text-lg font-bold">{event.year}</span>
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-normal text-black">{event.title}</h3>
+                        <p className="text-black text-base mt-2 whitespace-pre-line">{event.description}</p>
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Team Section */}
-        <section id="team" className="py-24 md:py-32 bg-gray-50">
-          <div className="container mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-black uppercase tracking-tight">
-                Das Team
-              </h2>
-              <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-                Menschen, die den Sendesaal mit Leben füllen
-              </p>
-            </motion.div>
+        {/* OrangeBars before Team */}
+        <OrangeBarsTransition />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {/* Team Section */}
+        <section id="team" className="pt-8 pb-24 md:pb-32">
+          <div className="container mx-auto px-6">
+            <SectionHeader title="Das Team" subtitle="Menschen, die den Sendesaal mit Leben füllen." />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1100px] mx-auto mt-12">
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500"
+                  transition={{ delay: index * 0.08 }}
+                  className="flex flex-col"
                 >
-                  <div className="aspect-square overflow-hidden">
+                  <div className="aspect-square overflow-hidden bg-stone-300">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover"
                     />
-                    {/* Sound wave overlay on hover */}
-                    <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                      <svg
-                        className="w-24 h-24 text-white"
-                        viewBox="0 0 100 50"
-                        fill="none"
-                      >
-                        {[...Array(9)].map((_, i) => (
-                          <motion.rect
-                            key={i}
-                            x={10 + i * 10}
-                            width="4"
-                            rx="2"
-                            fill="currentColor"
-                            initial={{ height: 10, y: 20 }}
-                            animate={{
-                              height: [10, 30 + Math.random() * 15, 10],
-                              y: [20, 10 - Math.random() * 7, 20],
-                            }}
-                            transition={{
-                              duration: 0.8,
-                              repeat: Infinity,
-                              delay: i * 0.1,
-                            }}
-                          />
-                        ))}
-                      </svg>
-                    </div>
                   </div>
-                  <div className="p-6 text-center">
-                    <h3 className="text-lg font-bold text-black">{member.name}</h3>
-                    <p className="text-gray-500 text-sm mt-1">{member.role}</p>
+                  <div className="bg-black px-4 py-5">
+                    <h3 className="text-white text-xl md:text-2xl font-normal">{member.name}</h3>
+                    <p className="text-white text-base md:text-lg mt-1">{member.role}</p>
                   </div>
                 </motion.div>
               ))}
@@ -298,39 +223,40 @@ const UeberUns = () => {
           </div>
         </section>
 
-        {/* Verein Section */}
-        <section id="verein" className="py-24 md:py-32">
-          <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+        {/* Der Verein Section */}
+        <section id="verein" className="py-16 md:py-24">
+          <div className="container mx-auto px-6 md:px-16">
+            <div className="grid lg:grid-cols-2 gap-16 items-start max-w-[1200px] mx-auto">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-5xl font-black text-black uppercase tracking-tight">
-                  Der Verein
-                </h2>
-                <p className="mt-6 text-gray-600 leading-relaxed">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-10 h-px bg-primary" />
+                  <h2 className="text-4xl md:text-5xl font-normal text-black">Der Verein</h2>
+                </div>
+                <p className="text-black text-base leading-relaxed max-w-[480px]">
                   Der Sendesaal e.V. wurde 2006 von engagierten Bürgern gegründet, um dieses 
                   einzigartige Kulturdenkmal zu erhalten und als lebendigen Konzertort zu bewahren.
                 </p>
-                <p className="mt-4 text-gray-600 leading-relaxed">
+                <p className="mt-4 text-black text-base leading-relaxed max-w-[480px]">
                   Als gemeinnütziger Verein finanzieren wir uns durch Mitgliedsbeiträge, Spenden, 
                   Fördergelder und Einnahmen aus dem Konzertbetrieb. Über 50 ehrenamtliche Helfer 
                   ermöglichen den Betrieb des Saals.
                 </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <div className="bg-gray-100 px-6 py-4 rounded-lg text-center">
-                    <span className="block text-3xl font-black text-primary">200+</span>
-                    <span className="text-sm text-gray-600">Mitglieder</span>
+                <div className="mt-8 flex gap-4">
+                  <div className="w-28 h-24 bg-[#CF3D11] flex flex-col items-center justify-center">
+                    <span className="text-white text-3xl font-bold">200+</span>
+                    <span className="text-white text-sm">Mitglieder</span>
                   </div>
-                  <div className="bg-gray-100 px-6 py-4 rounded-lg text-center">
-                    <span className="block text-3xl font-black text-primary">50+</span>
-                    <span className="text-sm text-gray-600">Ehrenamtliche</span>
+                  <div className="w-28 h-24 bg-[#CF3D11] flex flex-col items-center justify-center">
+                    <span className="text-white text-3xl font-bold">50+</span>
+                    <span className="text-white text-sm">Ehrenamtliche</span>
                   </div>
-                  <div className="bg-gray-100 px-6 py-4 rounded-lg text-center">
-                    <span className="block text-3xl font-black text-primary">18</span>
-                    <span className="text-sm text-gray-600">Jahre aktiv</span>
+                  <div className="w-28 h-24 bg-[#CF3D11] flex flex-col items-center justify-center">
+                    <span className="text-white text-3xl font-bold">18</span>
+                    <span className="text-white text-sm">Jahre aktiv</span>
                   </div>
                 </div>
               </motion.div>
@@ -340,16 +266,14 @@ const UeberUns = () => {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop"
-                    alt="Vereinsmitglieder"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -left-6 bg-primary text-white p-6 rounded-lg">
-                  <span className="block text-4xl font-black">2006</span>
-                  <span className="text-sm">Gründungsjahr</span>
+                <img
+                  src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop"
+                  alt="Vereinsmitglieder"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 bg-black w-28 h-24 flex flex-col items-center justify-center">
+                  <span className="text-white text-3xl font-bold">2006</span>
+                  <span className="text-white text-sm">Gründungsjahr</span>
                 </div>
               </motion.div>
             </div>
@@ -357,98 +281,81 @@ const UeberUns = () => {
         </section>
 
         {/* Akustik Section */}
-        <section id="akustik" className="py-24 md:py-32 bg-black text-white">
-          <div className="container mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight">
-                Akustik & Technik
-              </h2>
-              <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-                Eine der besten Akustiken Deutschlands – seit 1952 unverändert
-              </p>
-            </motion.div>
+        <section id="akustik" className="bg-gray-200">
+          {/* OrangeBars */}
+          <OrangeBarsTransition />
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-16">
-              {acousticStats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <span className="text-5xl md:text-7xl font-black text-primary">
-                    {stat.value}
-                  </span>
-                  <span className="text-2xl md:text-3xl font-light text-white/70">
-                    {stat.unit}
-                  </span>
-                  <p className="mt-2 text-gray-400 text-sm uppercase tracking-wide">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
+          <div className="pt-8 pb-24 md:pb-32">
+            <div className="container mx-auto px-6">
+              <SectionHeader title="Akustik & Technik" subtitle="Eine der besten Akustiken Deutschlands – seit 1952" />
+
+              {/* Stats with orange border outline */}
+              <div className="relative max-w-[1100px] mx-auto mt-12">
+                {/* Orange outline borders */}
+                <div className="absolute inset-0 border border-primary rounded-none pointer-events-none" style={{ top: "-12px", bottom: "-12px", left: "-16px", right: "-16px" }} />
+                <div className="absolute inset-0 border border-primary rounded-none pointer-events-none" style={{ top: "-24px", bottom: "-24px", left: "-28px", right: "-28px" }} />
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {acousticStats.map((stat, index) => (
+                    <motion.div
+                      key={stat.label}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="bg-black w-full h-40 flex flex-col items-center justify-center"
+                    >
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-white text-5xl md:text-6xl font-bold">{stat.value}</span>
+                        {stat.unit && (
+                          <span className="text-white text-xl md:text-2xl font-normal">{stat.unit}</span>
+                        )}
+                      </div>
+                      <p className="text-white text-sm mt-2">{stat.label}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="max-w-[700px] mx-auto text-center mt-16"
+              >
+                <p className="text-black text-base leading-relaxed">
+                  Die einzigartige Akustik des Sendesaals entsteht durch die charakteristischen 
+                  Holzlamellen an den Wänden und die sorgfältig berechneten Raumproportionen. 
+                  Der Nachhall von 1,8 Sekunden ist ideal für klassische Musik und Jazz – 
+                  nicht zu trocken, nicht zu hallig.
+                </p>
+                <p className="mt-4 text-black text-base leading-relaxed">
+                  Modernste Aufnahmetechnik ermöglicht Produktionen auf höchstem Niveau. 
+                  Zahlreiche preisgekrönte Alben wurden hier eingespielt.
+                </p>
+              </motion.div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-3xl mx-auto text-center"
-            >
-              <p className="text-gray-300 leading-relaxed">
-                Die einzigartige Akustik des Sendesaals entsteht durch die charakteristischen 
-                Holzlamellen an den Wänden und die sorgfältig berechneten Raumproportionen. 
-                Der Nachhall von 1,8 Sekunden ist ideal für klassische Musik und Jazz – 
-                nicht zu trocken, nicht zu hallig.
-              </p>
-              <p className="mt-4 text-gray-300 leading-relaxed">
-                Modernste Aufnahmetechnik ermöglicht Produktionen auf höchstem Niveau. 
-                Zahlreiche preisgekrönte Alben wurden hier eingespielt.
-              </p>
-            </motion.div>
           </div>
         </section>
 
-        {/* Partner Section */}
-        <section id="partner" className="py-24 md:py-32">
-          <div className="container mx-auto px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-black uppercase tracking-tight">
-                Partner & Förderer
-              </h2>
-              <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-                Gemeinsam für die Kultur
-              </p>
-            </motion.div>
+        {/* OrangeBars before Partner */}
+        <OrangeBarsTransition />
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              {partners.map((partner, index) => (
+        {/* Partner Section */}
+        <section id="partner" className="pt-8 pb-24 md:pb-32">
+          <div className="container mx-auto px-6">
+            <SectionHeader title="Partner & Förderer" subtitle="Gemeinsam für die Kultur" />
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-[1100px] mx-auto mt-12">
+              {[1, 2, 3, 4].map((i) => (
                 <motion.div
-                  key={partner.name}
+                  key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center justify-center p-8 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300"
-                >
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-h-12 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
-                  />
-                </motion.div>
+                  transition={{ delay: i * 0.1 }}
+                  className="w-full h-40 bg-gray-200 flex items-center justify-center"
+                />
               ))}
             </div>
 
@@ -456,14 +363,14 @@ const UeberUns = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-16 text-center"
+              className="mt-12 text-center"
             >
-              <p className="text-gray-600 mb-6">
+              <p className="text-black text-base mb-6">
                 Möchten Sie den Sendesaal unterstützen?
               </p>
               <a
                 href="mailto:info@sendesaal.de"
-                className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 font-semibold uppercase tracking-wide hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-[#CF3D11] text-white px-16 py-4 font-bold text-base hover:bg-[#CF3D11]/90 transition-colors"
               >
                 Kontakt aufnehmen
               </a>
@@ -476,5 +383,21 @@ const UeberUns = () => {
     </div>
   );
 };
+
+/* Reusable section header with orange bars icon + title + subtitle */
+const SectionHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="text-center"
+  >
+    <h2 className="text-4xl md:text-5xl font-normal text-black">{title}</h2>
+    <div className="mt-4 flex items-center justify-center gap-6">
+      <div className="w-10 h-px bg-primary" />
+      <p className="text-black text-lg md:text-xl">{subtitle}</p>
+    </div>
+  </motion.div>
+);
 
 export default UeberUns;
