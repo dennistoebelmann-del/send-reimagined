@@ -289,13 +289,17 @@ const UeberUns = () => {
             <div className="container mx-auto px-6">
               <SectionHeader title="Akustik & Technik" subtitle="Eine der besten Akustiken Deutschlands – seit 1952" />
 
-              {/* Stats with orange border outline */}
+              {/* Stats with decorative swooping lines */}
               <div className="relative max-w-[1100px] mx-auto mt-12">
-                {/* Orange outline borders */}
-                <div className="absolute inset-0 border border-primary rounded-none pointer-events-none" style={{ top: "-12px", bottom: "-12px", left: "-16px", right: "-16px" }} />
-                <div className="absolute inset-0 border border-primary rounded-none pointer-events-none" style={{ top: "-24px", bottom: "-24px", left: "-28px", right: "-28px" }} />
+                {/* Swooping orange lines behind the stats */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1100 200" preserveAspectRatio="none" style={{ top: "-40px", bottom: "-40px", left: "-60px", right: "-60px", width: "calc(100% + 120px)", height: "calc(100% + 80px)", position: "absolute" }}>
+                  <path d="M-60,30 Q200,180 550,100 Q900,20 1160,150" stroke="hsl(25, 98%, 46%)" strokeWidth="1.5" fill="none" />
+                  <path d="M-60,60 Q250,200 550,80 Q850,-20 1160,120" stroke="hsl(25, 98%, 46%)" strokeWidth="1.5" fill="none" />
+                  <path d="M-60,140 Q150,-10 550,120 Q950,220 1160,50" stroke="hsl(25, 98%, 46%)" strokeWidth="1.5" fill="none" />
+                  <path d="M-60,170 Q300,10 550,140 Q800,240 1160,80" stroke="hsl(25, 98%, 46%)" strokeWidth="1.5" fill="none" />
+                </svg>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-6">
                   {acousticStats.map((stat, index) => (
                     <motion.div
                       key={stat.label}
