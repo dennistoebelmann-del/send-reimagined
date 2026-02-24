@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 // Import collage images
 import orchestraImg from "@/assets/collage-orchestra.jpg";
@@ -71,13 +72,20 @@ const InfoSection = () => {
         {columns.map((column, colIndex) => (
           <div key={colIndex} className="flex flex-col gap-[10px]">
             {column.map((image, imgIndex) => (
-              <div key={imgIndex} className={`w-full ${image.height} overflow-hidden`}>
+              <motion.div
+                key={imgIndex}
+                className={`w-full ${image.height} overflow-hidden`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: imgIndex * 0.08, ease: "easeOut" }}
+              >
                 <img
                   src={image.src}
                   alt=""
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         ))}
