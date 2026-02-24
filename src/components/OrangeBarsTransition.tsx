@@ -6,7 +6,7 @@ const OrangeBarsTransition = () => {
       <img 
         src={staebeUnten} 
         alt="" 
-        className="h-[66px] w-auto absolute -translate-y-1/2"
+        className="h-[66px] w-auto absolute top-0"
         aria-hidden="true"
       />
     </div>
