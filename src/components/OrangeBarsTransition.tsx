@@ -2,11 +2,11 @@ import staebeUnten from "@/assets/staebe-unten.svg";
 
 const OrangeBarsTransition = () => {
   return (
-    <div className="relative h-0 flex items-center justify-center overflow-visible z-10">
+    <div className="flex items-center justify-center py-6">
       <img 
         src={staebeUnten} 
         alt="" 
-        className="h-[66px] w-auto absolute translate-y-[30%]"
+        className="h-[66px] w-auto"
         aria-hidden="true"
       />
     </div>
