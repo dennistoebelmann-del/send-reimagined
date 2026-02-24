@@ -50,7 +50,7 @@ const NewsletterSection = () => {
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
               <Mail className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 uppercase tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-foreground mb-4">
               Immer informiert
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
