@@ -291,13 +291,28 @@ const UeberUns = () => {
 
               {/* Stats with decorative swooping lines */}
               <div className="relative max-w-[1100px] mx-auto mt-12">
-                {/* Swooping orange lines behind the stats */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1100 280" preserveAspectRatio="none" style={{ top: "-60px", bottom: "-60px", left: "-80px", right: "-80px", width: "calc(100% + 160px)", height: "calc(100% + 120px)", position: "absolute" }}>
-                  <path d="M-80,20 Q200,220 550,120 Q900,20 1180,200" stroke="hsl(25, 98%, 46%)" strokeWidth="1.2" fill="none" opacity="0.7" />
-                  <path d="M-80,60 Q300,260 550,100 Q800,-30 1180,160" stroke="hsl(25, 98%, 46%)" strokeWidth="1.2" fill="none" opacity="0.7" />
-                  <path d="M-80,200 Q150,-20 550,160 Q950,300 1180,60" stroke="hsl(25, 98%, 46%)" strokeWidth="1.2" fill="none" opacity="0.7" />
-                  <path d="M-80,240 Q350,30 550,180 Q750,300 1180,100" stroke="hsl(25, 98%, 46%)" strokeWidth="1.2" fill="none" opacity="0.7" />
-                  <path d="M-80,130 Q250,280 550,140 Q850,0 1180,130" stroke="hsl(25, 98%, 46%)" strokeWidth="1" fill="none" opacity="0.5" />
+                {/* Swooping orange lines - full width */}
+                <svg className="absolute pointer-events-none" viewBox="0 0 1600 280" preserveAspectRatio="none" style={{ top: "-50px", bottom: "-50px", left: "50%", transform: "translateX(-50%)", width: "100vw", height: "calc(100% + 100px)", position: "absolute" }}>
+                  {[
+                    "M0,30 Q400,240 800,120 Q1200,0 1600,200",
+                    "M0,70 Q500,270 800,100 Q1100,-40 1600,170",
+                    "M0,200 Q300,-10 800,160 Q1300,300 1600,70",
+                    "M0,250 Q450,40 800,180 Q1150,300 1600,110",
+                    "M0,140 Q350,280 800,140 Q1250,0 1600,140",
+                  ].map((d, i) => (
+                    <motion.path
+                      key={i}
+                      d={d}
+                      stroke="hsl(25, 98%, 46%)"
+                      strokeWidth="1.2"
+                      fill="none"
+                      opacity="0.6"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      whileInView={{ pathLength: 1, opacity: 0.6 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 1.8, delay: i * 0.2, ease: "easeInOut" }}
+                    />
+                  ))}
                 </svg>
 
                 <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-10">
@@ -308,15 +323,15 @@ const UeberUns = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 }}
-                      className="bg-black w-full h-32 flex flex-col items-center justify-center"
+                      className="bg-black w-full h-28 flex flex-col items-center justify-center"
                     >
                       <div className="flex items-baseline gap-1">
-                        <span className="text-white text-4xl md:text-5xl font-bold">{stat.value}</span>
+                        <span className="text-white text-3xl md:text-4xl font-bold">{stat.value}</span>
                         {stat.unit && (
-                          <span className="text-white text-lg md:text-xl font-normal">{stat.unit}</span>
+                          <span className="text-white text-base md:text-lg font-normal">{stat.unit}</span>
                         )}
                       </div>
-                      <p className="text-white text-xs mt-2">{stat.label}</p>
+                      <p className="text-white text-xs mt-1.5">{stat.label}</p>
                     </motion.div>
                   ))}
                 </div>
