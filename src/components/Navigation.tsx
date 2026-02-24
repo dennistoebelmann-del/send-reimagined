@@ -58,13 +58,12 @@ const Navigation = () => {
       <nav className="container mx-auto px-6 md:px-16 py-4">
         <div className="flex items-center justify-between">
           {/* Logo - black background when transparent, black filter when scrolled */}
-          <Link to="/" className="flex items-center">
-            <div className={`transition-all duration-300 ${useDarkStyle ? '' : 'bg-black px-3 py-2'}`}>
+          <Link to="/" className="flex items-start -mt-4">
+            <div className={`transition-all duration-300 bg-black px-4 pb-3 pt-4 rounded-b-md ${useDarkStyle ? 'shadow-lg' : ''}`}>
               <img 
                 src={sendesaalLogo} 
                 alt="Sendesaal Bremen" 
                 className="h-10 md:h-12 w-auto transition-all duration-300"
-                style={useDarkStyle ? { filter: 'brightness(0)' } : {}}
               />
             </div>
           </Link>
