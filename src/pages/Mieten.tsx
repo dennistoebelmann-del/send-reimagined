@@ -273,9 +273,7 @@ const Mieten = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-black font-light text-sm">
-                        Name
-                      </Label>
+                      <Label htmlFor="name" className="text-black font-light text-sm">Name</Label>
                       <Input
                         id="name"
                         type="text"
@@ -283,14 +281,12 @@ const Mieten = () => {
                         maxLength={100}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-gray-50 border-gray-200 text-black font-light rounded-xl focus:ring-primary"
+                        className="bg-gray-900 border-gray-700 text-white font-light rounded-xl placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="Ihr Name"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-black font-light text-sm">
-                        E-Mail
-                      </Label>
+                      <Label htmlFor="email" className="text-black font-light text-sm">E-Mail</Label>
                       <Input
                         id="email"
                         type="email"
@@ -298,7 +294,7 @@ const Mieten = () => {
                         maxLength={255}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-gray-50 border-gray-200 text-black font-light rounded-xl focus:ring-primary"
+                        className="bg-gray-900 border-gray-700 text-white font-light rounded-xl placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="ihre@email.de"
                       />
                     </div>
@@ -306,9 +302,7 @@ const Mieten = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="betreff" className="text-black font-light text-sm">
-                        Betreff
-                      </Label>
+                      <Label htmlFor="betreff" className="text-black font-light text-sm">Betreff</Label>
                       <Input
                         id="betreff"
                         type="text"
@@ -316,22 +310,20 @@ const Mieten = () => {
                         maxLength={200}
                         value={formData.betreff}
                         onChange={(e) => setFormData({ ...formData, betreff: e.target.value })}
-                        className="bg-gray-50 border-gray-200 text-black font-light rounded-xl focus:ring-primary"
+                        className="bg-gray-900 border-gray-700 text-white font-light rounded-xl placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="Betreff Ihrer Anfrage"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="anfragetyp" className="text-black font-light text-sm">
-                        Anfragetyp
-                      </Label>
+                      <Label htmlFor="anfragetyp" className="text-black font-light text-sm">Anfragetyp</Label>
                       <Select
                         value={formData.anfragetyp}
                         onValueChange={(value) => setFormData({ ...formData, anfragetyp: value })}
                       >
-                        <SelectTrigger className="bg-gray-50 border-gray-200 text-black font-light rounded-xl">
+                        <SelectTrigger className="bg-gray-900 border-gray-700 text-white font-light rounded-xl focus:ring-primary [&>span]:text-gray-400 [&[data-state=closed]>span]:text-gray-400">
                           <SelectValue placeholder="Bitte wählen" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-gray-900 border-gray-700 text-white">
                           <SelectItem value="mieten">Mieten</SelectItem>
                           <SelectItem value="produzieren">Produzieren</SelectItem>
                           <SelectItem value="tickets">Tickets</SelectItem>
@@ -341,9 +333,7 @@ const Mieten = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="nachricht" className="text-black font-light text-sm">
-                      Nachricht
-                    </Label>
+                    <Label htmlFor="nachricht" className="text-black font-light text-sm">Nachricht</Label>
                     <Textarea
                       id="nachricht"
                       required
@@ -351,7 +341,7 @@ const Mieten = () => {
                       rows={6}
                       value={formData.nachricht}
                       onChange={(e) => setFormData({ ...formData, nachricht: e.target.value })}
-                      className="bg-gray-50 border-gray-200 text-black font-light rounded-xl focus:ring-primary resize-none"
+                      className="bg-gray-900 border-gray-700 text-white font-light rounded-xl placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary resize-none"
                       placeholder="Ihre Nachricht an uns..."
                     />
                   </div>
@@ -360,7 +350,7 @@ const Mieten = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-16 py-4 h-auto text-base"
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 h-auto text-base rounded-full"
                     >
                       {isSubmitting ? "Wird gesendet..." : "Absenden"}
                     </Button>

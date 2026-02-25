@@ -271,7 +271,7 @@ const Produzieren = () => {
                         maxLength={100}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-gray-50 border-gray-200 text-black font-light rounded-xl focus:ring-primary"
+                        className="bg-gray-900 border-gray-700 text-white font-light rounded-xl placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="Ihr Name"
                       />
                     </div>
@@ -284,7 +284,7 @@ const Produzieren = () => {
                         maxLength={255}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-gray-50 border-gray-200 text-black font-light rounded-xl focus:ring-primary"
+                        className="bg-gray-900 border-gray-700 text-white font-light rounded-xl placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="ihre@email.de"
                       />
                     </div>
@@ -300,7 +300,7 @@ const Produzieren = () => {
                         maxLength={200}
                         value={formData.betreff}
                         onChange={(e) => setFormData({ ...formData, betreff: e.target.value })}
-                        className="bg-gray-50 border-gray-200 text-black font-light rounded-xl focus:ring-primary"
+                        className="bg-gray-900 border-gray-700 text-white font-light rounded-xl placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="Betreff Ihrer Anfrage"
                       />
                     </div>
@@ -310,10 +310,10 @@ const Produzieren = () => {
                         value={formData.anfragetyp}
                         onValueChange={(value) => setFormData({ ...formData, anfragetyp: value })}
                       >
-                        <SelectTrigger className="bg-gray-50 border-gray-200 text-black font-light rounded-xl">
+                        <SelectTrigger className="bg-gray-900 border-gray-700 text-white font-light rounded-xl focus:ring-primary [&>span]:text-gray-400 [&[data-state=closed]>span]:text-gray-400">
                           <SelectValue placeholder="Bitte wählen" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="bg-gray-900 border-gray-700 text-white">
                           <SelectItem value="mieten">Mieten</SelectItem>
                           <SelectItem value="produzieren">Produzieren</SelectItem>
                           <SelectItem value="tickets">Tickets</SelectItem>
@@ -331,7 +331,7 @@ const Produzieren = () => {
                       rows={6}
                       value={formData.nachricht}
                       onChange={(e) => setFormData({ ...formData, nachricht: e.target.value })}
-                      className="bg-gray-50 border-gray-200 text-black font-light rounded-xl focus:ring-primary resize-none"
+                      className="bg-gray-900 border-gray-700 text-white font-light rounded-xl placeholder:text-gray-400 focus-visible:ring-primary focus-visible:border-primary resize-none"
                       placeholder="Ihre Nachricht an uns..."
                     />
                   </div>
@@ -340,7 +340,7 @@ const Produzieren = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white font-bold px-16 py-4 h-auto text-base"
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 h-auto text-base rounded-full"
                     >
                       {isSubmitting ? "Wird gesendet..." : "Absenden"}
                     </Button>
