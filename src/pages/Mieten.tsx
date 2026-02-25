@@ -83,15 +83,17 @@ const Mieten = () => {
           >
             Ein Raum für Ihre Visionen.
           </motion.h1>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 text-white/90 text-lg md:text-xl font-light max-w-[720px] leading-relaxed"
+            className="mt-6 bg-black px-4 py-2 inline-flex"
           >
-            Ob Konzert, CD-Aufnahme oder Firmenevent – die weltweit gerühmte Akustik und das
-            denkmalgeschützte Ambiente des Sendesaals bieten den perfekten Rahmen.
-          </motion.p>
+            <span className="text-white text-lg md:text-xl font-light">
+              Ob Konzert, CD-Aufnahme oder Firmenevent – die weltweit gerühmte Akustik und das
+              denkmalgeschützte Ambiente des Sendesaals bieten den perfekten Rahmen.
+            </span>
+          </motion.div>
         </div>
 
         {/* Concave white ellipse */}

@@ -77,15 +77,17 @@ const Produzieren = () => {
           >
             Der perfekte Klang für Ihre Aufnahme.
           </motion.h1>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 text-white/90 text-lg md:text-xl font-light max-w-[720px] leading-relaxed"
+            className="mt-6 bg-black px-4 py-2 inline-flex"
           >
-            Von Solo-Instrumenten bis zum großen Orchester: Die weltweit gerühmte Akustik
-            des Sendesaals bietet ideale Bedingungen für High-End-Produktionen.
-          </motion.p>
+            <span className="text-white text-lg md:text-xl font-light">
+              Von Solo-Instrumenten bis zum großen Orchester: Die weltweit gerühmte Akustik
+              des Sendesaals bietet ideale Bedingungen für High-End-Produktionen.
+            </span>
+          </motion.div>
         </div>
 
         <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-white" />
