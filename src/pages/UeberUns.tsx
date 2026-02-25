@@ -280,11 +280,11 @@ const UeberUns = () => {
           </div>
         </section>
 
+        {/* OrangeBars before Akustik */}
+        <OrangeBarsTransition />
+
         {/* Akustik Section */}
         <section id="akustik" className="bg-gray-200">
-          {/* OrangeBars */}
-          <OrangeBarsTransition />
-
           <div className="pt-8 pb-24 md:pb-32">
             <div className="container mx-auto px-6">
               <SectionHeader title="Akustik & Technik" subtitle="Eine der besten Akustiken Deutschlands – seit 1952" />
