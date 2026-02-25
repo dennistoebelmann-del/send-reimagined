@@ -226,13 +226,13 @@ const Produzieren = () => {
         <OrangeBarsTransition />
 
         {/* Kontaktformular */}
-        <section className="pt-8 pb-24 md:pb-32">
+        <section className="bg-card pt-20 pb-20 md:pt-28 md:pb-28">
           <div className="container mx-auto px-6 md:px-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-[780px] mx-auto bg-card p-8 md:p-12"
+              className="max-w-[780px] mx-auto"
             >
               <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-light text-foreground">Planen Sie Ihre Produktion.</h2>
