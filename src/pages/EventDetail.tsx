@@ -8,8 +8,8 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger } from
-"@/components/ui/accordion";
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import eventFireOrchestra from "@/assets/event-fire-orchestra.jpg";
 import eventTingvallTrio from "@/assets/event-tingvall-trio.jpg";
@@ -44,15 +44,15 @@ Mats Gustafsson, der schwedische Saxophonist und Bandleader, ist bekannt für se
 
 Der Abend verspricht eine intensive Reise durch verschiedene musikalische Landschaften – von meditativen, fast orchestralen Passagen bis hin zu explosiven, freien Improvisationen, die das Publikum in ihren Bann ziehen werden.`,
     quotes: [
-    {
-      text: "Eine der aufregendsten Live-Erfahrungen der letzten Jahre.",
-      source: "Süddeutsche Zeitung"
-    },
-    {
-      text: "Gustafsson und sein Orchester spielen, als gäbe es kein Morgen.",
-      source: "Die Zeit"
-    }],
-
+      {
+        text: "Eine der aufregendsten Live-Erfahrungen der letzten Jahre.",
+        source: "Süddeutsche Zeitung"
+      },
+      {
+        text: "Gustafsson und sein Orchester spielen, als gäbe es kein Morgen.",
+        source: "Die Zeit"
+      }
+    ],
     youtubeId: "dQw4w9WgXcQ"
   },
   "2": {
@@ -77,11 +77,11 @@ Ihre Kompositionen erzählen Geschichten: von der Weite skandinavischer Landscha
 
 Im Sendesaal präsentiert das Trio sein neuestes Programm und nimmt das Publikum mit auf eine musikalische Reise voller überraschender Wendungen und unvergesslicher Melodien.`,
     quotes: [
-    {
-      text: "Nordischer Jazz in Perfektion.",
-      source: "Jazz Thing"
-    }],
-
+      {
+        text: "Nordischer Jazz in Perfektion.",
+        source: "Jazz Thing"
+      }
+    ],
     youtubeId: "dQw4w9WgXcQ"
   },
   "3": {
@@ -107,11 +107,11 @@ Dan Berglund (Bass) und Magnus Öström (Schlagzeug), die gemeinsam mit Svensson
 
 Der Abend wird eine emotionale Reise durch das Repertoire von E.S.T., neu interpretiert und mit Gastmusikern präsentiert, die den Geist von Esbjörns Musik weitertragen.`,
     quotes: [
-    {
-      text: "Eine würdige Hommage an einen der größten europäischen Jazzmusiker.",
-      source: "Frankfurter Allgemeine"
-    }],
-
+      {
+        text: "Eine würdige Hommage an einen der größten europäischen Jazzmusiker.",
+        source: "Frankfurter Allgemeine"
+      }
+    ],
     youtubeId: "dQw4w9WgXcQ"
   },
   "4": {
@@ -136,11 +136,11 @@ Das Quatuor Ébène ist bekannt für seine außergewöhnliche Vielseitigkeit –
 
 Die einzigartige Akustik des Sendesaals bietet den idealen Rahmen für diese Kammermusik auf höchstem Niveau.`,
     quotes: [
-    {
-      text: "Ein Streichquartett der Extraklasse.",
-      source: "The Guardian"
-    }],
-
+      {
+        text: "Ein Streichquartett der Extraklasse.",
+        source: "The Guardian"
+      }
+    ],
     youtubeId: "dQw4w9WgXcQ"
   },
   "5": {
@@ -165,15 +165,15 @@ Seine Interpretation verbindet intellektuelle Tiefe mit emotionaler Intensität.
 
 Ein Abend, der die Grenzen zwischen Konzert und spiritueller Erfahrung aufhebt – möglich gemacht durch die perfekte Symbiose von Künstler, Werk und dem einzigartigen Raum des Sendesaals.`,
     quotes: [
-    {
-      text: "Levits Goldberg-Variationen sind eine Offenbarung.",
-      source: "Der Spiegel"
-    },
-    {
-      text: "Der Pianist unserer Zeit.",
-      source: "New York Times"
-    }],
-
+      {
+        text: "Levits Goldberg-Variationen sind eine Offenbarung.",
+        source: "Der Spiegel"
+      },
+      {
+        text: "Der Pianist unserer Zeit.",
+        source: "New York Times"
+      }
+    ],
     youtubeId: "dQw4w9WgXcQ"
   },
   "6": {
@@ -199,11 +199,11 @@ Mit Werken wie Vivaldis "Vier Jahreszeiten", Bachs Brandenburgischen Konzerten u
 
 Die historischen Instrumente und die historisch informierte Aufführungspraxis lassen diese Werke in neuem Glanz erstrahlen – eine Zeitreise in die Klangwelt des 18. Jahrhunderts.`,
     quotes: [
-    {
-      text: "Concerto Köln spielt, als wäre der Barock gestern erfunden worden.",
-      source: "Frankfurter Rundschau"
-    }],
-
+      {
+        text: "Concerto Köln spielt, als wäre der Barock gestern erfunden worden.",
+        source: "Frankfurter Rundschau"
+      }
+    ],
     youtubeId: "dQw4w9WgXcQ"
   },
   // Special demo event
@@ -230,25 +230,25 @@ An diesem Abend präsentiert er ein Programm, das von der Renaissance bis zur Mo
 
 Die intime Atmosphäre des Sendesaals und seine legendäre Akustik bilden den perfekten Rahmen für dieses außergewöhnliche Recital. Erleben Sie einen Meister seines Fachs in einem Konzert, das lange nachklingen wird.`,
     quotes: [
-    {
-      text: "Ein Gitarrist von Weltrang – technisch makellos, musikalisch tiefgründig.",
-      source: "Fono Forum"
-    },
-    {
-      text: "Bungarten lässt die Gitarre singen wie kaum ein anderer.",
-      source: "Gitarre & Bass"
-    }],
-
+      {
+        text: "Ein Gitarrist von Weltrang – technisch makellos, musikalisch tiefgründig.",
+        source: "Fono Forum"
+      },
+      {
+        text: "Bungarten lässt die Gitarre singen wie kaum ein anderer.",
+        source: "Gitarre & Bass"
+      }
+    ],
     youtubeId: "dQw4w9WgXcQ"
   }
 };
 
 // Related events for the footer section
 const relatedEvents = [
-{ id: "4", title: "Kammermusik Abend", artist: "Quatuor Ébène", date: "Fr, 13. Dez 2025", image: eventKammermusik, category: "Klassik" },
-{ id: "5", title: "Klavier Rezital", artist: "Igor Levit", date: "So, 19. Jan 2026", image: eventKlavierRezital, category: "Klassik" },
-{ id: "2", title: "Tingvall Trio", artist: "Martin Tingvall", date: "Do, 9. Jan 2026", image: eventTingvallTrio, category: "Jazz" }];
-
+  { id: "4", title: "Kammermusik Abend", artist: "Quatuor Ébène", date: "Fr, 13. Dez 2025", image: eventKammermusik, category: "Klassik" },
+  { id: "5", title: "Klavier Rezital", artist: "Igor Levit", date: "So, 19. Jan 2026", image: eventKlavierRezital, category: "Klassik" },
+  { id: "2", title: "Tingvall Trio", artist: "Martin Tingvall", date: "Do, 9. Jan 2026", image: eventTingvallTrio, category: "Jazz" },
+];
 
 interface EventData {
   id: number;
@@ -268,12 +268,12 @@ interface EventData {
   series: string;
   leadText: string;
   description: string;
-  quotes: {text: string;source: string;}[];
+  quotes: { text: string; source: string }[];
   youtubeId: string;
 }
 
 const EventDetail = () => {
-  const { id } = useParams<{id: string;}>();
+  const { id } = useParams<{ id: string }>();
   const event = eventsData[id || "1"];
 
   if (!event) {
@@ -285,8 +285,8 @@ const EventDetail = () => {
             Zurück zum Programm
           </Link>
         </div>
-      </div>);
-
+      </div>
+    );
   }
 
   const handleShare = () => {
@@ -294,7 +294,7 @@ const EventDetail = () => {
       navigator.share({
         title: event.title,
         text: `${event.title} - ${event.date} im Sendesaal Bremen`,
-        url: window.location.href
+        url: window.location.href,
       });
     }
   };
@@ -309,7 +309,7 @@ DESCRIPTION:${event.artist} - ${event.leadText}
 LOCATION:Sendesaal Bremen
 END:VEVENT
 END:VCALENDAR`;
-
+    
     const blob = new Blob([icsContent], { type: 'text/calendar' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -329,8 +329,8 @@ END:VCALENDAR`;
           <img
             src={event.image}
             alt={event.title}
-            className="absolute inset-0 w-full h-full object-cover" />
-
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           {/* Dark Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
           {/* Top gradient for navbar visibility */}
@@ -344,8 +344,8 @@ END:VCALENDAR`;
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-3xl">
-
+              className="max-w-3xl"
+            >
               {/* Category */}
               <p className="text-[#E47C03] text-sm md:text-base uppercase tracking-[0.2em] font-medium mb-4">
                 {event.category}
@@ -383,8 +383,8 @@ END:VCALENDAR`;
             viewBox="0 0 1440 100"
             preserveAspectRatio="none"
             className="w-full h-[80px] md:h-[100px]"
-            fill="white">
-
+            fill="white"
+          >
             <ellipse cx="720" cy="100" rx="900" ry="100" />
           </svg>
         </div>
@@ -454,19 +454,19 @@ END:VCALENDAR`;
 
                 {/* Action Buttons */}
                 <div className="flex flex-col gap-3 pt-4">
-                  
-
-
-
-
-
-
-
                   <Button
                     variant="outline"
                     className="w-full justify-start gap-3 h-12 border-gray-300 text-black hover:bg-gray-50"
-                    onClick={handleCalendarExport}>
-
+                    onClick={handleShare}
+                  >
+                    <Share2 size={18} />
+                    Teilen
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start gap-3 h-12 border-gray-300 text-black hover:bg-gray-50"
+                    onClick={handleCalendarExport}
+                  >
                     <CalendarPlus size={18} />
                     Zum Kalender hinzufügen
                   </Button>
@@ -483,11 +483,11 @@ END:VCALENDAR`;
 
               {/* First part of description */}
               <div className="prose prose-lg max-w-none">
-                {event.description.split('\n\n').slice(0, 2).map((paragraph, index) =>
-                <p key={index} className="text-gray-700 leading-relaxed text-base md:text-lg">
+                {event.description.split('\n\n').slice(0, 2).map((paragraph, index) => (
+                  <p key={index} className="text-gray-700 leading-relaxed text-base md:text-lg">
                     {paragraph}
                   </p>
-                )}
+                ))}
               </div>
 
               {/* YouTube Video Embed */}
@@ -497,28 +497,28 @@ END:VCALENDAR`;
                   title="Video"
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen />
-
+                  allowFullScreen
+                />
               </div>
 
               {/* Rest of description */}
               <div className="prose prose-lg max-w-none">
-                {event.description.split('\n\n').slice(2).map((paragraph, index) =>
-                <p key={index} className="text-gray-700 leading-relaxed text-base md:text-lg">
+                {event.description.split('\n\n').slice(2).map((paragraph, index) => (
+                  <p key={index} className="text-gray-700 leading-relaxed text-base md:text-lg">
                     {paragraph}
                   </p>
-                )}
+                ))}
               </div>
 
               {/* Quotes / Press */}
-              {event.quotes.length > 0 &&
-              <div className="space-y-6 pt-8 border-t border-gray-200">
+              {event.quotes.length > 0 && (
+                <div className="space-y-6 pt-8 border-t border-gray-200">
                   <h3 className="text-xl font-medium text-black">Pressestimmen</h3>
-                  {event.quotes.map((quote, index) =>
-                <blockquote
-                  key={index}
-                  className="border-l-4 border-[#CF3D11] pl-6 py-2">
-
+                  {event.quotes.map((quote, index) => (
+                    <blockquote
+                      key={index}
+                      className="border-l-4 border-[#CF3D11] pl-6 py-2"
+                    >
                       <p className="text-lg md:text-xl italic text-gray-800 mb-2">
                         "{quote.text}"
                       </p>
@@ -526,9 +526,9 @@ END:VCALENDAR`;
                         — {quote.source}
                       </cite>
                     </blockquote>
-                )}
+                  ))}
                 </div>
-              }
+              )}
             </div>
           </div>
         </div>
@@ -542,8 +542,8 @@ END:VCALENDAR`;
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto">
-
+            className="max-w-3xl mx-auto"
+          >
             <div className="flex items-center gap-3 mb-8">
               <HelpCircle size={28} className="text-primary" />
               <h2 className="text-2xl md:text-3xl font-normal text-black uppercase tracking-wide">
@@ -557,9 +557,9 @@ END:VCALENDAR`;
                   Wo kann ich Tickets kaufen?
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600 pb-5">
-                  {event.isExternalTicket ?
-                  `Tickets für diese Veranstaltung erhalten Sie über unseren Partner ${event.externalPartner}. Klicken Sie einfach auf den Button "Tickets kaufen" unten auf der Seite.` :
-                  "Tickets für diese Veranstaltung können Sie direkt über unsere Website kaufen. Klicken Sie auf den Button \"Plätze wählen\" unten auf der Seite."
+                  {event.isExternalTicket 
+                    ? `Tickets für diese Veranstaltung erhalten Sie über unseren Partner ${event.externalPartner}. Klicken Sie einfach auf den Button "Tickets kaufen" unten auf der Seite.`
+                    : "Tickets für diese Veranstaltung können Sie direkt über unsere Website kaufen. Klicken Sie auf den Button \"Plätze wählen\" unten auf der Seite."
                   }
                 </AccordionContent>
               </AccordionItem>
@@ -602,10 +602,10 @@ END:VCALENDAR`;
             </Accordion>
 
             <div className="mt-8 text-center">
-              <Link
-                to="/tickets"
-                className="text-primary hover:underline font-medium">
-
+              <Link 
+                to="/tickets" 
+                className="text-primary hover:underline font-medium"
+              >
                 Alle FAQ zum Ticketkauf ansehen →
               </Link>
             </div>
@@ -620,8 +620,8 @@ END:VCALENDAR`;
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-center">
-
+            className="max-w-2xl mx-auto text-center"
+          >
             <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Vorverkauf</p>
             <h2 className="text-2xl md:text-3xl font-light text-black mb-8">
               Alternativ Tickets bei unseren Partnern kaufen
@@ -632,8 +632,8 @@ END:VCALENDAR`;
                 href="https://www.venticks.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-4 border border-gray-200 px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all">
-
+                className="group flex items-center justify-between gap-4 border border-gray-200 px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all"
+              >
                 <div className="text-left">
                   <p className="font-medium text-black group-hover:text-primary transition-colors">venticks</p>
                   <p className="text-sm text-gray-500">Online-Vorverkauf</p>
@@ -645,8 +645,8 @@ END:VCALENDAR`;
                 href="https://www.nordwest-ticket.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-4 border border-gray-200 px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all">
-
+                className="group flex items-center justify-between gap-4 border border-gray-200 px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all"
+              >
                 <div className="text-left">
                   <p className="font-medium text-black group-hover:text-primary transition-colors">Nordwest Ticket</p>
                   <p className="text-sm text-gray-500">Vorverkauf & Abendkasse</p>
@@ -666,18 +666,18 @@ END:VCALENDAR`;
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {relatedEvents.map((relEvent) =>
-            <Link
-              key={relEvent.id}
-              to={`/event/${relEvent.id}`}
-              className="group block">
-
+            {relatedEvents.map((relEvent) => (
+              <Link
+                key={relEvent.id}
+                to={`/event/${relEvent.id}`}
+                className="group block"
+              >
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4">
                   <img
-                  src={relEvent.image}
-                  alt={relEvent.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-
+                    src={relEvent.image}
+                    alt={relEvent.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                   <span className="absolute top-4 left-4 bg-[#CF3D11] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">
                     {relEvent.category}
@@ -689,7 +689,7 @@ END:VCALENDAR`;
                 <p className="text-gray-600 mb-2">{relEvent.artist}</p>
                 <p className="text-sm text-gray-500">{relEvent.date}</p>
               </Link>
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -714,10 +714,10 @@ END:VCALENDAR`;
 
             {/* Right: CTA Button */}
             <div className="w-full sm:w-auto">
-              {event.isExternalTicket ?
-              <Button
-                className="w-full sm:w-auto bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-8 py-6 h-auto text-base flex flex-col items-center gap-0">
-
+              {event.isExternalTicket ? (
+                <Button
+                  className="w-full sm:w-auto bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-8 py-6 h-auto text-base flex flex-col items-center gap-0"
+                >
                   <span className="flex items-center gap-2">
                     TICKETS BEI PARTNER KAUFEN
                     <ExternalLink size={16} />
@@ -725,14 +725,14 @@ END:VCALENDAR`;
                   <span className="text-xs font-normal opacity-80">
                     Sichere Weiterleitung zu {event.externalPartner}
                   </span>
-                </Button> :
-
-              <Button
-                className="w-full sm:w-auto bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-12 py-6 h-auto text-base">
-
+                </Button>
+              ) : (
+                <Button
+                  className="w-full sm:w-auto bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-12 py-6 h-auto text-base"
+                >
                   PLÄTZE WÄHLEN
                 </Button>
-              }
+              )}
             </div>
           </div>
         </div>
@@ -742,8 +742,8 @@ END:VCALENDAR`;
       <div className="h-24" />
 
       <Footer sectionAbove="white" />
-    </div>);
-
+    </div>
+  );
 };
 
 export default EventDetail;
