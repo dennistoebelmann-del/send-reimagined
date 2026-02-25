@@ -232,38 +232,33 @@ const Produzieren = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="max-w-[780px] mx-auto bg-card rounded-2xl p-8 md:p-12"
             >
-              <h2 className="text-4xl md:text-5xl font-light text-black">Planen Sie Ihre Produktion.</h2>
-              <div className="mt-4 flex items-center justify-center gap-6">
-                <div className="w-10 h-px bg-primary" />
-                <p className="text-black/70 text-lg md:text-xl font-light">
-                  Wir freuen uns auf Ihre Nachricht
-                </p>
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-light text-foreground">Planen Sie Ihre Produktion.</h2>
+                <div className="mt-4 flex items-center justify-center gap-6">
+                  <div className="w-10 h-px bg-primary" />
+                  <p className="text-muted-foreground text-lg md:text-xl font-light">
+                    Wir freuen uns auf Ihre Nachricht
+                  </p>
+                </div>
               </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-[680px] mx-auto"
-            >
               {submitted ? (
                 <div className="text-center py-16">
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                     <Send className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-light text-black mb-3">Vielen Dank!</h3>
-                  <p className="text-black/70 font-light">
+                  <h3 className="text-2xl font-light text-foreground mb-3">Vielen Dank!</h3>
+                  <p className="text-muted-foreground font-light">
                     Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <Label htmlFor="name" className="text-black font-light text-sm">Name</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-foreground/80 font-light text-sm">Name</Label>
                       <Input
                         id="name"
                         type="text"
@@ -272,12 +267,12 @@ const Produzieren = () => {
                         aria-required="true"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-black/5 border-black/10 text-black font-light h-12 placeholder:text-black/30 focus-visible:ring-primary focus-visible:border-primary"
+                        className="bg-muted border-border text-foreground font-light h-12 rounded-xl placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="Ihr Name"
                       />
                     </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="email" className="text-black font-light text-sm">E-Mail</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-foreground/80 font-light text-sm">E-Mail</Label>
                       <Input
                         id="email"
                         type="email"
@@ -286,15 +281,15 @@ const Produzieren = () => {
                         aria-required="true"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-black/5 border-black/10 text-black font-light h-12 placeholder:text-black/30 focus-visible:ring-primary focus-visible:border-primary"
+                        className="bg-muted border-border text-foreground font-light h-12 rounded-xl placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="ihre@email.de"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <Label htmlFor="betreff" className="text-black font-light text-sm">Betreff</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="betreff" className="text-foreground/80 font-light text-sm">Betreff</Label>
                       <Input
                         id="betreff"
                         type="text"
@@ -303,17 +298,18 @@ const Produzieren = () => {
                         aria-required="true"
                         value={formData.betreff}
                         onChange={(e) => setFormData({ ...formData, betreff: e.target.value })}
-                        className="bg-black/5 border-black/10 text-black font-light h-12 placeholder:text-black/30 focus-visible:ring-primary focus-visible:border-primary"
+                        className="bg-muted border-border text-foreground font-light h-12 rounded-xl placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="Betreff Ihrer Anfrage"
                       />
                     </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="anfragetyp" className="text-black font-light text-sm">Anfragetyp</Label>
+                    <div className="space-y-2">
+                      <Label htmlFor="anfragetyp" className="text-foreground/80 font-light text-sm">Anfragetyp</Label>
                       <Select
+                        defaultValue="produzieren"
                         value={formData.anfragetyp}
                         onValueChange={(value) => setFormData({ ...formData, anfragetyp: value })}
                       >
-                        <SelectTrigger className="bg-black/5 border-black/10 text-black font-light h-12 focus:ring-primary">
+                        <SelectTrigger className="bg-muted border-border text-foreground font-light h-12 rounded-xl focus:ring-primary">
                           <SelectValue placeholder="Bitte wählen" />
                         </SelectTrigger>
                         <SelectContent>
@@ -325,8 +321,8 @@ const Produzieren = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-3">
-                    <Label htmlFor="nachricht" className="text-black font-light text-sm">Nachricht</Label>
+                  <div className="space-y-2">
+                    <Label htmlFor="nachricht" className="text-foreground/80 font-light text-sm">Nachricht</Label>
                     <Textarea
                       id="nachricht"
                       required
@@ -335,7 +331,7 @@ const Produzieren = () => {
                       aria-required="true"
                       value={formData.nachricht}
                       onChange={(e) => setFormData({ ...formData, nachricht: e.target.value })}
-                      className="bg-black/5 border-black/10 text-black font-light placeholder:text-black/30 focus-visible:ring-primary focus-visible:border-primary resize-none"
+                      className="bg-muted border-border text-foreground font-light rounded-xl placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary resize-none"
                       placeholder="Ihre Nachricht an uns..."
                     />
                   </div>
@@ -343,7 +339,7 @@ const Produzieren = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-5 h-auto text-base"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-5 h-auto text-base rounded-full mt-2"
                   >
                     {isSubmitting ? "Wird gesendet..." : "Absenden"}
                   </Button>
