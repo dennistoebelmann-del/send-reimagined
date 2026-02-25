@@ -94,8 +94,6 @@ const Produzieren = () => {
       </section>
 
       <main className="bg-white">
-        <OrangeBarsTransition />
-
         {/* Modul 1: Präzision & Atmosphäre */}
         <section className="pt-16 pb-24 md:pb-32">
           <div className="container mx-auto px-6 md:px-16">
