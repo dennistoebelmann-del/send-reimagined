@@ -129,9 +129,6 @@ const UeberUns = () => {
       {/* Content Sections */}
       <main className="bg-white">
 
-        {/* OrangeBars before Historie */}
-        <OrangeBarsTransition />
-
         {/* Historie Section */}
         <section id="historie" className="pt-16 pb-24 md:pb-32">
           <div className="container mx-auto px-6">

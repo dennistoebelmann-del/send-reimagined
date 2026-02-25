@@ -101,9 +101,6 @@ const Mieten = () => {
       </section>
 
       <main className="bg-white">
-        {/* OrangeBars */}
-        <OrangeBarsTransition />
-
         {/* Sektion 1: Konzert & Kultur */}
         <section className="pt-16 pb-24 md:pb-32">
           <div className="container mx-auto px-6 md:px-16">
