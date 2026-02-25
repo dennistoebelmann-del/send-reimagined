@@ -85,7 +85,7 @@ const UeberUns = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl text-white font-normal"
+            className="text-5xl md:text-7xl lg:text-8xl text-white font-light"
           >
             Mehr als nur ein Saal.
           </motion.h1>
@@ -95,7 +95,7 @@ const UeberUns = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-6 bg-black px-4 py-2 inline-flex"
           >
-            <span className="text-white text-lg md:text-xl font-normal">
+            <span className="text-white text-lg md:text-xl font-light">
               Ein Weltklasse-Studio. Ein lebendiges Denkmal. Ein Zuhause für die Musik.
             </span>
           </motion.div>

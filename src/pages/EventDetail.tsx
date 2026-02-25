@@ -347,12 +347,12 @@ END:VCALENDAR`;
               className="max-w-3xl"
             >
               {/* Category */}
-              <p className="text-[#E47C03] text-sm md:text-base uppercase tracking-[0.2em] font-bold mb-4">
+              <p className="text-[#E47C03] text-sm md:text-base uppercase tracking-[0.2em] font-medium mb-4">
                 {event.category}
               </p>
               
               {/* Title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight mb-6">
                 {event.title}
               </h1>
               
@@ -397,7 +397,7 @@ END:VCALENDAR`;
             {/* Left Sidebar - Hard Facts */}
             <div className="lg:col-span-1">
               <div className="lg:sticky lg:top-32 space-y-8">
-                <h3 className="text-xl font-bold text-black border-b-2 border-[#CF3D11] pb-2 inline-block">
+                <h3 className="text-xl font-medium text-black border-b-2 border-[#CF3D11] pb-2 inline-block">
                   Auf einen Blick
                 </h3>
                 
@@ -513,7 +513,7 @@ END:VCALENDAR`;
               {/* Quotes / Press */}
               {event.quotes.length > 0 && (
                 <div className="space-y-6 pt-8 border-t border-gray-200">
-                  <h3 className="text-xl font-bold text-black">Pressestimmen</h3>
+                  <h3 className="text-xl font-medium text-black">Pressestimmen</h3>
                   {event.quotes.map((quote, index) => (
                     <blockquote
                       key={index}
@@ -546,7 +546,7 @@ END:VCALENDAR`;
           >
             <div className="flex items-center gap-3 mb-8">
               <HelpCircle size={28} className="text-primary" />
-              <h2 className="text-2xl md:text-3xl font-bold text-black uppercase tracking-wide">
+              <h2 className="text-2xl md:text-3xl font-normal text-black uppercase tracking-wide">
                 Häufige Fragen
               </h2>
             </div>
@@ -616,7 +616,7 @@ END:VCALENDAR`;
       {/* Related Events */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-6 md:px-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-black mb-10">
+          <h2 className="text-2xl md:text-3xl font-normal text-black mb-10">
             Das könnte Sie auch interessieren
           </h2>
           
@@ -638,7 +638,7 @@ END:VCALENDAR`;
                     {relEvent.category}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-black group-hover:text-[#CF3D11] transition-colors mb-1">
+                <h3 className="text-xl font-normal text-black group-hover:text-[#CF3D11] transition-colors mb-1">
                   {relEvent.title}
                 </h3>
                 <p className="text-gray-600 mb-2">{relEvent.artist}</p>
@@ -656,7 +656,7 @@ END:VCALENDAR`;
             {/* Left: Event Info */}
             <div className="flex items-center gap-4">
               <div className="hidden sm:block">
-                <p className="text-black font-bold text-lg truncate max-w-[200px] md:max-w-[300px]">
+                <p className="text-black font-medium text-lg truncate max-w-[200px] md:max-w-[300px]">
                   {event.title}
                 </p>
                 <p className="text-gray-500 text-sm">{event.date}</p>
