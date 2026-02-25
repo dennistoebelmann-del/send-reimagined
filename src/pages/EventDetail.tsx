@@ -453,21 +453,21 @@ END:VCALENDAR`;
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex flex-col gap-3 pt-4">
+                <div className="flex flex-col gap-2 pt-4">
                   <Button
-                    variant="outline"
-                    className="w-full justify-start gap-3 h-12 border-gray-300 text-black hover:bg-gray-50"
+                    variant="ghost"
+                    className="w-full justify-start gap-3 h-auto py-2 text-gray-500 hover:text-[#CF3D11] hover:bg-transparent"
                     onClick={handleShare}
                   >
-                    <Share2 size={18} />
+                    <Share2 size={16} />
                     Teilen
                   </Button>
                   <Button
-                    variant="outline"
-                    className="w-full justify-start gap-3 h-12 border-gray-300 text-black hover:bg-gray-50"
+                    variant="ghost"
+                    className="w-full justify-start gap-3 h-auto py-2 text-gray-500 hover:text-[#CF3D11] hover:bg-transparent"
                     onClick={handleCalendarExport}
                   >
-                    <CalendarPlus size={18} />
+                    <CalendarPlus size={16} />
                     Zum Kalender hinzufügen
                   </Button>
                 </div>
