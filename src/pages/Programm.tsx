@@ -7,10 +7,12 @@ import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
 import { Button } from "@/components/ui/button";
 
-// Import event images
-import eventClassical from "@/assets/event-classical.jpg";
-import eventJazz from "@/assets/event-jazz.jpg";
-import eventExperimental from "@/assets/event-experimental.jpg";
+import eventFireOrchestra from "@/assets/event-fire-orchestra.jpg";
+import eventTingvallTrio from "@/assets/event-tingvall-trio.jpg";
+import eventEsbjornMemorial from "@/assets/event-esbjorn-memorial.jpg";
+import eventKammermusik from "@/assets/event-kammermusik.jpg";
+import eventKlavierRezital from "@/assets/event-klavier-rezital.jpg";
+import eventBarockeNacht from "@/assets/event-barocke-nacht.jpg";
 
 // Import collage images
 import orchestraImg from "@/assets/collage-orchestra.jpg";
@@ -41,7 +43,7 @@ const events = [
     artist: "Mats Gustafsson & Ensemble",
     description: "Grootse improvisatie en energie door dit orkest met strijkers, blazers, ritmesectie en elektronica.",
     category: "jazz",
-    image: eventJazz,
+    image: eventFireOrchestra,
     externalTicketing: true,
   },
   {
@@ -53,7 +55,7 @@ const events = [
     artist: "Martin Tingvall, Omar Rodriguez Calvo, Jürgen Spiegel",
     description: "Nordischer Jazz trifft auf klassische Einflüsse – melodisch, virtuos und voller Emotionen.",
     category: "jazz",
-    image: eventJazz,
+    image: eventTingvallTrio,
     externalTicketing: false,
   },
   {
@@ -65,7 +67,7 @@ const events = [
     artist: "Dan Berglund & Magnus Öström",
     description: "Ein Abend zu Ehren des legendären schwedischen Pianisten mit seinen ehemaligen Bandkollegen.",
     category: "jazz",
-    image: eventJazz,
+    image: eventEsbjornMemorial,
     externalTicketing: true,
   },
   {
@@ -77,7 +79,7 @@ const events = [
     artist: "Quatuor Ébène",
     description: "Ein außergewöhnliches Streichquartett präsentiert Werke von Beethoven und Schubert in intimer Atmosphäre.",
     category: "klassik",
-    image: eventClassical,
+    image: eventKammermusik,
     externalTicketing: false,
   },
   {
@@ -89,7 +91,7 @@ const events = [
     artist: "Igor Levit",
     description: "Der preisgekrönte Pianist spielt Bachs Goldberg-Variationen in einer unvergesslichen Interpretation.",
     category: "klassik",
-    image: eventClassical,
+    image: eventKlavierRezital,
     externalTicketing: false,
   },
   {
@@ -101,7 +103,7 @@ const events = [
     artist: "Concerto Köln",
     description: "Vivaldi, Bach und Händel in authentischer Aufführungspraxis mit historischen Instrumenten.",
     category: "klassik",
-    image: eventClassical,
+    image: eventBarockeNacht,
     externalTicketing: true,
   },
 ];

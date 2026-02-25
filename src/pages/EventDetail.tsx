@@ -11,10 +11,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-// Import images
-import eventClassical from "@/assets/event-classical.jpg";
-import eventJazz from "@/assets/event-jazz.jpg";
-import eventExperimental from "@/assets/event-experimental.jpg";
+import eventFireOrchestra from "@/assets/event-fire-orchestra.jpg";
+import eventTingvallTrio from "@/assets/event-tingvall-trio.jpg";
+import eventEsbjornMemorial from "@/assets/event-esbjorn-memorial.jpg";
+import eventKammermusik from "@/assets/event-kammermusik.jpg";
+import eventKlavierRezital from "@/assets/event-klavier-rezital.jpg";
+import eventBarockeNacht from "@/assets/event-barocke-nacht.jpg";
+import eventGitarrenrecital from "@/assets/event-gitarrenrecital.jpg";
 
 // Mock event data
 const eventsData: Record<string, EventData> = {
@@ -26,7 +29,7 @@ const eventsData: Record<string, EventData> = {
     date: "Sa, 6. Dez 2025",
     time: "20:00",
     price: "45,00 €",
-    image: eventJazz,
+    image: eventFireOrchestra,
     isExternalTicket: true,
     externalPartner: "Nordwest Ticket",
     admission: "19:00 Uhr",
@@ -60,7 +63,7 @@ Der Abend verspricht eine intensive Reise durch verschiedene musikalische Landsc
     date: "Do, 9. Jan 2026",
     time: "20:00",
     price: "38,00 €",
-    image: eventJazz,
+    image: eventTingvallTrio,
     isExternalTicket: false,
     admission: "19:00 Uhr",
     duration: "ca. 2 Stunden",
@@ -89,7 +92,7 @@ Im Sendesaal präsentiert das Trio sein neuestes Programm und nimmt das Publikum
     date: "Fr, 23. Jan 2026",
     time: "20:00",
     price: "42,00 €",
-    image: eventJazz,
+    image: eventEsbjornMemorial,
     isExternalTicket: true,
     externalPartner: "Eventim",
     admission: "19:00 Uhr",
@@ -119,7 +122,7 @@ Der Abend wird eine emotionale Reise durch das Repertoire von E.S.T., neu interp
     date: "Fr, 13. Dez 2025",
     time: "20:00",
     price: "55,00 €",
-    image: eventClassical,
+    image: eventKammermusik,
     isExternalTicket: false,
     admission: "19:00 Uhr",
     duration: "ca. 2 Stunden",
@@ -148,7 +151,7 @@ Die einzigartige Akustik des Sendesaals bietet den idealen Rahmen für diese Kam
     date: "So, 19. Jan 2026",
     time: "18:00",
     price: "65,00 €",
-    image: eventClassical,
+    image: eventKlavierRezital,
     isExternalTicket: false,
     admission: "17:00 Uhr",
     duration: "ca. 2,5 Stunden",
@@ -181,7 +184,7 @@ Ein Abend, der die Grenzen zwischen Konzert und spiritueller Erfahrung aufhebt �
     date: "Sa, 8. Feb 2026",
     time: "20:00",
     price: "48,00 €",
-    image: eventClassical,
+    image: eventBarockeNacht,
     isExternalTicket: true,
     externalPartner: "Nordwest Ticket",
     admission: "19:00 Uhr",
@@ -212,7 +215,7 @@ Die historischen Instrumente und die historisch informierte Aufführungspraxis l
     date: "So, 15. Feb 2026",
     time: "18:00",
     price: "35,00 €",
-    image: eventClassical,
+    image: eventGitarrenrecital,
     isExternalTicket: true,
     externalPartner: "Nordwest Ticket",
     admission: "17:00 Uhr",
@@ -242,9 +245,9 @@ Die intime Atmosphäre des Sendesaals und seine legendäre Akustik bilden den pe
 
 // Related events for the footer section
 const relatedEvents = [
-  { id: "4", title: "Kammermusik Abend", artist: "Quatuor Ébène", date: "Fr, 13. Dez 2025", image: eventClassical, category: "Klassik" },
-  { id: "5", title: "Klavier Rezital", artist: "Igor Levit", date: "So, 19. Jan 2026", image: eventClassical, category: "Klassik" },
-  { id: "2", title: "Tingvall Trio", artist: "Martin Tingvall", date: "Do, 9. Jan 2026", image: eventJazz, category: "Jazz" },
+  { id: "4", title: "Kammermusik Abend", artist: "Quatuor Ébène", date: "Fr, 13. Dez 2025", image: eventKammermusik, category: "Klassik" },
+  { id: "5", title: "Klavier Rezital", artist: "Igor Levit", date: "So, 19. Jan 2026", image: eventKlavierRezital, category: "Klassik" },
+  { id: "2", title: "Tingvall Trio", artist: "Martin Tingvall", date: "Do, 9. Jan 2026", image: eventTingvallTrio, category: "Jazz" },
 ];
 
 interface EventData {
