@@ -60,7 +60,7 @@ const Produzieren = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[520px] overflow-hidden">
+      <section className="relative h-[75vh] overflow-hidden">
         <img
           src={produktionHero}
           alt="Mikrofon im Sendesaal Bremen – Musikproduktion"

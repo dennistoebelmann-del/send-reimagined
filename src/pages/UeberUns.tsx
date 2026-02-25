@@ -72,7 +72,7 @@ const UeberUns = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[480px] overflow-hidden">
+      <section className="relative h-[75vh] overflow-hidden">
         <img
           src={aboutHero}
           alt="Sendesaal Bremen Interior"
