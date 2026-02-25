@@ -194,7 +194,7 @@ const Mieten = () => {
         <OrangeBarsTransition />
 
         {/* Technische Daten Grid */}
-        <section className="pt-8 pb-24 md:pb-32">
+        <section className="pt-20 pb-24 md:pb-32">
           <div className="container mx-auto px-6 md:px-16">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
