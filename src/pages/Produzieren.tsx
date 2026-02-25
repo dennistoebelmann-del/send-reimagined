@@ -125,7 +125,7 @@ const Produzieren = () => {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="rounded-2xl overflow-hidden"
+                className="overflow-hidden"
               >
                 <img
                   src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=600&fit=crop"
@@ -145,7 +145,7 @@ const Produzieren = () => {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="rounded-2xl overflow-hidden order-2 lg:order-1"
+                className="overflow-hidden order-2 lg:order-1"
               >
                 <img
                   src="https://images.unsplash.com/photo-1519683109079-d5f539e1542f?w=800&h=600&fit=crop"
@@ -208,7 +208,7 @@ const Produzieren = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-black rounded-2xl p-8 flex flex-col items-center text-center"
+                  className="bg-black p-8 flex flex-col items-center text-center"
                 >
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
                     <fact.icon className="w-7 h-7 text-primary" />
@@ -232,7 +232,7 @@ const Produzieren = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-[780px] mx-auto bg-card rounded-2xl p-8 md:p-12"
+              className="max-w-[780px] mx-auto bg-card p-8 md:p-12"
             >
               <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-light text-foreground">Planen Sie Ihre Produktion.</h2>
@@ -267,7 +267,7 @@ const Produzieren = () => {
                         aria-required="true"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-muted border-border text-foreground font-light h-12 rounded-xl placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
+                        className="bg-muted border-border text-foreground font-light h-12 placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="Ihr Name"
                       />
                     </div>
@@ -281,7 +281,7 @@ const Produzieren = () => {
                         aria-required="true"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-muted border-border text-foreground font-light h-12 rounded-xl placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
+                        className="bg-muted border-border text-foreground font-light h-12 placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="ihre@email.de"
                       />
                     </div>
@@ -298,7 +298,7 @@ const Produzieren = () => {
                         aria-required="true"
                         value={formData.betreff}
                         onChange={(e) => setFormData({ ...formData, betreff: e.target.value })}
-                        className="bg-muted border-border text-foreground font-light h-12 rounded-xl placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
+                        className="bg-muted border-border text-foreground font-light h-12 placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
                         placeholder="Betreff Ihrer Anfrage"
                       />
                     </div>
@@ -309,7 +309,7 @@ const Produzieren = () => {
                         value={formData.anfragetyp}
                         onValueChange={(value) => setFormData({ ...formData, anfragetyp: value })}
                       >
-                        <SelectTrigger className="bg-muted border-border text-foreground font-light h-12 rounded-xl focus:ring-primary">
+                        <SelectTrigger className="bg-muted border-border text-foreground font-light h-12 focus:ring-primary">
                           <SelectValue placeholder="Bitte wählen" />
                         </SelectTrigger>
                         <SelectContent>
@@ -331,7 +331,7 @@ const Produzieren = () => {
                       aria-required="true"
                       value={formData.nachricht}
                       onChange={(e) => setFormData({ ...formData, nachricht: e.target.value })}
-                      className="bg-muted border-border text-foreground font-light rounded-xl placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary resize-none"
+                      className="bg-muted border-border text-foreground font-light placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary resize-none"
                       placeholder="Ihre Nachricht an uns..."
                     />
                   </div>
