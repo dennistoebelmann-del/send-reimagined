@@ -192,7 +192,7 @@ const UeberUns = () => {
         <OrangeBarsTransition />
 
         {/* Team Section */}
-        <section id="team" className="pt-8 pb-24 md:pb-32">
+        <section id="team" className="pt-20 pb-24 md:pb-32">
           <div className="container mx-auto px-6">
             <SectionHeader title="Das Team" subtitle="Menschen, die den Sendesaal mit Leben füllen." />
 
@@ -285,7 +285,7 @@ const UeberUns = () => {
 
         {/* Akustik Section */}
         <section id="akustik" className="bg-gray-200">
-          <div className="pt-8 pb-24 md:pb-32">
+          <div className="pt-20 pb-24 md:pb-32">
             <div className="container mx-auto px-6">
               <SectionHeader title="Akustik & Technik" subtitle="Eine der besten Akustiken Deutschlands – seit 1952" />
 
@@ -362,7 +362,7 @@ const UeberUns = () => {
         <OrangeBarsTransition />
 
         {/* Partner Section */}
-        <section id="partner" className="pt-8 pb-24 md:pb-32">
+        <section id="partner" className="pt-20 pb-24 md:pb-32">
           <div className="container mx-auto px-6">
             <SectionHeader title="Partner & Förderer" subtitle="Gemeinsam für die Kultur" />
 
