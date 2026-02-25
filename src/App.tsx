@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AmbientBackground from "./components/AmbientBackground";
 import Index from "./pages/Index";
 import Programm from "./pages/Programm";
 import UeberUns from "./pages/UeberUns";
@@ -19,6 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <AmbientBackground />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
