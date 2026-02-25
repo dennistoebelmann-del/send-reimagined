@@ -396,7 +396,7 @@ const UeberUns = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer variant="dark" />
     </div>
   );
 };

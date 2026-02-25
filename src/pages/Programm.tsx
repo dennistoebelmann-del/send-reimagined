@@ -261,7 +261,7 @@ const Programm = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer variant="dark" />
     </div>
   );
 };
