@@ -613,6 +613,51 @@ END:VCALENDAR`;
         </div>
       </section>
 
+      {/* Ticket Partners */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-6 md:px-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto text-center"
+          >
+            <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Vorverkauf</p>
+            <h2 className="text-2xl md:text-3xl font-light text-black mb-8">
+              Alternativ Tickets bei unseren Partnern kaufen
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <a
+                href="https://www.venticks.de"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-4 border border-gray-200 px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all"
+              >
+                <div className="text-left">
+                  <p className="font-medium text-black group-hover:text-primary transition-colors">venticks</p>
+                  <p className="text-sm text-gray-500">Online-Vorverkauf</p>
+                </div>
+                <ExternalLink size={18} className="text-gray-400 group-hover:text-primary transition-colors flex-shrink-0" />
+              </a>
+
+              <a
+                href="https://www.nordwest-ticket.de"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-4 border border-gray-200 px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all"
+              >
+                <div className="text-left">
+                  <p className="font-medium text-black group-hover:text-primary transition-colors">Nordwest Ticket</p>
+                  <p className="text-sm text-gray-500">Vorverkauf & Abendkasse</p>
+                </div>
+                <ExternalLink size={18} className="text-gray-400 group-hover:text-primary transition-colors flex-shrink-0" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Related Events */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-6 md:px-16">
