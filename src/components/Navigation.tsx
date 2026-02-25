@@ -38,7 +38,7 @@ const Navigation = () => {
   const navLinks = [
     { name: "Programm", href: "/programm" },
     { name: "Tickets", href: "/tickets" },
-    { name: "Mieten", href: "#mieten" },
+    { name: "Mieten", href: "/mieten" },
     { name: "Produzieren", href: "#produzieren" },
     { name: "Unterstützen", href: "#unterstuetzen" },
     { name: "Über uns", href: "/ueber-uns" },
@@ -63,7 +63,7 @@ const Navigation = () => {
               <img 
                 src={sendesaalLogo} 
                 alt="Sendesaal Bremen" 
-                className="h-10 md:h-12 w-auto transition-all duration-300"
+                className="h-12 md:h-14 w-auto transition-all duration-300"
                 style={useDarkStyle ? { filter: 'brightness(0)' } : {}}
               />
             </div>
@@ -76,7 +76,7 @@ const Navigation = () => {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={`px-6 py-4 font-bold text-[16px] transition-colors ${
+                  className={`px-6 py-4 font-medium text-[16px] transition-colors ${
                     useDarkStyle ? "text-black hover:text-[#E47C03]" : "text-white hover:text-[#E47C03]"
                   }`}
                 >
@@ -86,7 +86,7 @@ const Navigation = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-6 py-4 font-bold text-[16px] transition-colors ${
+                  className={`px-6 py-4 font-medium text-[16px] transition-colors ${
                     useDarkStyle ? "text-black hover:text-[#E47C03]" : "text-white hover:text-[#E47C03]"
                   }`}
                 >
@@ -125,7 +125,7 @@ const Navigation = () => {
                   <Link
                     key={link.name}
                     to={link.href}
-                    className="text-base font-bold text-black hover:text-[#E47C03] transition-colors py-2"
+                    className="text-base font-medium text-black hover:text-[#E47C03] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -134,7 +134,7 @@ const Navigation = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-base font-bold text-black hover:text-[#E47C03] transition-colors py-2"
+                    className="text-base font-medium text-black hover:text-[#E47C03] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
