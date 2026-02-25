@@ -4,9 +4,11 @@ import sendesaalLogo from "@/assets/sendesaal-logo.svg";
 
 interface FooterProps {
   variant?: "light" | "dark";
+  /** Background color of the section above the footer, used for the concave curve flanks */
+  sectionAbove?: "white" | "black";
 }
 
-const Footer = ({ variant = "light" }: FooterProps) => {
+const Footer = ({ variant = "light", sectionAbove }: FooterProps) => {
   const isDark = variant === "dark";
 
   const footerLinks = {
@@ -32,20 +34,28 @@ const Footer = ({ variant = "light" }: FooterProps) => {
   return (
     <footer className={isDark ? "bg-black text-white" : "bg-white text-black"}>
       {/* Concave curve at top */}
-      <div className={`relative h-24 overflow-hidden ${isDark ? "bg-white" : "bg-black"}`}>
-        <div className={`absolute -bottom-[100px] left-1/2 -translate-x-1/2 w-[120%] h-[200px] rounded-[50%] ${isDark ? "bg-black" : "bg-white"}`} />
-        
-        {/* Orange bars */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-[10px] z-10">
-          {[45, 38, 32, 28, 28, 32, 38, 45].map((height, i) => (
-            <div
-              key={i}
-              className="w-[5px] bg-primary rounded-sm"
-              style={{ height: `${height}px` }}
-            />
-          ))}
-        </div>
-      </div>
+      {(() => {
+        const flankColor = sectionAbove 
+          ? (sectionAbove === "white" ? "bg-white" : "bg-black")
+          : (isDark ? "bg-white" : "bg-black");
+        const revealColor = isDark ? "bg-black" : "bg-white";
+        return (
+          <div className={`relative h-24 overflow-hidden ${flankColor}`}>
+            <div className={`absolute -bottom-[100px] left-1/2 -translate-x-1/2 w-[120%] h-[200px] rounded-[50%] ${revealColor}`} />
+            
+            {/* Orange bars */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-[10px] z-10">
+              {[45, 38, 32, 28, 28, 32, 38, 45].map((height, i) => (
+                <div
+                  key={i}
+                  className="w-[5px] bg-primary rounded-sm"
+                  style={{ height: `${height}px` }}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })()}
 
       <div className="container mx-auto px-6 md:px-16 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">

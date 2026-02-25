@@ -696,7 +696,7 @@ END:VCALENDAR`;
       {/* Spacer for sticky bar */}
       <div className="h-24" />
 
-      <Footer />
+      <Footer sectionAbove="white" />
     </div>
   );
 };
