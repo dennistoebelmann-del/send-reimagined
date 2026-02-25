@@ -45,7 +45,7 @@ const Mieten = () => {
     name: "",
     email: "",
     betreff: "",
-    anfragetyp: "",
+    anfragetyp: "mieten",
     nachricht: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -245,7 +245,7 @@ const Mieten = () => {
               className="max-w-[780px] mx-auto"
             >
               <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-light text-foreground">Kontakt &amp; Anfrage</h2>
+                <h2 className="text-4xl md:text-5xl font-light text-foreground">Ihre Veranstaltung im Sendesaal.</h2>
                 <div className="mt-4 flex items-center justify-center gap-6">
                   <div className="w-10 h-px bg-primary" />
                   <p className="text-muted-foreground text-lg md:text-xl font-light">
