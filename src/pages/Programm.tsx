@@ -149,31 +149,8 @@ const Programm = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Hero Section - Compact */}
-      <section className="relative h-[50vh] overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src={heroConcertHall}
-            alt="Sendesaal Bremen Concert Hall"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Top gradient for navbar visibility */}
-          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/50 to-transparent" />
-        </div>
-
-        {/* White Curved Bottom Edge */}
-        <div className="absolute bottom-0 left-0 right-0 z-10">
-          <svg 
-            viewBox="0 0 1440 100" 
-            preserveAspectRatio="none" 
-            className="w-full h-[80px] md:h-[100px]"
-            fill="white"
-          >
-            <ellipse cx="720" cy="100" rx="900" ry="100" />
-          </svg>
-        </div>
-      </section>
+      {/* Spacer for fixed navigation */}
+      <div className="h-24" />
 
       {/* Programm Section */}
       <section className="pt-8 md:pt-12 pb-16 md:pb-24 bg-white">
