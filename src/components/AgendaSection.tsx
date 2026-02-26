@@ -2,9 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, MapPin } from "lucide-react";
-import jazzImage from "@/assets/event-jazz.jpg";
-import classicalImage from "@/assets/event-classical.jpg";
-import experimentalImage from "@/assets/event-experimental.jpg";
+import eventFireOrchestra from "@/assets/event-fire-orchestra.jpg";
+import eventTingvallTrio from "@/assets/event-tingvall-trio.jpg";
+import eventEsbjornMemorial from "@/assets/event-esbjorn-memorial.jpg";
+import eventKammermusik from "@/assets/event-kammermusik.jpg";
+import eventKlavierRezital from "@/assets/event-klavier-rezital.jpg";
+import eventBarockeNacht from "@/assets/event-barocke-nacht.jpg";
 
 const AgendaSection = () => {
   const [activeFilter, setActiveFilter] = useState("alle");
@@ -13,63 +16,69 @@ const AgendaSection = () => {
 
   const events = [
     {
+      id: 1,
       title: "Fire! Orchestra",
       artist: "Mats Gustafsson & Ensemble",
       description: "Grootse improvisatie en energie door dit orkest met strijkers, blazers, ritmesectie en elektronica.",
       date: "Samstag, 6. Dezember 2025",
       time: "20",
       location: "Sendesaal Bremen",
-      image: jazzImage,
+      image: eventFireOrchestra,
       category: "jazz",
     },
     {
+      id: 2,
       title: "Tingvall Trio",
       artist: "Martin Tingvall, Omar Rodriguez Calvo, Jürgen Spiegel",
       description: "Nordischer Jazz trifft auf klassische Einflüsse – melodisch, virtuos und voller Emotionen.",
       date: "Donnerstag, 9. Januar 2026",
       time: "20",
       location: "Sendesaal Bremen",
-      image: jazzImage,
+      image: eventTingvallTrio,
       category: "jazz",
     },
     {
+      id: 3,
       title: "Esbjörn Svensson Memorial",
       artist: "Dan Berglund & Magnus Öström",
       description: "Ein Abend zu Ehren des legendären schwedischen Pianisten mit seinen ehemaligen Bandkollegen.",
       date: "Freitag, 23. Januar 2026",
       time: "20",
       location: "Sendesaal Bremen",
-      image: jazzImage,
+      image: eventEsbjornMemorial,
       category: "jazz",
     },
     {
+      id: 4,
       title: "Kammermusik Abend",
       artist: "Quatuor Ébène",
       description: "Ein außergewöhnliches Streichquartett präsentiert Werke von Beethoven und Schubert in intimer Atmosphäre.",
       date: "Freitag, 13. Dezember 2025",
       time: "20",
       location: "Sendesaal Bremen",
-      image: classicalImage,
+      image: eventKammermusik,
       category: "klassik",
     },
     {
+      id: 5,
       title: "Klavier Rezital",
       artist: "Igor Levit",
       description: "Der preisgekrönte Pianist spielt Bachs Goldberg-Variationen in einer unvergesslichen Interpretation.",
       date: "Sonntag, 19. Januar 2026",
       time: "18",
       location: "Sendesaal Bremen",
-      image: classicalImage,
+      image: eventKlavierRezital,
       category: "klassik",
     },
     {
+      id: 6,
       title: "Barocke Nacht",
       artist: "Concerto Köln",
       description: "Vivaldi, Bach und Händel in authentischer Aufführungspraxis mit historischen Instrumenten.",
       date: "Samstag, 8. Februar 2026",
       time: "20",
       location: "Sendesaal Bremen",
-      image: classicalImage,
+      image: eventBarockeNacht,
       category: "klassik",
     },
   ];
@@ -162,10 +171,11 @@ const AgendaSection = () => {
               {/* Right: Buttons */}
               <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-[180px]">
                 <Button 
+                  asChild
                   variant="outline"
                   className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-white border-white hover:bg-white/10 bg-transparent"
                 >
-                  Details
+                  <Link to={`/event/${event.id}`}>Details</Link>
                 </Button>
                 <Button 
                   className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white border border-white"
