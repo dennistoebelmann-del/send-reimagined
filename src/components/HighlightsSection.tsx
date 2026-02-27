@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import jazzImage from "@/assets/event-jazz.jpg";
 import classicalImage from "@/assets/event-classical.jpg";
 import experimentalImage from "@/assets/event-experimental.jpg";
@@ -5,6 +6,7 @@ import experimentalImage from "@/assets/event-experimental.jpg";
 const HighlightsSection = () => {
   const highlights = [
     {
+      id: "1",
       title: "Fire! Orchestra",
       subtitle: "Mats Gustafsson & Ensemble",
       category: "Jazz",
@@ -12,6 +14,7 @@ const HighlightsSection = () => {
       image: jazzImage,
     },
     {
+      id: "4",
       title: "Streichquartett",
       subtitle: "Quatuor Ébène",
       category: "Klassik",
@@ -19,6 +22,7 @@ const HighlightsSection = () => {
       image: classicalImage,
     },
     {
+      id: "7",
       title: "Electronic Live",
       subtitle: "Various Artists",
       category: "Experimental",
@@ -41,7 +45,7 @@ const HighlightsSection = () => {
         {/* Event Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {highlights.map((event, index) => (
-            <div key={index} className="group cursor-pointer">
+            <Link key={index} to={`/event/${event.id}`} className="group cursor-pointer block">
               <div className="relative overflow-visible bg-black aspect-[365/595] flex flex-col">
                 {/* Category Tag - 50% above card */}
                 <div className="absolute -top-5 z-10 bg-black px-4 py-2.5 -left-4">
@@ -72,7 +76,7 @@ const HighlightsSection = () => {
                   <p className="text-white/70 text-xl font-normal">{event.subtitle}</p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
