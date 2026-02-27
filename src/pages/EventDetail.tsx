@@ -18,6 +18,7 @@ import eventKammermusik from "@/assets/event-kammermusik.jpg";
 import eventKlavierRezital from "@/assets/event-klavier-rezital.jpg";
 import eventBarockeNacht from "@/assets/event-barocke-nacht.jpg";
 import eventGitarrenrecital from "@/assets/event-gitarrenrecital.jpg";
+import eventExperimental from "@/assets/event-experimental.jpg";
 
 // Mock event data
 const eventsData: Record<string, EventData> = {
@@ -202,6 +203,35 @@ Die historischen Instrumente und die historisch informierte Aufführungspraxis l
       {
         text: "Concerto Köln spielt, als wäre der Barock gestern erfunden worden.",
         source: "Frankfurter Rundschau"
+      }
+    ],
+    youtubeId: "dQw4w9WgXcQ"
+  },
+  "7": {
+    id: 7,
+    title: "Electronic Live",
+    artist: "Various Artists",
+    category: "Experimental @ Sendesaal",
+    date: "Sa, 20. Dez 2025",
+    time: "21:00",
+    price: "28,00 €",
+    image: eventExperimental,
+    isExternalTicket: false,
+    admission: "20:00 Uhr",
+    duration: "ca. 3 Stunden",
+    pause: "Keine",
+    organizer: "Sendesaal Bremen e.V.",
+    series: "Klangexperimente",
+    leadText: "Ein Abend an der Schnittstelle von elektronischer Musik, Klangkunst und Live-Performance. Drei Künstler verwandeln den Sendesaal in einen Resonanzraum für neue Klänge.",
+    description: `Electronic Live vereint drei herausragende Positionen der zeitgenössischen elektronischen Musik. Der historische Sendesaal wird zur Bühne für Klangexperimente, die die Grenzen zwischen Komposition und Improvisation, zwischen analoger und digitaler Klangerzeugung ausloten.
+
+Die einzigartige Akustik des ehemaligen Funkhauses bietet einen idealen Rahmen für diese Musik, die Raum braucht – zum Atmen, zum Nachklingen, zum Wirken. Modulare Synthesizer treffen auf Field Recordings, algorithmische Kompositionen auf organische Texturen.
+
+Ein Abend für alle, die Musik jenseits der Konventionen suchen und bereit sind, sich auf eine akustische Reise einzulassen, deren Ziel erst im Moment der Aufführung entsteht.`,
+    quotes: [
+      {
+        text: "Ein Ort, an dem elektronische Musik endlich den Raum bekommt, den sie verdient.",
+        source: "Spex Magazin"
       }
     ],
     youtubeId: "dQw4w9WgXcQ"
