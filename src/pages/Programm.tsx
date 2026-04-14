@@ -98,31 +98,7 @@ const events = [
   },
 ];
 
-// Collage columns for Vielfalt erleben section
-const columns = [
-  [
-    { src: orchestraImg, height: "h-[185px]" },
-    { src: saxophoneImg, height: "h-[235px]" },
-    { src: celloImg, height: "h-[235px]" },
-    { src: pianoImg, height: "h-[235px]" },
-  ],
-  [
-    { src: audienceImg, height: "h-[350px]" },
-    { src: orchestraImg, height: "h-[235px]" },
-    { src: saxophoneImg, height: "h-[235px]" },
-  ],
-  [
-    { src: violinImg, height: "h-[235px]" },
-    { src: drumsImg, height: "h-[350px]" },
-    { src: audienceImg, height: "h-[235px]" },
-  ],
-  [
-    { src: pianoImg, height: "h-[198px]" },
-    { src: experimentalImg, height: "h-[235px]" },
-    { src: violinImg, height: "h-[235px]" },
-    { src: drumsImg, height: "h-[235px]" },
-  ],
-];
+
 
 const Programm = () => {
   const [activeFilter, setActiveFilter] = useState("alle");
