@@ -48,8 +48,8 @@ const HighlightsSection = () => {
             <Link key={index} to={`/event/${event.id}`} className="group cursor-pointer block">
               <div className="relative overflow-visible bg-black aspect-[365/595] flex flex-col">
                 {/* Category Tag - 50% above card */}
-                <div className="absolute -top-5 z-10 bg-black px-4 py-2.5 -left-4">
-                  <span className="text-white text-xl font-bold">{event.category}</span>
+                <div className="absolute -top-5 z-10 bg-white px-4 py-2.5 -left-4">
+                  <span className="text-black text-xl font-bold">{event.category}</span>
                 </div>
                 
                 {/* Date Badge - directly below category */}
