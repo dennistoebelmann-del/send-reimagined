@@ -215,51 +215,6 @@ const Programm = () => {
         </section>
       )}
 
-      {/* Orange Bars Transition to Vielfalt Section */}
-      <OrangeBarsTransition />
-
-      {/* Vielfalt erleben Section */}
-      <section className="bg-white">
-        {/* Header */}
-        <div className="container mx-auto px-6 md:px-16 pt-16 md:pt-24">
-          <div className="text-center mb-8">
-            <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal mb-4">
-              Vielfalt erleben
-            </h2>
-            <p className="text-black text-base md:text-lg max-w-2xl mx-auto">
-              Von Klassik über Jazz bis zur Neuen Musik – entdecken Sie die ganze Bandbreite 
-              musikalischer Exzellenz im Sendesaal Bremen.
-            </p>
-          </div>
-        </div>
-
-        {/* Masonry Gallery */}
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-[10px] px-0">
-          {columns.map((column, colIndex) => (
-            <div key={colIndex} className="flex flex-col gap-[10px]">
-              {column.map((image, imgIndex) => (
-                <div key={imgIndex} className={`w-full ${image.height} overflow-hidden`}>
-                  <img
-                    src={image.src}
-                    alt=""
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        {/* CTA Button */}
-        <div className="container mx-auto px-6 md:px-16 py-16 text-center">
-          <Button 
-            asChild
-            className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-16 py-4 h-auto text-base"
-          >
-            <Link to="/ueber-uns">Über den Sendesaal</Link>
-          </Button>
-        </div>
-      </section>
 
       <Footer variant="dark" />
     </div>
