@@ -261,11 +261,19 @@ const EventCard = ({ event }: { event: Event }) => {
         >
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
-        <Button 
-          className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white"
-        >
-          {event.externalTicketing ? "Tickets (externer Veranstalter)" : "Tickets"}
-        </Button>
+        <div className="flex flex-col items-center">
+          <Button 
+            className="w-full lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white"
+          >
+            Tickets
+          </Button>
+          {event.externalTicketing && (
+            <span className="flex items-center gap-1.5 text-xs text-gray-500 mt-2">
+              <ExternalLink size={12} />
+              Externer Veranstalter
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
