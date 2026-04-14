@@ -108,7 +108,7 @@ const AgendaSection = () => {
               className={`px-8 py-4 text-base font-bold transition-all ${
                 activeFilter === filter.toLowerCase()
                   ? "bg-[#CF3D11] text-white"
-                  : "bg-transparent text-white hover:text-[#E47C03]"
+                  : "bg-transparent text-black hover:text-[#E47C03]"
               }`}
             >
               {filter}
@@ -123,7 +123,7 @@ const AgendaSection = () => {
               {/* Left: Image + Content */}
               <div className="flex flex-col md:flex-row gap-6 md:gap-12 flex-1">
                 {/* Image */}
-                <div className="w-full md:w-[300px] lg:w-[365px] h-[200px] md:h-[210px] flex-shrink-0 bg-gray-700">
+                <div className="w-full md:w-[300px] lg:w-[365px] h-[200px] md:h-[210px] flex-shrink-0 bg-gray-200">
                   <img
                     src={event.image}
                     alt={event.title}
@@ -134,35 +134,35 @@ const AgendaSection = () => {
                 {/* Content */}
                 <div className="flex-1 space-y-3">
                   {/* Meta info */}
-                  <div className="flex flex-wrap items-center gap-4 text-white text-sm md:text-base">
+                  <div className="flex flex-wrap items-center gap-4 text-black text-sm md:text-base">
                     <div className="flex items-center gap-2">
-                      <Calendar size={14} className="text-white" />
+                      <Calendar size={14} className="text-black" />
                       <span>{event.date}</span>
                     </div>
                     <div className="w-5 h-[1px] bg-[#E47C03]" />
                     <div className="flex items-center gap-2">
-                      <Clock size={14} className="text-white" />
+                      <Clock size={14} className="text-black" />
                       <span>{event.time} Uhr</span>
                     </div>
                     <div className="w-5 h-[1px] bg-[#E47C03]" />
                     <div className="flex items-center gap-2">
-                      <MapPin size={14} className="text-white" />
+                      <MapPin size={14} className="text-black" />
                       <span>{event.location}</span>
                     </div>
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-normal">
+                  <h3 className="text-[#CF3D11] text-2xl md:text-3xl lg:text-4xl font-normal">
                     {event.title}
                   </h3>
                   
                   {/* Artist */}
-                  <p className="text-white text-lg md:text-xl font-normal">
+                  <p className="text-black text-lg md:text-xl font-normal">
                     {event.artist}
                   </p>
                   
                   {/* Description */}
-                  <p className="text-white text-sm md:text-base font-normal">
+                  <p className="text-black text-sm md:text-base font-normal">
                     {event.description}
                   </p>
                 </div>
@@ -173,12 +173,12 @@ const AgendaSection = () => {
                 <Button 
                   asChild
                   variant="outline"
-                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-white border-white hover:bg-white/10 bg-transparent"
+                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-[#CF3D11] border-[#CF3D11] hover:bg-[#CF3D11]/10 bg-transparent"
                 >
                   <Link to={`/event/${event.id}`}>Details</Link>
                 </Button>
                 <Button 
-                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white border border-white"
+                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white"
                 >
                   Tickets
                 </Button>
@@ -191,7 +191,7 @@ const AgendaSection = () => {
         <div className="mt-16 text-center">
           <Button 
             asChild 
-            className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-16 py-4 h-auto text-base border border-white"
+            className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-16 py-4 h-auto text-base"
           >
             <Link to="/programm">Alle Konzerte ansehen</Link>
           </Button>
