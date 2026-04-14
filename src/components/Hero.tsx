@@ -89,7 +89,7 @@ const Hero = () => {
           viewBox="0 0 1440 100" 
           preserveAspectRatio="none" 
           className="w-full h-[80px] md:h-[100px]"
-          fill="white"
+          fill="black"
         >
           <ellipse cx="720" cy="100" rx="900" ry="100" />
         </svg>
