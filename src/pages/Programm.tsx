@@ -193,7 +193,7 @@ const Programm = () => {
                 onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
                 className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-16 py-4 h-auto text-base"
               >
-                Weitere Konzerte anzeigen
+                Weitere Veranstaltungen anzeigen
               </Button>
             </div>
           )}
