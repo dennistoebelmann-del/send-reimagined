@@ -14,16 +14,6 @@ import eventKammermusik from "@/assets/event-kammermusik.jpg";
 import eventKlavierRezital from "@/assets/event-klavier-rezital.jpg";
 import eventBarockeNacht from "@/assets/event-barocke-nacht.jpg";
 
-// Import collage images
-import orchestraImg from "@/assets/collage-orchestra.jpg";
-import saxophoneImg from "@/assets/collage-saxophone.jpg";
-import celloImg from "@/assets/collage-cello.jpg";
-import pianoImg from "@/assets/collage-piano.jpg";
-import experimentalImg from "@/assets/collage-experimental.jpg";
-import violinImg from "@/assets/collage-violin.jpg";
-import drumsImg from "@/assets/collage-drums.jpg";
-import audienceImg from "@/assets/collage-audience.jpg";
-import heroConcertHall from "@/assets/hero-concert-hall.jpg";
 
 const categories = [
   { id: "alle", label: "Alle" },
