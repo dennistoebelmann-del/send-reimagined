@@ -89,12 +89,12 @@ const AgendaSection = () => {
   ).slice(0, 6);
 
   return (
-    <section id="programm" className="py-16 md:py-24 bg-black">
+    <section id="programm" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-6 md:px-16">
         {/* Header */}
         <div className="flex items-center gap-4 mb-10">
           <div className="w-10 h-[1px] bg-[#E47C03]" />
-          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-normal">
+          <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
             Programm
           </h2>
         </div>

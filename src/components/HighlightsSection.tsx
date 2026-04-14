@@ -32,12 +32,12 @@ const HighlightsSection = () => {
   ];
 
   return (
-    <section className="pt-6 md:pt-10 pb-16 md:pb-24 bg-white">
+    <section className="pt-6 md:pt-10 pb-16 md:pb-24 bg-black">
       <div className="container mx-auto px-6 md:px-16">
         {/* Header */}
         <div className="flex items-center gap-4 mb-12">
           <div className="w-10 h-[1px] bg-[#E47C03]" />
-          <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-normal">
             Highlights
           </h2>
         </div>
