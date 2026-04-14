@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import OrangeBarsTransition from "@/components/OrangeBarsTransition";
 import { Button } from "@/components/ui/button";
 
 import eventFireOrchestra from "@/assets/event-fire-orchestra.jpg";
@@ -13,7 +11,6 @@ import eventEsbjornMemorial from "@/assets/event-esbjorn-memorial.jpg";
 import eventKammermusik from "@/assets/event-kammermusik.jpg";
 import eventKlavierRezital from "@/assets/event-klavier-rezital.jpg";
 import eventBarockeNacht from "@/assets/event-barocke-nacht.jpg";
-
 
 const categories = [
   { id: "alle", label: "Alle" },
@@ -27,6 +24,7 @@ const events = [
   {
     id: 1,
     date: "Samstag, 6. Dezember 2025",
+    month: "Dezember 2025",
     time: "20",
     location: "Sendesaal Bremen",
     title: "Fire! Orchestra",
@@ -37,32 +35,9 @@ const events = [
     externalTicketing: true,
   },
   {
-    id: 2,
-    date: "Donnerstag, 9. Januar 2026",
-    time: "20",
-    location: "Sendesaal Bremen",
-    title: "Tingvall Trio",
-    artist: "Martin Tingvall, Omar Rodriguez Calvo, Jürgen Spiegel",
-    description: "Nordischer Jazz trifft auf klassische Einflüsse – melodisch, virtuos und voller Emotionen.",
-    category: "jazz",
-    image: eventTingvallTrio,
-    externalTicketing: false,
-  },
-  {
-    id: 3,
-    date: "Freitag, 23. Januar 2026",
-    time: "20",
-    location: "Sendesaal Bremen",
-    title: "Esbjörn Svensson Memorial",
-    artist: "Dan Berglund & Magnus Öström",
-    description: "Ein Abend zu Ehren des legendären schwedischen Pianisten mit seinen ehemaligen Bandkollegen.",
-    category: "jazz",
-    image: eventEsbjornMemorial,
-    externalTicketing: true,
-  },
-  {
     id: 4,
     date: "Freitag, 13. Dezember 2025",
+    month: "Dezember 2025",
     time: "20",
     location: "Sendesaal Bremen",
     title: "Kammermusik Abend",
@@ -73,8 +48,22 @@ const events = [
     externalTicketing: false,
   },
   {
+    id: 2,
+    date: "Donnerstag, 9. Januar 2026",
+    month: "Januar 2026",
+    time: "20",
+    location: "Sendesaal Bremen",
+    title: "Tingvall Trio",
+    artist: "Martin Tingvall, Omar Rodriguez Calvo, Jürgen Spiegel",
+    description: "Nordischer Jazz trifft auf klassische Einflüsse – melodisch, virtuos und voller Emotionen.",
+    category: "jazz",
+    image: eventTingvallTrio,
+    externalTicketing: false,
+  },
+  {
     id: 5,
     date: "Sonntag, 19. Januar 2026",
+    month: "Januar 2026",
     time: "18",
     location: "Sendesaal Bremen",
     title: "Klavier Rezital",
@@ -85,8 +74,22 @@ const events = [
     externalTicketing: false,
   },
   {
+    id: 3,
+    date: "Freitag, 23. Januar 2026",
+    month: "Januar 2026",
+    time: "20",
+    location: "Sendesaal Bremen",
+    title: "Esbjörn Svensson Memorial",
+    artist: "Dan Berglund & Magnus Öström",
+    description: "Ein Abend zu Ehren des legendären schwedischen Pianisten mit seinen ehemaligen Bandkollegen.",
+    category: "jazz",
+    image: eventEsbjornMemorial,
+    externalTicketing: true,
+  },
+  {
     id: 6,
     date: "Samstag, 8. Februar 2026",
+    month: "Februar 2026",
     time: "20",
     location: "Sendesaal Bremen",
     title: "Barocke Nacht",
@@ -98,18 +101,34 @@ const events = [
   },
 ];
 
-
+const EVENTS_PER_PAGE = 10;
 
 const Programm = () => {
   const [activeFilter, setActiveFilter] = useState("alle");
+  const [visibleCount, setVisibleCount] = useState(EVENTS_PER_PAGE);
 
   const filteredEvents = events.filter((event) => {
     return activeFilter === "alle" || event.category === activeFilter;
   });
 
-  // Split events for orange bar divider (after first 3)
-  const firstGroup = filteredEvents.slice(0, 3);
-  const secondGroup = filteredEvents.slice(3);
+  const visibleEvents = filteredEvents.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredEvents.length;
+
+  // Group visible events by month
+  const groupedEvents: { month: string; events: typeof events }[] = [];
+  visibleEvents.forEach((event) => {
+    const lastGroup = groupedEvents[groupedEvents.length - 1];
+    if (lastGroup && lastGroup.month === event.month) {
+      lastGroup.events.push(event);
+    } else {
+      groupedEvents.push({ month: event.month, events: [event] });
+    }
+  });
+
+  const handleFilterChange = (id: string) => {
+    setActiveFilter(id);
+    setVisibleCount(EVENTS_PER_PAGE);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -133,7 +152,7 @@ const Programm = () => {
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setActiveFilter(cat.id)}
+                onClick={() => handleFilterChange(cat.id)}
                 className={`px-8 py-4 text-base font-bold transition-all ${
                   activeFilter === cat.id
                     ? "bg-[#CF3D11] text-white"
@@ -145,42 +164,41 @@ const Programm = () => {
             ))}
           </div>
 
-          {/* First Group of Events */}
-          <div className="space-y-12">
-            {firstGroup.map((event, index) => (
-              <EventCard key={event.id} event={event} />
+          {/* Grouped Events by Month */}
+          <div className="space-y-16">
+            {groupedEvents.map((group) => (
+              <div key={group.month}>
+                {/* Month Headline */}
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-10 h-[1px] bg-[#E47C03]" />
+                  <h3 className="text-black text-xl md:text-2xl lg:text-3xl font-normal">
+                    Veranstaltungen im {group.month}
+                  </h3>
+                </div>
+
+                {/* Events in this month */}
+                <div className="space-y-12">
+                  {group.events.map((event) => (
+                    <EventCard key={event.id} event={event} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Orange Bars Divider - only show if there are more events */}
-      {secondGroup.length > 0 && (
-        <OrangeBarsTransition />
-      )}
-
-      {/* Second Group of Events */}
-      {secondGroup.length > 0 && (
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-6 md:px-16">
-            <div className="space-y-12">
-              {secondGroup.map((event, index) => (
-                <EventCard key={event.id} event={event} />
-              ))}
-            </div>
-
-            {/* CTA Button */}
+          {/* Load More Button */}
+          {hasMore && (
             <div className="mt-16 text-center">
-              <Button 
+              <Button
+                onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
                 className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-16 py-4 h-auto text-base"
               >
-                Alle Konzerte ansehen
+                Weitere Konzerte anzeigen
               </Button>
             </div>
-          </div>
-        </section>
-      )}
-
+          )}
+        </div>
+      </section>
 
       <Footer variant="dark" />
     </div>
@@ -191,6 +209,7 @@ const Programm = () => {
 interface Event {
   id: number;
   date: string;
+  month: string;
   time: string;
   location: string;
   title: string;
@@ -268,8 +287,8 @@ const EventCard = ({ event }: { event: Event }) => {
             Tickets
           </Button>
           {event.externalTicketing && (
-            <span className="flex items-center gap-1.5 text-xs text-gray-500 mt-2">
-              <ExternalLink size={12} />
+            <span className="flex items-center gap-2 text-sm text-gray-600 mt-2">
+              <ExternalLink size={16} aria-hidden="true" />
               Externer Veranstalter
             </span>
           )}
