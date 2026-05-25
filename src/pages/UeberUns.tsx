@@ -243,15 +243,15 @@ const UeberUns = () => {
                   ermöglichen den Betrieb des Saals.
                 </p>
                 <div className="mt-8 flex gap-4">
-                  <div className="w-28 h-24 bg-[#CF3D11] flex flex-col items-center justify-center">
+                  <div className="w-28 h-24 bg-[#E17900] flex flex-col items-center justify-center">
                     <span className="text-white text-3xl font-bold">200+</span>
                     <span className="text-white text-sm">Mitglieder</span>
                   </div>
-                  <div className="w-28 h-24 bg-[#CF3D11] flex flex-col items-center justify-center">
+                  <div className="w-28 h-24 bg-[#E17900] flex flex-col items-center justify-center">
                     <span className="text-white text-3xl font-bold">50+</span>
                     <span className="text-white text-sm">Ehrenamtliche</span>
                   </div>
-                  <div className="w-28 h-24 bg-[#CF3D11] flex flex-col items-center justify-center">
+                  <div className="w-28 h-24 bg-[#E17900] flex flex-col items-center justify-center">
                     <span className="text-white text-3xl font-bold">18</span>
                     <span className="text-white text-sm">Jahre aktiv</span>
                   </div>
@@ -387,7 +387,7 @@ const UeberUns = () => {
               </p>
               <a
                 href="mailto:info@sendesaal.de"
-                className="inline-flex items-center gap-2 bg-[#CF3D11] text-white px-16 py-4 font-bold text-base hover:bg-[#CF3D11]/90 transition-colors"
+                className="inline-flex items-center gap-2 bg-[#E17900] text-white px-16 py-4 font-bold text-base hover:bg-[#E17900]/90 transition-colors"
               >
                 Kontakt aufnehmen
               </a>

@@ -57,7 +57,7 @@ const Hero = () => {
           >
             <Button 
               asChild 
-              className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold uppercase tracking-wide px-8 py-4 h-auto text-base border border-white"
+              className="bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold uppercase tracking-wide px-8 py-4 h-auto text-base border border-white"
             >
               <Link to="/programm">Programm</Link>
             </Button>

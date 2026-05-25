@@ -107,7 +107,7 @@ const AgendaSection = () => {
               onClick={() => setActiveFilter(filter.toLowerCase())}
               className={`px-8 py-4 text-base font-bold transition-all ${
                 activeFilter === filter.toLowerCase()
-                  ? "bg-[#CF3D11] text-white"
+                  ? "bg-[#E17900] text-white"
                   : "bg-transparent text-black hover:text-[#E47C03]"
               }`}
             >
@@ -152,7 +152,7 @@ const AgendaSection = () => {
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-[#CF3D11] text-2xl md:text-3xl lg:text-4xl font-normal">
+                  <h3 className="text-[#E17900] text-2xl md:text-3xl lg:text-4xl font-normal">
                     {event.title}
                   </h3>
                   
@@ -173,12 +173,12 @@ const AgendaSection = () => {
                 <Button 
                   asChild
                   variant="outline"
-                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-[#CF3D11] border-[#CF3D11] hover:bg-[#CF3D11]/10 bg-transparent"
+                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-[#E17900] border-[#E17900] hover:bg-[#E17900]/10 bg-transparent"
                 >
                   <Link to={`/event/${event.id}`}>Details</Link>
                 </Button>
                 <Button 
-                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white"
+                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-white"
                 >
                   Tickets
                 </Button>
@@ -191,7 +191,7 @@ const AgendaSection = () => {
         <div className="mt-16 text-center">
           <Button 
             asChild 
-            className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-16 py-4 h-auto text-base"
+            className="bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-16 py-4 h-auto text-base"
           >
             <Link to="/programm">Alle Konzerte ansehen</Link>
           </Button>

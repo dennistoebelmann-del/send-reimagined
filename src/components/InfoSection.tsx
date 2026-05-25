@@ -94,7 +94,7 @@ const InfoSection = () => {
       {/* CTA Button */}
       <div className="container mx-auto px-6 md:px-16 py-16 text-center">
         <Button 
-          className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-16 py-4 h-auto text-base"
+          className="bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-16 py-4 h-auto text-base"
         >
           Über den Sendesaal
         </Button>

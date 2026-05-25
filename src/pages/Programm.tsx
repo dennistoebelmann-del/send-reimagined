@@ -233,7 +233,7 @@ const Programm = () => {
                 onClick={() => handleFilterChange(cat.id)}
                 className={`px-8 py-4 text-base font-bold transition-all ${
                   activeFilter === cat.id
-                    ? "bg-[#CF3D11] text-white"
+                    ? "bg-[#E17900] text-white"
                     : "bg-transparent text-black hover:text-[#E47C03]"
                 }`}
               >
@@ -269,7 +269,7 @@ const Programm = () => {
             <div className="mt-16 text-center">
               <Button
                 onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
-                className="bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-16 py-4 h-auto text-base"
+                className="bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-16 py-4 h-auto text-base"
               >
                 Weitere Veranstaltungen anzeigen
               </Button>
@@ -333,7 +333,7 @@ const EventCard = ({ event }: { event: Event }) => {
           </div>
           
           {/* Title */}
-          <h3 className="text-[#CF3D11] text-2xl md:text-3xl lg:text-4xl font-normal">
+          <h3 className="text-[#E17900] text-2xl md:text-3xl lg:text-4xl font-normal">
             {event.title}
           </h3>
           
@@ -354,13 +354,13 @@ const EventCard = ({ event }: { event: Event }) => {
         <Button 
           asChild
           variant="outline"
-          className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-[#CF3D11] border-[#CF3D11] hover:bg-[#CF3D11]/10 bg-transparent"
+          className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-[#E17900] border-[#E17900] hover:bg-[#E17900]/10 bg-transparent"
         >
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <div className="flex flex-col items-center">
           <Button 
-            className="w-full lg:w-[180px] h-[52px] font-bold text-base bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white"
+            className="w-full lg:w-[180px] h-[52px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-white"
           >
             Tickets
           </Button>

@@ -112,7 +112,7 @@ const Navigation = () => {
             ))}
             <Button 
               asChild 
-              className="ml-4 bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
+              className="ml-4 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
             >
               <Link to="/programm">Tickets</Link>
             </Button>
@@ -159,7 +159,7 @@ const Navigation = () => {
               ))}
               <Button 
                 asChild 
-                className="w-full mt-4 bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold py-4 h-auto"
+                className="w-full mt-4 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold py-4 h-auto"
               >
                 <Link to="/programm" onClick={() => setIsMenuOpen(false)}>Tickets</Link>
               </Button>
