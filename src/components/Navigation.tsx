@@ -60,7 +60,7 @@ const Navigation = () => {
           className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/80 via-black/40 to-transparent"
         />
       )}
-      <nav className="container mx-auto px-6 md:px-16 py-4">
+      <nav className="relative container mx-auto px-6 md:px-16 py-4">
         <div className="flex items-center justify-between">
           {/* Logo - black background when transparent, black filter when scrolled */}
           <Link to="/" className="flex items-start -mt-4">
