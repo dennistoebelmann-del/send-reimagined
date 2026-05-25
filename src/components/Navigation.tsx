@@ -54,7 +54,13 @@ const Navigation = () => {
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}
     >
-      <nav className="container mx-auto px-6 md:px-16 py-4">
+      {!useDarkStyle && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/80 via-black/40 to-transparent"
+        />
+      )}
+      <nav className="relative container mx-auto px-6 md:px-16 py-4">
         <div className="flex items-center justify-between">
           {/* Logo - black background when transparent, black filter when scrolled */}
           <Link to="/" className="flex items-start -mt-4">
@@ -73,7 +79,7 @@ const Navigation = () => {
                   src={sendesaalLogo}
                   alt="Sendesaal Bremen"
                   className="h-12 md:h-14 w-auto transition-all duration-300"
-                  style={{ filter: 'drop-shadow(0 2px 12px rgba(0,0,0,0.7)) drop-shadow(0 1px 3px rgba(0,0,0,0.5))' }}
+                  style={{ filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.85)) drop-shadow(0 2px 6px rgba(0,0,0,0.7))' }}
                 />
               </div>
             )}
