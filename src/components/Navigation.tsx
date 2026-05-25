@@ -58,14 +58,25 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo - black background when transparent, black filter when scrolled */}
           <Link to="/" className="flex items-start -mt-4">
-            <div className={`transition-all duration-300 px-4 pb-3 pt-4 rounded-b-md ${useDarkStyle ? 'bg-white' : 'bg-black'}`}>
-              <img 
-                src={sendesaalLogo} 
-                alt="Sendesaal Bremen" 
-                className="h-12 md:h-14 w-auto transition-all duration-300"
-                style={useDarkStyle ? { filter: 'brightness(0)' } : {}}
-              />
-            </div>
+            {useDarkStyle ? (
+              <div className="transition-all duration-300 px-4 pb-3 pt-4 rounded-b-md bg-white">
+                <img
+                  src={sendesaalLogo}
+                  alt="Sendesaal Bremen"
+                  className="h-12 md:h-14 w-auto transition-all duration-300"
+                  style={{ filter: 'brightness(0)' }}
+                />
+              </div>
+            ) : (
+              <div className="transition-all duration-300 px-4 pb-3 pt-4">
+                <img
+                  src={sendesaalLogo}
+                  alt="Sendesaal Bremen"
+                  className="h-12 md:h-14 w-auto transition-all duration-300"
+                  style={{ filter: 'drop-shadow(0 2px 12px rgba(0,0,0,0.7)) drop-shadow(0 1px 3px rgba(0,0,0,0.5))' }}
+                />
+              </div>
+            )}
           </Link>
 
           {/* Desktop Navigation + CTA */}

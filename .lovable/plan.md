@@ -1,21 +1,22 @@
+## Ziel
 
+Das schwarze Kästchen um das Sendesaal-Logo in der Navigation auf der Homepage entfernen. Das Logo schwebt frei über dem Hero-Video, bleibt weiß und erhält einen weichen Drop-Shadow für Lesbarkeit. Der Sticky-Zustand (beim Scrollen) bleibt unverändert: weiße Leiste mit schwarzem Logo.
 
-## Buttons "Teilen" und "Kalender" auf den Event-Detailseiten aufhübschen
+## Umsetzung
 
-**Problem:** Die beiden Buttons "Teilen" und "Zum Kalender hinzufügen" sehen aktuell wie große schwarze Balken aus und sind visuell nicht einladend.
+Datei: `src/components/Navigation.tsx`
 
-**Lösung:** Die Buttons werden als dezente, transparente Text-Links mit Icon gestaltet – ohne Rahmen, ohne dunklen Hintergrund. Sie bekommen die Sendesaal-Orange-Farbe als Akzent beim Hover.
+1. Im Logo-Wrapper (`<Link to="/">`) das schwarze Kästchen entfernen:
+   - Den umschließenden `<div>` mit `bg-black`/`bg-white`, Padding und `rounded-b-md` im Nicht-Sticky-Zustand auf der Homepage weglassen.
+   - Im Sticky-Zustand und auf Unterseiten bleibt das weiße Feld mit Padding wie bisher bestehen.
+2. Im transparenten Zustand (Homepage, nicht gescrollt):
+   - Logo direkt rendern, weiß (kein Brightness-Filter).
+   - Drop-Shadow via Tailwind `drop-shadow-lg` oder eigene Utility (z.B. `filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]`) für Lesbarkeit über hellen Videoframes.
+3. Logo-Größe (`h-12 md:h-14`) und negative Top-Margin werden so angepasst, dass das Logo sauber an der oberen Kante sitzt, ohne Lasche.
+4. Sticky-Zustand und mobile Menü-States bleiben optisch identisch.
 
-### Technische Umsetzung
+## Out of Scope
 
-**Datei: `src/pages/EventDetail.tsx` (Zeilen 455-473)**
-
-Die beiden `<Button>`-Elemente werden umgestaltet:
-- `variant="ghost"` statt `variant="outline"` 
-- Kleinere Höhe (`h-auto py-2` statt `h-12`)
-- Text in Grau (`text-gray-500`) mit Orange-Hover (`hover:text-[#CF3D11]`)
-- Kein Border, kein dunkler Hintergrund
-- Kompaktere Darstellung als schlichte Text-Links mit Icon
-
-So passen sie sich harmonisch in die Sidebar ein und sind trotzdem klar als interaktive Elemente erkennbar.
-
+- Keine Änderung am Logo-SVG selbst.
+- Keine Änderungen an den anderen Navigationspunkten oder am Tickets-Button.
+- Keine Änderung an Unterseiten (dort weiterhin wie heute).
