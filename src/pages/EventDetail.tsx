@@ -311,7 +311,7 @@ const EventDetail = () => {
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-black mb-4">Event nicht gefunden</h1>
-          <Link to="/programm" className="text-[#CF3D11] hover:underline">
+          <Link to="/programm" className="text-[#E17900] hover:underline">
             Zurück zum Programm
           </Link>
         </div>
@@ -427,13 +427,13 @@ END:VCALENDAR`;
             {/* Left Sidebar - Hard Facts */}
             <div className="lg:col-span-1">
               <div className="lg:sticky lg:top-32 space-y-8">
-                <h3 className="text-xl font-medium text-black border-b-2 border-[#CF3D11] pb-2 inline-block">
+                <h3 className="text-xl font-medium text-black border-b-2 border-[#E17900] pb-2 inline-block">
                   Auf einen Blick
                 </h3>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <Users size={20} className="text-[#CF3D11] mt-1 flex-shrink-0" />
+                    <Users size={20} className="text-[#E17900] mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm text-gray-500 uppercase tracking-wide">Einlass</p>
                       <p className="text-black font-medium">{event.admission}</p>
@@ -441,7 +441,7 @@ END:VCALENDAR`;
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <Timer size={20} className="text-[#CF3D11] mt-1 flex-shrink-0" />
+                    <Timer size={20} className="text-[#E17900] mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm text-gray-500 uppercase tracking-wide">Dauer</p>
                       <p className="text-black font-medium">{event.duration}</p>
@@ -449,7 +449,7 @@ END:VCALENDAR`;
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <Coffee size={20} className="text-[#CF3D11] mt-1 flex-shrink-0" />
+                    <Coffee size={20} className="text-[#E17900] mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm text-gray-500 uppercase tracking-wide">Pause</p>
                       <p className="text-black font-medium">{event.pause}</p>
@@ -457,7 +457,7 @@ END:VCALENDAR`;
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <Building2 size={20} className="text-[#CF3D11] mt-1 flex-shrink-0" />
+                    <Building2 size={20} className="text-[#E17900] mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm text-gray-500 uppercase tracking-wide">Veranstalter</p>
                       <p className="text-black font-medium">{event.organizer}</p>
@@ -465,7 +465,7 @@ END:VCALENDAR`;
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <Ticket size={20} className="text-[#CF3D11] mt-1 flex-shrink-0" />
+                    <Ticket size={20} className="text-[#E17900] mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm text-gray-500 uppercase tracking-wide">Abo-Reihe</p>
                       <p className="text-black font-medium">{event.series}</p>
@@ -473,7 +473,7 @@ END:VCALENDAR`;
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <MapPin size={20} className="text-[#CF3D11] mt-1 flex-shrink-0" />
+                    <MapPin size={20} className="text-[#E17900] mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-sm text-gray-500 uppercase tracking-wide">Ort</p>
                       <p className="text-black font-medium">Sendesaal Bremen</p>
@@ -486,7 +486,7 @@ END:VCALENDAR`;
                 <div className="flex flex-col gap-2 pt-4">
                   <Button
                     variant="ghost"
-                    className="w-full justify-start gap-3 h-auto py-2 text-gray-500 hover:text-[#CF3D11] hover:bg-transparent"
+                    className="w-full justify-start gap-3 h-auto py-2 text-gray-500 hover:text-[#E17900] hover:bg-transparent"
                     onClick={handleShare}
                   >
                     <Share2 size={16} />
@@ -494,7 +494,7 @@ END:VCALENDAR`;
                   </Button>
                   <Button
                     variant="ghost"
-                    className="w-full justify-start gap-3 h-auto py-2 text-gray-500 hover:text-[#CF3D11] hover:bg-transparent"
+                    className="w-full justify-start gap-3 h-auto py-2 text-gray-500 hover:text-[#E17900] hover:bg-transparent"
                     onClick={handleCalendarExport}
                   >
                     <CalendarPlus size={16} />
@@ -547,7 +547,7 @@ END:VCALENDAR`;
                   {event.quotes.map((quote, index) => (
                     <blockquote
                       key={index}
-                      className="border-l-4 border-[#CF3D11] pl-6 py-2"
+                      className="border-l-4 border-[#E17900] pl-6 py-2"
                     >
                       <p className="text-lg md:text-xl italic text-gray-800 mb-2">
                         "{quote.text}"
@@ -709,11 +709,11 @@ END:VCALENDAR`;
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-                  <span className="absolute top-4 left-4 bg-[#CF3D11] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">
+                  <span className="absolute top-4 left-4 bg-[#E17900] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">
                     {relEvent.category}
                   </span>
                 </div>
-                <h3 className="text-xl font-normal text-black group-hover:text-[#CF3D11] transition-colors mb-1">
+                <h3 className="text-xl font-normal text-black group-hover:text-[#E17900] transition-colors mb-1">
                   {relEvent.title}
                 </h3>
                 <p className="text-gray-600 mb-2">{relEvent.artist}</p>
@@ -738,7 +738,7 @@ END:VCALENDAR`;
               </div>
               <div className="text-center sm:text-left sm:border-l sm:border-gray-300 sm:pl-4">
                 <p className="text-sm text-gray-500">ab</p>
-                <p className="text-xl md:text-2xl font-bold text-[#CF3D11]">{event.price}</p>
+                <p className="text-xl md:text-2xl font-bold text-[#E17900]">{event.price}</p>
               </div>
             </div>
 
@@ -746,7 +746,7 @@ END:VCALENDAR`;
             <div className="w-full sm:w-auto">
               {event.isExternalTicket ? (
                 <Button
-                  className="w-full sm:w-auto bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-8 py-6 h-auto text-base flex flex-col items-center gap-0"
+                  className="w-full sm:w-auto bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-6 h-auto text-base flex flex-col items-center gap-0"
                 >
                   <span className="flex items-center gap-2">
                     TICKETS BEI PARTNER KAUFEN
@@ -758,7 +758,7 @@ END:VCALENDAR`;
                 </Button>
               ) : (
                 <Button
-                  className="w-full sm:w-auto bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white font-bold px-12 py-6 h-auto text-base"
+                  className="w-full sm:w-auto bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-12 py-6 h-auto text-base"
                 >
                   PLÄTZE WÄHLEN
                 </Button>
