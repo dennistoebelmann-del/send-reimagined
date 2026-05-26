@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Users, Music, Accessibility, Lightbulb, Send } from "lucide-react";
+import { Users, Music, Accessibility, Lightbulb, Send, ArrowRight, Plus } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
@@ -8,6 +8,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -22,21 +30,49 @@ const hardFacts = [
     icon: Users,
     title: "Kapazität",
     description: "Bis zu 250 Personen",
+    details: [
+      "250 Sitzplätze im Saal",
+      "Flexible Bestuhlung möglich",
+      "Foyer für Empfänge bis 150 Personen",
+      "Garderobe mit ca. 250 Plätzen",
+    ],
   },
   {
     icon: Music,
     title: "Ausstattung",
     description: "Steinway D-Flügel, variable Akustik-Elemente, modernes Licht-Equipment",
+    details: [
+      "Steinway D-Flügel (D-274), regelmäßig gewartet",
+      "60 Orchesterstühle",
+      "50 Notenpulte",
+      "Dirigentenpult",
+      "Cembalo auf Anfrage",
+      "Beamer (Full HD) und mobile Leinwand (4×3 m)",
+    ],
   },
   {
     icon: Accessibility,
     title: "Barrierefreiheit",
     description: "Alle Räumlichkeiten sind barrierefrei zugänglich",
+    details: [
+      "Stufenloser Zugang über den Haupteingang",
+      "Aufzug zu allen Ebenen",
+      "Barrierefreie Sanitäranlagen",
+      "Rollstuhlplätze im Saal",
+      "Induktive Höranlage verfügbar",
+    ],
   },
   {
     icon: Lightbulb,
     title: "Technik",
     description: "Professionelle Ton- und Lichttechnik, Aufnahme­möglichkeiten",
+    details: [
+      "Professionelles Tonmischpult und PA-System",
+      "Drahtlose Mikrofone (Handheld & Headset)",
+      "Bühnen- und Saalbeleuchtung (LED, dimmbar)",
+      "Aufnahme­möglichkeiten direkt in die Regie",
+      "Streaming-Setup auf Anfrage",
+    ],
   },
 ];
 
@@ -50,6 +86,7 @@ const Mieten = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [equipmentOpen, setEquipmentOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
