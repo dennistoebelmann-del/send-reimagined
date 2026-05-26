@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Radio, Piano, SlidersHorizontal, Send } from "lucide-react";
+import { Radio, Piano, SlidersHorizontal, Send, Plus } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
@@ -8,6 +8,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -22,16 +30,38 @@ const techFacts = [
     icon: Radio,
     title: "Regie",
     description: "Modernste digitale und analoge Signalwege mit direkter Sichtverbindung in den Saal.",
+    details: [
+      "Pro Tools HDX-System mit 64 Ein-/Ausgängen",
+      "Hochwertige Mikrofonvorverstärker (Neumann, Schoeps, DPA)",
+      "Analoge und digitale Signalwege",
+      "Direkte Sichtverbindung zum Saal",
+      "Abhöre über Genelec-Studiomonitore",
+      "Talkback-System zum Saal",
+    ],
   },
   {
     icon: Piano,
     title: "Instrumente",
     description: "Steinway D-Flügel (D-274), regelmäßig gewartet und auf höchstem Niveau gestimmt.",
+    details: [
+      "Steinway D-Flügel (D-274), Konzertflügel",
+      "Cembalo auf Anfrage",
+      "60 Orchesterstühle, 50 Notenpulte",
+      "Dirigentenpult",
+      "Klavierstimmer kurzfristig verfügbar",
+    ],
   },
   {
     icon: SlidersHorizontal,
     title: "Variabilität",
     description: "Anpassbare Nachhallzeiten für verschiedene Besetzungen und musikalische Genres.",
+    details: [
+      "Variable Nachhallzeit von 1,4 bis 2,2 Sekunden",
+      "Verstellbare Akustik-Elemente an den Wänden",
+      "Geeignet für Solo bis großes Orchester",
+      "Bewährt für Klassik, Jazz, Pop und Filmmusik",
+      "Beratung durch erfahrene Tonmeister",
+    ],
   },
 ];
 
