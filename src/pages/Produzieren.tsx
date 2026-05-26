@@ -25,6 +25,13 @@ import {
 } from "@/components/ui/select";
 import produktionHero from "@/assets/produktion-hero.jpg";
 
+const acousticStats = [
+  { value: "1,8", unit: "Sek", label: "Nachhallzeit" },
+  { value: "340", unit: "m²", label: "Saalfläche" },
+  { value: "270", unit: "", label: "Sitzplätze" },
+  { value: "12", unit: "m", label: "Deckenhöhe" },
+];
+
 const techFacts = [
   {
     icon: Radio,
@@ -225,6 +232,94 @@ const Produzieren = () => {
                 <p className="text-black/80 text-base md:text-lg font-light leading-relaxed mt-4">
                   Der hervorragende Steinway D Konzertflügel (D-274) steht jederzeit bereit –
                   regelmäßig gewartet und auf höchstem Niveau gestimmt für Ihre Produktion.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <OrangeBarsTransition />
+
+        {/* Akustik & Technik */}
+        <section id="akustik" className="bg-gray-200">
+          <div className="pt-20 pb-24 md:pb-32">
+            <div className="container mx-auto px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <h2 className="text-4xl md:text-5xl font-light text-black">Akustik &amp; Technik</h2>
+                <div className="mt-4 flex items-center justify-center gap-6">
+                  <div className="w-10 h-px bg-primary" />
+                  <p className="text-black/70 text-lg md:text-xl font-light">
+                    Eine der besten Akustiken Deutschlands – seit 1952
+                  </p>
+                </div>
+              </motion.div>
+
+              <div className="relative max-w-[1100px] mx-auto mt-12">
+                <svg className="absolute pointer-events-none" viewBox="0 0 1600 280" preserveAspectRatio="none" style={{ top: "-50px", bottom: "-50px", left: "50%", transform: "translateX(-50%)", width: "100vw", height: "calc(100% + 100px)", position: "absolute" }}>
+                  {[
+                    "M0,30 Q400,240 800,120 Q1200,0 1600,200",
+                    "M0,70 Q500,270 800,100 Q1100,-40 1600,170",
+                    "M0,200 Q300,-10 800,160 Q1300,300 1600,70",
+                    "M0,250 Q450,40 800,180 Q1150,300 1600,110",
+                    "M0,140 Q350,280 800,140 Q1250,0 1600,140",
+                  ].map((d, i) => (
+                    <motion.path
+                      key={i}
+                      d={d}
+                      stroke="hsl(25, 98%, 46%)"
+                      strokeWidth="1.2"
+                      fill="none"
+                      opacity="0.6"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      whileInView={{ pathLength: 1, opacity: 0.6 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 1.8, delay: i * 0.2, ease: "easeInOut" }}
+                    />
+                  ))}
+                </svg>
+
+                <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-10">
+                  {acousticStats.map((stat, index) => (
+                    <motion.div
+                      key={stat.label}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="bg-black w-full h-28 flex flex-col items-center justify-center"
+                    >
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-white text-3xl md:text-4xl font-bold">{stat.value}</span>
+                        {stat.unit && (
+                          <span className="text-white text-base md:text-lg font-normal">{stat.unit}</span>
+                        )}
+                      </div>
+                      <p className="text-white text-xs mt-1.5">{stat.label}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="max-w-[700px] mx-auto text-center mt-16"
+              >
+                <p className="text-black text-base font-light leading-relaxed">
+                  Die einzigartige Akustik des Sendesaals entsteht durch die charakteristischen
+                  Holzlamellen an den Wänden und die sorgfältig berechneten Raumproportionen.
+                  Der Nachhall von 1,8 Sekunden ist ideal für klassische Musik und Jazz –
+                  nicht zu trocken, nicht zu hallig.
+                </p>
+                <p className="mt-4 text-black text-base font-light leading-relaxed">
+                  Modernste Aufnahmetechnik ermöglicht Produktionen auf höchstem Niveau.
+                  Zahlreiche preisgekrönte Alben wurden hier eingespielt.
                 </p>
               </motion.div>
             </div>
