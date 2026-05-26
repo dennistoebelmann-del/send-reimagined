@@ -164,6 +164,13 @@ const Mieten = () => {
                   Von Kammermusik über Jazz bis hin zu zeitgenössischen Formaten – der Saal 
                   verwandelt jedes Konzert in ein besonderes Klangerlebnis.
                 </p>
+                <button
+                  type="button"
+                  onClick={() => setEquipmentOpen(true)}
+                  className="mt-6 inline-flex items-center gap-2 text-primary text-base font-light border-b border-primary pb-1 hover:gap-3 transition-all"
+                >
+                  Weitere Informationen <ArrowRight className="w-4 h-4" />
+                </button>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -219,6 +226,13 @@ const Mieten = () => {
                   Modernste Veranstaltungstechnik trifft auf zeitlose Architektur – für Events,
                   die in Erinnerung bleiben.
                 </p>
+                <button
+                  type="button"
+                  onClick={() => setEquipmentOpen(true)}
+                  className="mt-6 inline-flex items-center gap-2 text-primary text-base font-light border-b border-primary pb-1 hover:gap-3 transition-all"
+                >
+                  Weitere Informationen <ArrowRight className="w-4 h-4" />
+                </button>
               </motion.div>
             </div>
           </div>
