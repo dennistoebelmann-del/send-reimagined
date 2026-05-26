@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Radio, Piano, SlidersHorizontal, Send, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Send, ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
@@ -9,14 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import {
   Select,
   SelectContent,
   SelectItem,
@@ -24,74 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import produktionHero from "@/assets/produktion-hero.jpg";
-
-const acousticStats = [
-  { value: "1,8", unit: "Sek", label: "Nachhallzeit" },
-  { value: "340", unit: "m²", label: "Saalfläche" },
-  { value: "270", unit: "", label: "Sitzplätze" },
-  { value: "12", unit: "m", label: "Deckenhöhe" },
-];
-
-const techFacts = [
-  {
-    icon: Radio,
-    title: "Regie",
-    description: "Modernste digitale und analoge Signalwege mit direkter Sichtverbindung in den Saal.",
-    image: "https://images.unsplash.com/photo-1519508234439-4f23643125c1?w=1200&h=700&fit=crop",
-    details: [
-      "Pro Tools HDX-System mit 64 Ein-/Ausgängen",
-      "Hochwertige Mikrofonvorverstärker (Neumann, Schoeps, DPA)",
-      "Analoge und digitale Signalwege",
-      "Direkte Sichtverbindung zum Saal",
-      "Abhöre über Genelec-Studiomonitore",
-      "Talkback-System zum Saal",
-    ],
-    gallery: [
-      { src: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&h=600&fit=crop", label: "Pro Tools HDX" },
-      { src: "https://images.unsplash.com/photo-1485579149621-3123dd979885?w=600&h=600&fit=crop", label: "Mikrofonvorverstärker" },
-      { src: "https://images.unsplash.com/photo-1519683109079-d5f539e1542f?w=600&h=600&fit=crop", label: "Regie-Sichtverbindung" },
-      { src: "https://images.unsplash.com/photo-1558379850-a3b1d6b40e75?w=600&h=600&fit=crop", label: "Genelec-Abhöre" },
-    ],
-  },
-  {
-    icon: Piano,
-    title: "Instrumente",
-    description: "Steinway D-Flügel (D-274), regelmäßig gewartet und auf höchstem Niveau gestimmt.",
-    image: "https://images.unsplash.com/photo-1552422535-c45813c61732?w=1200&h=700&fit=crop",
-    details: [
-      "Steinway D-Flügel (D-274), Konzertflügel",
-      "Cembalo auf Anfrage",
-      "60 Orchesterstühle, 50 Notenpulte",
-      "Dirigentenpult",
-      "Klavierstimmer kurzfristig verfügbar",
-    ],
-    gallery: [
-      { src: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600&h=600&fit=crop", label: "Steinway D-274" },
-      { src: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=600&h=600&fit=crop", label: "Notenpulte" },
-      { src: "https://images.unsplash.com/photo-1535992165812-68d1861aa71e?w=600&h=600&fit=crop", label: "Orchesterstühle" },
-      { src: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop", label: "Cembalo" },
-    ],
-  },
-  {
-    icon: SlidersHorizontal,
-    title: "Variabilität",
-    description: "Anpassbare Nachhallzeiten für verschiedene Besetzungen und musikalische Genres.",
-    image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1200&h=700&fit=crop",
-    details: [
-      "Variable Nachhallzeit von 1,4 bis 2,2 Sekunden",
-      "Verstellbare Akustik-Elemente an den Wänden",
-      "Geeignet für Solo bis großes Orchester",
-      "Bewährt für Klassik, Jazz, Pop und Filmmusik",
-      "Beratung durch erfahrene Tonmeister",
-    ],
-    gallery: [
-      { src: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600&h=600&fit=crop", label: "Akustik-Elemente" },
-      { src: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=600&h=600&fit=crop", label: "Großes Orchester" },
-      { src: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&h=600&fit=crop", label: "Jazz & Pop" },
-      { src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=600&fit=crop", label: "Tonmeister" },
-    ],
-  },
-];
+import { techFacts, acousticStats } from "@/data/facilities";
 
 const Produzieren = () => {
   const [formData, setFormData] = useState({
@@ -348,73 +274,29 @@ const Produzieren = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
               {techFacts.map((fact, index) => (
-                <Sheet key={fact.title}>
-                  <SheetTrigger asChild>
-                    <motion.button
-                      type="button"
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="group bg-black p-8 flex flex-col items-center text-center hover:bg-black/90 transition-colors w-full"
-                    >
-                      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
-                        <fact.icon className="w-7 h-7 text-primary" />
-                      </div>
-                      <h3 className="text-white text-xl font-normal mb-3">{fact.title}</h3>
-                      <p className="text-white/70 text-sm font-light leading-relaxed">
-                        {fact.description}
-                      </p>
-                      <span className="mt-5 inline-flex items-center gap-2 text-primary text-xs font-light uppercase tracking-wider">
-                        Details <Plus className="w-3 h-3" />
-                      </span>
-                    </motion.button>
-                  </SheetTrigger>
-                  <SheetContent side="right" className="rounded-none border-0 bg-white w-full sm:max-w-xl overflow-y-auto p-0">
-                    <div className="relative h-56 w-full overflow-hidden">
-                      <img src={fact.image} alt={fact.title} className="absolute inset-0 w-full h-full object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <div className="absolute bottom-5 left-6 right-6 flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
-                          <fact.icon className="w-5 h-5 text-primary" />
-                        </div>
-                        <SheetTitle className="text-3xl font-light text-white">{fact.title}</SheetTitle>
-                      </div>
+                <motion.div
+                  key={fact.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link
+                    to={`/ausstattung#${fact.slug}`}
+                    className="group bg-black p-8 flex flex-col items-center text-center hover:bg-black/90 transition-colors w-full h-full"
+                  >
+                    <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                      <fact.icon className="w-7 h-7 text-primary" />
                     </div>
-                    <div className="px-6 py-6">
-                      <SheetHeader className="space-y-0">
-                        <SheetDescription className="text-black/70 font-light text-base text-left">
-                          {fact.description}
-                        </SheetDescription>
-                      </SheetHeader>
-                      <div className="mt-6 grid grid-cols-2 gap-3">
-                        {fact.gallery.map((g) => (
-                          <div key={g.label} className="group relative aspect-square overflow-hidden">
-                            <img src={g.src} alt={g.label} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent" />
-                            <span className="absolute bottom-2 left-3 text-white text-xs font-light tracking-wide uppercase">
-                              {g.label}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="mt-8">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-8 h-px bg-primary" />
-                          <span className="text-primary text-xs uppercase tracking-wider font-light">Details</span>
-                        </div>
-                        <ul className="space-y-3">
-                          {fact.details.map((d) => (
-                            <li key={d} className="flex gap-3 text-black/80 font-light">
-                              <span className="text-primary mt-1">—</span>
-                              <span>{d}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </SheetContent>
-                </Sheet>
+                    <h3 className="text-white text-xl font-normal mb-3">{fact.title}</h3>
+                    <p className="text-white/70 text-sm font-light leading-relaxed">
+                      {fact.description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-primary text-xs font-light uppercase tracking-wider group-hover:gap-3 transition-all">
+                      Details <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </div>
