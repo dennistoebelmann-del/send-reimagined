@@ -13,6 +13,7 @@ import Ausstattung from "./pages/Ausstattung";
 import Unterstuetzen from "./pages/Unterstuetzen";
 import EventDetail from "./pages/EventDetail";
 import Tickets from "./pages/Tickets";
+import Entdecken from "./pages/Entdecken";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -37,6 +38,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/programm" element={<Programm />} />
+          <Route path="/entdecken" element={<Entdecken />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/tickets" element={<Tickets />} />
           <Route path="/mieten" element={<Mieten />} />
