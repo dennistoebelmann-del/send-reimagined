@@ -1,22 +1,41 @@
 ## Ziel
 
-Das schwarze Kästchen um das Sendesaal-Logo in der Navigation auf der Homepage entfernen. Das Logo schwebt frei über dem Hero-Video, bleibt weiß und erhält einen weichen Drop-Shadow für Lesbarkeit. Der Sticky-Zustand (beim Scrollen) bleibt unverändert: weiße Leiste mit schwarzem Logo.
+Alle „Details"- und „Weitere Informationen"-CTAs auf eine echte Detailseite verlinken, statt nur Side-Sheets zu öffnen. Außerdem den toten Link von der Startseite fixen.
 
-## Umsetzung
+## Neue Seite: `/ausstattung`
 
-Datei: `src/components/Navigation.tsx`
+Eine zentrale Ausstattungs-Detailseite im bestehenden Style (75vh Hero, konkaver weißer Bogen unten, OrangeBarsTransition, schwarz-weiß-Rhythmus, Seravek light), die alle Hard-Facts- und Tech-Facts-Kategorien zusammenfasst:
 
-1. Im Logo-Wrapper (`<Link to="/">`) das schwarze Kästchen entfernen:
-   - Den umschließenden `<div>` mit `bg-black`/`bg-white`, Padding und `rounded-b-md` im Nicht-Sticky-Zustand auf der Homepage weglassen.
-   - Im Sticky-Zustand und auf Unterseiten bleibt das weiße Feld mit Padding wie bisher bestehen.
-2. Im transparenten Zustand (Homepage, nicht gescrollt):
-   - Logo direkt rendern, weiß (kein Brightness-Filter).
-   - Drop-Shadow via Tailwind `drop-shadow-lg` oder eigene Utility (z.B. `filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]`) für Lesbarkeit über hellen Videoframes.
-3. Logo-Größe (`h-12 md:h-14`) und negative Top-Margin werden so angepasst, dass das Logo sauber an der oberen Kante sitzt, ohne Lasche.
-4. Sticky-Zustand und mobile Menü-States bleiben optisch identisch.
+- **Hero**: schwarz, Titel „Ausstattung & Technik", Untertitel, Hero-Bild
+- **Sektionen pro Kategorie** mit jeweils Anker-ID, großem Bild, Beschreibung, Bullet-Liste der `details`, Galerie (2×2) – Inhalte stammen aus den bereits gepflegten Arrays `hardFacts` (Mieten) und `techFacts` (Produzieren):
+  - `#kapazitaet`, `#ausstattung`, `#barrierefreiheit`, `#technik` (aus Mieten)
+  - `#regie`, `#instrumente`, `#variabilitaet` (aus Produzieren)
+- Zwischen-Sektionen mit `OrangeBarsTransition`
+- CTA-Block am Ende: „Jetzt anfragen" → `/mieten#kontakt`, „Produktion planen" → `/produzieren#kontakt`
+- Footer mit `variant="light" sectionAbove="black"`
 
-## Out of Scope
+## CTA-Verlinkungen anpassen
 
-- Keine Änderung am Logo-SVG selbst.
-- Keine Änderungen an den anderen Navigationspunkten oder am Tickets-Button.
-- Keine Änderung an Unterseiten (dort weiterhin wie heute).
+| Stelle | aktuell | neu |
+|---|---|---|
+| `Mieten.tsx` – „Weitere Informationen" (2×) | öffnet `equipmentOpen`-Sheet | `Link` zu `/ausstattung` |
+| `Mieten.tsx` – „Details" pro Kachel (4×) | Side-Sheet | `Link` zu `/ausstattung#<id>` |
+| `Produzieren.tsx` – „Details" pro Kachel (3×) | Side-Sheet | `Link` zu `/ausstattung#<id>` |
+| `ProduktionSection.tsx` – „Weitere Informationen" | `/ueber-uns#akustik` (tot) | `/produzieren#akustik` |
+
+Die Sheet-Komponenten und der globale Equipment-Sheet werden auf Mieten/Produzieren entfernt (inkl. `equipmentOpen` State, `Sheet`-Imports, `Plus`/`ArrowRight` falls ungenutzt). Die Daten-Arrays (`hardFacts`, `techFacts`) bleiben auf den Seiten erhalten (werden weiterhin für die Kachel-Anzeige genutzt) und werden in `/ausstattung` dupliziert oder – sauberer – in eine gemeinsame Datei `src/data/facilities.ts` ausgelagert.
+
+## Routing
+
+- Neue Route `/ausstattung` → `Ausstattung` Komponente in `src/App.tsx` registrieren.
+- Anker-Scroll funktioniert über das vorhandene `Navigation`-Scroll-Verhalten; falls nötig `useEffect` mit `scrollIntoView` per `useLocation().hash` in der neuen Seite.
+
+## Technische Details
+
+- Neue Datei `src/data/facilities.ts` exportiert `hardFacts`, `techFacts`, `acousticStats` als gemeinsame Quelle. Mieten/Produzieren/Ausstattung importieren von dort. Icons werden ebenfalls dort referenziert.
+- Sheet-Imports in `Mieten.tsx` und `Produzieren.tsx` entfernen; Kacheln werden zu `<Link>`-Buttons mit `text-left w-full`.
+- Smooth-Scroll-Hook in `Ausstattung.tsx`: bei `location.hash` per `useEffect` zum Element scrollen (mit kurzem Timeout für Render).
+
+## Ergebnis
+
+Konsistente, auffindbare Detailseite mit Deep-Links; alle „Details"-CTAs führen zu echten URLs (gut für SEO und Sharing); kaputter Hash-Link von der Startseite ist behoben.
