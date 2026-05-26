@@ -42,17 +42,6 @@ const Footer = ({ variant = "light", sectionAbove }: FooterProps) => {
         return (
           <div className={`relative h-24 overflow-hidden ${flankColor}`}>
             <div className={`absolute -bottom-[100px] left-1/2 -translate-x-1/2 w-[120%] h-[200px] rounded-[50%] ${revealColor}`} />
-            
-            {/* Orange bars */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-[10px] z-10">
-              {[45, 38, 32, 28, 28, 32, 38, 45].map((height, i) => (
-                <div
-                  key={i}
-                  className="w-[5px] bg-primary rounded-sm"
-                  style={{ height: `${height}px` }}
-                />
-              ))}
-            </div>
           </div>
         );
       })()}
