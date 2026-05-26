@@ -439,6 +439,35 @@ const Mieten = () => {
       </main>
 
       <Footer />
+
+      <Dialog open={equipmentOpen} onOpenChange={setEquipmentOpen}>
+        <DialogContent className="rounded-none border-0 bg-white max-w-3xl max-h-[85vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-3xl font-light text-black">Unsere Ausstattung im Überblick</DialogTitle>
+            <DialogDescription className="text-black/70 font-light text-base">
+              Equipment, Instrumente und Technik für Ihre Veranstaltung.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-4 grid md:grid-cols-2 gap-8">
+            {hardFacts.map((fact) => (
+              <div key={fact.title}>
+                <div className="flex items-center gap-3 mb-3">
+                  <fact.icon className="w-5 h-5 text-primary" />
+                  <h3 className="text-lg font-normal text-black">{fact.title}</h3>
+                </div>
+                <ul className="space-y-2">
+                  {fact.details.map((d) => (
+                    <li key={d} className="flex gap-3 text-black/80 font-light text-sm">
+                      <span className="text-primary mt-1">—</span>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
