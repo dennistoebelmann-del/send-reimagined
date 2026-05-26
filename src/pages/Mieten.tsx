@@ -311,26 +311,49 @@ const Mieten = () => {
                       </span>
                     </motion.button>
                   </SheetTrigger>
-                  <SheetContent side="right" className="rounded-none border-0 bg-white w-full sm:max-w-xl overflow-y-auto">
-                    <SheetHeader>
-                      <div className="flex items-center gap-4 mb-2">
-                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                          <fact.icon className="w-6 h-6 text-primary" />
+                  <SheetContent side="right" className="rounded-none border-0 bg-white w-full sm:max-w-xl overflow-y-auto p-0">
+                    <div className="relative h-56 w-full overflow-hidden">
+                      <img src={fact.image} alt={fact.title} className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                      <div className="absolute bottom-5 left-6 right-6 flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
+                          <fact.icon className="w-5 h-5 text-primary" />
                         </div>
-                        <SheetTitle className="text-2xl font-light text-black">{fact.title}</SheetTitle>
+                        <SheetTitle className="text-3xl font-light text-white">{fact.title}</SheetTitle>
                       </div>
-                      <SheetDescription className="text-black/70 font-light text-base text-left">
-                        {fact.description}
-                      </SheetDescription>
-                    </SheetHeader>
-                    <ul className="mt-4 space-y-3">
-                      {fact.details.map((d) => (
-                        <li key={d} className="flex gap-3 text-black/80 font-light">
-                          <span className="text-primary mt-1">—</span>
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    </div>
+                    <div className="px-6 py-6">
+                      <SheetHeader className="space-y-0">
+                        <SheetDescription className="text-black/70 font-light text-base text-left">
+                          {fact.description}
+                        </SheetDescription>
+                      </SheetHeader>
+                      <div className="mt-6 grid grid-cols-2 gap-3">
+                        {fact.gallery.map((g) => (
+                          <div key={g.label} className="group relative aspect-square overflow-hidden">
+                            <img src={g.src} alt={g.label} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent" />
+                            <span className="absolute bottom-2 left-3 text-white text-xs font-light tracking-wide uppercase">
+                              {g.label}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-8">
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="w-8 h-px bg-primary" />
+                          <span className="text-primary text-xs uppercase tracking-wider font-light">Details</span>
+                        </div>
+                        <ul className="space-y-3">
+                          {fact.details.map((d) => (
+                            <li key={d} className="flex gap-3 text-black/80 font-light">
+                              <span className="text-primary mt-1">—</span>
+                              <span>{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </SheetContent>
                 </Sheet>
               ))}
@@ -469,19 +492,42 @@ const Mieten = () => {
       <Footer />
 
       <Sheet open={equipmentOpen} onOpenChange={setEquipmentOpen}>
-        <SheetContent side="right" className="rounded-none border-0 bg-white w-full sm:max-w-2xl overflow-y-auto">
-          <SheetHeader>
-            <SheetTitle className="text-3xl font-light text-black text-left">Unsere Ausstattung im Überblick</SheetTitle>
-            <SheetDescription className="text-black/70 font-light text-base text-left">
-              Equipment, Instrumente und Technik für Ihre Veranstaltung.
-            </SheetDescription>
-          </SheetHeader>
-          <div className="mt-4 grid md:grid-cols-2 gap-8">
+        <SheetContent side="right" className="rounded-none border-0 bg-white w-full sm:max-w-2xl overflow-y-auto p-0">
+          <div className="relative h-56 w-full overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1400&h=700&fit=crop"
+              alt="Sendesaal Ausstattung"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <SheetTitle className="text-3xl md:text-4xl font-light text-white text-left">
+                Ausstattung im Überblick
+              </SheetTitle>
+              <SheetDescription className="text-white/80 font-light text-base text-left mt-2">
+                Equipment, Instrumente und Technik für Ihre Veranstaltung.
+              </SheetDescription>
+            </div>
+          </div>
+          <div className="px-6 py-8 space-y-10">
             {hardFacts.map((fact) => (
               <div key={fact.title}>
-                <div className="flex items-center gap-3 mb-3">
-                  <fact.icon className="w-5 h-5 text-primary" />
-                  <h3 className="text-lg font-normal text-black">{fact.title}</h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <fact.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-light text-black">{fact.title}</h3>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+                  {fact.gallery.map((g) => (
+                    <div key={g.label} className="relative aspect-square overflow-hidden">
+                      <img src={g.src} alt={g.label} className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <span className="absolute bottom-1.5 left-2 text-white text-[10px] font-light uppercase tracking-wide">
+                        {g.label}
+                      </span>
+                    </div>
+                  ))}
                 </div>
                 <ul className="space-y-2">
                   {fact.details.map((d) => (
