@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Radio, Piano, SlidersHorizontal, Send } from "lucide-react";
+import { Radio, Piano, SlidersHorizontal, Send, Plus } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
@@ -8,6 +8,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -22,16 +30,38 @@ const techFacts = [
     icon: Radio,
     title: "Regie",
     description: "Modernste digitale und analoge Signalwege mit direkter Sichtverbindung in den Saal.",
+    details: [
+      "Pro Tools HDX-System mit 64 Ein-/Ausgängen",
+      "Hochwertige Mikrofonvorverstärker (Neumann, Schoeps, DPA)",
+      "Analoge und digitale Signalwege",
+      "Direkte Sichtverbindung zum Saal",
+      "Abhöre über Genelec-Studiomonitore",
+      "Talkback-System zum Saal",
+    ],
   },
   {
     icon: Piano,
     title: "Instrumente",
     description: "Steinway D-Flügel (D-274), regelmäßig gewartet und auf höchstem Niveau gestimmt.",
+    details: [
+      "Steinway D-Flügel (D-274), Konzertflügel",
+      "Cembalo auf Anfrage",
+      "60 Orchesterstühle, 50 Notenpulte",
+      "Dirigentenpult",
+      "Klavierstimmer kurzfristig verfügbar",
+    ],
   },
   {
     icon: SlidersHorizontal,
     title: "Variabilität",
     description: "Anpassbare Nachhallzeiten für verschiedene Besetzungen und musikalische Genres.",
+    details: [
+      "Variable Nachhallzeit von 1,4 bis 2,2 Sekunden",
+      "Verstellbare Akustik-Elemente an den Wänden",
+      "Geeignet für Solo bis großes Orchester",
+      "Bewährt für Klassik, Jazz, Pop und Filmmusik",
+      "Beratung durch erfahrene Tonmeister",
+    ],
   },
 ];
 
@@ -202,22 +232,50 @@ const Produzieren = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
               {techFacts.map((fact, index) => (
-                <motion.div
-                  key={fact.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-black p-8 flex flex-col items-center text-center"
-                >
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
-                    <fact.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="text-white text-xl font-normal mb-3">{fact.title}</h3>
-                  <p className="text-white/70 text-sm font-light leading-relaxed">
-                    {fact.description}
-                  </p>
-                </motion.div>
+                <Dialog key={fact.title}>
+                  <DialogTrigger asChild>
+                    <motion.button
+                      type="button"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="group bg-black p-8 flex flex-col items-center text-center hover:bg-black/90 transition-colors w-full"
+                    >
+                      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                        <fact.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <h3 className="text-white text-xl font-normal mb-3">{fact.title}</h3>
+                      <p className="text-white/70 text-sm font-light leading-relaxed">
+                        {fact.description}
+                      </p>
+                      <span className="mt-5 inline-flex items-center gap-2 text-primary text-xs font-light uppercase tracking-wider">
+                        Details <Plus className="w-3 h-3" />
+                      </span>
+                    </motion.button>
+                  </DialogTrigger>
+                  <DialogContent className="rounded-none border-0 bg-white max-w-xl">
+                    <DialogHeader>
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                          <fact.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <DialogTitle className="text-2xl font-light text-black">{fact.title}</DialogTitle>
+                      </div>
+                      <DialogDescription className="text-black/70 font-light text-base">
+                        {fact.description}
+                      </DialogDescription>
+                    </DialogHeader>
+                    <ul className="mt-4 space-y-3">
+                      {fact.details.map((d) => (
+                        <li key={d} className="flex gap-3 text-black/80 font-light">
+                          <span className="text-primary mt-1">—</span>
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </DialogContent>
+                </Dialog>
               ))}
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Users, Music, Accessibility, Lightbulb, Send } from "lucide-react";
+import { Users, Music, Accessibility, Lightbulb, Send, ArrowRight, Plus } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
@@ -8,6 +8,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -22,21 +30,49 @@ const hardFacts = [
     icon: Users,
     title: "Kapazität",
     description: "Bis zu 250 Personen",
+    details: [
+      "250 Sitzplätze im Saal",
+      "Flexible Bestuhlung möglich",
+      "Foyer für Empfänge bis 150 Personen",
+      "Garderobe mit ca. 250 Plätzen",
+    ],
   },
   {
     icon: Music,
     title: "Ausstattung",
     description: "Steinway D-Flügel, variable Akustik-Elemente, modernes Licht-Equipment",
+    details: [
+      "Steinway D-Flügel (D-274), regelmäßig gewartet",
+      "60 Orchesterstühle",
+      "50 Notenpulte",
+      "Dirigentenpult",
+      "Cembalo auf Anfrage",
+      "Beamer (Full HD) und mobile Leinwand (4×3 m)",
+    ],
   },
   {
     icon: Accessibility,
     title: "Barrierefreiheit",
     description: "Alle Räumlichkeiten sind barrierefrei zugänglich",
+    details: [
+      "Stufenloser Zugang über den Haupteingang",
+      "Aufzug zu allen Ebenen",
+      "Barrierefreie Sanitäranlagen",
+      "Rollstuhlplätze im Saal",
+      "Induktive Höranlage verfügbar",
+    ],
   },
   {
     icon: Lightbulb,
     title: "Technik",
     description: "Professionelle Ton- und Lichttechnik, Aufnahme­möglichkeiten",
+    details: [
+      "Professionelles Tonmischpult und PA-System",
+      "Drahtlose Mikrofone (Handheld & Headset)",
+      "Bühnen- und Saalbeleuchtung (LED, dimmbar)",
+      "Aufnahme­möglichkeiten direkt in die Regie",
+      "Streaming-Setup auf Anfrage",
+    ],
   },
 ];
 
@@ -50,6 +86,7 @@ const Mieten = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [equipmentOpen, setEquipmentOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,6 +164,13 @@ const Mieten = () => {
                   Von Kammermusik über Jazz bis hin zu zeitgenössischen Formaten – der Saal 
                   verwandelt jedes Konzert in ein besonderes Klangerlebnis.
                 </p>
+                <button
+                  type="button"
+                  onClick={() => setEquipmentOpen(true)}
+                  className="mt-6 inline-flex items-center gap-2 text-primary text-base font-light border-b border-primary pb-1 hover:gap-3 transition-all"
+                >
+                  Weitere Informationen <ArrowRight className="w-4 h-4" />
+                </button>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -182,6 +226,13 @@ const Mieten = () => {
                   Modernste Veranstaltungstechnik trifft auf zeitlose Architektur – für Events,
                   die in Erinnerung bleiben.
                 </p>
+                <button
+                  type="button"
+                  onClick={() => setEquipmentOpen(true)}
+                  className="mt-6 inline-flex items-center gap-2 text-primary text-base font-light border-b border-primary pb-1 hover:gap-3 transition-all"
+                >
+                  Weitere Informationen <ArrowRight className="w-4 h-4" />
+                </button>
               </motion.div>
             </div>
           </div>
@@ -210,22 +261,50 @@ const Mieten = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1200px] mx-auto">
               {hardFacts.map((fact, index) => (
-                <motion.div
-                  key={fact.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-black p-8 flex flex-col items-center text-center"
-                >
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
-                    <fact.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="text-white text-xl font-normal mb-3">{fact.title}</h3>
-                  <p className="text-white/70 text-sm font-light leading-relaxed">
-                    {fact.description}
-                  </p>
-                </motion.div>
+                <Dialog key={fact.title}>
+                  <DialogTrigger asChild>
+                    <motion.button
+                      type="button"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="group bg-black p-8 flex flex-col items-center text-center relative hover:bg-black/90 transition-colors text-left w-full"
+                    >
+                      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                        <fact.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <h3 className="text-white text-xl font-normal mb-3">{fact.title}</h3>
+                      <p className="text-white/70 text-sm font-light leading-relaxed">
+                        {fact.description}
+                      </p>
+                      <span className="mt-5 inline-flex items-center gap-2 text-primary text-xs font-light uppercase tracking-wider">
+                        Details <Plus className="w-3 h-3" />
+                      </span>
+                    </motion.button>
+                  </DialogTrigger>
+                  <DialogContent className="rounded-none border-0 bg-white max-w-xl">
+                    <DialogHeader>
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                          <fact.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <DialogTitle className="text-2xl font-light text-black">{fact.title}</DialogTitle>
+                      </div>
+                      <DialogDescription className="text-black/70 font-light text-base">
+                        {fact.description}
+                      </DialogDescription>
+                    </DialogHeader>
+                    <ul className="mt-4 space-y-3">
+                      {fact.details.map((d) => (
+                        <li key={d} className="flex gap-3 text-black/80 font-light">
+                          <span className="text-primary mt-1">—</span>
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </DialogContent>
+                </Dialog>
               ))}
             </div>
           </div>
@@ -360,6 +439,35 @@ const Mieten = () => {
       </main>
 
       <Footer />
+
+      <Dialog open={equipmentOpen} onOpenChange={setEquipmentOpen}>
+        <DialogContent className="rounded-none border-0 bg-white max-w-3xl max-h-[85vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-3xl font-light text-black">Unsere Ausstattung im Überblick</DialogTitle>
+            <DialogDescription className="text-black/70 font-light text-base">
+              Equipment, Instrumente und Technik für Ihre Veranstaltung.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-4 grid md:grid-cols-2 gap-8">
+            {hardFacts.map((fact) => (
+              <div key={fact.title}>
+                <div className="flex items-center gap-3 mb-3">
+                  <fact.icon className="w-5 h-5 text-primary" />
+                  <h3 className="text-lg font-normal text-black">{fact.title}</h3>
+                </div>
+                <ul className="space-y-2">
+                  {fact.details.map((d) => (
+                    <li key={d} className="flex gap-3 text-black/80 font-light text-sm">
+                      <span className="text-primary mt-1">—</span>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
