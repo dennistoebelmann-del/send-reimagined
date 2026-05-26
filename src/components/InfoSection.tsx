@@ -89,26 +89,20 @@ const InfoSection = () => {
           </div>
 
           {/* Filter Tab Bar */}
-          <div className="flex flex-wrap items-center justify-center gap-0 border-y border-black/10 py-1">
-            {categories.map((cat) => {
-              const active = activeCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`relative px-5 md:px-7 py-3 text-xs md:text-sm uppercase tracking-[0.15em] font-light transition-colors duration-200 ${
-                    active ? "text-black" : "text-black/50 hover:text-black"
-                  }`}
-                >
-                  {cat}
-                  <span
-                    className={`absolute left-1/2 -translate-x-1/2 bottom-0 h-[2px] bg-[#E17900] transition-all duration-300 ${
-                      active ? "w-8" : "w-0"
-                    }`}
-                  />
-                </button>
-              );
-            })}
+          <div className="flex flex-wrap items-center justify-center">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-8 py-4 text-base font-bold transition-all ${
+                  activeCategory === cat
+                    ? "bg-[#E17900] text-white"
+                    : "bg-transparent text-black hover:text-[#E47C03]"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
       </div>
