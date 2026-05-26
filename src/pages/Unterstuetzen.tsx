@@ -271,37 +271,126 @@ const Unterstuetzen = () => {
           </div>
         </section>
 
-        {/* CTA – schwarzer Block */}
-        <section className="bg-black py-20 md:py-28">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="container mx-auto px-6 md:px-16 text-center"
-          >
-            <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
-              Sie wollen mehr erfahren?
-            </h2>
-            <p className="text-white/70 text-base md:text-lg font-light max-w-2xl mx-auto mb-10">
-              Wir beraten Sie gerne persönlich zu Mitgliedschaft, Spende oder Engagement im
-              Sendesaal.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 h-auto text-base"
-              >
-                <Link to="/mieten#kontakt">Kontakt aufnehmen</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-black font-bold px-8 py-6 h-auto text-base"
-              >
-                <a href="#newsletter">Newsletter abonnieren</a>
-              </Button>
-            </div>
-          </motion.div>
+        {/* Kontaktformular */}
+        <section id="kontakt" className="bg-card pt-20 pb-20 md:pt-28 md:pb-28">
+          <div className="container mx-auto px-6 md:px-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-[780px] mx-auto"
+            >
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-light text-foreground">
+                  Sie wollen mehr erfahren?
+                </h2>
+                <div className="mt-4 flex items-center justify-center gap-6">
+                  <div className="w-10 h-px bg-primary" />
+                  <p className="text-muted-foreground text-lg md:text-xl font-light">
+                    Wir beraten Sie gerne persönlich
+                  </p>
+                </div>
+              </div>
+
+              {submitted ? (
+                <div className="text-center py-16">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                    <Send className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-light text-foreground mb-3">Vielen Dank!</h3>
+                  <p className="text-muted-foreground font-light">
+                    Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-foreground/80 font-light text-sm">Name</Label>
+                      <Input
+                        id="name"
+                        type="text"
+                        required
+                        maxLength={100}
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="bg-muted border-border text-foreground font-light h-12 placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
+                        placeholder="Ihr Name"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-foreground/80 font-light text-sm">E-Mail</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        required
+                        maxLength={255}
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="bg-muted border-border text-foreground font-light h-12 placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
+                        placeholder="ihre@email.de"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="betreff" className="text-foreground/80 font-light text-sm">Betreff</Label>
+                      <Input
+                        id="betreff"
+                        type="text"
+                        required
+                        maxLength={200}
+                        value={formData.betreff}
+                        onChange={(e) => setFormData({ ...formData, betreff: e.target.value })}
+                        className="bg-muted border-border text-foreground font-light h-12 placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
+                        placeholder="Betreff Ihrer Anfrage"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="anfragetyp" className="text-foreground/80 font-light text-sm">Anfragetyp</Label>
+                      <Select
+                        value={formData.anfragetyp}
+                        onValueChange={(value) => setFormData({ ...formData, anfragetyp: value })}
+                      >
+                        <SelectTrigger className="bg-muted border-border text-foreground font-light h-12 focus:ring-primary">
+                          <SelectValue placeholder="Bitte wählen" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="mieten">Mieten</SelectItem>
+                          <SelectItem value="produzieren">Produzieren</SelectItem>
+                          <SelectItem value="spenden">Spenden / Unterstützen</SelectItem>
+                          <SelectItem value="feedback">Anregung, Feedback, Kritik</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="nachricht" className="text-foreground/80 font-light text-sm">Nachricht</Label>
+                    <Textarea
+                      id="nachricht"
+                      required
+                      maxLength={2000}
+                      rows={6}
+                      value={formData.nachricht}
+                      onChange={(e) => setFormData({ ...formData, nachricht: e.target.value })}
+                      className="bg-muted border-border text-foreground font-light placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary resize-none"
+                      placeholder="Ihre Nachricht an uns..."
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-5 h-auto text-base mt-2"
+                  >
+                    {isSubmitting ? "Wird gesendet..." : "Absenden"}
+                  </Button>
+                </form>
+              )}
+            </motion.div>
+          </div>
         </section>
       </main>
 
