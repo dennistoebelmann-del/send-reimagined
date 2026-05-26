@@ -9,7 +9,6 @@ const sections = [
   { id: "historie", label: "Historie" },
   { id: "team", label: "Team" },
   { id: "verein", label: "Der Verein" },
-  { id: "akustik", label: "Akustik & Technik" },
   { id: "partner", label: "Partner" },
 ];
 
@@ -29,13 +28,6 @@ const teamMembers = [
   { name: "Anna Schulz", role: "Marketing & Presse", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" },
   { name: "Michael Koch", role: "Veranstaltungsmanagement", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" },
   { name: "Lisa Braun", role: "Ehrenamtskoordination", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop" },
-];
-
-const acousticStats = [
-  { value: "1,8", unit: "Sek", label: "Nachhallzeit" },
-  { value: "340", unit: "m²", label: "Saalfläche" },
-  { value: "270", unit: "", label: "Sitzplätze" },
-  { value: "12", unit: "m", label: "Deckenhöhe" },
 ];
 
 const UeberUns = () => {
