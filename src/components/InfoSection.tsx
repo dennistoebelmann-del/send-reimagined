@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 // Import collage images
 import orchestraImg from "@/assets/collage-orchestra.jpg";
@@ -12,6 +13,10 @@ import drumsImg from "@/assets/collage-drums.jpg";
 import audienceImg from "@/assets/collage-audience.jpg";
 
 const InfoSection = () => {
+  const categories = ["Alle", "Geschichte", "Weltklasse", "Konzerte", "Produktion"] as const;
+  type Category = typeof categories[number];
+  const [activeCategory, setActiveCategory] = useState<Category>("Alle");
+
   // Category colors for the small label badge on each tile
   const categoryColor: Record<string, string> = {
     "Geschichte": "#E17900",
@@ -74,13 +79,36 @@ const InfoSection = () => {
           <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal mb-4">
             Vielfalt erleben
           </h2>
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-6 mb-10">
             <div className="w-10 h-[1px] bg-[#E47C03]" />
             <p className="text-black text-base md:text-lg max-w-2xl">
               Geschichte, Weltklasse-Künstler:innen, stimmungsvolle Konzerte und
               Grammy-prämierte Produktionen – fahren Sie über die Bilder und
               entdecken Sie, was den Sendesaal Bremen einzigartig macht.
             </p>
+          </div>
+
+          {/* Filter Tab Bar */}
+          <div className="flex flex-wrap items-center justify-center gap-0 border-y border-black/10 py-1">
+            {categories.map((cat) => {
+              const active = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`relative px-5 md:px-7 py-3 text-xs md:text-sm uppercase tracking-[0.15em] font-light transition-colors duration-200 ${
+                    active ? "text-black" : "text-black/50 hover:text-black"
+                  }`}
+                >
+                  {cat}
+                  <span
+                    className={`absolute left-1/2 -translate-x-1/2 bottom-0 h-[2px] bg-[#E17900] transition-all duration-300 ${
+                      active ? "w-8" : "w-0"
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -89,9 +117,11 @@ const InfoSection = () => {
       <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-[10px] px-0">
         {columns.map((column, colIndex) => (
           <div key={colIndex} className="flex flex-col gap-[10px]">
-            {column.map((image, imgIndex) => (
+            {column
+              .filter((image) => activeCategory === "Alle" || image.category === activeCategory)
+              .map((image, imgIndex) => (
               <motion.div
-                key={imgIndex}
+                key={`${activeCategory}-${imgIndex}`}
                 className={`group relative w-full ${image.height} overflow-hidden`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
