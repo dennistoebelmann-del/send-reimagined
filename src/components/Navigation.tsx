@@ -114,7 +114,7 @@ const Navigation = () => {
               asChild 
               className="ml-4 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
             >
-              <Link to="/programm">Tickets</Link>
+              <a href="https://tickets.sendesaal-bremen.de/" target="_blank" rel="noopener noreferrer">Tickets</a>
             </Button>
           </div>
 
@@ -161,7 +161,14 @@ const Navigation = () => {
                 asChild 
                 className="w-full mt-4 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold py-4 h-auto"
               >
-                <Link to="/programm" onClick={() => setIsMenuOpen(false)}>Tickets</Link>
+                <a
+                  href="https://tickets.sendesaal-bremen.de/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Tickets
+                </a>
               </Button>
             </div>
           </div>
