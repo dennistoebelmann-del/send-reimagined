@@ -9,13 +9,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   Select,
   SelectContent,
@@ -261,8 +261,8 @@ const Mieten = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1200px] mx-auto">
               {hardFacts.map((fact, index) => (
-                <Dialog key={fact.title}>
-                  <DialogTrigger asChild>
+                <Sheet key={fact.title}>
+                  <SheetTrigger asChild>
                     <motion.button
                       type="button"
                       initial={{ opacity: 0, y: 30 }}
@@ -282,19 +282,19 @@ const Mieten = () => {
                         Details <Plus className="w-3 h-3" />
                       </span>
                     </motion.button>
-                  </DialogTrigger>
-                  <DialogContent className="rounded-none border-0 bg-white max-w-xl">
-                    <DialogHeader>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="rounded-none border-0 bg-white w-full sm:max-w-xl overflow-y-auto">
+                    <SheetHeader>
                       <div className="flex items-center gap-4 mb-2">
                         <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                           <fact.icon className="w-6 h-6 text-primary" />
                         </div>
-                        <DialogTitle className="text-2xl font-light text-black">{fact.title}</DialogTitle>
+                        <SheetTitle className="text-2xl font-light text-black">{fact.title}</SheetTitle>
                       </div>
-                      <DialogDescription className="text-black/70 font-light text-base">
+                      <SheetDescription className="text-black/70 font-light text-base text-left">
                         {fact.description}
-                      </DialogDescription>
-                    </DialogHeader>
+                      </SheetDescription>
+                    </SheetHeader>
                     <ul className="mt-4 space-y-3">
                       {fact.details.map((d) => (
                         <li key={d} className="flex gap-3 text-black/80 font-light">
@@ -303,8 +303,8 @@ const Mieten = () => {
                         </li>
                       ))}
                     </ul>
-                  </DialogContent>
-                </Dialog>
+                  </SheetContent>
+                </Sheet>
               ))}
             </div>
           </div>
@@ -440,14 +440,14 @@ const Mieten = () => {
 
       <Footer />
 
-      <Dialog open={equipmentOpen} onOpenChange={setEquipmentOpen}>
-        <DialogContent className="rounded-none border-0 bg-white max-w-3xl max-h-[85vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-3xl font-light text-black">Unsere Ausstattung im Überblick</DialogTitle>
-            <DialogDescription className="text-black/70 font-light text-base">
+      <Sheet open={equipmentOpen} onOpenChange={setEquipmentOpen}>
+        <SheetContent side="right" className="rounded-none border-0 bg-white w-full sm:max-w-2xl overflow-y-auto">
+          <SheetHeader>
+            <SheetTitle className="text-3xl font-light text-black text-left">Unsere Ausstattung im Überblick</SheetTitle>
+            <SheetDescription className="text-black/70 font-light text-base text-left">
               Equipment, Instrumente und Technik für Ihre Veranstaltung.
-            </DialogDescription>
-          </DialogHeader>
+            </SheetDescription>
+          </SheetHeader>
           <div className="mt-4 grid md:grid-cols-2 gap-8">
             {hardFacts.map((fact) => (
               <div key={fact.title}>
@@ -466,8 +466,8 @@ const Mieten = () => {
               </div>
             ))}
           </div>
-        </DialogContent>
-      </Dialog>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };

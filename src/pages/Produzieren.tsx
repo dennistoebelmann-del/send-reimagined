@@ -9,13 +9,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   Select,
   SelectContent,
@@ -232,8 +232,8 @@ const Produzieren = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
               {techFacts.map((fact, index) => (
-                <Dialog key={fact.title}>
-                  <DialogTrigger asChild>
+                <Sheet key={fact.title}>
+                  <SheetTrigger asChild>
                     <motion.button
                       type="button"
                       initial={{ opacity: 0, y: 30 }}
@@ -253,19 +253,19 @@ const Produzieren = () => {
                         Details <Plus className="w-3 h-3" />
                       </span>
                     </motion.button>
-                  </DialogTrigger>
-                  <DialogContent className="rounded-none border-0 bg-white max-w-xl">
-                    <DialogHeader>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="rounded-none border-0 bg-white w-full sm:max-w-xl overflow-y-auto">
+                    <SheetHeader>
                       <div className="flex items-center gap-4 mb-2">
                         <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                           <fact.icon className="w-6 h-6 text-primary" />
                         </div>
-                        <DialogTitle className="text-2xl font-light text-black">{fact.title}</DialogTitle>
+                        <SheetTitle className="text-2xl font-light text-black">{fact.title}</SheetTitle>
                       </div>
-                      <DialogDescription className="text-black/70 font-light text-base">
+                      <SheetDescription className="text-black/70 font-light text-base text-left">
                         {fact.description}
-                      </DialogDescription>
-                    </DialogHeader>
+                      </SheetDescription>
+                    </SheetHeader>
                     <ul className="mt-4 space-y-3">
                       {fact.details.map((d) => (
                         <li key={d} className="flex gap-3 text-black/80 font-light">
@@ -274,8 +274,8 @@ const Produzieren = () => {
                         </li>
                       ))}
                     </ul>
-                  </DialogContent>
-                </Dialog>
+                  </SheetContent>
+                </Sheet>
               ))}
             </div>
           </div>
