@@ -323,6 +323,7 @@ const Mieten = () => {
                         <SelectContent>
                           <SelectItem value="mieten">Mieten</SelectItem>
                           <SelectItem value="produzieren">Produzieren</SelectItem>
+                          <SelectItem value="spenden">Spenden / Unterstützen</SelectItem>
                           <SelectItem value="feedback">Anregung, Feedback, Kritik</SelectItem>
                         </SelectContent>
                       </Select>
