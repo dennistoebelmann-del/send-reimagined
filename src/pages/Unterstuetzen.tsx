@@ -1,9 +1,20 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Send } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const ways = [
   {
@@ -50,6 +61,25 @@ const stats = [
 ];
 
 const Unterstuetzen = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    betreff: "",
+    anfragetyp: "spenden",
+    nachricht: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
