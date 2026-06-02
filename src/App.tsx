@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import AmbientBackground from "./components/AmbientBackground";
+import ContextualAIHelp from "./components/ContextualAIHelp";
 import Index from "./pages/Index";
 import Programm from "./pages/Programm";
 import UeberUns from "./pages/UeberUns";
@@ -49,6 +50,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ContextualAIHelp />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
