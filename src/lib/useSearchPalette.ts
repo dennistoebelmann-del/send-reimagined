@@ -1,26 +1,40 @@
 import { useEffect, useState } from "react";
 
-let isOpen = false;
-const listeners = new Set<(open: boolean) => void>();
-
-function setOpen(next: boolean) {
-  isOpen = next;
-  listeners.forEach((l) => l(isOpen));
-}
+let _open = false;
+let _query = "";
+const listeners = new Set<() => void>();
+const emit = () => listeners.forEach((l) => l());
 
 export const searchPalette = {
-  open: () => setOpen(true),
-  close: () => setOpen(false),
-  toggle: () => setOpen(!isOpen),
+  open: () => {
+    _open = true;
+    emit();
+  },
+  close: () => {
+    _open = false;
+    _query = "";
+    emit();
+  },
+  toggle: () => {
+    _open = !_open;
+    if (!_open) _query = "";
+    emit();
+  },
+  setQuery: (q: string) => {
+    _query = q;
+    emit();
+  },
+  getQuery: () => _query,
 };
 
 export function useSearchPalette() {
-  const [open, setLocal] = useState(isOpen);
+  const [, set] = useState(0);
   useEffect(() => {
-    listeners.add(setLocal);
+    const l = () => set((n) => n + 1);
+    listeners.add(l);
     return () => {
-      listeners.delete(setLocal);
+      listeners.delete(l);
     };
   }, []);
-  return { open, setOpen };
+  return { open: _open, query: _query };
 }
