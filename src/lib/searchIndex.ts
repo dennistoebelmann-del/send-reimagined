@@ -28,16 +28,6 @@ const pages: SearchItem[] = [
     url: "/programm",
   },
   {
-    id: "page-entdecken",
-    type: "seite",
-    title: "Entdecken",
-    subtitle: "Personalisierte Empfehlungen",
-    description:
-      "Finde Konzertempfehlungen passend zu deinem Besuchsanlass – z. B. erstes Mal, Date Night oder Jazz-Abend.",
-    keywords: ["empfehlungen", "vorschläge", "personalisiert", "date", "ausgehen", "besuch planen"],
-    url: "/entdecken",
-  },
-  {
     id: "page-tickets",
     type: "seite",
     title: "Tickets",
