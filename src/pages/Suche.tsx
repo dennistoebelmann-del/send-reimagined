@@ -166,7 +166,7 @@ const Suche = () => {
                 Keine Treffer für „{query}".
               </p>
               <p className="text-black/60 font-light mb-6">
-                Versuche andere Begriffe oder entdecke unsere Empfehlungen:
+                Versuche andere Begriffe oder schau ins Programm:
               </p>
               <div className="flex gap-3">
                 <Link
@@ -174,12 +174,6 @@ const Suche = () => {
                   className="px-5 py-3 bg-black text-white text-sm hover:bg-[#CF3D11] transition-colors"
                 >
                   Zum Programm
-                </Link>
-                <Link
-                  to="/entdecken"
-                  className="px-5 py-3 border border-black text-sm hover:bg-black hover:text-white transition-colors"
-                >
-                  Empfehlungen entdecken
                 </Link>
               </div>
             </div>
