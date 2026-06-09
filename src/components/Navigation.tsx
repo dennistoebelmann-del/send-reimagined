@@ -81,7 +81,7 @@ const Navigation = () => {
                 <img
                   src={sendesaalLogo}
                   alt="Sendesaal Bremen"
-                  className="h-14 md:h-16 w-auto transition-all duration-300"
+                  className="h-16 md:h-20 w-auto transition-all duration-300"
                   style={{ filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.85)) drop-shadow(0 2px 6px rgba(0,0,0,0.7))' }}
                 />
               </div>
