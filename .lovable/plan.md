@@ -1,41 +1,84 @@
-## Ziel
+# Globale Suche für den Sendesaal
 
-Alle „Details"- und „Weitere Informationen"-CTAs auf eine echte Detailseite verlinken, statt nur Side-Sheets zu öffnen. Außerdem den toten Link von der Startseite fixen.
+## Empfehlung: Client-seitig mit Fuse.js
 
-## Neue Seite: `/ausstattung`
+Für den Sendesaal ist die **client-seitige Fuzzy-Suche mit Fuse.js** die beste Wahl:
 
-Eine zentrale Ausstattungs-Detailseite im bestehenden Style (75vh Hero, konkaver weißer Bogen unten, OrangeBarsTransition, schwarz-weiß-Rhythmus, Seravek light), die alle Hard-Facts- und Tech-Facts-Kategorien zusammenfasst:
+- **Datenmenge ist klein** (~12 Events, ~8 statische Seiten, FAQ, Ausstattung) → passt locker in den Browser, sofort durchsuchbar ohne Backend-Latenz.
+- **Tippfehler-tolerant** ("Tingval" findet "Tingvall"), gewichtete Felder (Titel > Künstler > Beschreibung), Treffer-Highlighting.
+- **Keine laufenden Kosten**, keine Edge Function, kein Index-Aufbau.
+- KI-Suche wäre Overkill — Stimmungs-/Kategorie-Verständnis liefert bereits die `/entdecken`-Seite.
 
-- **Hero**: schwarz, Titel „Ausstattung & Technik", Untertitel, Hero-Bild
-- **Sektionen pro Kategorie** mit jeweils Anker-ID, großem Bild, Beschreibung, Bullet-Liste der `details`, Galerie (2×2) – Inhalte stammen aus den bereits gepflegten Arrays `hardFacts` (Mieten) und `techFacts` (Produzieren):
-  - `#kapazitaet`, `#ausstattung`, `#barrierefreiheit`, `#technik` (aus Mieten)
-  - `#regie`, `#instrumente`, `#variabilitaet` (aus Produzieren)
-- Zwischen-Sektionen mit `OrangeBarsTransition`
-- CTA-Block am Ende: „Jetzt anfragen" → `/mieten#kontakt`, „Produktion planen" → `/produzieren#kontakt`
-- Footer mit `variant="light" sectionAbove="black"`
+## Was die Suche durchsucht
 
-## CTA-Verlinkungen anpassen
+Ein zentraler Index (`src/lib/searchIndex.ts`) bündelt vier Quellen zu einem typisierten `SearchItem[]`:
 
-| Stelle | aktuell | neu |
-|---|---|---|
-| `Mieten.tsx` – „Weitere Informationen" (2×) | öffnet `equipmentOpen`-Sheet | `Link` zu `/ausstattung` |
-| `Mieten.tsx` – „Details" pro Kachel (4×) | Side-Sheet | `Link` zu `/ausstattung#<id>` |
-| `Produzieren.tsx` – „Details" pro Kachel (3×) | Side-Sheet | `Link` zu `/ausstattung#<id>` |
-| `ProduktionSection.tsx` – „Weitere Informationen" | `/ueber-uns#akustik` (tot) | `/produzieren#akustik` |
+1. **Events** (aus `src/data/events.ts`) — Titel, Künstler, Beschreibung, Kategorie, Stimmungen, Datum, Wochentag → Link `/event/:id`
+2. **Seiten & Angebote** — kuratierte Liste mit Titel, Teaser, Keywords für `/programm`, `/entdecken`, `/tickets`, `/mieten`, `/produzieren`, `/ausstattung`, `/unterstuetzen`, `/ueber-uns`
+3. **Ausstattung/Facilities** (aus `src/data/facilities.ts`) → Link `/ausstattung#<anchor>`
+4. **FAQ** (aus `src/pages/Tickets.tsx` extrahiert in `src/data/faq.ts`) → Link `/tickets#faq-<id>`
 
-Die Sheet-Komponenten und der globale Equipment-Sheet werden auf Mieten/Produzieren entfernt (inkl. `equipmentOpen` State, `Sheet`-Imports, `Plus`/`ArrowRight` falls ungenutzt). Die Daten-Arrays (`hardFacts`, `techFacts`) bleiben auf den Seiten erhalten (werden weiterhin für die Kachel-Anzeige genutzt) und werden in `/ausstattung` dupliziert oder – sauberer – in eine gemeinsame Datei `src/data/facilities.ts` ausgelagert.
+Jeder Eintrag hat: `id`, `type` ("event" | "seite" | "ausstattung" | "faq"), `title`, `subtitle`, `description`, `keywords[]`, `url`, optional `image`, `date`.
 
-## Routing
+## UI: Beides – Command-Palette + Ergebnisseite
 
-- Neue Route `/ausstattung` → `Ausstattung` Komponente in `src/App.tsx` registrieren.
-- Anker-Scroll funktioniert über das vorhandene `Navigation`-Scroll-Verhalten; falls nötig `useEffect` mit `scrollIntoView` per `useLocation().hash` in der neuen Seite.
+### 1. Command-Palette (`src/components/SearchPalette.tsx`)
+- Lupen-Icon in `Navigation.tsx` (Desktop neben Tickets-Button, Mobile im Menü).
+- Tastenkürzel **⌘K / Strg+K** öffnet Overlay (basiert auf shadcn `CommandDialog`, an Sendesaal-Design angepasst: schwarz/weiß, scharfe Kanten, Seravek, Orange-Accent).
+- Live-Ergebnisse gruppiert nach Typ (Veranstaltungen, Seiten, Ausstattung, FAQ), max. 5 je Gruppe.
+- Treffer zeigen Titel, Untertitel, Icon je Typ; Enter/Klick navigiert.
+- Footer-Zeile: „Alle Ergebnisse für '…' anzeigen" → `/suche?q=…`.
+- Empty-State: „Keine Treffer — schau ins [Programm](/programm)".
+
+### 2. Suchseite (`src/pages/Suche.tsx`, Route `/suche`)
+- Standard-Layout mit `Navigation`, kein Hero (wie `/programm`), `OrangeBarsTransition`, `Footer`.
+- Header: großes „SUCHE" Wasserzeichen, Such-Input (vorausgefüllt aus `?q=`).
+- Filter-Chips: Alle / Veranstaltungen / Seiten / Ausstattung / FAQ (Stil wie bestehende Event-Filter-Chips).
+- Ergebnisliste gruppiert nach Typ, mit Treffer-Highlighting (orange Markierung), Bild für Events, Pfeil-CTA pro Karte.
+- Leerer Query → kuratierte Vorschläge („Beliebte Suchen": Jazz, Klassik, Mieten, Tickets).
+- Keine Treffer → Fallback mit Vorschlägen + Link zu `/entdecken` und `/programm`.
+
+## Such-Engine (`src/lib/search.ts`)
+
+```text
+Fuse.js Config
+  keys:        title (w 0.5), subtitle (w 0.25), keywords (w 0.15), description (w 0.1)
+  threshold:   0.35  (mild fuzzy)
+  ignoreLocation: true
+  minMatchCharLength: 2
+  includeMatches: true   // für Highlighting
+```
+
+- Index wird einmal beim Modul-Import gebaut (Singleton).
+- `search(query, { type? , limit? })` → gruppierte Ergebnisse.
+- Highlighting-Helper: rendert Treffer mit `<mark>` in Sendesaal-Orange.
+
+## Navigation-Änderungen
+
+- `Navigation.tsx`: Lupen-Button (links neben Tickets-CTA) öffnet Palette; Mobile-Menü bekommt „Suche" Eintrag, der ebenfalls die Palette öffnet.
+- Globaler Keyboard-Listener für ⌘K in `App.tsx` oder direkt in der Palette-Komponente.
 
 ## Technische Details
 
-- Neue Datei `src/data/facilities.ts` exportiert `hardFacts`, `techFacts`, `acousticStats` als gemeinsame Quelle. Mieten/Produzieren/Ausstattung importieren von dort. Icons werden ebenfalls dort referenziert.
-- Sheet-Imports in `Mieten.tsx` und `Produzieren.tsx` entfernen; Kacheln werden zu `<Link>`-Buttons mit `text-left w-full`.
-- Smooth-Scroll-Hook in `Ausstattung.tsx`: bei `location.hash` per `useEffect` zum Element scrollen (mit kurzem Timeout für Render).
+**Neue Dateien**
+- `src/lib/searchIndex.ts` — baut `SearchItem[]` aus Events, Pages, Facilities, FAQ
+- `src/data/faq.ts` — FAQ-Einträge extrahiert aus Tickets-Seite (Single Source of Truth)
+- `src/lib/search.ts` — Fuse.js-Wrapper, Highlighting-Helper
+- `src/components/SearchPalette.tsx` — ⌘K-Dialog
+- `src/components/SearchButton.tsx` — Lupen-Trigger für Nav
+- `src/pages/Suche.tsx` — Ergebnisseite
 
-## Ergebnis
+**Geänderte Dateien**
+- `src/App.tsx` — Route `/suche`, optional globale ⌘K-Bindung
+- `src/components/Navigation.tsx` — Such-Button Desktop + Mobile
+- `src/pages/Tickets.tsx` — FAQ-Daten aus `src/data/faq.ts` beziehen (Refactor, keine sichtbare Änderung)
+- `package.json` — `fuse.js` Dependency (~12 KB gzip)
 
-Konsistente, auffindbare Detailseite mit Deep-Links; alle „Details"-CTAs führen zu echten URLs (gut für SEO und Sharing); kaputter Hash-Link von der Startseite ist behoben.
+## Akzeptanzkriterien
+
+- ⌘K / Lupen-Klick öffnet Palette von jeder Seite aus.
+- Tippen liefert Live-Treffer aus allen vier Quellen, gruppiert.
+- „Alle Ergebnisse" springt zu `/suche?q=…` mit Filtern.
+- Tippfehler ("Tingval", "Mieeten") finden die richtigen Einträge.
+- Empty-, Leer-Query- und Mobile-States funktionieren.
+- Design entspricht Sendesaal-System (schwarz/weiß, scharfe Kanten, Seravek, #CF3D11).

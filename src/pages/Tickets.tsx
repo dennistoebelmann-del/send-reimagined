@@ -12,31 +12,9 @@ import {
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import gutscheinImage from "@/assets/gutschein-hero.jpg";
+import { faqItems } from "@/data/faq";
 
 const Tickets = () => {
-  const faqItems = [
-    {
-      question: "Gibt es eine Abendkasse?",
-      answer: "Ja, sofern noch Karten verfügbar sind, öffnet unsere Abendkasse 45 Minuten vor Veranstaltungsbeginn. Wir empfehlen jedoch den Vorverkauf, da viele Konzerte ausverkauft sind."
-    },
-    {
-      question: "Ist der Sendesaal barrierefrei?",
-      answer: "Der Sendesaal ist barrierefrei zugänglich. Es gibt Rollstuhlplätze im Parkett sowie eine behindertengerechte Toilette. Bitte informieren Sie uns bei der Buchung über Ihre Bedürfnisse."
-    },
-    {
-      question: "Wie sind die Öffnungszeiten der Garderobe?",
-      answer: "Die Garderobe öffnet 45 Minuten vor Konzertbeginn und bleibt bis 30 Minuten nach Ende der Veranstaltung geöffnet. Die Garderobennutzung ist kostenfrei."
-    },
-    {
-      question: "Gibt es Ermäßigungen für Studenten?",
-      answer: "Ja, Studierende erhalten gegen Vorlage eines gültigen Studierendenausweises eine Ermäßigung von 20% auf reguläre Eintrittspreise. Diese Ermäßigung gilt nicht für Sonderveranstaltungen."
-    },
-    {
-      question: "Kann ich meine Tickets umtauschen oder stornieren?",
-      answer: "Ein Umtausch oder eine Erstattung ist leider nicht möglich. Bei Ausfall einer Veranstaltung erhalten Sie selbstverständlich den vollen Kaufpreis zurück."
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -251,10 +229,11 @@ const Tickets = () => {
             className="max-w-3xl mx-auto"
           >
             <Accordion type="single" collapsible className="w-full">
-              {faqItems.map((item, index) => (
+              {faqItems.map((item) => (
                 <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
+                  key={item.id}
+                  id={`faq-${item.id}`}
+                  value={`item-${item.id}`}
                   className="border-b border-gray-200"
                 >
                   <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-6">
