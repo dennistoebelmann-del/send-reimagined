@@ -132,7 +132,7 @@ const Navigation = () => {
             >
               <Button
                 asChild
-                className="ml-2 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
+                className="ml-6 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
               >
                 <a href="https://tickets.sendesaal-bremen.de/" target="_blank" rel="noopener noreferrer">Tickets</a>
               </Button>
