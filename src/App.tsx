@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import AmbientBackground from "./components/AmbientBackground";
+import SearchPaletteHost from "./components/SearchPaletteHost";
 import Index from "./pages/Index";
 import Programm from "./pages/Programm";
 import UeberUns from "./pages/UeberUns";
@@ -14,6 +15,7 @@ import Unterstuetzen from "./pages/Unterstuetzen";
 import EventDetail from "./pages/EventDetail";
 import Tickets from "./pages/Tickets";
 import Entdecken from "./pages/Entdecken";
+import Suche from "./pages/Suche";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -35,10 +37,12 @@ const App = () => (
       <AmbientBackground />
       <BrowserRouter>
         <ScrollToTop />
+        <SearchPaletteHost />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/programm" element={<Programm />} />
           <Route path="/entdecken" element={<Entdecken />} />
+          <Route path="/suche" element={<Suche />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/tickets" element={<Tickets />} />
           <Route path="/mieten" element={<Mieten />} />
