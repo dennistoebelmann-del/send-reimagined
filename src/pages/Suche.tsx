@@ -12,7 +12,6 @@ import {
   Settings2,
   HelpCircle,
   X,
-  ChevronDown,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
