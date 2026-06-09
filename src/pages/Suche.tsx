@@ -1,12 +1,32 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search as SearchIcon, ArrowUpRight, Calendar, FileText, Settings2, HelpCircle, X } from "lucide-react";
+import {
+  Search as SearchIcon,
+  ArrowUpRight,
+  Calendar,
+  Clock,
+  MapPin,
+  ExternalLink,
+  FileText,
+  Settings2,
+  HelpCircle,
+  X,
+  ChevronDown,
+} from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { searchGrouped, highlightParts } from "@/lib/search";
 import { typeLabels, type SearchType } from "@/lib/searchIndex";
+import { events as allEvents } from "@/data/events";
 
 const filters: Array<{ id: "all" | SearchType; label: string }> = [
   { id: "all", label: "Alle" },
@@ -36,6 +56,79 @@ const Highlight = ({ text, query }: { text: string; query: string }) => (
     )}
   </>
 );
+
+// Concert card matching the Programm page style
+const ConcertCard = ({
+  eventId,
+  query,
+}: {
+  eventId: number;
+  query: string;
+}) => {
+  const event = allEvents.find((e) => e.id === eventId);
+  if (!event) return null;
+  return (
+    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center justify-between py-8 border-b border-black/10">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-12 flex-1">
+        <div className="w-full md:w-[260px] lg:w-[300px] h-[180px] flex-shrink-0 bg-gray-200">
+          <img
+            src={event.image}
+            alt={event.title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex-1 space-y-2">
+          <div className="flex flex-wrap items-center gap-4 text-black text-sm">
+            <div className="flex items-center gap-2">
+              <Calendar size={14} />
+              <span>{event.date}</span>
+            </div>
+            <div className="w-5 h-[1px] bg-[#E47C03]" />
+            <div className="flex items-center gap-2">
+              <Clock size={14} />
+              <span>{event.time} Uhr</span>
+            </div>
+            <div className="w-5 h-[1px] bg-[#E47C03]" />
+            <div className="flex items-center gap-2">
+              <MapPin size={14} />
+              <span>{event.location}</span>
+            </div>
+          </div>
+          <h3 className="text-[#E17900] text-2xl md:text-3xl font-normal">
+            <Highlight text={event.title} query={query} />
+          </h3>
+          <p className="text-black text-lg font-normal">
+            <Highlight text={event.artist} query={query} />
+          </p>
+          <p className="text-black text-sm md:text-base font-light">
+            <Highlight text={event.description} query={query} />
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-row lg:flex-col gap-3 w-full lg:w-[180px]">
+        <Button
+          asChild
+          variant="outline"
+          className="flex-1 lg:w-[180px] h-[48px] font-bold text-base text-[#E17900] border-[#E17900] hover:bg-[#E17900]/10 bg-transparent"
+        >
+          <Link to={`/event/${event.id}`}>Details</Link>
+        </Button>
+        <div className="flex flex-col items-center">
+          <Button className="w-full lg:w-[180px] h-[48px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-white">
+            Tickets
+          </Button>
+          {event.externalTicketing && (
+            <span className="flex items-center gap-2 text-xs text-gray-600 mt-1">
+              <ExternalLink size={14} aria-hidden />
+              Externer Veranstalter
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Suche = () => {
   const [params, setParams] = useSearchParams();
@@ -195,19 +288,66 @@ const Suche = () => {
                         <span className="ml-2 text-black/40">({items.length})</span>
                       </h2>
                     </div>
-                    <ul className="divide-y divide-black/10">
-                      {items.map(({ item }) => (
-                        <li key={item.id}>
+
+                    {type === "event" && (
+                      <div>
+                        {items.map(({ item }) => {
+                          const id = Number(item.id.replace("event-", ""));
+                          return (
+                            <motion.div
+                              key={item.id}
+                              initial={{ opacity: 0, y: 8 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <ConcertCard eventId={id} query={query} />
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    {type === "faq" && (
+                      <Accordion type="single" collapsible className="w-full">
+                        {items.map(({ item }) => (
+                          <AccordionItem
+                            key={item.id}
+                            value={item.id}
+                            className="border-b border-black/10"
+                          >
+                            <AccordionTrigger className="text-left text-lg font-normal text-black hover:text-[#CF3D11] hover:no-underline py-5">
+                              <Highlight text={item.title} query={query} />
+                            </AccordionTrigger>
+                            <AccordionContent className="text-black/70 font-light pb-5">
+                              <p className="mb-3">
+                                <Highlight text={item.description ?? ""} query={query} />
+                              </p>
+                              <Link
+                                to={item.url}
+                                className="text-sm text-[#CF3D11] hover:underline inline-flex items-center gap-1"
+                              >
+                                Zur Antwort <ArrowUpRight className="w-3 h-3" />
+                              </Link>
+                            </AccordionContent>
+                          </AccordionItem>
+                        ))}
+                      </Accordion>
+                    )}
+
+                    {(type === "seite" || type === "ausstattung") && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {items.map(({ item }) => (
                           <motion.div
+                            key={item.id}
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3 }}
                           >
                             <Link
                               to={item.url}
-                              className="group flex items-start gap-4 py-5 hover:bg-black/[0.02] -mx-3 px-3 transition-colors"
+                              className="group flex items-start gap-4 p-5 border border-black/10 hover:border-[#CF3D11] hover:bg-black/[0.02] transition-colors h-full"
                             >
-                              {item.image && type === "event" && (
+                              {item.image && (
                                 <img
                                   src={item.image}
                                   alt=""
@@ -229,18 +369,13 @@ const Suche = () => {
                                     <Highlight text={item.description} query={query} />
                                   </p>
                                 )}
-                                {item.date && (
-                                  <p className="text-xs text-black/50 mt-2 uppercase tracking-wider">
-                                    {item.date}
-                                  </p>
-                                )}
                               </div>
-                              <ArrowUpRight className="w-5 h-5 text-black/40 group-hover:text-[#CF3D11] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 mt-1" />
+                              <ArrowUpRight className="w-5 h-5 text-black/40 group-hover:text-[#CF3D11] shrink-0 mt-1" />
                             </Link>
                           </motion.div>
-                        </li>
-                      ))}
-                    </ul>
+                        ))}
+                      </div>
+                    )}
                   </section>
                 );
               })}

@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import sendesaalLogo from "@/assets/sendesaal-logo.svg";
-import { searchPalette } from "@/lib/useSearchPalette";
+import { searchPalette, useSearchPalette } from "@/lib/useSearchPalette";
+import SearchBar from "./SearchBar";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +13,7 @@ const Navigation = () => {
   const lastScrollY = useRef(0);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const { open: searchOpen } = useSearchPalette();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,8 +89,13 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation + CTA */}
-          <div className="hidden lg:flex items-center">
-            {navLinks.map((link) => (
+          <div className="hidden lg:flex items-center flex-1 justify-end">
+            <div
+              className={`flex items-center transition-all duration-300 ${
+                searchOpen ? "opacity-0 w-0 overflow-hidden pointer-events-none" : "opacity-100"
+              }`}
+            >
+              {navLinks.map((link) => (
               link.href.startsWith("/") ? (
                 <Link
                   key={link.name}
@@ -110,45 +117,46 @@ const Navigation = () => {
                   {link.name}
                 </a>
               )
-            ))}
-            <button
-              onClick={() => searchPalette.open()}
-              aria-label="Suche öffnen"
-              className={`ml-2 p-3 transition-colors ${
-                useDarkStyle
-                  ? "text-black hover:text-[#E47C03]"
-                  : "text-white hover:text-[#E47C03]"
+              ))}
+            </div>
+
+            <SearchBar
+              dark={useDarkStyle}
+              className={`${searchOpen ? "flex-1 ml-6 mr-3" : "w-[200px] ml-3"}`}
+            />
+
+            <div
+              className={`transition-all duration-300 ${
+                searchOpen ? "opacity-0 w-0 overflow-hidden pointer-events-none" : "opacity-100"
               }`}
             >
-              <Search size={20} />
-            </button>
-            <Button 
-              asChild 
-              className="ml-2 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
-            >
-              <a href="https://tickets.sendesaal-bremen.de/" target="_blank" rel="noopener noreferrer">Tickets</a>
-            </Button>
+              <Button
+                asChild
+                className="ml-2 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
+              >
+                <a href="https://tickets.sendesaal-bremen.de/" target="_blank" rel="noopener noreferrer">Tickets</a>
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center gap-2">
-            <button
-              onClick={() => searchPalette.open()}
-              aria-label="Suche öffnen"
-              className={useDarkStyle ? "text-black" : "text-white"}
-            >
-              <Search size={24} />
-            </button>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <X size={28} className={useDarkStyle ? "text-black" : "text-white"} />
-              ) : (
-                <Menu size={28} className={useDarkStyle ? "text-black" : "text-white"} />
-              )}
-            </button>
+          <div className="lg:hidden flex items-center gap-2 flex-1 justify-end ml-3">
+            <SearchBar
+              dark={useDarkStyle}
+              className={searchOpen ? "flex-1" : "w-[140px]"}
+            />
+            {!searchOpen && (
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? (
+                  <X size={28} className={useDarkStyle ? "text-black" : "text-white"} />
+                ) : (
+                  <Menu size={28} className={useDarkStyle ? "text-black" : "text-white"} />
+                )}
+              </button>
+            )}
           </div>
         </div>
 
