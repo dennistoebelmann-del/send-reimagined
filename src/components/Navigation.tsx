@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
 import sendesaalLogo from "@/assets/sendesaal-logo.svg";
+import { searchPalette } from "@/lib/useSearchPalette";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -111,26 +112,45 @@ const Navigation = () => {
                 </a>
               )
             ))}
+            <button
+              onClick={() => searchPalette.open()}
+              aria-label="Suche öffnen"
+              className={`ml-2 p-3 transition-colors ${
+                useDarkStyle
+                  ? "text-black hover:text-[#E47C03]"
+                  : "text-white hover:text-[#E47C03]"
+              }`}
+            >
+              <Search size={20} />
+            </button>
             <Button 
               asChild 
-              className="ml-4 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
+              className="ml-2 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
             >
               <a href="https://tickets.sendesaal-bremen.de/" target="_blank" rel="noopener noreferrer">Tickets</a>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X size={28} className={useDarkStyle ? "text-black" : "text-white"} />
-            ) : (
-              <Menu size={28} className={useDarkStyle ? "text-black" : "text-white"} />
-            )}
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <button
+              onClick={() => searchPalette.open()}
+              aria-label="Suche öffnen"
+              className={useDarkStyle ? "text-black" : "text-white"}
+            >
+              <Search size={24} />
+            </button>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <X size={28} className={useDarkStyle ? "text-black" : "text-white"} />
+              ) : (
+                <Menu size={28} className={useDarkStyle ? "text-black" : "text-white"} />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
