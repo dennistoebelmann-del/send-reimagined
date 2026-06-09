@@ -205,7 +205,7 @@ const Suche = () => {
 
           {/* Filter chips */}
           {query.trim() && total > 0 && (
-            <div className="flex flex-wrap gap-2 mb-10">
+            <div className="flex flex-wrap items-center mb-10">
               {filters.map((f) => {
                 const count = f.id === "all" ? total : groups[f.id].length;
                 const active = filter === f.id;
@@ -214,14 +214,14 @@ const Suche = () => {
                     key={f.id}
                     onClick={() => setFilter(f.id)}
                     disabled={f.id !== "all" && count === 0}
-                    className={`px-4 py-2 text-sm border transition-colors ${
+                    className={`px-8 py-4 text-base font-bold transition-all ${
                       active
-                        ? "bg-black text-white border-black"
-                        : "bg-white text-black border-black hover:bg-black hover:text-white"
+                        ? "bg-[#E17900] text-white"
+                        : "bg-transparent text-black hover:text-[#E47C03]"
                     } disabled:opacity-30 disabled:cursor-not-allowed`}
                   >
                     {f.label}
-                    <span className="ml-2 opacity-60">{count}</span>
+                    <span className="ml-2 opacity-60 font-normal text-sm">{count}</span>
                   </button>
                 );
               })}
