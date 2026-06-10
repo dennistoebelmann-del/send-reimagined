@@ -747,7 +747,7 @@ END:VCALENDAR`;
                 className="group flex items-center justify-between gap-4 border border-gray-200 px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all"
               >
                 <div className="text-left">
-                  <p className="font-medium text-black group-hover:text-primary transition-colors">venticks</p>
+                  <p className="font-medium text-black group-hover:text-primary transition-colors">Tickets</p>
                   <p className="text-sm text-gray-500">Online-Vorverkauf</p>
                 </div>
                 <ExternalLink size={18} className="text-gray-400 group-hover:text-primary transition-colors flex-shrink-0" />
