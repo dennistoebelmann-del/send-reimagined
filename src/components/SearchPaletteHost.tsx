@@ -84,7 +84,7 @@ const SearchPaletteHost = () => {
                   <button
                     key={t}
                     onClick={() => goSearch(t)}
-                    className="px-3 py-1.5 border border-black/30 text-sm font-light hover:bg-black hover:text-white transition-colors"
+                    className="px-3 py-1.5 border border-black text-sm font-light text-black hover:bg-black hover:text-white transition-colors"
                   >
                     {t}
                   </button>
@@ -92,9 +92,6 @@ const SearchPaletteHost = () => {
               </div>
             </div>
 
-            <p className="text-xs text-black/40 mt-6 font-light">
-              Drücke <kbd className="border border-black/20 px-1.5 py-0.5">Enter</kbd> für alle Ergebnisse · <kbd className="border border-black/20 px-1.5 py-0.5">ESC</kbd> zum Schließen
-            </p>
           </div>
         </div>
       </div>
