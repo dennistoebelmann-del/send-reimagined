@@ -78,6 +78,7 @@ const Navigation = () => {
                   src={sendesaalLogo}
                   alt="Sendesaal Bremen"
                   className="h-12 md:h-14 w-auto transition-all duration-300"
+                  style={{ filter: 'brightness(0)' }}
                 />
               </div>
             ) : (
