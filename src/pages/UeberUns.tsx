@@ -199,6 +199,13 @@ const UeberUns = () => {
                         </div>
                         <h3 className="text-2xl md:text-3xl font-normal text-black">{event.title}</h3>
                         <p className="text-black text-base mt-2 whitespace-pre-line">{event.description}</p>
+                        <button
+                          onClick={() => setOpenIndex(index)}
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-normal text-black border-b border-primary hover:text-primary transition-colors"
+                        >
+                          Details
+                          <ChevronRight size={14} />
+                        </button>
                       </div>
                       <div className="w-1/2" />
                     </div>
@@ -211,6 +218,13 @@ const UeberUns = () => {
                         </div>
                         <h3 className="text-2xl md:text-3xl font-normal text-black">{event.title}</h3>
                         <p className="text-black text-base mt-2 whitespace-pre-line">{event.description}</p>
+                        <button
+                          onClick={() => setOpenIndex(index)}
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-normal text-black border-b border-primary hover:text-primary transition-colors"
+                        >
+                          Details
+                          <ChevronRight size={14} />
+                        </button>
                       </div>
                     </div>
                   )}
