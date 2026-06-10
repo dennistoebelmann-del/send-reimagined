@@ -300,7 +300,42 @@ interface EventData {
   description: string;
   quotes: { text: string; source: string }[];
   youtubeId: string;
+  programHighlights?: { title: string; intro: string; bullets: string[] };
+  aboutArtist?: { title: string; paragraphs: string[] };
+  goodToKnow?: { title: string; bullets: string[] };
 }
+
+// Default supplementary content used when an event has no custom sections.
+// Keeps detail pages rich with text without duplicating copy per event.
+const buildDefaultSections = (event: EventData) => ({
+  programHighlights: event.programHighlights ?? {
+    title: "Das Programm im Überblick",
+    intro: `An diesem Abend erwartet Sie ein sorgfältig kuratiertes Programm rund um ${event.title}. Wir haben die wichtigsten Eckpunkte für Sie zusammengefasst:`,
+    bullets: [
+      "Ausgewählte Werke und Arrangements, exklusiv für den Sendesaal zusammengestellt",
+      "Einführungsgespräch mit den Künstler:innen 30 Minuten vor Beginn im Foyer",
+      "Eine Pause mit Getränken und kleinen Snacks an der Sendesaal-Bar",
+      "Im Anschluss Möglichkeit zum persönlichen Austausch mit den Mitwirkenden",
+    ],
+  },
+  aboutArtist: event.aboutArtist ?? {
+    title: `Über ${event.artist}`,
+    paragraphs: [
+      `${event.artist} zählt zu den profiliertesten Stimmen im aktuellen Konzertbetrieb. Mit großer stilistischer Bandbreite und einem unverwechselbaren Klangverständnis bewegen sie sich souverän zwischen Tradition und Gegenwart.`,
+      `Konzerte auf renommierten internationalen Bühnen, gefeierte Album­veröffentlichungen und langjährige Kooperationen mit führenden Häusern haben den Ruf als Ausnahmeerscheinung gefestigt. Im Sendesaal Bremen sind sie zu Gast, weil dessen weltweit gerühmte Akustik genau das ermöglicht, was diese Musik braucht: Nähe, Transparenz und Raum zum Atmen.`,
+    ],
+  },
+  goodToKnow: event.goodToKnow ?? {
+    title: "Gut zu wissen für Ihren Besuch",
+    bullets: [
+      `Einlass ist ab ${event.admission} – kommen Sie gerne früher und genießen Sie ein Glas Wein im Foyer.`,
+      `Die Veranstaltung dauert ${event.duration} inklusive einer Pause von ${event.pause}.`,
+      "Garderobe und barrierefreie Plätze stehen kostenfrei zur Verfügung.",
+      "Bitte beachten Sie, dass während des Konzerts kein Einlass möglich ist.",
+      "Foto- und Tonaufnahmen sind aus Rücksicht auf die Künstler:innen nicht gestattet.",
+    ],
+  },
+});
 
 const EventDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -318,6 +353,8 @@ const EventDetail = () => {
       </div>
     );
   }
+
+  const sections = buildDefaultSections(event);
 
   const handleShare = () => {
     if (navigator.share) {
@@ -531,6 +568,24 @@ END:VCALENDAR`;
                 />
               </div>
 
+              {/* Program Highlights */}
+              <div className="space-y-4 pt-2">
+                <h3 className="text-2xl md:text-3xl font-light text-black">
+                  {sections.programHighlights.title}
+                </h3>
+                <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                  {sections.programHighlights.intro}
+                </p>
+                <ul className="space-y-3 pt-2">
+                  {sections.programHighlights.bullets.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-700 text-base md:text-lg leading-relaxed">
+                      <span className="mt-2 w-2 h-2 bg-[#E17900] flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               {/* Rest of description */}
               <div className="prose prose-lg max-w-none">
                 {event.description.split('\n\n').slice(2).map((paragraph, index) => (
@@ -538,6 +593,33 @@ END:VCALENDAR`;
                     {paragraph}
                   </p>
                 ))}
+              </div>
+
+              {/* About the artist */}
+              <div className="space-y-4 pt-4 border-t border-gray-200">
+                <h3 className="text-2xl md:text-3xl font-light text-black pt-4">
+                  {sections.aboutArtist.title}
+                </h3>
+                {sections.aboutArtist.paragraphs.map((p, i) => (
+                  <p key={i} className="text-gray-700 leading-relaxed text-base md:text-lg">
+                    {p}
+                  </p>
+                ))}
+              </div>
+
+              {/* Good to know */}
+              <div className="bg-gray-50 p-6 md:p-8 space-y-4">
+                <h3 className="text-xl md:text-2xl font-light text-black">
+                  {sections.goodToKnow.title}
+                </h3>
+                <ul className="space-y-3">
+                  {sections.goodToKnow.bullets.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-gray-700 text-base leading-relaxed">
+                      <span className="mt-2 w-2 h-2 bg-[#E17900] flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* Quotes / Press */}
