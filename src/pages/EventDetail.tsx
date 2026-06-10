@@ -736,7 +736,7 @@ END:VCALENDAR`;
           >
             <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Vorverkauf</p>
             <h2 className="text-2xl md:text-3xl font-light text-black mb-8">
-              Alternativ Tickets bei unseren Partnern kaufen
+              Sichern Sie sich jetzt Ihre Tickets!
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
