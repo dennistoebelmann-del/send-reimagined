@@ -127,7 +127,7 @@ const Tickets = () => {
               </Card>
             </motion.div>
 
-            {/* venticks Card */}
+            {/* Tickets Card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -140,7 +140,7 @@ const Tickets = () => {
                     <QrCode className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold text-black uppercase tracking-wide mb-4">
-                    venticks
+                    Tickets
                   </h3>
                   <p className="text-gray-600 mb-8 flex-grow">
                     Für ausgewählte Sonderveranstaltungen und Direktbuchungen.
@@ -151,7 +151,7 @@ const Tickets = () => {
                     asChild
                   >
                     <a href="https://www.venticks.de" target="_blank" rel="noopener noreferrer">
-                      Zu venticks
+                      Zu den Tickets
                       <ArrowUpRight className="ml-2 w-4 h-4" />
                     </a>
                   </Button>
