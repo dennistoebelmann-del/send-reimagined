@@ -48,9 +48,9 @@ const SearchBar = ({ dark, className = "" }: Props) => {
   const border = open
     ? "border-[#CF3D11]"
     : dark
-      ? "border-black/40"
+      ? "border-[#CF3D11]"
       : "border-white/70";
-  const bg = open ? "bg-white" : "bg-transparent";
+  const bg = open || dark ? "bg-white" : "bg-transparent";
 
   return (
     <div
