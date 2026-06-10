@@ -126,7 +126,7 @@ const Navigation = () => {
             </div>
 
             <SearchBar
-              dark={useDarkStyle}
+              dark={true}
               className={`${searchOpen ? "flex-1" : "w-[200px] ml-6"}`}
             />
 
@@ -147,7 +147,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2 flex-1 justify-end ml-3">
             <SearchBar
-              dark={useDarkStyle}
+              dark={true}
               className={searchOpen ? "flex-1" : "w-[140px]"}
             />
             {!searchOpen && (
