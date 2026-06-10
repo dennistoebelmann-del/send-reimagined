@@ -75,6 +75,24 @@ const teamMembers = [
 const UeberUns = () => {
   const [activeSection, setActiveSection] = useState("historie");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    betreff: "Unterstützung Sendesaal",
+    anfragetyp: "spenden",
+    nachricht: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 1000);
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
