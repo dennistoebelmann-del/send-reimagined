@@ -65,8 +65,13 @@ const Navigation = () => {
       )}
       <nav className="relative container mx-auto px-6 md:px-16 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo - black background when transparent, black filter when scrolled */}
-          <Link to="/" className="flex items-start -mt-4">
+          {/* Logo - hidden when search is open */}
+          <Link
+            to="/"
+            className={`flex items-start -mt-4 transition-all duration-300 ${
+              searchOpen ? "opacity-0 w-0 overflow-hidden pointer-events-none" : "opacity-100"
+            }`}
+          >
             {useDarkStyle ? (
               <div className="transition-all duration-300 px-4 pb-3 pt-4 rounded-b-md bg-white">
                 <img
