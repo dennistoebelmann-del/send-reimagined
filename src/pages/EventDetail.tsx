@@ -300,7 +300,42 @@ interface EventData {
   description: string;
   quotes: { text: string; source: string }[];
   youtubeId: string;
+  programHighlights?: { title: string; intro: string; bullets: string[] };
+  aboutArtist?: { title: string; paragraphs: string[] };
+  goodToKnow?: { title: string; bullets: string[] };
 }
+
+// Default supplementary content used when an event has no custom sections.
+// Keeps detail pages rich with text without duplicating copy per event.
+const buildDefaultSections = (event: EventData) => ({
+  programHighlights: event.programHighlights ?? {
+    title: "Das Programm im Überblick",
+    intro: `An diesem Abend erwartet Sie ein sorgfältig kuratiertes Programm rund um ${event.title}. Wir haben die wichtigsten Eckpunkte für Sie zusammengefasst:`,
+    bullets: [
+      "Ausgewählte Werke und Arrangements, exklusiv für den Sendesaal zusammengestellt",
+      "Einführungsgespräch mit den Künstler:innen 30 Minuten vor Beginn im Foyer",
+      "Eine Pause mit Getränken und kleinen Snacks an der Sendesaal-Bar",
+      "Im Anschluss Möglichkeit zum persönlichen Austausch mit den Mitwirkenden",
+    ],
+  },
+  aboutArtist: event.aboutArtist ?? {
+    title: `Über ${event.artist}`,
+    paragraphs: [
+      `${event.artist} zählt zu den profiliertesten Stimmen im aktuellen Konzertbetrieb. Mit großer stilistischer Bandbreite und einem unverwechselbaren Klangverständnis bewegen sie sich souverän zwischen Tradition und Gegenwart.`,
+      `Konzerte auf renommierten internationalen Bühnen, gefeierte Album­veröffentlichungen und langjährige Kooperationen mit führenden Häusern haben den Ruf als Ausnahmeerscheinung gefestigt. Im Sendesaal Bremen sind sie zu Gast, weil dessen weltweit gerühmte Akustik genau das ermöglicht, was diese Musik braucht: Nähe, Transparenz und Raum zum Atmen.`,
+    ],
+  },
+  goodToKnow: event.goodToKnow ?? {
+    title: "Gut zu wissen für Ihren Besuch",
+    bullets: [
+      `Einlass ist ab ${event.admission} – kommen Sie gerne früher und genießen Sie ein Glas Wein im Foyer.`,
+      `Die Veranstaltung dauert ${event.duration} inklusive einer Pause von ${event.pause}.`,
+      "Garderobe und barrierefreie Plätze stehen kostenfrei zur Verfügung.",
+      "Bitte beachten Sie, dass während des Konzerts kein Einlass möglich ist.",
+      "Foto- und Tonaufnahmen sind aus Rücksicht auf die Künstler:innen nicht gestattet.",
+    ],
+  },
+});
 
 const EventDetail = () => {
   const { id } = useParams<{ id: string }>();
