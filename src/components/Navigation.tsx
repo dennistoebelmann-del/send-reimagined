@@ -127,7 +127,7 @@ const Navigation = () => {
 
             <SearchBar
               dark={useDarkStyle}
-              className={`${searchOpen ? "flex-1 ml-6 mr-3" : "w-[200px] ml-6"}`}
+              className={`${searchOpen ? "flex-1 ml-6" : "w-[200px] ml-6"}`}
             />
 
             <div
