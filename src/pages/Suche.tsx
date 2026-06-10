@@ -11,7 +11,6 @@ import {
   FileText,
   Settings2,
   HelpCircle,
-  X,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -145,11 +144,6 @@ const Suche = () => {
     0,
   );
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setParams(query.trim() ? { q: query.trim() } : {});
-  };
-
   const visibleTypes: SearchType[] =
     filter === "all"
       ? (Object.keys(groups) as SearchType[]).filter((k) => groups[k].length > 0)
@@ -158,54 +152,19 @@ const Suche = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <main className="pt-32 pb-16">
+      <div className="h-24" />
+      <section className="pt-8 md:pt-12 pb-16 md:pb-24 bg-white">
         <div className="container mx-auto px-6 md:px-16">
-          {/* Watermark + Header */}
-          <div className="relative mb-10">
-            <span
-              aria-hidden
-              className="pointer-events-none select-none absolute -top-8 left-0 text-[18vw] md:text-[12vw] leading-none font-light text-black/[0.04] tracking-tighter"
-            >
-              SUCHE
-            </span>
-            <div className="relative">
-              <h1 className="text-4xl md:text-6xl font-light text-black tracking-tight mb-6">
-                Suche
-              </h1>
-              <form onSubmit={onSubmit} className="flex items-center border-b-2 border-black max-w-2xl">
-                <SearchIcon className="w-5 h-5 text-black/60 mr-3 shrink-0" />
-                <input
-                  autoFocus
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Wonach suchst du?"
-                  className="flex-1 py-4 bg-transparent outline-none text-lg font-light text-black placeholder:text-black/40"
-                />
-                {query && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setQuery("");
-                      setParams({});
-                    }}
-                    className="text-black/50 hover:text-black p-1"
-                    aria-label="Zurücksetzen"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                )}
-              </form>
-              {query.trim() && (
-                <p className="text-sm text-black/60 mt-3 font-light">
-                  {total} {total === 1 ? "Treffer" : "Treffer"} für „{query}"
-                </p>
-              )}
-            </div>
+          {/* Header */}
+          <div className="flex items-center gap-4 mb-10">
+            <h1 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
+              Suche
+            </h1>
           </div>
 
           {/* Filter chips */}
           {query.trim() && total > 0 && (
-            <div className="flex flex-wrap items-center mb-10">
+            <div className="flex flex-wrap items-center mb-12">
               {filters.map((f) => {
                 const count = f.id === "all" ? total : groups[f.id].length;
                 const active = filter === f.id;
@@ -226,6 +185,12 @@ const Suche = () => {
                 );
               })}
             </div>
+          )}
+
+          {query.trim() && (
+            <p className="text-sm text-black/60 mb-10 font-light">
+              {total} {total === 1 ? "Treffer" : "Treffer"} für „{query}"
+            </p>
           )}
 
           {/* Empty query → suggestions */}
@@ -381,7 +346,7 @@ const Suche = () => {
             </div>
           )}
         </div>
-      </main>
+      </section>
       <OrangeBarsTransition />
       <Footer />
     </div>
