@@ -54,8 +54,7 @@ const Footer = ({ variant = "light", sectionAbove }: FooterProps) => {
               <img 
                 src={sendesaalLogo} 
                 alt="Sendesaal Bremen" 
-                className="h-24 w-auto"
-                style={isDark ? undefined : { filter: 'brightness(0)' }}
+                className="h-12 md:h-14 w-auto"
               />
             </Link>
             <div className="flex gap-5">
