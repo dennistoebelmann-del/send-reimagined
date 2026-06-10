@@ -368,6 +368,94 @@ const UeberUns = () => {
       </main>
 
       <Footer variant="dark" />
+
+      {/* Timeline Details Drawer */}
+      <AnimatePresence>
+        {openIndex !== null && (
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setOpenIndex(null)}
+              className="fixed inset-0 bg-black/50 z-[100]"
+            />
+            <motion.aside
+              key="drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed top-0 right-0 h-screen w-full md:w-[640px] lg:w-[720px] bg-white z-[101] shadow-2xl flex flex-col"
+            >
+              {/* Top bar */}
+              <div className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-black/10 shrink-0">
+                <div className="inline-flex items-center gap-3">
+                  <div className="bg-black px-3 py-1">
+                    <span className="text-white text-base font-bold">{timelineEvents[openIndex].year}</span>
+                  </div>
+                  <span className="text-sm text-black/60">
+                    {openIndex + 1} / {timelineEvents.length}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setOpenIndex((i) => (i === null ? i : (i - 1 + timelineEvents.length) % timelineEvents.length))}
+                    aria-label="Vorheriges Ereignis"
+                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-black hover:text-white text-black transition-colors"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+                  <button
+                    onClick={() => setOpenIndex((i) => (i === null ? i : (i + 1) % timelineEvents.length))}
+                    aria-label="Nächstes Ereignis"
+                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-black hover:text-white text-black transition-colors"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                  <button
+                    onClick={() => setOpenIndex(null)}
+                    aria-label="Schließen"
+                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-primary hover:text-white hover:border-primary text-black transition-colors ml-1"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Scrollable content */}
+              <div className="flex-1 overflow-y-auto">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={openIndex}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.25 }}
+                    className="px-6 md:px-10 py-8"
+                  >
+                    <h2 className="text-3xl md:text-5xl font-light text-black leading-tight">
+                      {timelineEvents[openIndex].title}
+                    </h2>
+                    <div className="mt-6 aspect-[16/10] w-full overflow-hidden bg-stone-200">
+                      <img
+                        src={timelineEvents[openIndex].image}
+                        alt={timelineEvents[openIndex].title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="mt-8 text-black text-base md:text-lg leading-relaxed">
+                      {timelineEvents[openIndex].details}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
