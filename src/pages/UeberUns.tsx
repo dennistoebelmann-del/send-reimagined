@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
@@ -13,12 +14,42 @@ const sections = [
 ];
 
 const timelineEvents = [
-  { year: "1952", title: "Gründung", description: "Radio Bremen errichtet den Sendesaal als\nmodernsten Rundfunksaal der Welt.", side: "left" },
-  { year: "1962", title: "Goldene Ära", description: "Internationale Künstler entdecken die einzigartige\nAkustik für Aufnahmen.", side: "right" },
-  { year: "1999", title: "Wendepunkt", description: "Radio Bremen gibt den Saal auf.\nDie Zukunft ist ungewiss.", side: "left" },
-  { year: "2006", title: "Rettung", description: "Engagierte Bürger gründen den Förderverein\nzur Erhaltung.", side: "right" },
-  { year: "2010", title: "Wiedereröffnung", description: "Der Sendesaal öffnet als unabhängiger\nKonzertsaal seine Türen.", side: "left" },
-  { year: "Heute", title: "Lebendiges Denkmal", description: "Über 100 Konzerte jährlich machen den Saal\nzu einem kulturellem Zentrum.", side: "right" },
+  {
+    year: "1952", title: "Gründung", side: "left",
+    description: "Radio Bremen errichtet den Sendesaal als\nmodernsten Rundfunksaal der Welt.",
+    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&h=800&fit=crop",
+    details: "1952 errichtete Radio Bremen den Sendesaal als seinerzeit modernsten Rundfunksaal der Welt. Architektur und Akustik wurden gemeinsam mit führenden Tonmeistern entwickelt, um optimale Bedingungen für Musikaufnahmen und Live-Übertragungen zu schaffen. Schon kurz nach der Eröffnung galt der Saal international als Referenz für Aufnahmequalität.",
+  },
+  {
+    year: "1962", title: "Goldene Ära", side: "right",
+    description: "Internationale Künstler entdecken die einzigartige\nAkustik für Aufnahmen.",
+    image: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=1200&h=800&fit=crop",
+    details: "In den 1960er Jahren wurde der Sendesaal zu einem Sehnsuchtsort der internationalen Klassik- und Jazzszene. Solisten und Ensembles aus aller Welt reisten an, um die einzigartige Akustik für ihre Aufnahmen zu nutzen. Viele dieser Einspielungen prägen bis heute den Klangkanon des 20. Jahrhunderts.",
+  },
+  {
+    year: "1999", title: "Wendepunkt", side: "left",
+    description: "Radio Bremen gibt den Saal auf.\nDie Zukunft ist ungewiss.",
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=800&fit=crop",
+    details: "Wirtschaftliche Zwänge führten Ende der 1990er Jahre dazu, dass Radio Bremen den Sendesaal aufgeben musste. Plötzlich stand das einzigartige Kulturdenkmal vor einer unsicheren Zukunft – Abriss und Umnutzung wurden ernsthaft diskutiert.",
+  },
+  {
+    year: "2006", title: "Rettung", side: "right",
+    description: "Engagierte Bürger gründen den Förderverein\nzur Erhaltung.",
+    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1200&h=800&fit=crop",
+    details: "Eine Initiative engagierter Bremer Bürger gründete 2006 den Förderverein Sendesaal e.V. Ziel war und ist es, den Saal als lebendigen Konzertort zu erhalten und seine architektonische sowie akustische Einzigartigkeit für kommende Generationen zu bewahren.",
+  },
+  {
+    year: "2010", title: "Wiedereröffnung", side: "left",
+    description: "Der Sendesaal öffnet als unabhängiger\nKonzertsaal seine Türen.",
+    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=800&fit=crop",
+    details: "Nach umfangreichen Sanierungs- und Umbauarbeiten öffnete der Sendesaal 2010 als unabhängiger Konzertsaal seine Türen. Damit begann ein neues Kapitel: Konzerte, Aufnahmen und Veranstaltungen unter eigener Regie – getragen von einem breiten zivilgesellschaftlichen Engagement.",
+  },
+  {
+    year: "Heute", title: "Lebendiges Denkmal", side: "right",
+    description: "Über 100 Konzerte jährlich machen den Saal\nzu einem kulturellem Zentrum.",
+    image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=1200&h=800&fit=crop",
+    details: "Heute finden im Sendesaal über 100 Konzerte pro Jahr statt – von Klassik über Jazz bis zu zeitgenössischer Musik. Der Saal ist zugleich Aufnahmeort, Konzerthaus und kulturelles Zentrum und damit ein lebendiges Denkmal in der Bremer Kulturlandschaft.",
+  },
 ];
 
 const teamMembers = [
@@ -32,6 +63,18 @@ const teamMembers = [
 
 const UeberUns = () => {
   const [activeSection, setActiveSection] = useState("historie");
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (openIndex === null) return;
+      if (e.key === "Escape") setOpenIndex(null);
+      if (e.key === "ArrowLeft") setOpenIndex((i) => (i === null ? i : (i - 1 + timelineEvents.length) % timelineEvents.length));
+      if (e.key === "ArrowRight") setOpenIndex((i) => (i === null ? i : (i + 1) % timelineEvents.length));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openIndex]);
 
   useEffect(() => {
     const handleScroll = () => {
