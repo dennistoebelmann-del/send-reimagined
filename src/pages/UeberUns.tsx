@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
@@ -13,12 +14,42 @@ const sections = [
 ];
 
 const timelineEvents = [
-  { year: "1952", title: "Gründung", description: "Radio Bremen errichtet den Sendesaal als\nmodernsten Rundfunksaal der Welt.", side: "left" },
-  { year: "1962", title: "Goldene Ära", description: "Internationale Künstler entdecken die einzigartige\nAkustik für Aufnahmen.", side: "right" },
-  { year: "1999", title: "Wendepunkt", description: "Radio Bremen gibt den Saal auf.\nDie Zukunft ist ungewiss.", side: "left" },
-  { year: "2006", title: "Rettung", description: "Engagierte Bürger gründen den Förderverein\nzur Erhaltung.", side: "right" },
-  { year: "2010", title: "Wiedereröffnung", description: "Der Sendesaal öffnet als unabhängiger\nKonzertsaal seine Türen.", side: "left" },
-  { year: "Heute", title: "Lebendiges Denkmal", description: "Über 100 Konzerte jährlich machen den Saal\nzu einem kulturellem Zentrum.", side: "right" },
+  {
+    year: "1952", title: "Gründung", side: "left",
+    description: "Radio Bremen errichtet den Sendesaal als\nmodernsten Rundfunksaal der Welt.",
+    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&h=800&fit=crop",
+    details: "1952 errichtete Radio Bremen den Sendesaal als seinerzeit modernsten Rundfunksaal der Welt. Architektur und Akustik wurden gemeinsam mit führenden Tonmeistern entwickelt, um optimale Bedingungen für Musikaufnahmen und Live-Übertragungen zu schaffen. Schon kurz nach der Eröffnung galt der Saal international als Referenz für Aufnahmequalität.",
+  },
+  {
+    year: "1962", title: "Goldene Ära", side: "right",
+    description: "Internationale Künstler entdecken die einzigartige\nAkustik für Aufnahmen.",
+    image: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=1200&h=800&fit=crop",
+    details: "In den 1960er Jahren wurde der Sendesaal zu einem Sehnsuchtsort der internationalen Klassik- und Jazzszene. Solisten und Ensembles aus aller Welt reisten an, um die einzigartige Akustik für ihre Aufnahmen zu nutzen. Viele dieser Einspielungen prägen bis heute den Klangkanon des 20. Jahrhunderts.",
+  },
+  {
+    year: "1999", title: "Wendepunkt", side: "left",
+    description: "Radio Bremen gibt den Saal auf.\nDie Zukunft ist ungewiss.",
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=800&fit=crop",
+    details: "Wirtschaftliche Zwänge führten Ende der 1990er Jahre dazu, dass Radio Bremen den Sendesaal aufgeben musste. Plötzlich stand das einzigartige Kulturdenkmal vor einer unsicheren Zukunft – Abriss und Umnutzung wurden ernsthaft diskutiert.",
+  },
+  {
+    year: "2006", title: "Rettung", side: "right",
+    description: "Engagierte Bürger gründen den Förderverein\nzur Erhaltung.",
+    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1200&h=800&fit=crop",
+    details: "Eine Initiative engagierter Bremer Bürger gründete 2006 den Förderverein Sendesaal e.V. Ziel war und ist es, den Saal als lebendigen Konzertort zu erhalten und seine architektonische sowie akustische Einzigartigkeit für kommende Generationen zu bewahren.",
+  },
+  {
+    year: "2010", title: "Wiedereröffnung", side: "left",
+    description: "Der Sendesaal öffnet als unabhängiger\nKonzertsaal seine Türen.",
+    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=800&fit=crop",
+    details: "Nach umfangreichen Sanierungs- und Umbauarbeiten öffnete der Sendesaal 2010 als unabhängiger Konzertsaal seine Türen. Damit begann ein neues Kapitel: Konzerte, Aufnahmen und Veranstaltungen unter eigener Regie – getragen von einem breiten zivilgesellschaftlichen Engagement.",
+  },
+  {
+    year: "Heute", title: "Lebendiges Denkmal", side: "right",
+    description: "Über 100 Konzerte jährlich machen den Saal\nzu einem kulturellem Zentrum.",
+    image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=1200&h=800&fit=crop",
+    details: "Heute finden im Sendesaal über 100 Konzerte pro Jahr statt – von Klassik über Jazz bis zu zeitgenössischer Musik. Der Saal ist zugleich Aufnahmeort, Konzerthaus und kulturelles Zentrum und damit ein lebendiges Denkmal in der Bremer Kulturlandschaft.",
+  },
 ];
 
 const teamMembers = [
@@ -32,6 +63,18 @@ const teamMembers = [
 
 const UeberUns = () => {
   const [activeSection, setActiveSection] = useState("historie");
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (openIndex === null) return;
+      if (e.key === "Escape") setOpenIndex(null);
+      if (e.key === "ArrowLeft") setOpenIndex((i) => (i === null ? i : (i - 1 + timelineEvents.length) % timelineEvents.length));
+      if (e.key === "ArrowRight") setOpenIndex((i) => (i === null ? i : (i + 1) % timelineEvents.length));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openIndex]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -156,6 +199,13 @@ const UeberUns = () => {
                         </div>
                         <h3 className="text-2xl md:text-3xl font-normal text-black">{event.title}</h3>
                         <p className="text-black text-base mt-2 whitespace-pre-line">{event.description}</p>
+                        <button
+                          onClick={() => setOpenIndex(index)}
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-normal text-black border-b border-primary hover:text-primary transition-colors"
+                        >
+                          Details
+                          <ChevronRight size={14} />
+                        </button>
                       </div>
                       <div className="w-1/2" />
                     </div>
@@ -168,6 +218,13 @@ const UeberUns = () => {
                         </div>
                         <h3 className="text-2xl md:text-3xl font-normal text-black">{event.title}</h3>
                         <p className="text-black text-base mt-2 whitespace-pre-line">{event.description}</p>
+                        <button
+                          onClick={() => setOpenIndex(index)}
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-normal text-black border-b border-primary hover:text-primary transition-colors"
+                        >
+                          Details
+                          <ChevronRight size={14} />
+                        </button>
                       </div>
                     </div>
                   )}
@@ -311,6 +368,94 @@ const UeberUns = () => {
       </main>
 
       <Footer variant="dark" />
+
+      {/* Timeline Details Drawer */}
+      <AnimatePresence>
+        {openIndex !== null && (
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setOpenIndex(null)}
+              className="fixed inset-0 bg-black/50 z-[100]"
+            />
+            <motion.aside
+              key="drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed top-0 right-0 h-screen w-full md:w-[640px] lg:w-[720px] bg-white z-[101] shadow-2xl flex flex-col"
+            >
+              {/* Top bar */}
+              <div className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-black/10 shrink-0">
+                <div className="inline-flex items-center gap-3">
+                  <div className="bg-black px-3 py-1">
+                    <span className="text-white text-base font-bold">{timelineEvents[openIndex].year}</span>
+                  </div>
+                  <span className="text-sm text-black/60">
+                    {openIndex + 1} / {timelineEvents.length}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setOpenIndex((i) => (i === null ? i : (i - 1 + timelineEvents.length) % timelineEvents.length))}
+                    aria-label="Vorheriges Ereignis"
+                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-black hover:text-white text-black transition-colors"
+                  >
+                    <ChevronLeft size={18} />
+                  </button>
+                  <button
+                    onClick={() => setOpenIndex((i) => (i === null ? i : (i + 1) % timelineEvents.length))}
+                    aria-label="Nächstes Ereignis"
+                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-black hover:text-white text-black transition-colors"
+                  >
+                    <ChevronRight size={18} />
+                  </button>
+                  <button
+                    onClick={() => setOpenIndex(null)}
+                    aria-label="Schließen"
+                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-primary hover:text-white hover:border-primary text-black transition-colors ml-1"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Scrollable content */}
+              <div className="flex-1 overflow-y-auto">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={openIndex}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.25 }}
+                    className="px-6 md:px-10 py-8"
+                  >
+                    <h2 className="text-3xl md:text-5xl font-light text-black leading-tight">
+                      {timelineEvents[openIndex].title}
+                    </h2>
+                    <div className="mt-6 aspect-[16/10] w-full overflow-hidden bg-stone-200">
+                      <img
+                        src={timelineEvents[openIndex].image}
+                        alt={timelineEvents[openIndex].title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="mt-8 text-black text-base md:text-lg leading-relaxed">
+                      {timelineEvents[openIndex].details}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
