@@ -66,7 +66,7 @@ const SearchPaletteHost = () => {
                       className="w-8 h-8 object-cover"
                       loading="lazy"
                     />
-                    <span className="text-sm font-light">{c.title}</span>
+                    <span className="text-sm font-light text-black">{c.title}</span>
                     <span className="text-xs text-black/50 group-hover:text-white/60 hidden sm:inline">
                       {c.weekday}. {c.date.split(",")[1]?.trim()}
                     </span>
