@@ -1,9 +1,20 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Send } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import OrangeBarsTransition from "@/components/OrangeBarsTransition";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import aboutHero from "@/assets/ueber-uns-hero.jpg";
 
 const sections = [
@@ -64,6 +75,24 @@ const teamMembers = [
 const UeberUns = () => {
   const [activeSection, setActiveSection] = useState("historie");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    betreff: "Unterstützung Sendesaal",
+    anfragetyp: "spenden",
+    nachricht: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 1000);
+  };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -351,17 +380,121 @@ const UeberUns = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 text-center"
+              className="mt-20 max-w-[780px] mx-auto"
             >
-              <p className="text-black text-base mb-6">
-                Möchten Sie den Sendesaal unterstützen?
-              </p>
-              <a
-                href="mailto:info@sendesaal.de"
-                className="inline-flex items-center gap-2 bg-[#E17900] text-white px-16 py-4 font-bold text-base hover:bg-[#E17900]/90 transition-colors"
-              >
-                Kontakt aufnehmen
-              </a>
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-light text-foreground">
+                  Möchten Sie den Sendesaal unterstützen?
+                </h2>
+                <div className="mt-4 flex items-center justify-center gap-6">
+                  <div className="w-10 h-px bg-primary" />
+                  <p className="text-muted-foreground text-lg md:text-xl font-light">
+                    Schreiben Sie uns – wir freuen uns auf Ihre Nachricht
+                  </p>
+                </div>
+              </div>
+
+              {submitted ? (
+                <div className="text-center py-16">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                    <Send className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-light text-foreground mb-3">Vielen Dank!</h3>
+                  <p className="text-muted-foreground font-light">
+                    Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-foreground/80 font-light text-sm">Name</Label>
+                      <Input
+                        id="name"
+                        type="text"
+                        required
+                        maxLength={100}
+                        aria-required="true"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="bg-muted border-border text-foreground font-light h-12 placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
+                        placeholder="Ihr Name"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-foreground/80 font-light text-sm">E-Mail</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        required
+                        maxLength={255}
+                        aria-required="true"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="bg-muted border-border text-foreground font-light h-12 placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
+                        placeholder="ihre@email.de"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="betreff" className="text-foreground/80 font-light text-sm">Betreff</Label>
+                      <Input
+                        id="betreff"
+                        type="text"
+                        required
+                        maxLength={200}
+                        aria-required="true"
+                        value={formData.betreff}
+                        onChange={(e) => setFormData({ ...formData, betreff: e.target.value })}
+                        className="bg-muted border-border text-foreground font-light h-12 placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary"
+                        placeholder="Betreff Ihrer Anfrage"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="anfragetyp" className="text-foreground/80 font-light text-sm">Anfragetyp</Label>
+                      <Select
+                        value={formData.anfragetyp}
+                        onValueChange={(value) => setFormData({ ...formData, anfragetyp: value })}
+                      >
+                        <SelectTrigger className="bg-muted border-border text-foreground font-light h-12 focus:ring-primary">
+                          <SelectValue placeholder="Bitte wählen" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="spenden">Spenden / Unterstützen</SelectItem>
+                          <SelectItem value="mieten">Mieten</SelectItem>
+                          <SelectItem value="produzieren">Produzieren</SelectItem>
+                          <SelectItem value="feedback">Anregung, Feedback, Kritik</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="nachricht" className="text-foreground/80 font-light text-sm">Nachricht</Label>
+                    <Textarea
+                      id="nachricht"
+                      required
+                      maxLength={2000}
+                      rows={6}
+                      aria-required="true"
+                      value={formData.nachricht}
+                      onChange={(e) => setFormData({ ...formData, nachricht: e.target.value })}
+                      className="bg-muted border-border text-foreground font-light placeholder:text-muted-foreground focus-visible:ring-primary focus-visible:border-primary resize-none"
+                      placeholder="Ihre Nachricht an uns..."
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-5 h-auto text-base mt-2"
+                  >
+                    {isSubmitting ? "Wird gesendet..." : "Absenden"}
+                  </Button>
+                </form>
+              )}
             </motion.div>
           </div>
         </section>
