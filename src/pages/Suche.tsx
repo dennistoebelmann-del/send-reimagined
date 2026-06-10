@@ -158,7 +158,7 @@ const Suche = () => {
           {/* Header */}
           <div className="flex items-center gap-4 mb-10">
             <h1 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
-              Suche
+              Suchergebnisse
             </h1>
           </div>
 
