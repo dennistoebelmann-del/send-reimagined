@@ -842,7 +842,7 @@ END:VCALENDAR`;
                 <Button
                   className="w-full sm:w-auto bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-12 py-6 h-auto text-base"
                 >
-                  PLÄTZE WÄHLEN
+                  Tickets
                 </Button>
               )}
             </div>
