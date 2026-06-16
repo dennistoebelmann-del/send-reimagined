@@ -14,9 +14,8 @@ import Ausstattung from "./pages/Ausstattung";
 import Unterstuetzen from "./pages/Unterstuetzen";
 import EventDetail from "./pages/EventDetail";
 import Tickets from "./pages/Tickets";
-import Entdecken from "./pages/Entdecken";
-
 import Suche from "./pages/Suche";
+import ContextualAIHelp from "./components/ContextualAIHelp";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -45,7 +44,6 @@ const App = () => (
           <Route path="/suche" element={<Suche />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/tickets" element={<Tickets />} />
-          <Route path="/entdecken" element={<Entdecken />} />
           <Route path="/mieten" element={<Mieten />} />
           <Route path="/produzieren" element={<Produzieren />} />
           <Route path="/ausstattung" element={<Ausstattung />} />
@@ -54,6 +52,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ContextualAIHelp />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
