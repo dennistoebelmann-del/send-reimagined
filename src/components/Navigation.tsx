@@ -40,7 +40,6 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Programm", href: "/programm" },
-    { name: "Entdecken", href: "/entdecken" },
     { name: "Mieten", href: "/mieten" },
     { name: "Produzieren", href: "/produzieren" },
     { name: "Unterstützen", href: "/unterstuetzen" },
