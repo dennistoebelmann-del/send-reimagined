@@ -14,6 +14,7 @@ import Ausstattung from "./pages/Ausstattung";
 import Unterstuetzen from "./pages/Unterstuetzen";
 import EventDetail from "./pages/EventDetail";
 import Tickets from "./pages/Tickets";
+import Entdecken from "./pages/Entdecken";
 
 import Suche from "./pages/Suche";
 import NotFound from "./pages/NotFound";
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/suche" element={<Suche />} />
           <Route path="/event/:id" element={<EventDetail />} />
           <Route path="/tickets" element={<Tickets />} />
+          <Route path="/entdecken" element={<Entdecken />} />
           <Route path="/mieten" element={<Mieten />} />
           <Route path="/produzieren" element={<Produzieren />} />
           <Route path="/ausstattung" element={<Ausstattung />} />
