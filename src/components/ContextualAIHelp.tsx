@@ -196,7 +196,7 @@ const ContextualAIHelp = () => {
           ref={cursorRef}
           data-ai-help-ui
           aria-hidden
-          className="pointer-events-none fixed top-0 left-0 z-[9999] -translate-x-1/2 -translate-y-1/2"
+          className="pointer-events-none fixed top-0 left-0 z-[10001] -translate-x-1/2 -translate-y-1/2"
         >
           <div className="ai-help-cursor">
             <Sparkles size={14} className="text-white relative z-10" />
@@ -208,12 +208,12 @@ const ContextualAIHelp = () => {
       {active && tipState.rect && (
         <div
           data-ai-help-ui
-          className="fixed z-[9999] bg-white shadow-2xl border border-black/10 p-5 ai-help-card"
-          style={cardStyle}
+          className="fixed z-[10000] bg-white shadow-2xl border border-black/10 p-5 ai-help-card"
+          style={{ ...cardStyle, pointerEvents: "auto" }}
         >
           <button
             onClick={() => setTipState({ tip: null, loading: false, error: null, rect: null, pinned: false })}
-            className="absolute top-2 right-2 text-black/50 hover:text-black"
+            className="absolute top-1 right-1 p-2 text-black/60 hover:text-[#CF3D11] transition-colors"
             aria-label="Schließen"
           >
             <X size={16} />
