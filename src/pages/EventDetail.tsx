@@ -343,7 +343,7 @@ const EventDetail = () => {
 
   if (!event) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-background theme-light flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-foreground mb-4">Event nicht gefunden</h1>
           <Link to="/programm" className="text-primary hover:underline">
@@ -386,7 +386,7 @@ END:VCALENDAR`;
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-light">
       <Navigation />
 
       {/* Hero Section - Immersive */}

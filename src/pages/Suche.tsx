@@ -150,7 +150,7 @@ const Suche = () => {
       : [filter];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-light">
       <Navigation />
       <div className="h-24" />
       <section className="pt-8 md:pt-12 pb-16 md:pb-24 bg-background">

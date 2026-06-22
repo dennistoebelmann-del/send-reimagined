@@ -94,7 +94,7 @@ const Ausstattung = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-light">
       <Navigation />
 
       {/* Hero */}

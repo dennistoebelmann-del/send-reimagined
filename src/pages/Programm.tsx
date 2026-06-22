@@ -209,7 +209,7 @@ const Programm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-light">
       <Navigation />
       
       {/* Spacer for fixed navigation */}
