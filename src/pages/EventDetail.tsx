@@ -434,7 +434,7 @@ END:VCALENDAR`;
                   <Calendar size={24} className="text-primary" />
                   <span>{event.date}</span>
                 </div>
-                <div className="w-6 h-[2px] bg-primary" />
+                <div className="w-5 h-px bg-primary" />
                 <div className="flex items-center gap-3">
                   <Clock size={24} className="text-primary" />
                   <span>{event.time} Uhr</span>
