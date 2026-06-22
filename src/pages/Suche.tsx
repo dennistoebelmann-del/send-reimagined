@@ -228,7 +228,7 @@ const Suche = () => {
               <div className="flex gap-3">
                 <Link
                   to="/programm"
-                  className="px-5 py-3 bg-black text-white text-sm hover:bg-primary transition-colors"
+                  className="px-5 py-3 bg-black text-white text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
                   Zum Programm
                 </Link>
