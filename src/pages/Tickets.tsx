@@ -197,7 +197,7 @@ const Tickets = () => {
                 Einlösbar für alle Eigenveranstaltungen.
               </p>
               <Button 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wide h-[52px] px-16 text-base"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground uppercase tracking-wide h-[52px] px-16 text-base"
               >
                 Gutschein bestellen
               </Button>

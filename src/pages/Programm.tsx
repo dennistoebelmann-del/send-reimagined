@@ -231,7 +231,7 @@ const Programm = () => {
               <button
                 key={cat.id}
                 onClick={() => handleFilterChange(cat.id)}
-                className={`px-8 py-4 text-base font-bold transition-all ${
+                className={`px-8 py-4 text-base transition-all ${
                   activeFilter === cat.id
                     ? "bg-primary text-black"
                     : "bg-transparent text-foreground hover:text-primary"
@@ -269,7 +269,7 @@ const Programm = () => {
             <div className="mt-16 text-center">
               <Button
                 onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
-                className="bg-primary hover:bg-primary/90 text-black font-bold h-[52px] px-16 text-base"
+                className="bg-primary hover:bg-primary/90 text-black h-[52px] px-16 text-base"
               >
                 Weitere Veranstaltungen anzeigen
               </Button>
@@ -354,13 +354,13 @@ const EventCard = ({ event }: { event: Event }) => {
         <Button 
           asChild
           variant="outline"
-          className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-primary border-primary hover:bg-primary/10 bg-transparent"
+          className="flex-1 lg:w-[180px] h-[52px] text-base text-primary border-primary hover:bg-primary/10 bg-transparent"
         >
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <div className="flex flex-col items-center">
           <Button 
-            className="w-full lg:w-[180px] h-[48px] px-8 font-bold text-base bg-primary hover:bg-primary/90 text-black"
+            className="w-full lg:w-[180px] h-[48px] px-8 text-base bg-primary hover:bg-primary/90 text-black"
           >
             Tickets
           </Button>

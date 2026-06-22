@@ -179,7 +179,7 @@ const UeberUns = () => {
                 onClick={() => scrollToSection(section.id)}
                 className={`px-4 md:px-5 py-2 text-sm md:text-base whitespace-nowrap rounded-full transition-all duration-300 ${
                   activeSection === section.id
-                    ? "font-bold text-foreground"
+                    ? "text-foreground"
                     : "font-normal text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -489,7 +489,7 @@ const UeberUns = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-[52px] px-16 text-base mt-2"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-[52px] px-16 text-base mt-2"
                   >
                     {isSubmitting ? "Wird gesendet..." : "Absenden"}
                   </Button>

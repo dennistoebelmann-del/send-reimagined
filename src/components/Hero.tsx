@@ -57,7 +57,7 @@ const Hero = () => {
           >
             <Button 
               asChild 
-              className="bg-primary hover:bg-primary/90 text-black font-bold uppercase tracking-wide h-[52px] px-16 text-base border border-white"
+              className="bg-primary hover:bg-primary/90 text-black uppercase tracking-wide h-[52px] px-16 text-base border border-white"
             >
               <Link to="/programm">Programm</Link>
             </Button>
