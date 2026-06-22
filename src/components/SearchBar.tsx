@@ -77,7 +77,7 @@ const SearchBar = ({ dark, className = "" }: Props) => {
         <button
           onClick={() => searchPalette.close()}
           aria-label="Suche schließen"
-          className="p-2 mr-1 text-black hover:text-primary transition-colors"
+          className="p-2 mr-1 text-foreground hover:text-primary transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
