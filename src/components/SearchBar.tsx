@@ -39,9 +39,9 @@ const SearchBar = ({ dark, className = "" }: Props) => {
     navigate(`/suche?q=${encodeURIComponent(v)}`);
   };
 
-  const text = open ? "text-black" : dark ? "text-black" : "text-white";
+  const text = open ? "text-foreground" : dark ? "text-black" : "text-white";
   const placeholder = open
-    ? "placeholder:text-black/40"
+    ? "placeholder:text-foreground/40"
     : dark
       ? "placeholder:text-black/50"
       : "placeholder:text-white/70";
