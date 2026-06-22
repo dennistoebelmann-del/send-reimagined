@@ -29,13 +29,13 @@ const FacilitySection = ({ fact, index }: { fact: FacilityFact; index: number })
               </span>
               <fact.icon className="w-5 h-5 text-primary" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-light text-black mb-6">{fact.title}</h2>
-            <p className="text-black/80 text-base md:text-lg font-light leading-relaxed">
+            <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">{fact.title}</h2>
+            <p className="text-foreground/80 text-base md:text-lg font-light leading-relaxed">
               {fact.description}
             </p>
             <ul className="mt-6 space-y-3">
               {fact.details.map((d) => (
-                <li key={d} className="flex gap-3 text-black/80 font-light">
+                <li key={d} className="flex gap-3 text-foreground/80 font-light">
                   <span className="text-primary mt-1">—</span>
                   <span>{d}</span>
                 </li>
@@ -94,7 +94,7 @@ const Ausstattung = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background theme-light">
       <Navigation />
 
       {/* Hero */}
@@ -127,10 +127,10 @@ const Ausstattung = () => {
           </motion.div>
         </div>
 
-        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-white" />
+        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-background" />
       </section>
 
-      <main className="bg-white pt-16">
+      <main className="bg-background pt-16">
         {/* Sprungmarken */}
         <section className="pb-16">
           <div className="container mx-auto px-6 md:px-16">
@@ -139,7 +139,7 @@ const Ausstattung = () => {
                 <a
                   key={f.slug}
                   href={`#${f.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-light text-black/70 hover:text-primary border-b border-transparent hover:border-primary pb-1 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-light text-muted-foreground hover:text-primary border-b border-transparent hover:border-primary pb-1 transition-colors"
                 >
                   <f.icon className="w-4 h-4" />
                   {f.title}
@@ -158,10 +158,10 @@ const Ausstattung = () => {
               viewport={{ once: true }}
               className="text-center mb-16 max-w-[700px] mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-light text-black">Räumlichkeiten &amp; Equipment</h2>
+              <h2 className="text-3xl md:text-4xl font-light text-foreground">Räumlichkeiten &amp; Equipment</h2>
               <div className="mt-4 flex items-center justify-center gap-6">
                 <div className="w-10 h-px bg-primary" />
-                <p className="text-black/70 text-base md:text-lg font-light">Für Konzerte, Tagungen &amp; Events</p>
+                <p className="text-muted-foreground text-base md:text-lg font-light">Für Konzerte, Tagungen &amp; Events</p>
               </div>
             </motion.div>
           </div>
@@ -182,10 +182,10 @@ const Ausstattung = () => {
               viewport={{ once: true }}
               className="text-center mb-16 max-w-[700px] mx-auto"
             >
-              <h2 className="text-3xl md:text-4xl font-light text-black">Studio &amp; Produktion</h2>
+              <h2 className="text-3xl md:text-4xl font-light text-foreground">Studio &amp; Produktion</h2>
               <div className="mt-4 flex items-center justify-center gap-6">
                 <div className="w-10 h-px bg-primary" />
-                <p className="text-black/70 text-base md:text-lg font-light">Für Aufnahmen auf höchstem Niveau</p>
+                <p className="text-muted-foreground text-base md:text-lg font-light">Für Aufnahmen auf höchstem Niveau</p>
               </div>
             </motion.div>
           </div>
@@ -219,7 +219,7 @@ const Ausstattung = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="bg-transparent hover:bg-white hover:text-black text-white border-white font-bold px-8 py-5 h-auto text-base"
+                  className="bg-transparent hover:bg-background hover:text-foreground text-white border-white font-bold px-8 py-5 h-auto text-base"
                 >
                   <Link to="/produzieren#kontakt">
                     Produktion planen <ArrowRight className="ml-2 w-4 h-4" />

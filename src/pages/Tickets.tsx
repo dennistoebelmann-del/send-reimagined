@@ -16,7 +16,7 @@ import { faqItems } from "@/data/faq";
 
 const Tickets = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background theme-light">
       <Navigation />
       
       {/* Hero Section with SVG Pattern */}
@@ -68,16 +68,16 @@ const Tickets = () => {
 
         {/* Concave Divider */}
         <div className="absolute bottom-0 left-0 right-0">
-          <div className="relative h-20 bg-white">
+          <div className="relative h-20 bg-background">
             <div 
-              className="absolute -top-20 left-1/2 -translate-x-1/2 w-[200%] h-40 rounded-[50%] bg-white"
+              className="absolute -top-20 left-1/2 -translate-x-1/2 w-[200%] h-40 rounded-[50%] bg-background"
             />
           </div>
         </div>
       </section>
 
       {/* Ticket Provider Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -86,10 +86,10 @@ const Tickets = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-black uppercase tracking-wide mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground uppercase tracking-wide mb-4">
               Tickets kaufen
             </h2>
-            <p className="text-gray-600 max-w-xl mx-auto">
+            <p className="text-muted-foreground max-w-xl mx-auto">
               Wählen Sie Ihren bevorzugten Ticketanbieter für Ihren Konzertbesuch.
             </p>
           </motion.div>
@@ -102,20 +102,20 @@ const Tickets = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300 h-full">
+              <Card className="bg-background border border-border hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardContent className="p-8 flex flex-col items-center text-center h-full">
-                  <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mb-6">
                     <Ticket className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-black uppercase tracking-wide mb-4">
+                  <h3 className="text-xl font-bold text-foreground uppercase tracking-wide mb-4">
                     Nordwest Ticket
                   </h3>
-                  <p className="text-gray-600 mb-8 flex-grow">
+                  <p className="text-muted-foreground mb-8 flex-grow">
                     Unser Partner für die meisten Konzerte, Abonnements und Reihen.
                   </p>
                   <Button 
                     variant="outline" 
-                    className="w-full border-black text-black hover:bg-black hover:text-white transition-colors"
+                    className="w-full border-black text-foreground hover:bg-black hover:text-white transition-colors"
                     asChild
                   >
                     <a href="https://www.nordwest-ticket.de" target="_blank" rel="noopener noreferrer">
@@ -134,20 +134,20 @@ const Tickets = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300 h-full">
+              <Card className="bg-background border border-border hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardContent className="p-8 flex flex-col items-center text-center h-full">
-                  <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mb-6">
                     <QrCode className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-black uppercase tracking-wide mb-4">
+                  <h3 className="text-xl font-bold text-foreground uppercase tracking-wide mb-4">
                     Tickets
                   </h3>
-                  <p className="text-gray-600 mb-8 flex-grow">
+                  <p className="text-muted-foreground mb-8 flex-grow">
                     Für ausgewählte Sonderveranstaltungen und Direktbuchungen.
                   </p>
                   <Button 
                     variant="outline" 
-                    className="w-full border-black text-black hover:bg-black hover:text-white transition-colors"
+                    className="w-full border-black text-foreground hover:bg-black hover:text-white transition-colors"
                     asChild
                   >
                     <a href="https://www.venticks.de" target="_blank" rel="noopener noreferrer">
@@ -163,7 +163,7 @@ const Tickets = () => {
       </section>
 
       {/* Gutscheine Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-muted">
         <div className="container mx-auto px-6 md:px-16">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             {/* Image */}
@@ -189,10 +189,10 @@ const Tickets = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="order-1 md:order-2"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-black uppercase tracking-wide mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground uppercase tracking-wide mb-6">
                 Klang verschenken.
               </h2>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                 Gutscheine für den Sendesaal sind das perfekte Geschenk für Musikliebhaber. 
                 Einlösbar für alle Eigenveranstaltungen.
               </p>
@@ -207,7 +207,7 @@ const Tickets = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -216,7 +216,7 @@ const Tickets = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-black uppercase tracking-wide">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground uppercase tracking-wide">
               Häufige Fragen (FAQ)
             </h2>
           </motion.div>
@@ -234,12 +234,12 @@ const Tickets = () => {
                   key={item.id}
                   id={`faq-${item.id}`}
                   value={`item-${item.id}`}
-                  className="border-b border-gray-200"
+                  className="border-b border-border"
                 >
-                  <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-6">
+                  <AccordionTrigger className="text-left text-foreground font-medium hover:text-primary hover:no-underline py-6">
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 pb-6">
+                  <AccordionContent className="text-muted-foreground pb-6">
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -250,7 +250,7 @@ const Tickets = () => {
       </section>
 
       {/* Contact Teaser */}
-      <section className="py-12 bg-white border-t border-gray-100">
+      <section className="py-12 bg-background border-t border-border">
         <div className="container mx-auto px-6 md:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -259,10 +259,10 @@ const Tickets = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <p className="text-gray-600 mb-4">Noch Fragen offen?</p>
+            <p className="text-muted-foreground mb-4">Noch Fragen offen?</p>
             <Link 
               to="/kontakt" 
-              className="inline-flex items-center text-black font-medium hover:text-primary transition-colors group"
+              className="inline-flex items-center text-foreground font-medium hover:text-primary transition-colors group"
             >
               Kontaktieren Sie unser Ticket-Büro
               <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />

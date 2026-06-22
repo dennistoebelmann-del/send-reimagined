@@ -41,7 +41,7 @@ const Mieten = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background theme-light">
       <Navigation />
 
       {/* Hero Section */}
@@ -76,10 +76,10 @@ const Mieten = () => {
         </div>
 
         {/* Concave white ellipse */}
-        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-white" />
+        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-background" />
       </section>
 
-      <main className="bg-white">
+      <main className="bg-background">
         {/* Sektion 1: Konzert & Kultur */}
         <section className="pt-16 pb-24 md:pb-32">
           <div className="container mx-auto px-6 md:px-16">
@@ -93,16 +93,16 @@ const Mieten = () => {
                   <div className="w-10 h-px bg-primary" />
                   <span className="text-primary text-xl font-light">01</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-light text-black mb-6">
+                <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
                   Konzert &amp; Kultur
                 </h2>
-                <p className="text-black/80 text-base md:text-lg font-light leading-relaxed">
+                <p className="text-foreground/80 text-base md:text-lg font-light leading-relaxed">
                   Der Sendesaal bietet mit seiner einzigartigen Akustik den idealen Rahmen für
                   öffentliche Konzerte, Lesungen und kulturelle Veranstaltungen aller Art. 
                   Die intime Atmosphäre mit 250 Plätzen schafft eine unmittelbare Nähe zwischen
                   Künstlern und Publikum, die in größeren Sälen kaum erreichbar ist.
                 </p>
-                <p className="text-black/80 text-base md:text-lg font-light leading-relaxed mt-4">
+                <p className="text-foreground/80 text-base md:text-lg font-light leading-relaxed mt-4">
                   Von Kammermusik über Jazz bis hin zu zeitgenössischen Formaten – der Saal 
                   verwandelt jedes Konzert in ein besonderes Klangerlebnis.
                 </p>
@@ -155,15 +155,15 @@ const Mieten = () => {
                   <div className="w-10 h-px bg-primary" />
                   <span className="text-primary text-xl font-light">02</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-light text-black mb-6">
+                <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
                   Business &amp; Events
                 </h2>
-                <p className="text-black/80 text-base md:text-lg font-light leading-relaxed">
+                <p className="text-foreground/80 text-base md:text-lg font-light leading-relaxed">
                   Tagungen, Symposien und Firmenveranstaltungen gewinnen im denkmalgeschützten 
                   Ambiente des Sendesaals eine ganz besondere Note. Die inspirierende Umgebung 
                   fördert kreatives Denken und produktiven Austausch.
                 </p>
-                <p className="text-black/80 text-base md:text-lg font-light leading-relaxed mt-4">
+                <p className="text-foreground/80 text-base md:text-lg font-light leading-relaxed mt-4">
                   Modernste Veranstaltungstechnik trifft auf zeitlose Architektur – für Events,
                   die in Erinnerung bleiben.
                 </p>
@@ -190,10 +190,10 @@ const Mieten = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-light text-black">Hard Facts</h2>
+              <h2 className="text-4xl md:text-5xl font-light text-foreground">Hard Facts</h2>
               <div className="mt-4 flex items-center justify-center gap-6">
                 <div className="w-10 h-px bg-primary" />
-                <p className="text-black/70 text-lg md:text-xl font-light">
+                <p className="text-muted-foreground text-lg md:text-xl font-light">
                   Alles Wichtige auf einen Blick
                 </p>
               </div>

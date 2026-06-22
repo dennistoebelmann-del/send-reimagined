@@ -66,9 +66,9 @@ const ConcertCard = ({
   const event = allEvents.find((e) => e.id === eventId);
   if (!event) return null;
   return (
-    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center justify-between py-8 border-b border-black/10">
+    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center justify-between py-8 border-b border-border">
       <div className="flex flex-col md:flex-row gap-6 md:gap-12 flex-1">
-        <div className="w-full md:w-[260px] lg:w-[300px] h-[180px] flex-shrink-0 bg-gray-200">
+        <div className="w-full md:w-[260px] lg:w-[300px] h-[180px] flex-shrink-0 bg-muted">
           <img
             src={event.image}
             alt={event.title}
@@ -77,7 +77,7 @@ const ConcertCard = ({
           />
         </div>
         <div className="flex-1 space-y-2">
-          <div className="flex flex-wrap items-center gap-4 text-black text-sm">
+          <div className="flex flex-wrap items-center gap-4 text-foreground text-sm">
             <div className="flex items-center gap-2">
               <Calendar size={14} />
               <span>{event.date}</span>
@@ -96,10 +96,10 @@ const ConcertCard = ({
           <h3 className="text-primary text-2xl md:text-3xl font-normal">
             <Highlight text={event.title} query={query} />
           </h3>
-          <p className="text-black text-lg font-normal">
+          <p className="text-foreground text-lg font-normal">
             <Highlight text={event.artist} query={query} />
           </p>
-          <p className="text-black text-sm md:text-base font-light">
+          <p className="text-foreground text-sm md:text-base font-light">
             <Highlight text={event.description} query={query} />
           </p>
         </div>
@@ -117,7 +117,7 @@ const ConcertCard = ({
             Tickets
           </Button>
           {event.externalTicketing && (
-            <span className="flex items-center gap-2 text-xs text-gray-600 mt-1">
+            <span className="flex items-center gap-2 text-xs text-muted-foreground mt-1">
               <ExternalLink size={14} aria-hidden />
               Externer Veranstalter
             </span>
@@ -150,14 +150,14 @@ const Suche = () => {
       : [filter];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background theme-light">
       <Navigation />
       <div className="h-24" />
-      <section className="pt-8 md:pt-12 pb-16 md:pb-24 bg-white">
+      <section className="pt-8 md:pt-12 pb-16 md:pb-24 bg-background">
         <div className="container mx-auto px-6 md:px-16">
           {/* Header */}
           <div className="flex items-center gap-4 mb-10">
-            <h1 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
+            <h1 className="text-foreground text-3xl md:text-4xl lg:text-5xl font-normal">
               Suchergebnisse
             </h1>
           </div>
@@ -176,7 +176,7 @@ const Suche = () => {
                     className={`px-8 py-4 text-base font-bold transition-all ${
                       active
                         ? "bg-primary text-black"
-                        : "bg-transparent text-black hover:text-primary"
+                        : "bg-transparent text-foreground hover:text-primary"
                     } disabled:opacity-30 disabled:cursor-not-allowed`}
                   >
                     {f.label}
@@ -188,7 +188,7 @@ const Suche = () => {
           )}
 
           {query.trim() && (
-            <p className="text-sm text-black/60 mb-10 font-light">
+            <p className="text-sm text-muted-foreground mb-10 font-light">
               {total} {total === 1 ? "Treffer" : "Treffer"} für „{query}"
             </p>
           )}
@@ -196,7 +196,7 @@ const Suche = () => {
           {/* Empty query → suggestions */}
           {!query.trim() && (
             <div className="max-w-2xl">
-              <p className="text-xs uppercase tracking-widest text-black/50 mb-4">Beliebte Suchen</p>
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Beliebte Suchen</p>
               <div className="flex flex-wrap gap-2">
                 {["Jazz", "Klassik", "Mieten", "Steinway", "Aufnahme", "Barrierefrei", "Gutschein"].map(
                   (s) => (
@@ -219,10 +219,10 @@ const Suche = () => {
           {/* No results */}
           {query.trim() && total === 0 && (
             <div className="max-w-2xl py-12">
-              <p className="text-2xl font-light text-black mb-3">
+              <p className="text-2xl font-light text-foreground mb-3">
                 Keine Treffer für „{query}".
               </p>
-              <p className="text-black/60 font-light mb-6">
+              <p className="text-muted-foreground font-light mb-6">
                 Versuche andere Begriffe oder schau ins Programm:
               </p>
               <div className="flex gap-3">
@@ -245,11 +245,11 @@ const Suche = () => {
                 const Icon = iconFor[type];
                 return (
                   <section key={type}>
-                    <div className="flex items-center gap-3 mb-5 pb-2 border-b border-black/10">
+                    <div className="flex items-center gap-3 mb-5 pb-2 border-b border-border">
                       <Icon className="w-4 h-4 text-primary" />
-                      <h2 className="text-xs uppercase tracking-widest text-black/70">
+                      <h2 className="text-xs uppercase tracking-widest text-muted-foreground">
                         {typeLabels[type]}
-                        <span className="ml-2 text-black/40">({items.length})</span>
+                        <span className="ml-2 text-muted-foreground">({items.length})</span>
                       </h2>
                     </div>
 
@@ -277,12 +277,12 @@ const Suche = () => {
                           <AccordionItem
                             key={item.id}
                             value={item.id}
-                            className="border-b border-black/10"
+                            className="border-b border-border"
                           >
-                            <AccordionTrigger className="text-left text-lg font-normal text-black hover:text-primary hover:no-underline py-5">
+                            <AccordionTrigger className="text-left text-lg font-normal text-foreground hover:text-primary hover:no-underline py-5">
                               <Highlight text={item.title} query={query} />
                             </AccordionTrigger>
-                            <AccordionContent className="text-black/70 font-light pb-5">
+                            <AccordionContent className="text-muted-foreground font-light pb-5">
                               <p className="mb-3">
                                 <Highlight text={item.description ?? ""} query={query} />
                               </p>
@@ -309,7 +309,7 @@ const Suche = () => {
                           >
                             <Link
                               to={item.url}
-                              className="group flex items-start gap-4 p-5 border border-black/10 hover:border-primary hover:bg-black/[0.02] transition-colors h-full"
+                              className="group flex items-start gap-4 p-5 border border-border hover:border-primary hover:bg-black/[0.02] transition-colors h-full"
                             >
                               {item.image && (
                                 <img
@@ -320,21 +320,21 @@ const Suche = () => {
                                 />
                               )}
                               <div className="flex-1 min-w-0">
-                                <h3 className="text-lg font-normal text-black group-hover:text-primary transition-colors">
+                                <h3 className="text-lg font-normal text-foreground group-hover:text-primary transition-colors">
                                   <Highlight text={item.title} query={query} />
                                 </h3>
                                 {item.subtitle && (
-                                  <p className="text-sm text-black/70 font-light mt-1">
+                                  <p className="text-sm text-muted-foreground font-light mt-1">
                                     <Highlight text={item.subtitle} query={query} />
                                   </p>
                                 )}
                                 {item.description && (
-                                  <p className="text-sm text-black/50 font-light mt-2 line-clamp-2">
+                                  <p className="text-sm text-muted-foreground font-light mt-2 line-clamp-2">
                                     <Highlight text={item.description} query={query} />
                                   </p>
                                 )}
                               </div>
-                              <ArrowUpRight className="w-5 h-5 text-black/40 group-hover:text-primary shrink-0 mt-1" />
+                              <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary shrink-0 mt-1" />
                             </Link>
                           </motion.div>
                         ))}

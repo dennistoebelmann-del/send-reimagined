@@ -132,7 +132,7 @@ const UeberUns = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background theme-light">
       <Navigation />
 
       {/* Hero Section */}
@@ -166,12 +166,12 @@ const UeberUns = () => {
         </div>
 
         {/* Concave white ellipse */}
-        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-white" />
+        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-background" />
       </section>
 
       {/* Sticky Sub-Navigation - Floating Pill */}
       <div className="sticky top-24 z-40 flex justify-center px-4">
-        <nav className="bg-white/80 backdrop-blur-lg rounded-full shadow-lg border border-neutral-200 px-2 py-2 transition-all duration-300">
+        <nav className="bg-background/80 backdrop-blur-lg rounded-full shadow-lg border border-border px-2 py-2 transition-all duration-300">
           <div className="flex items-center gap-1 md:gap-6 overflow-x-auto scrollbar-hide">
             {sections.map((section) => (
               <button
@@ -179,8 +179,8 @@ const UeberUns = () => {
                 onClick={() => scrollToSection(section.id)}
                 className={`px-4 md:px-5 py-2 text-sm md:text-base whitespace-nowrap rounded-full transition-all duration-300 ${
                   activeSection === section.id
-                    ? "font-bold text-black"
-                    : "font-normal text-black/70 hover:text-black"
+                    ? "font-bold text-foreground"
+                    : "font-normal text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {section.label}
@@ -191,7 +191,7 @@ const UeberUns = () => {
       </div>
 
       {/* Content Sections */}
-      <main className="bg-white">
+      <main className="bg-background">
 
         {/* Historie Section */}
         <section id="historie" className="pt-16 pb-24 md:pb-32">
@@ -226,11 +226,11 @@ const UeberUns = () => {
                         <div className="inline-block bg-black px-3 py-1 mb-3">
                           <span className="text-white text-lg font-bold">{event.year}</span>
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-normal text-black">{event.title}</h3>
-                        <p className="text-black text-base mt-2 whitespace-pre-line">{event.description}</p>
+                        <h3 className="text-2xl md:text-3xl font-normal text-foreground">{event.title}</h3>
+                        <p className="text-foreground text-base mt-2 whitespace-pre-line">{event.description}</p>
                         <button
                           onClick={() => setOpenIndex(index)}
-                          className="mt-3 inline-flex items-center gap-1 text-sm font-normal text-black border-b border-primary hover:text-primary transition-colors"
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-normal text-foreground border-b border-primary hover:text-primary transition-colors"
                         >
                           Details
                           <ChevronRight size={14} />
@@ -245,11 +245,11 @@ const UeberUns = () => {
                         <div className="inline-block bg-black px-3 py-1 mb-3">
                           <span className="text-white text-lg font-bold">{event.year}</span>
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-normal text-black">{event.title}</h3>
-                        <p className="text-black text-base mt-2 whitespace-pre-line">{event.description}</p>
+                        <h3 className="text-2xl md:text-3xl font-normal text-foreground">{event.title}</h3>
+                        <p className="text-foreground text-base mt-2 whitespace-pre-line">{event.description}</p>
                         <button
                           onClick={() => setOpenIndex(index)}
-                          className="mt-3 inline-flex items-center gap-1 text-sm font-normal text-black border-b border-primary hover:text-primary transition-colors"
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-normal text-foreground border-b border-primary hover:text-primary transition-colors"
                         >
                           Details
                           <ChevronRight size={14} />
@@ -281,7 +281,7 @@ const UeberUns = () => {
                   transition={{ delay: index * 0.08 }}
                   className="flex flex-col"
                 >
-                  <div className="aspect-square overflow-hidden bg-stone-300">
+                  <div className="aspect-square overflow-hidden bg-muted">
                     <img
                       src={member.image}
                       alt={member.name}
@@ -309,13 +309,13 @@ const UeberUns = () => {
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-10 h-px bg-primary" />
-                  <h2 className="text-4xl md:text-5xl font-normal text-black">Der Verein</h2>
+                  <h2 className="text-4xl md:text-5xl font-normal text-foreground">Der Verein</h2>
                 </div>
-                <p className="text-black text-base leading-relaxed max-w-[480px]">
+                <p className="text-foreground text-base leading-relaxed max-w-[480px]">
                   Der Sendesaal e.V. wurde 2006 von engagierten Bürgern gegründet, um dieses 
                   einzigartige Kulturdenkmal zu erhalten und als lebendigen Konzertort zu bewahren.
                 </p>
-                <p className="mt-4 text-black text-base leading-relaxed max-w-[480px]">
+                <p className="mt-4 text-foreground text-base leading-relaxed max-w-[480px]">
                   Als gemeinnütziger Verein finanzieren wir uns durch Mitgliedsbeiträge, Spenden, 
                   Fördergelder und Einnahmen aus dem Konzertbetrieb. Über 50 ehrenamtliche Helfer 
                   ermöglichen den Betrieb des Saals.
@@ -371,7 +371,7 @@ const UeberUns = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="w-full h-40 bg-gray-200 flex items-center justify-center"
+                  className="w-full h-40 bg-muted flex items-center justify-center"
                 />
               ))}
             </div>
@@ -521,15 +521,15 @@ const UeberUns = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed top-0 right-0 h-screen w-full md:w-[640px] lg:w-[720px] bg-white z-[101] shadow-2xl flex flex-col"
+              className="fixed top-0 right-0 h-screen w-full md:w-[640px] lg:w-[720px] bg-background z-[101] shadow-2xl flex flex-col"
             >
               {/* Top bar */}
-              <div className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-black/10 shrink-0">
+              <div className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-border shrink-0">
                 <div className="inline-flex items-center gap-3">
                   <div className="bg-black px-3 py-1">
                     <span className="text-white text-base font-bold">{timelineEvents[openIndex].year}</span>
                   </div>
-                  <span className="text-sm text-black/60">
+                  <span className="text-sm text-muted-foreground">
                     {openIndex + 1} / {timelineEvents.length}
                   </span>
                 </div>
@@ -537,21 +537,21 @@ const UeberUns = () => {
                   <button
                     onClick={() => setOpenIndex((i) => (i === null ? i : (i - 1 + timelineEvents.length) % timelineEvents.length))}
                     aria-label="Vorheriges Ereignis"
-                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-black hover:text-white text-black transition-colors"
+                    className="w-10 h-10 flex items-center justify-center border border-border hover:bg-black hover:text-white text-foreground transition-colors"
                   >
                     <ChevronLeft size={18} />
                   </button>
                   <button
                     onClick={() => setOpenIndex((i) => (i === null ? i : (i + 1) % timelineEvents.length))}
                     aria-label="Nächstes Ereignis"
-                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-black hover:text-white text-black transition-colors"
+                    className="w-10 h-10 flex items-center justify-center border border-border hover:bg-black hover:text-white text-foreground transition-colors"
                   >
                     <ChevronRight size={18} />
                   </button>
                   <button
                     onClick={() => setOpenIndex(null)}
                     aria-label="Schließen"
-                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-primary hover:text-primary-foreground hover:border-primary text-black transition-colors ml-1"
+                    className="w-10 h-10 flex items-center justify-center border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary text-black transition-colors ml-1"
                   >
                     <X size={18} />
                   </button>
@@ -569,17 +569,17 @@ const UeberUns = () => {
                     transition={{ duration: 0.25 }}
                     className="px-6 md:px-10 py-8"
                   >
-                    <h2 className="text-3xl md:text-5xl font-light text-black leading-tight">
+                    <h2 className="text-3xl md:text-5xl font-light text-foreground leading-tight">
                       {timelineEvents[openIndex].title}
                     </h2>
-                    <div className="mt-6 aspect-[16/10] w-full overflow-hidden bg-stone-200">
+                    <div className="mt-6 aspect-[16/10] w-full overflow-hidden bg-muted">
                       <img
                         src={timelineEvents[openIndex].image}
                         alt={timelineEvents[openIndex].title}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <p className="mt-8 text-black text-base md:text-lg leading-relaxed">
+                    <p className="mt-8 text-foreground text-base md:text-lg leading-relaxed">
                       {timelineEvents[openIndex].details}
                     </p>
                   </motion.div>
@@ -601,10 +601,10 @@ const SectionHeader = ({ title, subtitle }: { title: string; subtitle: string })
     viewport={{ once: true }}
     className="text-center"
   >
-    <h2 className="text-4xl md:text-5xl font-normal text-black">{title}</h2>
+    <h2 className="text-4xl md:text-5xl font-normal text-foreground">{title}</h2>
     <div className="mt-4 flex items-center justify-center gap-6">
       <div className="w-10 h-px bg-primary" />
-      <p className="text-black text-lg md:text-xl">{subtitle}</p>
+      <p className="text-foreground text-lg md:text-xl">{subtitle}</p>
     </div>
   </motion.div>
 );
