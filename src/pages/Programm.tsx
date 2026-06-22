@@ -267,12 +267,12 @@ const Programm = () => {
           {/* Load More Button */}
           {hasMore && (
             <div className="mt-16 text-center">
-              <Button
-                onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
-                className="bg-primary hover:bg-primary/90 text-black h-[52px] px-16 text-base"
-              >
-                Weitere Veranstaltungen anzeigen
-              </Button>
+            <Button
+              onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground h-[52px] px-16 text-base"
+            >
+              Weitere Veranstaltungen anzeigen
+            </Button>
             </div>
           )}
         </div>
