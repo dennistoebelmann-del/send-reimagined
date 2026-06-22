@@ -464,9 +464,12 @@ END:VCALENDAR`;
             {/* Left Sidebar - Hard Facts */}
             <div className="lg:col-span-1">
               <div className="lg:sticky lg:top-32 space-y-8">
-                <h3 className="text-xl font-medium text-black border-b-2 border-primary pb-2 inline-block">
-                  Auf einen Blick
-                </h3>
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-px bg-primary" />
+                  <h3 className="text-xl font-medium text-black">
+                    Auf einen Blick
+                  </h3>
+                </div>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
