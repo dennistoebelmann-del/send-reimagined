@@ -209,18 +209,18 @@ const Programm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Spacer for fixed navigation */}
       <div className="h-24" />
 
       {/* Programm Section */}
-      <section className="pt-8 md:pt-12 pb-16 md:pb-24 bg-white">
+      <section className="pt-8 md:pt-12 pb-16 md:pb-24 bg-background">
         <div className="container mx-auto px-6 md:px-16">
           {/* Header */}
           <div className="flex items-center gap-4 mb-10">
-            <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
+            <h2 className="text-foreground text-3xl md:text-4xl lg:text-5xl font-normal">
               Programm
             </h2>
           </div>
@@ -234,7 +234,7 @@ const Programm = () => {
                 className={`px-8 py-4 text-base font-bold transition-all ${
                   activeFilter === cat.id
                     ? "bg-primary text-black"
-                    : "bg-transparent text-black hover:text-primary"
+                    : "bg-transparent text-foreground hover:text-primary"
                 }`}
               >
                 {cat.label}
@@ -249,7 +249,7 @@ const Programm = () => {
                 {/* Month Headline */}
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-10 h-px bg-primary" />
-                  <h3 className="text-black text-xl md:text-2xl lg:text-3xl font-normal">
+                  <h3 className="text-foreground text-xl md:text-2xl lg:text-3xl font-normal">
                     Veranstaltungen im {group.month}
                   </h3>
                 </div>
@@ -304,7 +304,7 @@ const EventCard = ({ event }: { event: Event }) => {
       {/* Left: Image + Content */}
       <div className="flex flex-col md:flex-row gap-6 md:gap-12 flex-1">
         {/* Image */}
-        <div className="w-full md:w-[300px] lg:w-[365px] h-[200px] md:h-[210px] flex-shrink-0 bg-gray-200">
+        <div className="w-full md:w-[300px] lg:w-[365px] h-[200px] md:h-[210px] flex-shrink-0 bg-muted">
           <img
             src={event.image}
             alt={event.title}
@@ -315,19 +315,19 @@ const EventCard = ({ event }: { event: Event }) => {
         {/* Content */}
         <div className="flex-1 space-y-3">
           {/* Meta info */}
-          <div className="flex flex-wrap items-center gap-4 text-black text-sm md:text-base">
+          <div className="flex flex-wrap items-center gap-4 text-foreground text-sm md:text-base">
             <div className="flex items-center gap-2">
-              <Calendar size={14} className="text-black" />
+              <Calendar size={14} className="text-foreground" />
               <span>{event.date}</span>
             </div>
             <div className="w-5 h-px bg-primary" />
             <div className="flex items-center gap-2">
-              <Clock size={14} className="text-black" />
+              <Clock size={14} className="text-foreground" />
               <span>{event.time} Uhr</span>
             </div>
             <div className="w-5 h-px bg-primary" />
             <div className="flex items-center gap-2">
-              <MapPin size={14} className="text-black" />
+              <MapPin size={14} className="text-foreground" />
               <span>{event.location}</span>
             </div>
           </div>
@@ -338,12 +338,12 @@ const EventCard = ({ event }: { event: Event }) => {
           </h3>
           
           {/* Artist */}
-          <p className="text-black text-lg md:text-xl font-normal">
+          <p className="text-foreground text-lg md:text-xl font-normal">
             {event.artist}
           </p>
           
           {/* Description */}
-          <p className="text-black text-sm md:text-base font-normal">
+          <p className="text-foreground text-sm md:text-base font-normal">
             {event.description}
           </p>
         </div>
@@ -365,7 +365,7 @@ const EventCard = ({ event }: { event: Event }) => {
             Tickets
           </Button>
           {event.externalTicketing && (
-            <span className="flex items-center gap-2 text-sm text-gray-600 mt-2">
+            <span className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
               <ExternalLink size={16} aria-hidden="true" />
               Externer Veranstalter
             </span>

@@ -80,7 +80,7 @@ const Unterstuetzen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section – schwarz, ohne Bild */}
@@ -111,10 +111,10 @@ const Unterstuetzen = () => {
         </div>
 
         {/* Concave white ellipse */}
-        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-white" />
+        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-background" />
       </section>
 
-      <main className="bg-white">
+      <main className="bg-background">
         {/* Vier Wege zu helfen */}
         <section className="pt-20 pb-24 md:pb-32">
           <div className="container mx-auto px-6 md:px-16">
@@ -124,10 +124,10 @@ const Unterstuetzen = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-light text-black">Vier Wege zu helfen</h2>
+              <h2 className="text-4xl md:text-5xl font-light text-foreground">Vier Wege zu helfen</h2>
               <div className="mt-4 flex items-center justify-center gap-6">
                 <div className="w-10 h-px bg-primary" />
-                <p className="text-black/70 text-lg md:text-xl font-light">
+                <p className="text-muted-foreground text-lg md:text-xl font-light">
                   Jeder Beitrag zählt — egal ob Zeit, Geld oder Engagement.
                 </p>
               </div>
@@ -143,8 +143,8 @@ const Unterstuetzen = () => {
                   transition={{ delay: index * 0.1 }}
                   className={`relative p-8 flex flex-col h-full ${
                     way.highlight
-                      ? "border-2 border-primary bg-white"
-                      : "border border-black/10 bg-white"
+                      ? "border-2 border-primary bg-background"
+                      : "border border-border bg-background"
                   }`}
                 >
                   {way.badge && (
@@ -152,13 +152,13 @@ const Unterstuetzen = () => {
                       {way.badge}
                     </span>
                   )}
-                  <h3 className="text-2xl font-normal text-black mb-3">{way.title}</h3>
-                  <p className="text-black/70 text-sm font-light leading-relaxed mb-6">
+                  <h3 className="text-2xl font-normal text-foreground mb-3">{way.title}</h3>
+                  <p className="text-muted-foreground text-sm font-light leading-relaxed mb-6">
                     {way.description}
                   </p>
                   <ul className="space-y-2 mb-8 flex-grow">
                     {way.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-sm text-black/80 font-light">
+                      <li key={b} className="flex items-start gap-2 text-sm text-foreground/80 font-light">
                         <Check className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                         <span>{b}</span>
                       </li>
@@ -169,7 +169,7 @@ const Unterstuetzen = () => {
                     className={`inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold transition-colors ${
                       way.highlight
                         ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                        : "border border-black text-black hover:bg-black hover:text-white"
+                        : "border border-black text-foreground hover:bg-black hover:text-white"
                     }`}
                   >
                     {way.cta} <ArrowRight className="w-4 h-4" />
@@ -187,15 +187,15 @@ const Unterstuetzen = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#f4f4f2] p-10 md:p-16 max-w-[1200px] mx-auto"
+              className="bg-muted p-10 md:p-16 max-w-[1200px] mx-auto"
             >
               <div className="grid md:grid-cols-2 gap-12 items-start">
                 <div>
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-10 h-px bg-primary" />
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-light text-black mb-6">Direkt spenden</h2>
-                  <p className="text-black/70 text-base md:text-lg font-light leading-relaxed">
+                  <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">Direkt spenden</h2>
+                  <p className="text-muted-foreground text-base md:text-lg font-light leading-relaxed">
                     Jeder Beitrag hilft — einmalig oder regelmäßig. Spendenquittungen senden
                     wir auf Anfrage zu.
                   </p>
@@ -203,20 +203,20 @@ const Unterstuetzen = () => {
                 <div className="border-l-2 border-primary pl-8 py-2">
                   <dl className="space-y-5 font-light">
                     <div>
-                      <dt className="text-[11px] tracking-wider text-black/50 uppercase mb-1">Empfänger</dt>
-                      <dd className="text-black text-lg">Sendesaal Bremen e.V.</dd>
+                      <dt className="text-[11px] tracking-wider text-muted-foreground uppercase mb-1">Empfänger</dt>
+                      <dd className="text-foreground text-lg">Sendesaal Bremen e.V.</dd>
                     </div>
                     <div>
-                      <dt className="text-[11px] tracking-wider text-black/50 uppercase mb-1">IBAN</dt>
-                      <dd className="text-black text-lg font-mono">DE00 0000 0000 0000 0000 00</dd>
+                      <dt className="text-[11px] tracking-wider text-muted-foreground uppercase mb-1">IBAN</dt>
+                      <dd className="text-foreground text-lg font-mono">DE00 0000 0000 0000 0000 00</dd>
                     </div>
                     <div>
-                      <dt className="text-[11px] tracking-wider text-black/50 uppercase mb-1">BIC</dt>
-                      <dd className="text-black text-lg font-mono">XXXXDEXXX</dd>
+                      <dt className="text-[11px] tracking-wider text-muted-foreground uppercase mb-1">BIC</dt>
+                      <dd className="text-foreground text-lg font-mono">XXXXDEXXX</dd>
                     </div>
                     <div>
-                      <dt className="text-[11px] tracking-wider text-black/50 uppercase mb-1">Verwendungszweck</dt>
-                      <dd className="text-black text-base">
+                      <dt className="text-[11px] tracking-wider text-muted-foreground uppercase mb-1">Verwendungszweck</dt>
+                      <dd className="text-foreground text-base">
                         Spende Sendesaal + ggf. Adresse für Spendenquittung
                       </dd>
                     </div>
@@ -240,10 +240,10 @@ const Unterstuetzen = () => {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-10 h-px bg-primary" />
                 </div>
-                <h2 className="text-4xl md:text-5xl font-light text-black mb-6">
+                <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
                   Förderverein Sendesaal e.V.
                 </h2>
-                <p className="text-black/70 text-base md:text-lg font-light leading-relaxed max-w-3xl">
+                <p className="text-muted-foreground text-base md:text-lg font-light leading-relaxed max-w-3xl">
                   Seit 2006 erhalten Bürgerinnen und Bürger diesen einzigartigen Konzertort am
                   Leben — als gemeinnütziger Verein, getragen von Mitgliedern und Ehrenamt.
                 </p>

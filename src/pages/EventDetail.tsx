@@ -343,9 +343,9 @@ const EventDetail = () => {
 
   if (!event) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-black mb-4">Event nicht gefunden</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-4">Event nicht gefunden</h1>
           <Link to="/programm" className="text-primary hover:underline">
             Zurück zum Programm
           </Link>
@@ -386,7 +386,7 @@ END:VCALENDAR`;
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section - Immersive */}
@@ -458,7 +458,7 @@ END:VCALENDAR`;
       </section>
 
       {/* Main Content */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-6 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {/* Left Sidebar - Hard Facts */}
@@ -466,7 +466,7 @@ END:VCALENDAR`;
               <div className="lg:sticky lg:top-32 space-y-8">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-px bg-primary" />
-                  <h3 className="text-xl font-medium text-black">
+                  <h3 className="text-xl font-medium text-foreground">
                     Auf einen Blick
                   </h3>
                 </div>
@@ -475,49 +475,49 @@ END:VCALENDAR`;
                   <div className="flex items-start gap-4">
                     <Users size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-sm text-gray-500 uppercase tracking-wide">Einlass</p>
-                      <p className="text-black font-medium">{event.admission}</p>
+                      <p className="text-sm text-muted-foreground uppercase tracking-wide">Einlass</p>
+                      <p className="text-foreground font-medium">{event.admission}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
                     <Timer size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-sm text-gray-500 uppercase tracking-wide">Dauer</p>
-                      <p className="text-black font-medium">{event.duration}</p>
+                      <p className="text-sm text-muted-foreground uppercase tracking-wide">Dauer</p>
+                      <p className="text-foreground font-medium">{event.duration}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
                     <Coffee size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-sm text-gray-500 uppercase tracking-wide">Pause</p>
-                      <p className="text-black font-medium">{event.pause}</p>
+                      <p className="text-sm text-muted-foreground uppercase tracking-wide">Pause</p>
+                      <p className="text-foreground font-medium">{event.pause}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
                     <Building2 size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-sm text-gray-500 uppercase tracking-wide">Veranstalter</p>
-                      <p className="text-black font-medium">{event.organizer}</p>
+                      <p className="text-sm text-muted-foreground uppercase tracking-wide">Veranstalter</p>
+                      <p className="text-foreground font-medium">{event.organizer}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
                     <Ticket size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-sm text-gray-500 uppercase tracking-wide">Abo-Reihe</p>
-                      <p className="text-black font-medium">{event.series}</p>
+                      <p className="text-sm text-muted-foreground uppercase tracking-wide">Abo-Reihe</p>
+                      <p className="text-foreground font-medium">{event.series}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
                     <MapPin size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <p className="text-sm text-gray-500 uppercase tracking-wide">Ort</p>
-                      <p className="text-black font-medium">Sendesaal Bremen</p>
-                      <p className="text-gray-500 text-sm">Bürgermeister-Spitta-Allee 45</p>
+                      <p className="text-sm text-muted-foreground uppercase tracking-wide">Ort</p>
+                      <p className="text-foreground font-medium">Sendesaal Bremen</p>
+                      <p className="text-muted-foreground text-sm">Bürgermeister-Spitta-Allee 45</p>
                     </div>
                   </div>
                 </div>
@@ -526,7 +526,7 @@ END:VCALENDAR`;
                 <div className="flex flex-col gap-2 pt-4">
                   <Button
                     variant="ghost"
-                    className="w-full justify-start gap-3 h-auto py-2 text-gray-500 hover:text-primary hover:bg-transparent"
+                    className="w-full justify-start gap-3 h-auto py-2 text-muted-foreground hover:text-primary hover:bg-transparent"
                     onClick={handleShare}
                   >
                     <Share2 size={16} />
@@ -534,7 +534,7 @@ END:VCALENDAR`;
                   </Button>
                   <Button
                     variant="ghost"
-                    className="w-full justify-start gap-3 h-auto py-2 text-gray-500 hover:text-primary hover:bg-transparent"
+                    className="w-full justify-start gap-3 h-auto py-2 text-muted-foreground hover:text-primary hover:bg-transparent"
                     onClick={handleCalendarExport}
                   >
                     <CalendarPlus size={16} />
@@ -547,14 +547,14 @@ END:VCALENDAR`;
             {/* Right Content - Story */}
             <div className="lg:col-span-2 space-y-10">
               {/* Lead Paragraph */}
-              <p className="text-xl md:text-2xl text-black font-medium leading-relaxed">
+              <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed">
                 {event.leadText}
               </p>
 
               {/* First part of description */}
               <div className="prose prose-lg max-w-none">
                 {event.description.split('\n\n').slice(0, 2).map((paragraph, index) => (
-                  <p key={index} className="text-gray-700 leading-relaxed text-base md:text-lg">
+                  <p key={index} className="text-muted-foreground leading-relaxed text-base md:text-lg">
                     {paragraph}
                   </p>
                 ))}
@@ -573,15 +573,15 @@ END:VCALENDAR`;
 
               {/* Program Highlights */}
               <div className="space-y-4 pt-2">
-                <h3 className="text-2xl md:text-3xl font-light text-black">
+                <h3 className="text-2xl md:text-3xl font-light text-foreground">
                   {sections.programHighlights.title}
                 </h3>
-                <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
                   {sections.programHighlights.intro}
                 </p>
                 <ul className="space-y-3 pt-2">
                   {sections.programHighlights.bullets.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-700 text-base md:text-lg leading-relaxed">
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground text-base md:text-lg leading-relaxed">
                       <span className="mt-2 w-2 h-2 bg-primary flex-shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -592,32 +592,32 @@ END:VCALENDAR`;
               {/* Rest of description */}
               <div className="prose prose-lg max-w-none">
                 {event.description.split('\n\n').slice(2).map((paragraph, index) => (
-                  <p key={index} className="text-gray-700 leading-relaxed text-base md:text-lg">
+                  <p key={index} className="text-muted-foreground leading-relaxed text-base md:text-lg">
                     {paragraph}
                   </p>
                 ))}
               </div>
 
               {/* About the artist */}
-              <div className="space-y-4 pt-4 border-t border-gray-200">
-                <h3 className="text-2xl md:text-3xl font-light text-black pt-4">
+              <div className="space-y-4 pt-4 border-t border-border">
+                <h3 className="text-2xl md:text-3xl font-light text-foreground pt-4">
                   {sections.aboutArtist.title}
                 </h3>
                 {sections.aboutArtist.paragraphs.map((p, i) => (
-                  <p key={i} className="text-gray-700 leading-relaxed text-base md:text-lg">
+                  <p key={i} className="text-muted-foreground leading-relaxed text-base md:text-lg">
                     {p}
                   </p>
                 ))}
               </div>
 
               {/* Good to know */}
-              <div className="bg-gray-50 p-6 md:p-8 space-y-4">
-                <h3 className="text-xl md:text-2xl font-light text-black">
+              <div className="bg-muted p-6 md:p-8 space-y-4">
+                <h3 className="text-xl md:text-2xl font-light text-foreground">
                   {sections.goodToKnow.title}
                 </h3>
                 <ul className="space-y-3">
                   {sections.goodToKnow.bullets.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-700 text-base leading-relaxed">
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground text-base leading-relaxed">
                       <span className="mt-2 w-2 h-2 bg-primary flex-shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -627,8 +627,8 @@ END:VCALENDAR`;
 
               {/* Quotes / Press */}
               {event.quotes.length > 0 && (
-                <div className="space-y-6 pt-8 border-t border-gray-200">
-                  <h3 className="text-xl font-medium text-black">Pressestimmen</h3>
+                <div className="space-y-6 pt-8 border-t border-border">
+                  <h3 className="text-xl font-medium text-foreground">Pressestimmen</h3>
                   {event.quotes.map((quote, index) => (
                     <blockquote
                       key={index}
@@ -637,7 +637,7 @@ END:VCALENDAR`;
                       <p className="text-lg md:text-xl italic text-gray-800 mb-2">
                         "{quote.text}"
                       </p>
-                      <cite className="text-sm text-gray-500 not-italic">
+                      <cite className="text-sm text-muted-foreground not-italic">
                         — {quote.source}
                       </cite>
                     </blockquote>
@@ -650,7 +650,7 @@ END:VCALENDAR`;
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-6 md:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -661,17 +661,17 @@ END:VCALENDAR`;
           >
             <div className="flex items-center gap-3 mb-8">
               <HelpCircle size={28} className="text-primary" />
-              <h2 className="text-2xl md:text-3xl font-normal text-black uppercase tracking-wide">
+              <h2 className="text-2xl md:text-3xl font-normal text-foreground uppercase tracking-wide">
                 Häufige Fragen
               </h2>
             </div>
 
             <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1" className="border-b border-gray-200">
-                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+              <AccordionItem value="item-1" className="border-b border-border">
+                <AccordionTrigger className="text-left text-foreground font-medium hover:text-primary hover:no-underline py-5">
                   Wo kann ich Tickets kaufen?
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pb-5">
+                <AccordionContent className="text-muted-foreground pb-5">
                   {event.isExternalTicket 
                     ? `Tickets für diese Veranstaltung erhalten Sie über unseren Partner ${event.externalPartner}. Klicken Sie einfach auf den Button "Tickets kaufen" unten auf der Seite.`
                     : "Tickets für diese Veranstaltung können Sie direkt über unsere Website kaufen. Klicken Sie auf den Button \"Plätze wählen\" unten auf der Seite."
@@ -679,38 +679,38 @@ END:VCALENDAR`;
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-2" className="border-b border-gray-200">
-                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+              <AccordionItem value="item-2" className="border-b border-border">
+                <AccordionTrigger className="text-left text-foreground font-medium hover:text-primary hover:no-underline py-5">
                   Gibt es eine Abendkasse?
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pb-5">
+                <AccordionContent className="text-muted-foreground pb-5">
                   Ja, sofern noch Karten verfügbar sind, öffnet unsere Abendkasse 45 Minuten vor Veranstaltungsbeginn. Wir empfehlen jedoch den Vorverkauf, da viele Konzerte schnell ausverkauft sind.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-3" className="border-b border-gray-200">
-                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+              <AccordionItem value="item-3" className="border-b border-border">
+                <AccordionTrigger className="text-left text-foreground font-medium hover:text-primary hover:no-underline py-5">
                   Ist der Sendesaal barrierefrei?
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pb-5">
+                <AccordionContent className="text-muted-foreground pb-5">
                   Der Sendesaal ist barrierefrei zugänglich. Es gibt Rollstuhlplätze im Parkett sowie eine behindertengerechte Toilette. Bitte informieren Sie uns bei der Buchung über Ihre Bedürfnisse, damit wir Ihren Besuch optimal planen können.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-4" className="border-b border-gray-200">
-                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+              <AccordionItem value="item-4" className="border-b border-border">
+                <AccordionTrigger className="text-left text-foreground font-medium hover:text-primary hover:no-underline py-5">
                   Gibt es Ermäßigungen?
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pb-5">
+                <AccordionContent className="text-muted-foreground pb-5">
                   Studierende, Auszubildende, Schwerbehinderte und Inhaber des Bremen-Passes erhalten eine Ermäßigung von 20% auf reguläre Eintrittspreise (bei Vorlage eines gültigen Ausweises). Diese Ermäßigung gilt nicht für Sonderveranstaltungen.
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="item-5" className="border-b border-gray-200">
-                <AccordionTrigger className="text-left text-black font-medium hover:text-primary hover:no-underline py-5">
+              <AccordionItem value="item-5" className="border-b border-border">
+                <AccordionTrigger className="text-left text-foreground font-medium hover:text-primary hover:no-underline py-5">
                   Wie komme ich zum Sendesaal?
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-600 pb-5">
+                <AccordionContent className="text-muted-foreground pb-5">
                   Der Sendesaal befindet sich in der Bürgermeister-Spitta-Allee 45, 28215 Bremen. Mit öffentlichen Verkehrsmitteln erreichen Sie uns mit der Straßenbahn Linie 4 (Haltestelle "Bürgerpark"). Parkplätze stehen in begrenzter Anzahl auf dem Gelände zur Verfügung.
                 </AccordionContent>
               </AccordionItem>
@@ -729,7 +729,7 @@ END:VCALENDAR`;
       </section>
 
       {/* Ticket Partners */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-6 md:px-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -738,7 +738,7 @@ END:VCALENDAR`;
             className="max-w-2xl mx-auto text-center"
           >
             <p className="text-sm uppercase tracking-[0.2em] text-primary mb-3">Vorverkauf</p>
-            <h2 className="text-2xl md:text-3xl font-light text-black mb-8">
+            <h2 className="text-2xl md:text-3xl font-light text-foreground mb-8">
               Sichern Sie sich jetzt Ihre Tickets!
             </h2>
 
@@ -747,11 +747,11 @@ END:VCALENDAR`;
                 href="https://www.venticks.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-4 border border-gray-200 px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all"
+                className="group flex items-center justify-between gap-4 border border-border px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all"
               >
                 <div className="text-left">
-                  <p className="font-medium text-black group-hover:text-primary transition-colors">Tickets</p>
-                  <p className="text-sm text-gray-500">Online-Vorverkauf</p>
+                  <p className="font-medium text-foreground group-hover:text-primary transition-colors">Tickets</p>
+                  <p className="text-sm text-muted-foreground">Online-Vorverkauf</p>
                 </div>
                 <ExternalLink size={18} className="text-gray-400 group-hover:text-primary transition-colors flex-shrink-0" />
               </a>
@@ -760,11 +760,11 @@ END:VCALENDAR`;
                 href="https://www.nordwest-ticket.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-4 border border-gray-200 px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all"
+                className="group flex items-center justify-between gap-4 border border-border px-6 py-5 hover:border-primary hover:bg-primary/5 transition-all"
               >
                 <div className="text-left">
-                  <p className="font-medium text-black group-hover:text-primary transition-colors">Nordwest Ticket</p>
-                  <p className="text-sm text-gray-500">Vorverkauf & Abendkasse</p>
+                  <p className="font-medium text-foreground group-hover:text-primary transition-colors">Nordwest Ticket</p>
+                  <p className="text-sm text-muted-foreground">Vorverkauf & Abendkasse</p>
                 </div>
                 <ExternalLink size={18} className="text-gray-400 group-hover:text-primary transition-colors flex-shrink-0" />
               </a>
@@ -774,9 +774,9 @@ END:VCALENDAR`;
       </section>
 
       {/* Related Events */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-muted">
         <div className="container mx-auto px-6 md:px-16">
-          <h2 className="text-2xl md:text-3xl font-normal text-black mb-10">
+          <h2 className="text-2xl md:text-3xl font-normal text-foreground mb-10">
             Das könnte Sie auch interessieren
           </h2>
           
@@ -798,11 +798,11 @@ END:VCALENDAR`;
                     {relEvent.category}
                   </span>
                 </div>
-                <h3 className="text-xl font-normal text-black group-hover:text-primary transition-colors mb-1">
+                <h3 className="text-xl font-normal text-foreground group-hover:text-primary transition-colors mb-1">
                   {relEvent.title}
                 </h3>
-                <p className="text-gray-600 mb-2">{relEvent.artist}</p>
-                <p className="text-sm text-gray-500">{relEvent.date}</p>
+                <p className="text-muted-foreground mb-2">{relEvent.artist}</p>
+                <p className="text-sm text-muted-foreground">{relEvent.date}</p>
               </Link>
             ))}
           </div>
@@ -810,19 +810,19 @@ END:VCALENDAR`;
       </section>
 
       {/* Sticky Booking Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
         <div className="container mx-auto px-6 md:px-16 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             {/* Left: Event Info */}
             <div className="flex items-center gap-4">
               <div className="hidden sm:block">
-                <p className="text-black font-medium text-lg truncate max-w-[200px] md:max-w-[300px]">
+                <p className="text-foreground font-medium text-lg truncate max-w-[200px] md:max-w-[300px]">
                   {event.title}
                 </p>
-                <p className="text-gray-500 text-sm">{event.date}</p>
+                <p className="text-muted-foreground text-sm">{event.date}</p>
               </div>
               <div className="text-center sm:text-left sm:border-l sm:border-gray-300 sm:pl-4">
-                <p className="text-sm text-gray-500">ab</p>
+                <p className="text-sm text-muted-foreground">ab</p>
                 <p className="text-xl md:text-2xl font-bold text-primary">{event.price}</p>
               </div>
             </div>

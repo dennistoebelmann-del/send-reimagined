@@ -40,7 +40,7 @@ const Produzieren = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section */}
@@ -74,10 +74,10 @@ const Produzieren = () => {
           </motion.div>
         </div>
 
-        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-white" />
+        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] h-48 rounded-[50%] bg-background" />
       </section>
 
-      <main className="bg-white">
+      <main className="bg-background">
         {/* Modul 1: Präzision & Atmosphäre */}
         <section className="pt-16 pb-24 md:pb-32">
           <div className="container mx-auto px-6 md:px-16">
@@ -91,16 +91,16 @@ const Produzieren = () => {
                   <div className="w-10 h-px bg-primary" />
                   <span className="text-primary text-xl font-light">01</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-light text-black mb-6">
+                <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
                   Präzision &amp; Atmosphäre
                 </h2>
-                <p className="text-black/80 text-base md:text-lg font-light leading-relaxed">
+                <p className="text-foreground/80 text-base md:text-lg font-light leading-relaxed">
                   Die einzigartige Raumakustik des Sendesaals wird weltweit geschätzt – von
                   Klassik-Ensembles ebenso wie von Jazz-Formationen und modernen Produktionen.
                   Der Nachhall von 1,8 Sekunden schafft eine natürliche Wärme, die jede
                   Aufnahme veredelt.
                 </p>
-                <p className="text-black/80 text-base md:text-lg font-light leading-relaxed mt-4">
+                <p className="text-foreground/80 text-base md:text-lg font-light leading-relaxed mt-4">
                   Die Holzlamellen an den Wänden und die sorgfältig berechneten Raumproportionen
                   sorgen für eine Klangqualität, die in modernen Studios kaum zu reproduzieren ist.
                 </p>
@@ -147,15 +147,15 @@ const Produzieren = () => {
                   <div className="w-10 h-px bg-primary" />
                   <span className="text-primary text-xl font-light">02</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-light text-black mb-6">
+                <h2 className="text-4xl md:text-5xl font-light text-foreground mb-6">
                   Technik auf Knopfdruck
                 </h2>
-                <p className="text-black/80 text-base md:text-lg font-light leading-relaxed">
+                <p className="text-foreground/80 text-base md:text-lg font-light leading-relaxed">
                   Die voll ausgestattete Regie verfügt über modernste digitale und analoge
                   Signalwege. Durch die direkte Sichtverbindung in den Saal entsteht eine
                   perfekte Kommunikation zwischen Künstlern und Tonmeistern.
                 </p>
-                <p className="text-black/80 text-base md:text-lg font-light leading-relaxed mt-4">
+                <p className="text-foreground/80 text-base md:text-lg font-light leading-relaxed mt-4">
                   Der hervorragende Steinway D Konzertflügel (D-274) steht jederzeit bereit –
                   regelmäßig gewartet und auf höchstem Niveau gestimmt für Ihre Produktion.
                 </p>
@@ -167,7 +167,7 @@ const Produzieren = () => {
         <OrangeBarsTransition />
 
         {/* Akustik & Technik */}
-        <section id="akustik" className="bg-gray-200">
+        <section id="akustik" className="bg-muted">
           <div className="pt-20 pb-24 md:pb-32">
             <div className="container mx-auto px-6">
               <motion.div
@@ -176,10 +176,10 @@ const Produzieren = () => {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <h2 className="text-4xl md:text-5xl font-light text-black">Akustik &amp; Technik</h2>
+                <h2 className="text-4xl md:text-5xl font-light text-foreground">Akustik &amp; Technik</h2>
                 <div className="mt-4 flex items-center justify-center gap-6">
                   <div className="w-10 h-px bg-primary" />
-                  <p className="text-black/70 text-lg md:text-xl font-light">
+                  <p className="text-muted-foreground text-lg md:text-xl font-light">
                     Eine der besten Akustiken Deutschlands – seit 1952
                   </p>
                 </div>
@@ -237,13 +237,13 @@ const Produzieren = () => {
                 viewport={{ once: true }}
                 className="max-w-[700px] mx-auto text-center mt-16"
               >
-                <p className="text-black text-base font-light leading-relaxed">
+                <p className="text-foreground text-base font-light leading-relaxed">
                   Die einzigartige Akustik des Sendesaals entsteht durch die charakteristischen
                   Holzlamellen an den Wänden und die sorgfältig berechneten Raumproportionen.
                   Der Nachhall von 1,8 Sekunden ist ideal für klassische Musik und Jazz –
                   nicht zu trocken, nicht zu hallig.
                 </p>
-                <p className="mt-4 text-black text-base font-light leading-relaxed">
+                <p className="mt-4 text-foreground text-base font-light leading-relaxed">
                   Modernste Aufnahmetechnik ermöglicht Produktionen auf höchstem Niveau.
                   Zahlreiche preisgekrönte Alben wurden hier eingespielt.
                 </p>
@@ -263,10 +263,10 @@ const Produzieren = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-light text-black">Technische Vorzüge</h2>
+              <h2 className="text-4xl md:text-5xl font-light text-foreground">Technische Vorzüge</h2>
               <div className="mt-4 flex items-center justify-center gap-6">
                 <div className="w-10 h-px bg-primary" />
-                <p className="text-black/70 text-lg md:text-xl font-light">
+                <p className="text-muted-foreground text-lg md:text-xl font-light">
                   Alles für Ihre Produktion
                 </p>
               </div>
