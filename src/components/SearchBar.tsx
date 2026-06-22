@@ -39,9 +39,9 @@ const SearchBar = ({ dark, className = "" }: Props) => {
     navigate(`/suche?q=${encodeURIComponent(v)}`);
   };
 
-  const text = open ? "text-black" : dark ? "text-black" : "text-white";
+  const text = open ? "text-foreground" : dark ? "text-black" : "text-white";
   const placeholder = open
-    ? "placeholder:text-black/40"
+    ? "placeholder:text-foreground/40"
     : dark
       ? "placeholder:text-black/50"
       : "placeholder:text-white/70";
@@ -77,7 +77,7 @@ const SearchBar = ({ dark, className = "" }: Props) => {
         <button
           onClick={() => searchPalette.close()}
           aria-label="Suche schließen"
-          className="p-2 mr-1 text-black hover:text-primary transition-colors"
+          className="p-2 mr-1 text-foreground hover:text-primary transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
