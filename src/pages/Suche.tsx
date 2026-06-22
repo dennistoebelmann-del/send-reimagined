@@ -45,7 +45,7 @@ const Highlight = ({ text, query }: { text: string; query: string }) => (
   <>
     {highlightParts(text, query).map((p, i) =>
       p.match ? (
-        <mark key={i} className="bg-[#CF3D11]/20 text-[#CF3D11] px-0.5">
+        <mark key={i} className="bg-primary/20 text-primary px-0.5">
           {p.text}
         </mark>
       ) : (
@@ -228,7 +228,7 @@ const Suche = () => {
               <div className="flex gap-3">
                 <Link
                   to="/programm"
-                  className="px-5 py-3 bg-black text-white text-sm hover:bg-[#CF3D11] transition-colors"
+                  className="px-5 py-3 bg-black text-white text-sm hover:bg-primary transition-colors"
                 >
                   Zum Programm
                 </Link>
@@ -246,7 +246,7 @@ const Suche = () => {
                 return (
                   <section key={type}>
                     <div className="flex items-center gap-3 mb-5 pb-2 border-b border-black/10">
-                      <Icon className="w-4 h-4 text-[#CF3D11]" />
+                      <Icon className="w-4 h-4 text-primary" />
                       <h2 className="text-xs uppercase tracking-widest text-black/70">
                         {typeLabels[type]}
                         <span className="ml-2 text-black/40">({items.length})</span>
@@ -279,7 +279,7 @@ const Suche = () => {
                             value={item.id}
                             className="border-b border-black/10"
                           >
-                            <AccordionTrigger className="text-left text-lg font-normal text-black hover:text-[#CF3D11] hover:no-underline py-5">
+                            <AccordionTrigger className="text-left text-lg font-normal text-black hover:text-primary hover:no-underline py-5">
                               <Highlight text={item.title} query={query} />
                             </AccordionTrigger>
                             <AccordionContent className="text-black/70 font-light pb-5">
@@ -288,7 +288,7 @@ const Suche = () => {
                               </p>
                               <Link
                                 to={item.url}
-                                className="text-sm text-[#CF3D11] hover:underline inline-flex items-center gap-1"
+                                className="text-sm text-primary hover:underline inline-flex items-center gap-1"
                               >
                                 Zur Antwort <ArrowUpRight className="w-3 h-3" />
                               </Link>
@@ -309,7 +309,7 @@ const Suche = () => {
                           >
                             <Link
                               to={item.url}
-                              className="group flex items-start gap-4 p-5 border border-black/10 hover:border-[#CF3D11] hover:bg-black/[0.02] transition-colors h-full"
+                              className="group flex items-start gap-4 p-5 border border-black/10 hover:border-primary hover:bg-black/[0.02] transition-colors h-full"
                             >
                               {item.image && (
                                 <img
@@ -320,7 +320,7 @@ const Suche = () => {
                                 />
                               )}
                               <div className="flex-1 min-w-0">
-                                <h3 className="text-lg font-normal text-black group-hover:text-[#CF3D11] transition-colors">
+                                <h3 className="text-lg font-normal text-black group-hover:text-primary transition-colors">
                                   <Highlight text={item.title} query={query} />
                                 </h3>
                                 {item.subtitle && (
@@ -334,7 +334,7 @@ const Suche = () => {
                                   </p>
                                 )}
                               </div>
-                              <ArrowUpRight className="w-5 h-5 text-black/40 group-hover:text-[#CF3D11] shrink-0 mt-1" />
+                              <ArrowUpRight className="w-5 h-5 text-black/40 group-hover:text-primary shrink-0 mt-1" />
                             </Link>
                           </motion.div>
                         ))}

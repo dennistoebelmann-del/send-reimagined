@@ -58,7 +58,7 @@ const Entdecken = () => {
       <section className="relative h-[75vh] min-h-[500px] bg-black text-white flex items-end overflow-hidden">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-32 -right-32 w-[640px] h-[640px] rounded-full bg-[#CF3D11]/20 blur-3xl"
+          className="pointer-events-none absolute -top-32 -right-32 w-[640px] h-[640px] rounded-full bg-primary/20 blur-3xl"
         />
         <div className="relative container mx-auto px-6 md:px-16 pb-24">
           <p className="uppercase tracking-[0.3em] text-xs md:text-sm text-primary mb-6 font-light">
@@ -89,7 +89,7 @@ const Entdecken = () => {
       <section className="bg-white pt-20 pb-16">
         <div className="container mx-auto px-6 md:px-16">
           <div className="flex items-center gap-3 mb-6">
-            <Sparkles className="w-5 h-5 text-[#CF3D11]" />
+            <Sparkles className="w-5 h-5 text-primary" />
             <h2 className="text-2xl md:text-3xl font-light">
               {view === "ready" && !editing
                 ? "Dein Intent"
@@ -111,7 +111,7 @@ const Entdecken = () => {
               </Button>
               <Button
                 variant="outline"
-                className="rounded-none border-[#CF3D11] text-[#CF3D11] hover:bg-[#CF3D11] hover:text-white"
+                className="rounded-none border-primary text-primary hover:bg-primary hover:text-white"
                 onClick={() => handleGenerate(intent.id)}
               >
                 <RefreshCw className="w-4 h-4" /> Neu generieren
@@ -157,7 +157,7 @@ const Entdecken = () => {
               <div className="mt-10 flex flex-wrap gap-4">
                 <Button
                   disabled={!selectedIntent || view === "loading"}
-                  className="rounded-none bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white px-8 py-6 h-auto text-base font-light disabled:opacity-40"
+                  className="rounded-none bg-primary hover:bg-primary/90 text-white px-8 py-6 h-auto text-base font-light disabled:opacity-40"
                   onClick={() => handleGenerate()}
                 >
                   <Sparkles className="w-4 h-4" />
@@ -230,14 +230,14 @@ const LoadingState = () => (
 );
 
 const ErrorState = ({ onRetry }: { onRetry: () => void }) => (
-  <div className="border border-[#CF3D11]/30 bg-[#CF3D11]/5 p-10 text-center">
+  <div className="border border-primary/30 bg-primary/5 p-10 text-center">
     <h3 className="text-2xl font-light mb-3">Etwas ist schiefgelaufen.</h3>
     <p className="text-black/60 font-light mb-6">
       Bitte versuche es noch einmal.
     </p>
     <Button
       onClick={onRetry}
-      className="rounded-none bg-[#CF3D11] hover:bg-[#CF3D11]/90 text-white"
+      className="rounded-none bg-primary hover:bg-primary/90 text-white"
     >
       <RefreshCw className="w-4 h-4" /> Erneut versuchen
     </Button>
@@ -312,7 +312,7 @@ const Results = ({
                 <h3 className="text-2xl font-light leading-tight mb-1">
                   <Link
                     to={`/event/${event.id}`}
-                    className="hover:text-[#CF3D11] transition-colors"
+                    className="hover:text-primary transition-colors"
                   >
                     {event.title}
                   </Link>
@@ -346,7 +346,7 @@ const Results = ({
                     <Button
                       asChild
                       variant="outline"
-                      className="rounded-none border-[#CF3D11] text-[#CF3D11] hover:bg-[#CF3D11] hover:text-white"
+                      className="rounded-none border-primary text-primary hover:bg-primary hover:text-white"
                     >
                       <a
                         href="https://tickets.sendesaal-bremen.de/"

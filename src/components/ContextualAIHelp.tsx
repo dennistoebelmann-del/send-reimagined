@@ -181,8 +181,8 @@ const ContextualAIHelp = () => {
         aria-label={active ? "AI-Hilfe beenden" : "AI-Hilfe aktivieren"}
         className={`fixed bottom-6 right-6 z-[9998] flex items-center gap-2 px-4 py-3 text-sm font-medium transition-all shadow-lg ${
           active
-            ? "bg-[#CF3D11] text-white"
-            : "bg-black text-white hover:bg-[#CF3D11]"
+            ? "bg-primary text-white"
+            : "bg-black text-white hover:bg-primary"
         }`}
         style={{ borderRadius: 0 }}
       >
@@ -213,7 +213,7 @@ const ContextualAIHelp = () => {
         >
           <button
             onClick={() => setTipState({ tip: null, loading: false, error: null, rect: null, pinned: false })}
-            className="absolute top-1 right-1 p-2 text-black/60 hover:text-[#CF3D11] transition-colors"
+            className="absolute top-1 right-1 p-2 text-black/60 hover:text-primary transition-colors"
             aria-label="Schließen"
           >
             <X size={16} />
@@ -224,11 +224,11 @@ const ContextualAIHelp = () => {
             </div>
           )}
           {tipState.error && (
-            <div className="text-sm text-[#CF3D11]">{tipState.error}</div>
+            <div className="text-sm text-primary">{tipState.error}</div>
           )}
           {tipState.tip && !tipState.loading && (
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-[#CF3D11] font-medium">
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-primary font-medium">
                 <Sparkles size={12} /> Tipp
               </div>
               <h4 className="text-base font-medium text-black leading-tight pr-6">{tipState.tip.title}</h4>
