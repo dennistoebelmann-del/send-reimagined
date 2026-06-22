@@ -12,7 +12,7 @@ const LeitbildSection = () => {
             {/* Label */}
             <div className="flex items-center gap-6">
               <div className="w-10 h-[1px] bg-[#E47C03]" />
-              <span className="text-[#E47C03] text-lg md:text-xl font-normal">
+              <span className="text-[#E17900] text-lg md:text-xl font-normal">
                 Leitbild
               </span>
             </div>

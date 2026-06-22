@@ -108,7 +108,7 @@ const AgendaSection = () => {
               className={`px-8 py-4 text-base font-bold transition-all ${
                 activeFilter === filter.toLowerCase()
                   ? "bg-[#E17900] text-black"
-                  : "bg-transparent text-black hover:text-[#E47C03]"
+                  : "bg-transparent text-black hover:text-[#E17900]"
               }`}
             >
               {filter}

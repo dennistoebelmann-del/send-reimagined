@@ -176,7 +176,7 @@ const Suche = () => {
                     className={`px-8 py-4 text-base font-bold transition-all ${
                       active
                         ? "bg-[#E17900] text-black"
-                        : "bg-transparent text-black hover:text-[#E47C03]"
+                        : "bg-transparent text-black hover:text-[#E17900]"
                     } disabled:opacity-30 disabled:cursor-not-allowed`}
                   >
                     {f.label}

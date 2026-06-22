@@ -106,7 +106,7 @@ const Navigation = () => {
                   key={link.name}
                   to={link.href}
                   className={`px-6 py-4 font-medium text-[16px] transition-colors ${
-                    useDarkStyle ? "text-black hover:text-[#E47C03]" : "text-white hover:text-[#E47C03]"
+                    useDarkStyle ? "text-black hover:text-[#E17900]" : "text-white hover:text-[#E17900]"
                   }`}
                 >
                   {link.name}
@@ -116,7 +116,7 @@ const Navigation = () => {
                   key={link.name}
                   href={link.href}
                   className={`px-6 py-4 font-medium text-[16px] transition-colors ${
-                    useDarkStyle ? "text-black hover:text-[#E47C03]" : "text-white hover:text-[#E47C03]"
+                    useDarkStyle ? "text-black hover:text-[#E17900]" : "text-white hover:text-[#E17900]"
                   }`}
                 >
                   {link.name}
@@ -174,7 +174,7 @@ const Navigation = () => {
                   <Link
                     key={link.name}
                     to={link.href}
-                    className="text-base font-medium text-black hover:text-[#E47C03] transition-colors py-2"
+                    className="text-base font-medium text-black hover:text-[#E17900] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -183,7 +183,7 @@ const Navigation = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-base font-medium text-black hover:text-[#E47C03] transition-colors py-2"
+                    className="text-base font-medium text-black hover:text-[#E17900] transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}

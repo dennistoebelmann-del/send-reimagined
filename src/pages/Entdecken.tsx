@@ -61,7 +61,7 @@ const Entdecken = () => {
           className="pointer-events-none absolute -top-32 -right-32 w-[640px] h-[640px] rounded-full bg-[#CF3D11]/20 blur-3xl"
         />
         <div className="relative container mx-auto px-6 md:px-16 pb-24">
-          <p className="uppercase tracking-[0.3em] text-xs md:text-sm text-[#E47C03] mb-6 font-light">
+          <p className="uppercase tracking-[0.3em] text-xs md:text-sm text-[#E17900] mb-6 font-light">
             Adaptive Empfehlung · Besuch planen
           </p>
           <h1 className="text-5xl md:text-7xl font-light leading-[1.05] max-w-4xl">

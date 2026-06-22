@@ -414,7 +414,7 @@ END:VCALENDAR`;
               className="max-w-3xl"
             >
               {/* Category */}
-              <p className="text-[#E47C03] text-sm md:text-base uppercase tracking-[0.2em] font-medium mb-4">
+              <p className="text-[#E17900] text-sm md:text-base uppercase tracking-[0.2em] font-medium mb-4">
                 {event.category}
               </p>
               
@@ -431,12 +431,12 @@ END:VCALENDAR`;
               {/* Date & Time */}
               <div className="flex items-center gap-6 text-white text-lg md:text-xl">
                 <div className="flex items-center gap-3">
-                  <Calendar size={24} className="text-[#E47C03]" />
+                  <Calendar size={24} className="text-[#E17900]" />
                   <span>{event.date}</span>
                 </div>
                 <div className="w-6 h-[2px] bg-[#E47C03]" />
                 <div className="flex items-center gap-3">
-                  <Clock size={24} className="text-[#E47C03]" />
+                  <Clock size={24} className="text-[#E17900]" />
                   <span>{event.time} Uhr</span>
                 </div>
               </div>
