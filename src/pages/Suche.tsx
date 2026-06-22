@@ -113,7 +113,7 @@ const ConcertCard = ({
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <div className="flex flex-col items-center">
-          <Button className="w-full lg:w-[180px] h-[48px] font-bold text-base bg-primary hover:bg-primary/90 text-black">
+          <Button className="w-full lg:w-[180px] h-[48px] px-8 font-bold text-base bg-primary hover:bg-primary/90 text-black">
             Tickets
           </Button>
           {event.externalTicketing && (
