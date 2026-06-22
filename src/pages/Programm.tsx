@@ -269,7 +269,7 @@ const Programm = () => {
             <div className="mt-16 text-center">
               <Button
                 onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
-                className="bg-primary hover:bg-primary/90 text-black font-bold px-16 py-4 h-auto text-base"
+                className="bg-primary hover:bg-primary/90 text-black font-bold h-[52px] px-16 text-base"
               >
                 Weitere Veranstaltungen anzeigen
               </Button>
@@ -278,7 +278,7 @@ const Programm = () => {
         </div>
       </section>
 
-      <Footer variant="dark" />
+      <Footer variant="dark" sectionAbove="white" />
     </div>
   );
 };
@@ -360,7 +360,7 @@ const EventCard = ({ event }: { event: Event }) => {
         </Button>
         <div className="flex flex-col items-center">
           <Button 
-            className="w-full lg:w-[180px] h-[52px] font-bold text-base bg-primary hover:bg-primary/90 text-black"
+            className="w-full lg:w-[180px] h-[48px] px-8 font-bold text-base bg-primary hover:bg-primary/90 text-black"
           >
             Tickets
           </Button>

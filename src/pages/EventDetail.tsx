@@ -434,7 +434,7 @@ END:VCALENDAR`;
                   <Calendar size={24} className="text-primary" />
                   <span>{event.date}</span>
                 </div>
-                <div className="w-6 h-[2px] bg-primary" />
+                <div className="w-5 h-px bg-primary" />
                 <div className="flex items-center gap-3">
                   <Clock size={24} className="text-primary" />
                   <span>{event.time} Uhr</span>
@@ -464,9 +464,12 @@ END:VCALENDAR`;
             {/* Left Sidebar - Hard Facts */}
             <div className="lg:col-span-1">
               <div className="lg:sticky lg:top-32 space-y-8">
-                <h3 className="text-xl font-medium text-black border-b-2 border-primary pb-2 inline-block">
-                  Auf einen Blick
-                </h3>
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-px bg-primary" />
+                  <h3 className="text-xl font-medium text-black">
+                    Auf einen Blick
+                  </h3>
+                </div>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -828,7 +831,7 @@ END:VCALENDAR`;
             <div className="w-full sm:w-auto">
               {event.isExternalTicket ? (
                 <Button
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-black font-bold px-8 py-6 h-auto text-base flex flex-col items-center gap-0"
+                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-black font-bold px-16 h-auto py-4 text-base flex flex-col items-center gap-0"
                 >
                   <span className="flex items-center gap-2">
                     TICKETS BEI PARTNER KAUFEN
@@ -840,7 +843,7 @@ END:VCALENDAR`;
                 </Button>
               ) : (
                 <Button
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-black font-bold px-12 py-6 h-auto text-base"
+                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-black font-bold h-[48px] px-8 text-base"
                 >
                   Tickets
                 </Button>

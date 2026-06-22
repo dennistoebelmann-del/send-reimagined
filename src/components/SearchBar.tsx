@@ -46,9 +46,9 @@ const SearchBar = ({ dark, className = "" }: Props) => {
       ? "placeholder:text-black/50"
       : "placeholder:text-white/70";
   const border = open
-    ? "border-[#CF3D11]"
+    ? "border-primary"
     : dark
-      ? "border-[#CF3D11]"
+      ? "border-primary"
       : "border-white/70";
   const bg = open || dark ? "bg-white" : "bg-transparent";
 
@@ -77,7 +77,7 @@ const SearchBar = ({ dark, className = "" }: Props) => {
         <button
           onClick={() => searchPalette.close()}
           aria-label="Suche schließen"
-          className="p-2 mr-1 text-black hover:text-[#CF3D11] transition-colors"
+          className="p-2 mr-1 text-black hover:text-primary transition-colors"
         >
           <X className="w-5 h-5" />
         </button>

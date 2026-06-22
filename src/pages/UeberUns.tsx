@@ -489,7 +489,7 @@ const UeberUns = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-5 h-auto text-base mt-2"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-[52px] px-16 text-base mt-2"
                   >
                     {isSubmitting ? "Wird gesendet..." : "Absenden"}
                   </Button>
@@ -500,7 +500,7 @@ const UeberUns = () => {
         </section>
       </main>
 
-      <Footer variant="dark" />
+      <Footer variant="dark" sectionAbove="white" />
 
       {/* Timeline Details Drawer */}
       <AnimatePresence>
