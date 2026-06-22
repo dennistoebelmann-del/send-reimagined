@@ -21,7 +21,7 @@ const ProduktionSection = () => {
         <div className="w-full lg:w-1/2 space-y-8">
           {/* Label */}
           <div className="flex items-center gap-6">
-            <div className="w-10 h-[1px] bg-primary" />
+            <div className="w-10 h-px bg-primary" />
             <span className="text-primary text-lg md:text-xl font-normal">
               Produktion
             </span>

@@ -93,7 +93,7 @@ const AgendaSection = () => {
       <div className="container mx-auto px-6 md:px-16">
         {/* Header */}
         <div className="flex items-center gap-4 mb-10">
-          <div className="w-10 h-[1px] bg-primary" />
+          <div className="w-10 h-px bg-primary" />
           <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
             Programm
           </h2>
@@ -139,12 +139,12 @@ const AgendaSection = () => {
                       <Calendar size={14} className="text-black" />
                       <span>{event.date}</span>
                     </div>
-                    <div className="w-5 h-[1px] bg-primary" />
+                    <div className="w-5 h-px bg-primary" />
                     <div className="flex items-center gap-2">
                       <Clock size={14} className="text-black" />
                       <span>{event.time} Uhr</span>
                     </div>
-                    <div className="w-5 h-[1px] bg-primary" />
+                    <div className="w-5 h-px bg-primary" />
                     <div className="flex items-center gap-2">
                       <MapPin size={14} className="text-black" />
                       <span>{event.location}</span>

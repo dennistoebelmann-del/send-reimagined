@@ -248,7 +248,7 @@ const Programm = () => {
               <div key={group.month}>
                 {/* Month Headline */}
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-10 h-[1px] bg-primary" />
+                  <div className="w-10 h-px bg-primary" />
                   <h3 className="text-black text-xl md:text-2xl lg:text-3xl font-normal">
                     Veranstaltungen im {group.month}
                   </h3>
@@ -320,12 +320,12 @@ const EventCard = ({ event }: { event: Event }) => {
               <Calendar size={14} className="text-black" />
               <span>{event.date}</span>
             </div>
-            <div className="w-5 h-[1px] bg-primary" />
+            <div className="w-5 h-px bg-primary" />
             <div className="flex items-center gap-2">
               <Clock size={14} className="text-black" />
               <span>{event.time} Uhr</span>
             </div>
-            <div className="w-5 h-[1px] bg-primary" />
+            <div className="w-5 h-px bg-primary" />
             <div className="flex items-center gap-2">
               <MapPin size={14} className="text-black" />
               <span>{event.location}</span>

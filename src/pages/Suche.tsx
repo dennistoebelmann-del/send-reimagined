@@ -82,12 +82,12 @@ const ConcertCard = ({
               <Calendar size={14} />
               <span>{event.date}</span>
             </div>
-            <div className="w-5 h-[1px] bg-primary" />
+            <div className="w-5 h-px bg-primary" />
             <div className="flex items-center gap-2">
               <Clock size={14} />
               <span>{event.time} Uhr</span>
             </div>
-            <div className="w-5 h-[1px] bg-primary" />
+            <div className="w-5 h-px bg-primary" />
             <div className="flex items-center gap-2">
               <MapPin size={14} />
               <span>{event.location}</span>

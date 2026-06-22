@@ -80,7 +80,7 @@ const InfoSection = () => {
             Vielfalt erleben
           </h2>
           <div className="flex items-center justify-center gap-6 mb-10">
-            <div className="w-10 h-[1px] bg-primary" />
+            <div className="w-10 h-px bg-primary" />
             <p className="text-black text-base md:text-lg max-w-2xl">
               Geschichte, Weltklasse-Künstler:innen, stimmungsvolle Konzerte und
               Grammy-prämierte Produktionen – fahren Sie über die Bilder und
@@ -141,7 +141,7 @@ const InfoSection = () => {
                   <h3 className="text-white text-base md:text-lg font-normal mb-2 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                     {image.title}
                   </h3>
-                  <div className="w-8 h-[1px] bg-primary mb-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75" />
+                  <div className="w-8 h-px bg-primary mb-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75" />
                   <p className="text-white/90 text-xs md:text-sm font-light leading-snug translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-100">
                     {image.text}
                   </p>
