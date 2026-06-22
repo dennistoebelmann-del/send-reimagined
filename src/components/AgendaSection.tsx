@@ -178,7 +178,7 @@ const AgendaSection = () => {
                   <Link to={`/event/${event.id}`}>Details</Link>
                 </Button>
                 <Button 
-                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-primary hover:bg-primary/90 text-black"
+                  className="flex-1 lg:w-[180px] h-[48px] px-8 font-bold text-base bg-primary hover:bg-primary/90 text-black"
                 >
                   Tickets
                 </Button>
@@ -191,7 +191,7 @@ const AgendaSection = () => {
         <div className="mt-16 text-center">
           <Button 
             asChild 
-            className="bg-primary hover:bg-primary/90 text-black font-bold px-16 py-4 h-auto text-base"
+            className="bg-primary hover:bg-primary/90 text-black font-bold h-[52px] px-16 text-base"
           >
             <Link to="/programm">Alle Konzerte ansehen</Link>
           </Button>

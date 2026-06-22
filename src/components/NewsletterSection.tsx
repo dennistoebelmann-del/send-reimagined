@@ -77,7 +77,7 @@ const NewsletterSection = () => {
             <Button 
               type="submit" 
               disabled={isLoading}
-              className="h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wide"
+              className="h-[52px] px-16 bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wide text-base"
             >
               {isLoading ? (
                 "Wird gesendet..."
