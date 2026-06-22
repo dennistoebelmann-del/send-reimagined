@@ -37,37 +37,39 @@ const SearchPaletteHost = () => {
     <>
       {/* Backdrop blur over page content (under nav, nav has z-50) */}
       <div
-        className="fixed inset-0 z-40 bg-black/30 backdrop-blur-md animate-in fade-in duration-200"
+        className="fixed inset-0 z-40 bg-black/50 backdrop-blur-md animate-in fade-in duration-200"
         onClick={() => searchPalette.close()}
         aria-hidden
       />
 
-      {/* Suggestion chips panel, anchored below the nav */}
+      {/* Suggestion sheet, anchored below the nav */}
       <div
         className="fixed left-0 right-0 top-[88px] z-40 animate-in fade-in slide-in-from-top-2 duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="container mx-auto px-6 md:px-16">
-          <div className="bg-white border border-black/10 shadow-2xl p-6 md:p-8 max-h-[70vh] overflow-y-auto">
-            <div className="mb-6">
-              <p className="text-[11px] uppercase tracking-widest text-black/50 mb-3">
+          <div className="theme-light bg-background border-t border-border shadow-xl py-8 max-h-[70vh] overflow-y-auto">
+            <div className="mb-8">
+              <p className="text-[11px] uppercase tracking-widest text-muted-foreground mb-3">
                 Beliebte Konzerte
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {popularConcerts.map((c) => (
                   <button
                     key={c.id}
                     onClick={() => goConcert(c.id)}
-                    className="group flex items-center gap-2 border border-black px-3 py-2 hover:bg-black hover:text-white transition-colors"
+                    className="group w-full flex items-center justify-start gap-3 border border-border px-4 py-3 hover:border-primary hover:bg-muted transition-colors"
                   >
                     <img
                       src={c.image}
                       alt=""
-                      className="w-8 h-8 object-cover"
+                      className="w-10 h-10 object-cover shrink-0"
                       loading="lazy"
                     />
-                    <span className="text-sm font-light text-black">{c.title}</span>
-                    <span className="text-xs text-black/50 group-hover:text-white/60 hidden sm:inline">
+                    <span className="text-sm font-light text-foreground truncate">
+                      {c.title}
+                    </span>
+                    <span className="text-xs text-muted-foreground hidden sm:inline ml-auto shrink-0">
                       {c.weekday}. {c.date.split(",")[1]?.trim()}
                     </span>
                   </button>
@@ -76,7 +78,7 @@ const SearchPaletteHost = () => {
             </div>
 
             <div>
-              <p className="text-[11px] uppercase tracking-widest text-black/50 mb-3">
+              <p className="text-[11px] uppercase tracking-widest text-muted-foreground mb-3">
                 Beliebte Themen
               </p>
               <div className="flex flex-wrap gap-2">
@@ -84,7 +86,7 @@ const SearchPaletteHost = () => {
                   <button
                     key={t}
                     onClick={() => goSearch(t)}
-                    className="px-3 py-1.5 border border-black text-sm font-light text-black hover:bg-black hover:text-white transition-colors"
+                    className="px-4 py-2 border border-border text-sm text-foreground hover:border-primary hover:text-primary transition-colors"
                   >
                     {t}
                   </button>
