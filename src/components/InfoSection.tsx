@@ -17,12 +17,12 @@ const InfoSection = () => {
   type Category = typeof categories[number];
   const [activeCategory, setActiveCategory] = useState<Category>("Alle");
 
-  // Category colors for the small label badge on each tile
+  // Category colors for the small label badge on each tile – Tailwind token classes
   const categoryColor: Record<string, string> = {
-    "Geschichte": "#E17900",
-    "Weltklasse": "#E17900",
-    "Konzerte": "#E17900",
-    "Produktion": "#E17900",
+    "Geschichte": "bg-primary",
+    "Weltklasse": "bg-primary",
+    "Konzerte": "bg-primary",
+    "Produktion": "bg-primary",
   };
 
   type Tile = {
@@ -130,8 +130,7 @@ const InfoSection = () => {
 
                 {/* Category badge – always visible */}
                 <div
-                  className="absolute top-3 left-3 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-white"
-                  style={{ backgroundColor: categoryColor[image.category] }}
+                  className={`absolute top-3 left-3 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-primary-foreground ${categoryColor[image.category]}`}
                 >
                   {image.category}
                 </div>

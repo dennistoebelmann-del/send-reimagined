@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-[#D9D9D9]">
+    <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-background">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0">
         <video 
