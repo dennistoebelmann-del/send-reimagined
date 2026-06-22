@@ -831,7 +831,7 @@ END:VCALENDAR`;
             <div className="w-full sm:w-auto">
               {event.isExternalTicket ? (
                 <Button
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-black font-bold px-16 h-auto py-4 text-base flex flex-col items-center gap-0"
+                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-black px-16 h-auto py-4 text-base flex flex-col items-center gap-0"
                 >
                   <span className="flex items-center gap-2">
                     TICKETS BEI PARTNER KAUFEN
@@ -843,7 +843,7 @@ END:VCALENDAR`;
                 </Button>
               ) : (
                 <Button
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-black font-bold h-[48px] px-8 text-base"
+                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-black h-[48px] px-8 text-base"
                 >
                   Tickets
                 </Button>

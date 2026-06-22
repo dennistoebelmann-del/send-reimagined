@@ -166,7 +166,7 @@ const Unterstuetzen = () => {
                   </ul>
                   <a
                     href={way.href}
-                    className={`inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold transition-colors ${
+                    className={`inline-flex items-center justify-center gap-2 px-5 py-3 text-sm transition-colors ${
                       way.highlight
                         ? "bg-primary text-primary-foreground hover:bg-primary/90"
                         : "border border-black text-foreground hover:bg-black hover:text-white"
@@ -382,7 +382,7 @@ const Unterstuetzen = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-[52px] px-16 text-base mt-2"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-[52px] px-16 text-base mt-2"
                   >
                     {isSubmitting ? "Wird gesendet..." : "Absenden"}
                   </Button>

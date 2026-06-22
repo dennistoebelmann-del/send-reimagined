@@ -94,7 +94,7 @@ const InfoSection = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-4 text-base font-bold transition-all ${
+                className={`px-8 py-4 text-base transition-all ${
                   activeCategory === cat
                     ? "bg-primary text-black"
                     : "bg-transparent text-black hover:text-primary"
@@ -154,7 +154,7 @@ const InfoSection = () => {
       {/* CTA Button */}
       <div className="container mx-auto px-6 md:px-16 py-16 text-center">
         <Button 
-          className="bg-primary hover:bg-primary/90 text-black font-bold h-[52px] px-16 text-base"
+          className="bg-primary hover:bg-primary/90 text-black h-[52px] px-16 text-base"
         >
           Über den Sendesaal
         </Button>

@@ -108,12 +108,12 @@ const ConcertCard = ({
         <Button
           asChild
           variant="outline"
-          className="flex-1 lg:w-[180px] h-[48px] font-bold text-base text-primary border-primary hover:bg-primary/10 bg-transparent"
+          className="flex-1 lg:w-[180px] h-[48px] text-base text-primary border-primary hover:bg-primary/10 bg-transparent"
         >
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <div className="flex flex-col items-center">
-          <Button className="w-full lg:w-[180px] h-[48px] px-8 font-bold text-base bg-primary hover:bg-primary/90 text-black">
+          <Button className="w-full lg:w-[180px] h-[48px] px-8 text-base bg-primary hover:bg-primary/90 text-black">
             Tickets
           </Button>
           {event.externalTicketing && (
@@ -173,7 +173,7 @@ const Suche = () => {
                     key={f.id}
                     onClick={() => setFilter(f.id)}
                     disabled={f.id !== "all" && count === 0}
-                    className={`px-8 py-4 text-base font-bold transition-all ${
+                    className={`px-8 py-4 text-base transition-all ${
                       active
                         ? "bg-primary text-black"
                         : "bg-transparent text-foreground hover:text-primary"

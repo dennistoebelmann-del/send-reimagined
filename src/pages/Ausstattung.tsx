@@ -210,7 +210,7 @@ const Ausstattung = () => {
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-[52px] px-16 text-base"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground h-[52px] px-16 text-base"
                 >
                   <Link to="/mieten#kontakt">
                     Raum anfragen <ArrowRight className="ml-2 w-4 h-4" />
@@ -219,7 +219,7 @@ const Ausstattung = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="bg-transparent hover:bg-background hover:text-foreground text-white border-white font-bold px-8 py-5 h-auto text-base"
+                  className="bg-transparent hover:bg-background hover:text-foreground text-white border-white px-8 py-5 h-auto text-base"
                 >
                   <Link to="/produzieren#kontakt">
                     Produktion planen <ArrowRight className="ml-2 w-4 h-4" />
