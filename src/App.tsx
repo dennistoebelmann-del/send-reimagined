@@ -15,7 +15,7 @@ import Unterstuetzen from "./pages/Unterstuetzen";
 import EventDetail from "./pages/EventDetail";
 import Tickets from "./pages/Tickets";
 import Suche from "./pages/Suche";
-import ContextualAIHelp from "./components/ContextualAIHelp";
+
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -52,7 +52,6 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <ContextualAIHelp />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
