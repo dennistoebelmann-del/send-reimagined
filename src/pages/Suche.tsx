@@ -113,7 +113,7 @@ const ConcertCard = ({
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <div className="flex flex-col items-center">
-          <Button className="w-full lg:w-[180px] h-[48px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-white">
+          <Button className="w-full lg:w-[180px] h-[48px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-black">
             Tickets
           </Button>
           {event.externalTicketing && (
@@ -175,8 +175,8 @@ const Suche = () => {
                     disabled={f.id !== "all" && count === 0}
                     className={`px-8 py-4 text-base font-bold transition-all ${
                       active
-                        ? "bg-[#E17900] text-white"
-                        : "bg-transparent text-black hover:text-[#E47C03]"
+                        ? "bg-[#E17900] text-black"
+                        : "bg-transparent text-black hover:text-[#E17900]"
                     } disabled:opacity-30 disabled:cursor-not-allowed`}
                   >
                     {f.label}

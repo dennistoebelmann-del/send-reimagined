@@ -12,7 +12,7 @@ const LeitbildSection = () => {
             {/* Label */}
             <div className="flex items-center gap-6">
               <div className="w-10 h-[1px] bg-[#E47C03]" />
-              <span className="text-[#E47C03] text-lg md:text-xl font-normal">
+              <span className="text-[#E17900] text-lg md:text-xl font-normal">
                 Leitbild
               </span>
             </div>
@@ -33,7 +33,7 @@ const LeitbildSection = () => {
             {/* CTA Button */}
             <Button 
               asChild
-              className="bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-16 py-4 h-auto text-base border border-white"
+              className="bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-16 py-4 h-auto text-base border border-white"
             >
               <Link to="/ueber-uns">Mehr über uns</Link>
             </Button>
