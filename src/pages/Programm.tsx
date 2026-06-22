@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Calendar, Clock, MapPin, ExternalLink } from "lucide-react";
+import { Calendar, ExternalLink } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -228,17 +228,17 @@ const Programm = () => {
           {/* Filter Chips */}
           <div className="flex flex-wrap items-center mb-12">
             {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => handleFilterChange(cat.id)}
-                className={`px-8 py-4 text-base transition-all ${
-                  activeFilter === cat.id
-                    ? "bg-primary text-black"
-                    : "bg-transparent text-foreground hover:text-primary"
-                }`}
-              >
-                {cat.label}
-              </button>
+            <button
+              key={cat.id}
+              onClick={() => handleFilterChange(cat.id)}
+              className={`px-8 py-4 text-base transition-all ${
+                activeFilter === cat.id
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-transparent text-foreground hover:text-primary"
+              }`}
+            >
+              {cat.label}
+            </button>
             ))}
           </div>
 
@@ -267,12 +267,12 @@ const Programm = () => {
           {/* Load More Button */}
           {hasMore && (
             <div className="mt-16 text-center">
-              <Button
-                onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
-                className="bg-primary hover:bg-primary/90 text-black h-[52px] px-16 text-base"
-              >
-                Weitere Veranstaltungen anzeigen
-              </Button>
+            <Button
+              onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground h-[52px] px-16 text-base"
+            >
+              Weitere Veranstaltungen anzeigen
+            </Button>
             </div>
           )}
         </div>
@@ -300,11 +300,11 @@ interface Event {
 
 const EventCard = ({ event }: { event: Event }) => {
   return (
-    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center justify-between">
+    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-between">
       {/* Left: Image + Content */}
-      <div className="flex flex-col md:flex-row gap-6 md:gap-12 flex-1">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-10 flex-1 w-full">
         {/* Image */}
-        <div className="w-full md:w-[300px] lg:w-[365px] h-[200px] md:h-[210px] flex-shrink-0 bg-muted">
+        <div className="w-full md:w-[320px] lg:w-[360px] h-[220px] md:h-[230px] flex-shrink-0 bg-muted">
           <img
             src={event.image}
             alt={event.title}
@@ -317,23 +317,17 @@ const EventCard = ({ event }: { event: Event }) => {
           {/* Meta info */}
           <div className="flex flex-wrap items-center gap-4 text-foreground text-sm md:text-base">
             <div className="flex items-center gap-2">
-              <Calendar size={14} className="text-foreground" />
+              <Calendar size={16} className="text-foreground" strokeWidth={1.5} />
               <span>{event.date}</span>
             </div>
-            <div className="w-5 h-px bg-primary" />
-            <div className="flex items-center gap-2">
-              <Clock size={14} className="text-foreground" />
-              <span>{event.time} Uhr</span>
-            </div>
-            <div className="w-5 h-px bg-primary" />
-            <div className="flex items-center gap-2">
-              <MapPin size={14} className="text-foreground" />
-              <span>{event.location}</span>
-            </div>
+            <div className="w-8 h-px bg-primary" />
+            <span>{event.time} Uhr</span>
+            <div className="w-8 h-px bg-primary" />
+            <span>{event.location}</span>
           </div>
           
           {/* Title */}
-          <h3 className="text-primary text-2xl md:text-3xl lg:text-4xl font-normal">
+          <h3 className="text-foreground text-2xl md:text-3xl lg:text-4xl font-normal">
             {event.title}
           </h3>
           
@@ -350,17 +344,17 @@ const EventCard = ({ event }: { event: Event }) => {
       </div>
       
       {/* Right: Buttons */}
-      <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-[180px]">
+      <div className="flex flex-col gap-4 w-full lg:w-[180px]">
         <Button 
           asChild
           variant="outline"
-          className="flex-1 lg:w-[180px] h-[52px] text-base text-primary border-primary hover:bg-primary/10 bg-transparent"
+          className="w-full lg:w-[180px] h-[52px] text-base font-normal border-foreground text-foreground hover:bg-muted bg-transparent"
         >
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <div className="flex flex-col items-center">
           <Button 
-            className="w-full lg:w-[180px] h-[48px] px-8 text-base bg-primary hover:bg-primary/90 text-black"
+            className="w-full lg:w-[180px] h-[52px] text-base font-normal bg-primary hover:bg-primary/90 text-primary-foreground"
           >
             Tickets
           </Button>
