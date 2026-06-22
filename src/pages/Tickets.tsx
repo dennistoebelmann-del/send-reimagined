@@ -271,7 +271,7 @@ const Tickets = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer sectionAbove="white" />
     </div>
   );
 };

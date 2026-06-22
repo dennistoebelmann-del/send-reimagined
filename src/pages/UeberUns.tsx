@@ -500,7 +500,7 @@ const UeberUns = () => {
         </section>
       </main>
 
-      <Footer variant="dark" />
+      <Footer variant="dark" sectionAbove="white" />
 
       {/* Timeline Details Drawer */}
       <AnimatePresence>

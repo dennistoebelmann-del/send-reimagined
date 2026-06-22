@@ -348,7 +348,7 @@ const Suche = () => {
         </div>
       </section>
       <OrangeBarsTransition />
-      <Footer />
+      <Footer sectionAbove="white" />
     </div>
   );
 };

@@ -357,7 +357,7 @@ const Mieten = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer sectionAbove="white" />
     </div>
   );
 };

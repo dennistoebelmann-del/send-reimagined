@@ -278,7 +278,7 @@ const Programm = () => {
         </div>
       </section>
 
-      <Footer variant="dark" />
+      <Footer variant="dark" sectionAbove="white" />
     </div>
   );
 };

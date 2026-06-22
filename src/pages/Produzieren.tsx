@@ -430,7 +430,7 @@ const Produzieren = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer sectionAbove="white" />
     </div>
   );
 };
