@@ -54,7 +54,7 @@ const HighlightsSection = () => {
                 
                 {/* Date Badge - directly below category */}
                 <div className="absolute top-8 z-10 bg-[#E17900] px-4 py-2.5 -left-4">
-                  <span className="text-white text-xl font-bold">{event.date}</span>
+                  <span className="text-black text-xl font-bold">{event.date}</span>
                 </div>
                 
                 {/* Image */}
