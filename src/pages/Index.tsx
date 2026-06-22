@@ -21,7 +21,7 @@ const Index = () => {
         <OrangeBarsTransition />
         <NewsletterSection />
       </main>
-      <Footer />
+      <Footer sectionAbove="black" />
     </div>
   );
 };
