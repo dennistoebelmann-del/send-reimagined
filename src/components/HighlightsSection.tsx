@@ -36,7 +36,7 @@ const HighlightsSection = () => {
       <div className="container mx-auto px-6 md:px-16">
         {/* Header */}
         <div className="flex items-center gap-4 mb-12">
-          <div className="w-10 h-[1px] bg-[#E47C03]" />
+          <div className="w-10 h-[1px] bg-primary" />
           <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-normal">
             Highlights
           </h2>
@@ -53,7 +53,7 @@ const HighlightsSection = () => {
                 </div>
                 
                 {/* Date Badge - directly below category */}
-                <div className="absolute top-8 z-10 bg-[#E17900] px-4 py-2.5 -left-4">
+                <div className="absolute top-8 z-10 bg-primary px-4 py-2.5 -left-4">
                   <span className="text-black text-xl font-bold">{event.date}</span>
                 </div>
                 
@@ -65,7 +65,7 @@ const HighlightsSection = () => {
                     className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110"
                   />
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#E47C03]/0 group-hover:bg-[#E47C03]/20 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-all duration-500" />
                 </div>
                 
                 {/* Title Footer */}

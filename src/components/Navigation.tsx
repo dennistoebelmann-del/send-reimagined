@@ -106,7 +106,7 @@ const Navigation = () => {
                   key={link.name}
                   to={link.href}
                   className={`px-6 py-4 font-medium text-[16px] transition-colors ${
-                    useDarkStyle ? "text-black hover:text-[#E17900]" : "text-white hover:text-[#E17900]"
+                    useDarkStyle ? "text-black hover:text-primary" : "text-white hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -116,7 +116,7 @@ const Navigation = () => {
                   key={link.name}
                   href={link.href}
                   className={`px-6 py-4 font-medium text-[16px] transition-colors ${
-                    useDarkStyle ? "text-black hover:text-[#E17900]" : "text-white hover:text-[#E17900]"
+                    useDarkStyle ? "text-black hover:text-primary" : "text-white hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -137,7 +137,7 @@ const Navigation = () => {
             >
               <Button
                 asChild
-                className="ml-6 bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-8 py-4 h-auto text-[16px] border border-white"
+                className="ml-6 bg-primary hover:bg-primary/90 text-black font-bold px-8 py-4 h-auto text-[16px] border border-white"
               >
                 <a href="https://tickets.sendesaal-bremen.de/" target="_blank" rel="noopener noreferrer">Tickets</a>
               </Button>
@@ -174,7 +174,7 @@ const Navigation = () => {
                   <Link
                     key={link.name}
                     to={link.href}
-                    className="text-base font-medium text-black hover:text-[#E17900] transition-colors py-2"
+                    className="text-base font-medium text-black hover:text-primary transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -183,7 +183,7 @@ const Navigation = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-base font-medium text-black hover:text-[#E17900] transition-colors py-2"
+                    className="text-base font-medium text-black hover:text-primary transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -192,7 +192,7 @@ const Navigation = () => {
               ))}
               <Button 
                 asChild 
-                className="w-full mt-4 bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold py-4 h-auto"
+                className="w-full mt-4 bg-primary hover:bg-primary/90 text-black font-bold py-4 h-auto"
               >
                 <a
                   href="https://tickets.sendesaal-bremen.de/"

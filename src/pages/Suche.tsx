@@ -82,18 +82,18 @@ const ConcertCard = ({
               <Calendar size={14} />
               <span>{event.date}</span>
             </div>
-            <div className="w-5 h-[1px] bg-[#E47C03]" />
+            <div className="w-5 h-[1px] bg-primary" />
             <div className="flex items-center gap-2">
               <Clock size={14} />
               <span>{event.time} Uhr</span>
             </div>
-            <div className="w-5 h-[1px] bg-[#E47C03]" />
+            <div className="w-5 h-[1px] bg-primary" />
             <div className="flex items-center gap-2">
               <MapPin size={14} />
               <span>{event.location}</span>
             </div>
           </div>
-          <h3 className="text-[#E17900] text-2xl md:text-3xl font-normal">
+          <h3 className="text-primary text-2xl md:text-3xl font-normal">
             <Highlight text={event.title} query={query} />
           </h3>
           <p className="text-black text-lg font-normal">
@@ -108,12 +108,12 @@ const ConcertCard = ({
         <Button
           asChild
           variant="outline"
-          className="flex-1 lg:w-[180px] h-[48px] font-bold text-base text-[#E17900] border-[#E17900] hover:bg-[#E17900]/10 bg-transparent"
+          className="flex-1 lg:w-[180px] h-[48px] font-bold text-base text-primary border-primary hover:bg-primary/10 bg-transparent"
         >
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <div className="flex flex-col items-center">
-          <Button className="w-full lg:w-[180px] h-[48px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-black">
+          <Button className="w-full lg:w-[180px] h-[48px] font-bold text-base bg-primary hover:bg-primary/90 text-black">
             Tickets
           </Button>
           {event.externalTicketing && (
@@ -175,8 +175,8 @@ const Suche = () => {
                     disabled={f.id !== "all" && count === 0}
                     className={`px-8 py-4 text-base font-bold transition-all ${
                       active
-                        ? "bg-[#E17900] text-black"
-                        : "bg-transparent text-black hover:text-[#E17900]"
+                        ? "bg-primary text-black"
+                        : "bg-transparent text-black hover:text-primary"
                     } disabled:opacity-30 disabled:cursor-not-allowed`}
                   >
                     {f.label}

@@ -93,7 +93,7 @@ const AgendaSection = () => {
       <div className="container mx-auto px-6 md:px-16">
         {/* Header */}
         <div className="flex items-center gap-4 mb-10">
-          <div className="w-10 h-[1px] bg-[#E47C03]" />
+          <div className="w-10 h-[1px] bg-primary" />
           <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
             Programm
           </h2>
@@ -107,8 +107,8 @@ const AgendaSection = () => {
               onClick={() => setActiveFilter(filter.toLowerCase())}
               className={`px-8 py-4 text-base font-bold transition-all ${
                 activeFilter === filter.toLowerCase()
-                  ? "bg-[#E17900] text-black"
-                  : "bg-transparent text-black hover:text-[#E17900]"
+                  ? "bg-primary text-black"
+                  : "bg-transparent text-black hover:text-primary"
               }`}
             >
               {filter}
@@ -139,12 +139,12 @@ const AgendaSection = () => {
                       <Calendar size={14} className="text-black" />
                       <span>{event.date}</span>
                     </div>
-                    <div className="w-5 h-[1px] bg-[#E47C03]" />
+                    <div className="w-5 h-[1px] bg-primary" />
                     <div className="flex items-center gap-2">
                       <Clock size={14} className="text-black" />
                       <span>{event.time} Uhr</span>
                     </div>
-                    <div className="w-5 h-[1px] bg-[#E47C03]" />
+                    <div className="w-5 h-[1px] bg-primary" />
                     <div className="flex items-center gap-2">
                       <MapPin size={14} className="text-black" />
                       <span>{event.location}</span>
@@ -152,7 +152,7 @@ const AgendaSection = () => {
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-[#E17900] text-2xl md:text-3xl lg:text-4xl font-normal">
+                  <h3 className="text-primary text-2xl md:text-3xl lg:text-4xl font-normal">
                     {event.title}
                   </h3>
                   
@@ -173,12 +173,12 @@ const AgendaSection = () => {
                 <Button 
                   asChild
                   variant="outline"
-                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-[#E17900] border-[#E17900] hover:bg-[#E17900]/10 bg-transparent"
+                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-primary border-primary hover:bg-primary/10 bg-transparent"
                 >
                   <Link to={`/event/${event.id}`}>Details</Link>
                 </Button>
                 <Button 
-                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-black"
+                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-primary hover:bg-primary/90 text-black"
                 >
                   Tickets
                 </Button>
@@ -191,7 +191,7 @@ const AgendaSection = () => {
         <div className="mt-16 text-center">
           <Button 
             asChild 
-            className="bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-16 py-4 h-auto text-base"
+            className="bg-primary hover:bg-primary/90 text-black font-bold px-16 py-4 h-auto text-base"
           >
             <Link to="/programm">Alle Konzerte ansehen</Link>
           </Button>

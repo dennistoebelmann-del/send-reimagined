@@ -321,15 +321,15 @@ const UeberUns = () => {
                   ermöglichen den Betrieb des Saals.
                 </p>
                 <div className="mt-8 flex gap-4">
-                  <div className="w-28 h-24 bg-[#E17900] flex flex-col items-center justify-center">
+                  <div className="w-28 h-24 bg-primary flex flex-col items-center justify-center">
                     <span className="text-white text-3xl font-bold">200+</span>
                     <span className="text-white text-sm">Mitglieder</span>
                   </div>
-                  <div className="w-28 h-24 bg-[#E17900] flex flex-col items-center justify-center">
+                  <div className="w-28 h-24 bg-primary flex flex-col items-center justify-center">
                     <span className="text-white text-3xl font-bold">50+</span>
                     <span className="text-white text-sm">Ehrenamtliche</span>
                   </div>
-                  <div className="w-28 h-24 bg-[#E17900] flex flex-col items-center justify-center">
+                  <div className="w-28 h-24 bg-primary flex flex-col items-center justify-center">
                     <span className="text-white text-3xl font-bold">18</span>
                     <span className="text-white text-sm">Jahre aktiv</span>
                   </div>
