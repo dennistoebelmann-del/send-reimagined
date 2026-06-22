@@ -181,8 +181,8 @@ const ContextualAIHelp = () => {
         aria-label={active ? "AI-Hilfe beenden" : "AI-Hilfe aktivieren"}
         className={`fixed bottom-6 right-6 z-[9998] flex items-center gap-2 px-4 py-3 text-sm font-medium transition-all shadow-lg ${
           active
-            ? "bg-primary text-white"
-            : "bg-black text-white hover:bg-primary"
+            ? "bg-primary text-primary-foreground"
+            : "bg-black text-white hover:bg-primary hover:text-primary-foreground"
         }`}
         style={{ borderRadius: 0 }}
       >
