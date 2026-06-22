@@ -337,7 +337,7 @@ const EventCard = ({ event }: { event: Event }) => {
           </p>
           
           {/* Description */}
-          <p className="text-muted-foreground text-sm md:text-base font-normal">
+          <p className="text-foreground text-sm md:text-base font-normal">
             {event.description}
           </p>
         </div>
@@ -348,13 +348,13 @@ const EventCard = ({ event }: { event: Event }) => {
         <Button 
           asChild
           variant="outline"
-          className="w-full lg:w-[180px] h-[52px] text-base border-foreground text-foreground hover:bg-muted bg-transparent"
+          className="w-full lg:w-[180px] h-[52px] text-base font-normal border-foreground text-foreground hover:bg-muted bg-transparent"
         >
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <div className="flex flex-col items-center">
           <Button 
-            className="w-full lg:w-[180px] h-[52px] text-base bg-primary hover:bg-primary/90 text-primary-foreground"
+            className="w-full lg:w-[180px] h-[52px] text-base font-normal bg-primary hover:bg-primary/90 text-primary-foreground"
           >
             Tickets
           </Button>
