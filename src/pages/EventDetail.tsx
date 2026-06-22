@@ -791,7 +791,7 @@ END:VCALENDAR`;
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-                  <span className="absolute top-4 left-4 bg-[#E17900] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">
+                  <span className="absolute top-4 left-4 bg-[#E17900] text-black text-xs font-bold uppercase tracking-wider px-3 py-1 rounded">
                     {relEvent.category}
                   </span>
                 </div>
@@ -828,7 +828,7 @@ END:VCALENDAR`;
             <div className="w-full sm:w-auto">
               {event.isExternalTicket ? (
                 <Button
-                  className="w-full sm:w-auto bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-6 h-auto text-base flex flex-col items-center gap-0"
+                  className="w-full sm:w-auto bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-8 py-6 h-auto text-base flex flex-col items-center gap-0"
                 >
                   <span className="flex items-center gap-2">
                     TICKETS BEI PARTNER KAUFEN
@@ -840,7 +840,7 @@ END:VCALENDAR`;
                 </Button>
               ) : (
                 <Button
-                  className="w-full sm:w-auto bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-12 py-6 h-auto text-base"
+                  className="w-full sm:w-auto bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-12 py-6 h-auto text-base"
                 >
                   Tickets
                 </Button>

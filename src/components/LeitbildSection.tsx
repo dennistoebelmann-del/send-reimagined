@@ -33,7 +33,7 @@ const LeitbildSection = () => {
             {/* CTA Button */}
             <Button 
               asChild
-              className="bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-16 py-4 h-auto text-base border border-white"
+              className="bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-16 py-4 h-auto text-base border border-white"
             >
               <Link to="/ueber-uns">Mehr über uns</Link>
             </Button>

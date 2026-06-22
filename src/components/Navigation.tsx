@@ -137,7 +137,7 @@ const Navigation = () => {
             >
               <Button
                 asChild
-                className="ml-6 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-8 py-4 h-auto text-[16px] border border-white"
+                className="ml-6 bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-8 py-4 h-auto text-[16px] border border-white"
               >
                 <a href="https://tickets.sendesaal-bremen.de/" target="_blank" rel="noopener noreferrer">Tickets</a>
               </Button>
@@ -192,7 +192,7 @@ const Navigation = () => {
               ))}
               <Button 
                 asChild 
-                className="w-full mt-4 bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold py-4 h-auto"
+                className="w-full mt-4 bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold py-4 h-auto"
               >
                 <a
                   href="https://tickets.sendesaal-bremen.de/"

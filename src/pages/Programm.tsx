@@ -233,7 +233,7 @@ const Programm = () => {
                 onClick={() => handleFilterChange(cat.id)}
                 className={`px-8 py-4 text-base font-bold transition-all ${
                   activeFilter === cat.id
-                    ? "bg-[#E17900] text-white"
+                    ? "bg-[#E17900] text-black"
                     : "bg-transparent text-black hover:text-[#E47C03]"
                 }`}
               >
@@ -269,7 +269,7 @@ const Programm = () => {
             <div className="mt-16 text-center">
               <Button
                 onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
-                className="bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-16 py-4 h-auto text-base"
+                className="bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-16 py-4 h-auto text-base"
               >
                 Weitere Veranstaltungen anzeigen
               </Button>
@@ -360,7 +360,7 @@ const EventCard = ({ event }: { event: Event }) => {
         </Button>
         <div className="flex flex-col items-center">
           <Button 
-            className="w-full lg:w-[180px] h-[52px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-white"
+            className="w-full lg:w-[180px] h-[52px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-black"
           >
             Tickets
           </Button>

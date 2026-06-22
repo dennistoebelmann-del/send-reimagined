@@ -107,7 +107,7 @@ const AgendaSection = () => {
               onClick={() => setActiveFilter(filter.toLowerCase())}
               className={`px-8 py-4 text-base font-bold transition-all ${
                 activeFilter === filter.toLowerCase()
-                  ? "bg-[#E17900] text-white"
+                  ? "bg-[#E17900] text-black"
                   : "bg-transparent text-black hover:text-[#E47C03]"
               }`}
             >
@@ -178,7 +178,7 @@ const AgendaSection = () => {
                   <Link to={`/event/${event.id}`}>Details</Link>
                 </Button>
                 <Button 
-                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-white"
+                  className="flex-1 lg:w-[180px] h-[52px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-black"
                 >
                   Tickets
                 </Button>
@@ -191,7 +191,7 @@ const AgendaSection = () => {
         <div className="mt-16 text-center">
           <Button 
             asChild 
-            className="bg-[#E17900] hover:bg-[#E17900]/90 text-white font-bold px-16 py-4 h-auto text-base"
+            className="bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-16 py-4 h-auto text-base"
           >
             <Link to="/programm">Alle Konzerte ansehen</Link>
           </Button>
