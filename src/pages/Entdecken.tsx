@@ -111,7 +111,7 @@ const Entdecken = () => {
               </Button>
               <Button
                 variant="outline"
-                className="rounded-none border-primary text-primary hover:bg-primary hover:text-white"
+                className="rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                 onClick={() => handleGenerate(intent.id)}
               >
                 <RefreshCw className="w-4 h-4" /> Neu generieren
@@ -157,7 +157,7 @@ const Entdecken = () => {
               <div className="mt-10 flex flex-wrap gap-4">
                 <Button
                   disabled={!selectedIntent || view === "loading"}
-                  className="rounded-none bg-primary hover:bg-primary/90 text-white px-8 py-6 h-auto text-base font-light disabled:opacity-40"
+                  className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground h-[52px] px-16 text-base font-bold disabled:opacity-40"
                   onClick={() => handleGenerate()}
                 >
                   <Sparkles className="w-4 h-4" />
@@ -237,7 +237,7 @@ const ErrorState = ({ onRetry }: { onRetry: () => void }) => (
     </p>
     <Button
       onClick={onRetry}
-      className="rounded-none bg-primary hover:bg-primary/90 text-white"
+      className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground h-[48px] px-8 text-base font-bold"
     >
       <RefreshCw className="w-4 h-4" /> Erneut versuchen
     </Button>
@@ -346,7 +346,7 @@ const Results = ({
                     <Button
                       asChild
                       variant="outline"
-                      className="rounded-none border-primary text-primary hover:bg-primary hover:text-white"
+                      className="rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                     >
                       <a
                         href="https://tickets.sendesaal-bremen.de/"
