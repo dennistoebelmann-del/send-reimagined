@@ -17,12 +17,12 @@ const InfoSection = () => {
   type Category = typeof categories[number];
   const [activeCategory, setActiveCategory] = useState<Category>("Alle");
 
-  // Category colors for the small label badge on each tile
+  // Category colors for the small label badge on each tile – Tailwind token classes
   const categoryColor: Record<string, string> = {
-    "Geschichte": "#E17900",
-    "Weltklasse": "#E17900",
-    "Konzerte": "#E17900",
-    "Produktion": "#E17900",
+    "Geschichte": "bg-primary",
+    "Weltklasse": "bg-primary",
+    "Konzerte": "bg-primary",
+    "Produktion": "bg-primary",
   };
 
   type Tile = {
@@ -80,7 +80,7 @@ const InfoSection = () => {
             Vielfalt erleben
           </h2>
           <div className="flex items-center justify-center gap-6 mb-10">
-            <div className="w-10 h-[1px] bg-[#E47C03]" />
+            <div className="w-10 h-px bg-primary" />
             <p className="text-black text-base md:text-lg max-w-2xl">
               Geschichte, Weltklasse-Künstler:innen, stimmungsvolle Konzerte und
               Grammy-prämierte Produktionen – fahren Sie über die Bilder und
@@ -96,8 +96,8 @@ const InfoSection = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-8 py-4 text-base font-bold transition-all ${
                   activeCategory === cat
-                    ? "bg-[#E17900] text-black"
-                    : "bg-transparent text-black hover:text-[#E17900]"
+                    ? "bg-primary text-black"
+                    : "bg-transparent text-black hover:text-primary"
                 }`}
               >
                 {cat}
@@ -130,8 +130,7 @@ const InfoSection = () => {
 
                 {/* Category badge – always visible */}
                 <div
-                  className="absolute top-3 left-3 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-white"
-                  style={{ backgroundColor: categoryColor[image.category] }}
+                  className={`absolute top-3 left-3 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-primary-foreground ${categoryColor[image.category]}`}
                 >
                   {image.category}
                 </div>
@@ -141,7 +140,7 @@ const InfoSection = () => {
                   <h3 className="text-white text-base md:text-lg font-normal mb-2 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                     {image.title}
                   </h3>
-                  <div className="w-8 h-[1px] bg-[#E17900] mb-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75" />
+                  <div className="w-8 h-px bg-primary mb-3 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75" />
                   <p className="text-white/90 text-xs md:text-sm font-light leading-snug translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-100">
                     {image.text}
                   </p>
@@ -155,7 +154,7 @@ const InfoSection = () => {
       {/* CTA Button */}
       <div className="container mx-auto px-6 md:px-16 py-16 text-center">
         <Button 
-          className="bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-16 py-4 h-auto text-base"
+          className="bg-primary hover:bg-primary/90 text-black font-bold px-16 py-4 h-auto text-base"
         >
           Über den Sendesaal
         </Button>

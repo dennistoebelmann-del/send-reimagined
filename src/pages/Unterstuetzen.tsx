@@ -148,7 +148,7 @@ const Unterstuetzen = () => {
                   }`}
                 >
                   {way.badge && (
-                    <span className="inline-block self-start bg-primary text-white text-[11px] font-bold tracking-wider px-3 py-1 mb-5">
+                    <span className="inline-block self-start bg-primary text-primary-foreground text-[11px] font-bold tracking-wider px-3 py-1 mb-5">
                       {way.badge}
                     </span>
                   )}
@@ -168,7 +168,7 @@ const Unterstuetzen = () => {
                     href={way.href}
                     className={`inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold transition-colors ${
                       way.highlight
-                        ? "bg-primary text-white hover:bg-primary/90"
+                        ? "bg-primary text-primary-foreground hover:bg-primary/90"
                         : "border border-black text-black hover:bg-black hover:text-white"
                     }`}
                   >
@@ -258,7 +258,7 @@ const Unterstuetzen = () => {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     className={`p-10 text-center ${
-                      stat.dark ? "bg-black text-white" : "bg-primary text-white"
+                      stat.dark ? "bg-black text-white" : "bg-primary text-primary-foreground"
                     }`}
                   >
                     <div className="text-5xl md:text-6xl font-light mb-2">{stat.value}</div>

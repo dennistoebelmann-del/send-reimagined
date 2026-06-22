@@ -19,7 +19,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-[#D9D9D9]">
+    <section className="relative min-h-screen flex items-center justify-start overflow-hidden bg-background">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0">
         <video 
@@ -57,7 +57,7 @@ const Hero = () => {
           >
             <Button 
               asChild 
-              className="bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold uppercase tracking-wide px-8 py-4 h-auto text-base border border-white"
+              className="bg-primary hover:bg-primary/90 text-black font-bold uppercase tracking-wide px-8 py-4 h-auto text-base border border-white"
             >
               <Link to="/programm">Programm</Link>
             </Button>

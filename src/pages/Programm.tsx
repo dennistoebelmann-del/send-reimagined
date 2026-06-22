@@ -233,8 +233,8 @@ const Programm = () => {
                 onClick={() => handleFilterChange(cat.id)}
                 className={`px-8 py-4 text-base font-bold transition-all ${
                   activeFilter === cat.id
-                    ? "bg-[#E17900] text-black"
-                    : "bg-transparent text-black hover:text-[#E17900]"
+                    ? "bg-primary text-black"
+                    : "bg-transparent text-black hover:text-primary"
                 }`}
               >
                 {cat.label}
@@ -248,7 +248,7 @@ const Programm = () => {
               <div key={group.month}>
                 {/* Month Headline */}
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-10 h-[1px] bg-[#E47C03]" />
+                  <div className="w-10 h-px bg-primary" />
                   <h3 className="text-black text-xl md:text-2xl lg:text-3xl font-normal">
                     Veranstaltungen im {group.month}
                   </h3>
@@ -269,7 +269,7 @@ const Programm = () => {
             <div className="mt-16 text-center">
               <Button
                 onClick={() => setVisibleCount((prev) => prev + EVENTS_PER_PAGE)}
-                className="bg-[#E17900] hover:bg-[#E17900]/90 text-black font-bold px-16 py-4 h-auto text-base"
+                className="bg-primary hover:bg-primary/90 text-black font-bold px-16 py-4 h-auto text-base"
               >
                 Weitere Veranstaltungen anzeigen
               </Button>
@@ -320,12 +320,12 @@ const EventCard = ({ event }: { event: Event }) => {
               <Calendar size={14} className="text-black" />
               <span>{event.date}</span>
             </div>
-            <div className="w-5 h-[1px] bg-[#E47C03]" />
+            <div className="w-5 h-px bg-primary" />
             <div className="flex items-center gap-2">
               <Clock size={14} className="text-black" />
               <span>{event.time} Uhr</span>
             </div>
-            <div className="w-5 h-[1px] bg-[#E47C03]" />
+            <div className="w-5 h-px bg-primary" />
             <div className="flex items-center gap-2">
               <MapPin size={14} className="text-black" />
               <span>{event.location}</span>
@@ -333,7 +333,7 @@ const EventCard = ({ event }: { event: Event }) => {
           </div>
           
           {/* Title */}
-          <h3 className="text-[#E17900] text-2xl md:text-3xl lg:text-4xl font-normal">
+          <h3 className="text-primary text-2xl md:text-3xl lg:text-4xl font-normal">
             {event.title}
           </h3>
           
@@ -354,13 +354,13 @@ const EventCard = ({ event }: { event: Event }) => {
         <Button 
           asChild
           variant="outline"
-          className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-[#E17900] border-[#E17900] hover:bg-[#E17900]/10 bg-transparent"
+          className="flex-1 lg:w-[180px] h-[52px] font-bold text-base text-primary border-primary hover:bg-primary/10 bg-transparent"
         >
           <Link to={`/event/${event.id}`}>Details</Link>
         </Button>
         <div className="flex flex-col items-center">
           <Button 
-            className="w-full lg:w-[180px] h-[52px] font-bold text-base bg-[#E17900] hover:bg-[#E17900]/90 text-black"
+            className="w-full lg:w-[180px] h-[52px] font-bold text-base bg-primary hover:bg-primary/90 text-black"
           >
             Tickets
           </Button>

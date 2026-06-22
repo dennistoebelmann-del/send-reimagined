@@ -321,17 +321,17 @@ const UeberUns = () => {
                   ermöglichen den Betrieb des Saals.
                 </p>
                 <div className="mt-8 flex gap-4">
-                  <div className="w-28 h-24 bg-[#E17900] flex flex-col items-center justify-center">
-                    <span className="text-white text-3xl font-bold">200+</span>
-                    <span className="text-white text-sm">Mitglieder</span>
+                  <div className="w-28 h-24 bg-primary flex flex-col items-center justify-center">
+                    <span className="text-primary-foreground text-3xl font-bold">200+</span>
+                    <span className="text-primary-foreground text-sm">Mitglieder</span>
                   </div>
-                  <div className="w-28 h-24 bg-[#E17900] flex flex-col items-center justify-center">
-                    <span className="text-white text-3xl font-bold">50+</span>
-                    <span className="text-white text-sm">Ehrenamtliche</span>
+                  <div className="w-28 h-24 bg-primary flex flex-col items-center justify-center">
+                    <span className="text-primary-foreground text-3xl font-bold">50+</span>
+                    <span className="text-primary-foreground text-sm">Ehrenamtliche</span>
                   </div>
-                  <div className="w-28 h-24 bg-[#E17900] flex flex-col items-center justify-center">
-                    <span className="text-white text-3xl font-bold">18</span>
-                    <span className="text-white text-sm">Jahre aktiv</span>
+                  <div className="w-28 h-24 bg-primary flex flex-col items-center justify-center">
+                    <span className="text-primary-foreground text-3xl font-bold">18</span>
+                    <span className="text-primary-foreground text-sm">Jahre aktiv</span>
                   </div>
                 </div>
               </motion.div>
@@ -551,7 +551,7 @@ const UeberUns = () => {
                   <button
                     onClick={() => setOpenIndex(null)}
                     aria-label="Schließen"
-                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-primary hover:text-white hover:border-primary text-black transition-colors ml-1"
+                    className="w-10 h-10 flex items-center justify-center border border-black/20 hover:bg-primary hover:text-primary-foreground hover:border-primary text-black transition-colors ml-1"
                   >
                     <X size={18} />
                   </button>
