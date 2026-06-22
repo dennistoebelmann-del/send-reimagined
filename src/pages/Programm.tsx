@@ -228,17 +228,17 @@ const Programm = () => {
           {/* Filter Chips */}
           <div className="flex flex-wrap items-center mb-12">
             {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => handleFilterChange(cat.id)}
-                className={`px-8 py-4 text-base transition-all ${
-                  activeFilter === cat.id
-                    ? "bg-primary text-black"
-                    : "bg-transparent text-foreground hover:text-primary"
-                }`}
-              >
-                {cat.label}
-              </button>
+            <button
+              key={cat.id}
+              onClick={() => handleFilterChange(cat.id)}
+              className={`px-8 py-4 text-base transition-all ${
+                activeFilter === cat.id
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-transparent text-foreground hover:text-primary"
+              }`}
+            >
+              {cat.label}
+            </button>
             ))}
           </div>
 
