@@ -47,7 +47,7 @@ const Navigation = () => {
   ];
 
   // On non-home pages or when scrolled, use dark style (black text on white bg)
-  const useDarkStyle = !isHomePage || isScrolled;
+  const useDarkStyle = !isHomePage || isScrolled || searchOpen;
 
   return (
     <header 

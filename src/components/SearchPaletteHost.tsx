@@ -48,30 +48,32 @@ const SearchPaletteHost = () => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="container mx-auto px-6 md:px-16">
-          <div className="theme-light bg-background border-t border-border shadow-xl py-8 max-h-[70vh] overflow-y-auto">
+          <div className="theme-light bg-background shadow-xl py-8 max-h-[70vh] overflow-y-auto">
             <div className="mb-8">
               <p className="text-[11px] uppercase tracking-widest text-muted-foreground mb-3">
                 Beliebte Konzerte
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {popularConcerts.map((c) => (
                   <button
                     key={c.id}
                     onClick={() => goConcert(c.id)}
-                    className="group w-full flex items-center justify-start gap-3 border border-border px-4 py-3 hover:border-primary hover:bg-muted transition-colors"
+                    className="group flex items-center gap-3 px-4 py-3 border border-border hover:border-primary hover:bg-muted transition-colors"
                   >
                     <img
                       src={c.image}
                       alt=""
-                      className="w-10 h-10 object-cover shrink-0"
+                      className="w-12 h-12 object-cover shrink-0"
                       loading="lazy"
                     />
-                    <span className="text-sm font-light text-foreground truncate">
-                      {c.title}
-                    </span>
-                    <span className="text-xs text-muted-foreground hidden sm:inline ml-auto shrink-0">
-                      {c.weekday}. {c.date.split(",")[1]?.trim()}
-                    </span>
+                    <div className="flex flex-col min-w-0 text-left">
+                      <span className="text-sm font-medium text-foreground truncate">
+                        {c.title}
+                      </span>
+                      <span className="text-xs text-muted-foreground truncate">
+                        {c.weekday}. {c.date.split(",")[1]?.trim()}
+                      </span>
+                    </div>
                   </button>
                 ))}
               </div>
