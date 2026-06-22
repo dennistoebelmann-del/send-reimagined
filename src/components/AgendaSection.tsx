@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, MapPin } from "lucide-react";
+import { Calendar } from "lucide-react";
 import eventFireOrchestra from "@/assets/event-fire-orchestra.jpg";
 import eventTingvallTrio from "@/assets/event-tingvall-trio.jpg";
 import eventEsbjornMemorial from "@/assets/event-esbjorn-memorial.jpg";
@@ -89,12 +89,11 @@ const AgendaSection = () => {
   ).slice(0, 6);
 
   return (
-    <section id="programm" className="py-16 md:py-24 bg-white">
+    <section id="programm" className="py-16 md:py-24 bg-background theme-light">
       <div className="container mx-auto px-6 md:px-16">
         {/* Header */}
         <div className="flex items-center gap-4 mb-10">
-          <div className="w-10 h-px bg-primary" />
-          <h2 className="text-black text-3xl md:text-4xl lg:text-5xl font-normal">
+          <h2 className="text-foreground text-3xl md:text-4xl lg:text-5xl font-normal">
             Programm
           </h2>
         </div>
@@ -107,8 +106,8 @@ const AgendaSection = () => {
               onClick={() => setActiveFilter(filter.toLowerCase())}
               className={`px-8 py-4 text-base transition-all ${
                 activeFilter === filter.toLowerCase()
-                  ? "bg-primary text-black"
-                  : "bg-transparent text-black hover:text-primary"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-transparent text-foreground hover:text-primary"
               }`}
             >
               {filter}
@@ -119,11 +118,11 @@ const AgendaSection = () => {
         {/* Events List */}
         <div className="space-y-12">
           {filteredEvents.map((event, index) => (
-            <div key={`${event.category}-${index}`} className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start lg:items-center justify-between">
+            <div key={`${event.category}-${index}`} className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-between">
               {/* Left: Image + Content */}
-              <div className="flex flex-col md:flex-row gap-6 md:gap-12 flex-1">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-10 flex-1 w-full">
                 {/* Image */}
-                <div className="w-full md:w-[300px] lg:w-[365px] h-[200px] md:h-[210px] flex-shrink-0 bg-gray-200">
+                <div className="w-full md:w-[320px] lg:w-[360px] h-[220px] md:h-[230px] flex-shrink-0 bg-muted">
                   <img
                     src={event.image}
                     alt={event.title}
@@ -134,51 +133,45 @@ const AgendaSection = () => {
                 {/* Content */}
                 <div className="flex-1 space-y-3">
                   {/* Meta info */}
-                  <div className="flex flex-wrap items-center gap-4 text-black text-sm md:text-base">
+                  <div className="flex flex-wrap items-center gap-4 text-foreground text-sm md:text-base">
                     <div className="flex items-center gap-2">
-                      <Calendar size={14} className="text-black" />
+                      <Calendar size={16} className="text-foreground" strokeWidth={1.5} />
                       <span>{event.date}</span>
                     </div>
-                    <div className="w-5 h-px bg-primary" />
-                    <div className="flex items-center gap-2">
-                      <Clock size={14} className="text-black" />
-                      <span>{event.time} Uhr</span>
-                    </div>
-                    <div className="w-5 h-px bg-primary" />
-                    <div className="flex items-center gap-2">
-                      <MapPin size={14} className="text-black" />
-                      <span>{event.location}</span>
-                    </div>
+                    <div className="w-8 h-px bg-primary" />
+                    <span>{event.time} Uhr</span>
+                    <div className="w-8 h-px bg-primary" />
+                    <span>{event.location}</span>
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-primary text-2xl md:text-3xl lg:text-4xl font-normal">
+                  <h3 className="text-foreground text-2xl md:text-3xl lg:text-4xl font-normal">
                     {event.title}
                   </h3>
                   
                   {/* Artist */}
-                  <p className="text-black text-lg md:text-xl font-normal">
+                  <p className="text-foreground text-lg md:text-xl font-normal">
                     {event.artist}
                   </p>
                   
                   {/* Description */}
-                  <p className="text-black text-sm md:text-base font-normal">
+                  <p className="text-foreground text-sm md:text-base font-normal">
                     {event.description}
                   </p>
                 </div>
               </div>
               
               {/* Right: Buttons */}
-              <div className="flex flex-row lg:flex-col gap-4 w-full lg:w-[180px]">
+              <div className="flex flex-col gap-4 w-full lg:w-[180px]">
                 <Button 
                   asChild
                   variant="outline"
-                  className="flex-1 lg:w-[180px] h-[52px] text-base text-primary border-primary hover:bg-primary/10 bg-transparent"
+                  className="w-full lg:w-[180px] h-[52px] text-base font-normal border-foreground text-foreground hover:bg-muted bg-transparent"
                 >
                   <Link to={`/event/${event.id}`}>Details</Link>
                 </Button>
                 <Button 
-                  className="flex-1 lg:w-[180px] h-[48px] px-8 text-base bg-primary hover:bg-primary/90 text-black"
+                  className="w-full lg:w-[180px] h-[52px] text-base font-normal bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
                   Tickets
                 </Button>
@@ -191,7 +184,7 @@ const AgendaSection = () => {
         <div className="mt-16 text-center">
           <Button 
             asChild 
-            className="bg-primary hover:bg-primary/90 text-black h-[52px] px-16 text-base"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground h-[52px] px-16 text-base"
           >
             <Link to="/programm">Alle Konzerte ansehen</Link>
           </Button>
