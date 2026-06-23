@@ -49,12 +49,12 @@ const HighlightsSection = () => {
               <div className="relative overflow-visible bg-black aspect-[365/595] flex flex-col">
                 {/* Category Tag - 50% above card */}
                 <div className="absolute -top-5 z-10 bg-white px-4 py-2.5 -left-4">
-                  <span className="text-black text-xl font-bold">{event.category}</span>
+                  <span className="text-black text-xl font-normal">{event.category}</span>
                 </div>
                 
                 {/* Date Badge - directly below category */}
                 <div className="absolute top-8 z-10 bg-primary px-4 py-2.5 -left-4">
-                  <span className="text-black text-xl font-bold">{event.date}</span>
+                  <span className="text-black text-xl font-normal">{event.date}</span>
                 </div>
                 
                 {/* Image */}
