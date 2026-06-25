@@ -15,6 +15,7 @@ import Unterstuetzen from "./pages/Unterstuetzen";
 import EventDetail from "./pages/EventDetail";
 import Tickets from "./pages/Tickets";
 import Suche from "./pages/Suche";
+import AktuellesDetail from "./pages/AktuellesDetail";
 
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/ausstattung" element={<Ausstattung />} />
           <Route path="/unterstuetzen" element={<Unterstuetzen />} />
           <Route path="/ueber-uns" element={<UeberUns />} />
+          <Route path="/aktuelles/:slug" element={<AktuellesDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
