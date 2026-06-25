@@ -60,7 +60,7 @@ export const news: NewsItem[] = [
     href: "/aktuelles/echo-klassik-auszeichnung",
     image: eventKlavierRezital,
     lead:
-      "Eine besondere Anerkennung für die Arbeit unseres Hauses: Die im Sendesaal entstandene Einspielung des Quatuor Ébène ist mit dem ECHO Klassik in der Kategorie „Beste Kammermusikproduktion" ausgezeichnet worden.",
+      "Eine besondere Anerkennung für die Arbeit unseres Hauses: Die im Sendesaal entstandene Einspielung des Quatuor Ébène ist mit dem ECHO Klassik in der Kategorie „Beste Kammermusikproduktion“ ausgezeichnet worden.",
     body: [
       "Die Jury würdigt die außergewöhnliche Klangqualität der Aufnahme und hebt insbesondere die Räumlichkeit und Transparenz hervor – Eigenschaften, die seit Jahrzehnten den Ruf der Sendesaal-Akustik prägen.",
       "Verantwortlich für die Produktion zeichnet unser Tonmeister-Team in enger Zusammenarbeit mit dem Label und dem Quartett. Die Aufnahmen entstanden über mehrere Sessions im Frühjahr 2025 und umfassen Werke von Beethoven und Schubert.",
