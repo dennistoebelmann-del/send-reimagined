@@ -46,7 +46,7 @@ const SearchBar = ({ dark, className = "" }: Props) => {
       ? "placeholder:text-black/50"
       : "placeholder:text-white/70";
   const border = open
-    ? "border-primary"
+    ? "border-primary shadow-md"
     : dark
       ? "border-primary"
       : "border-white/70";
@@ -70,7 +70,7 @@ const SearchBar = ({ dark, className = "" }: Props) => {
         }}
         placeholder={open ? "Konzerte, Künstler, Räume, FAQ …" : "Suche"}
         className={`flex-1 min-w-0 bg-transparent outline-none font-light ${text} ${placeholder} transition-all duration-300 ${
-          open ? "py-3 px-3 text-base md:text-lg" : "py-2 px-2 text-sm"
+          open ? "py-4 px-3 text-base md:text-xl" : "py-2 px-2 text-sm"
         }`}
       />
       {open && (
