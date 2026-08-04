@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.1",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "remix-of-sendesaal-resonance-redesign-v1",
+      "version": "0.1.0",
+      "title": "Remix of Sendesaal Resonance Redesign v1"
+    },
+    "tools": [
+      {
+        "name": "list_events",
+        "title": "Konzerte auflisten",
+        "description": "Listet die Konzerte und Veranstaltungen im Sendesaal Bremen. Optional filterbar nach Kategorie und Suchbegriff.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Nur Veranstaltungen dieser Kategorie.",
+              "type": "string",
+              "enum": [
+                "jazz",
+                "klassik",
+                "weltmusik",
+                "experimentell"
+              ]
+            },
+            "query": {
+              "description": "Freitextsuche in Titel, Künstler und Beschreibung.",
+              "type": "string"
+            },
+            "limit": {
+              "description": "Maximale Anzahl Ergebnisse (Standard 20).",
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_event",
+        "title": "Konzertdetails abrufen",
+        "description": "Liefert alle Details zu einer Veranstaltung im Sendesaal Bremen anhand ihrer ID.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991,
+              "description": "Die Veranstaltungs-ID aus list_events."
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_news",
+        "title": "Aktuelles auflisten",
+        "description": "Listet die aktuellen Nachrichten und Ankündigungen des Sendesaals Bremen, neueste zuerst.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "limit": {
+              "description": "Maximale Anzahl Ergebnisse (Standard 10).",
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_news_article",
+        "title": "News-Beitrag abrufen",
+        "description": "Liefert den vollständigen Text eines Aktuelles-Beitrags anhand seines Slugs.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "description": "Der Slug des Beitrags aus list_news."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "search_faq",
+        "title": "FAQ durchsuchen",
+        "description": "Beantwortet häufige Besucherfragen zum Sendesaal Bremen (Abendkasse, Barrierefreiheit, Ermäßigungen, Garderobe usw.).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "description": "Suchbegriff. Ohne Angabe werden alle Fragen geliefert.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
