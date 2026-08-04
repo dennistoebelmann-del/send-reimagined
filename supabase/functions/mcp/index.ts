@@ -16,7 +16,9 @@ import eventEsbjornMemorial from "npm:@/assets/event-esbjorn-memorial.jpg";
 import eventKammermusik from "npm:@/assets/event-kammermusik.jpg";
 import eventKlavierRezital from "npm:@/assets/event-klavier-rezital.jpg";
 import eventBarockeNacht from "npm:@/assets/event-barocke-nacht.jpg";
-var events = [
+
+// src/data/events.content.ts
+var eventContents = [
   {
     id: 1,
     date: "Samstag, 6. Dezember 2025",
@@ -29,7 +31,7 @@ var events = [
     description: "Grootse improvisatie en energie door dit orkest met strijkers, blazers, ritmesectie en elektronica.",
     category: "jazz",
     moods: ["energetisch", "experimentell", "festlich"],
-    image: eventFireOrchestra,
+    imageKey: "fireOrchestra",
     externalTicketing: true
   },
   {
@@ -44,7 +46,7 @@ var events = [
     description: "Ein au\xDFergew\xF6hnliches Streichquartett pr\xE4sentiert Werke von Beethoven und Schubert in intimer Atmosph\xE4re.",
     category: "klassik",
     moods: ["intim", "virtuos", "romantisch"],
-    image: eventKammermusik,
+    imageKey: "kammermusik",
     externalTicketing: false
   },
   {
@@ -59,7 +61,7 @@ var events = [
     description: "Nordischer Jazz trifft auf klassische Einfl\xFCsse \u2013 melodisch, virtuos und voller Emotionen.",
     category: "jazz",
     moods: ["intim", "virtuos", "romantisch"],
-    image: eventTingvallTrio,
+    imageKey: "tingvallTrio",
     externalTicketing: false
   },
   {
@@ -74,7 +76,7 @@ var events = [
     description: "Der preisgekr\xF6nte Pianist spielt Bachs Goldberg-Variationen in einer unvergesslichen Interpretation.",
     category: "klassik",
     moods: ["virtuos", "meditativ", "intim"],
-    image: eventKlavierRezital,
+    imageKey: "klavierRezital",
     externalTicketing: false
   },
   {
@@ -89,7 +91,7 @@ var events = [
     description: "Ein Abend zu Ehren des legend\xE4ren schwedischen Pianisten mit seinen ehemaligen Bandkollegen.",
     category: "jazz",
     moods: ["intim", "romantisch", "meditativ"],
-    image: eventEsbjornMemorial,
+    imageKey: "esbjornMemorial",
     externalTicketing: true
   },
   {
@@ -104,7 +106,7 @@ var events = [
     description: "Vivaldi, Bach und H\xE4ndel in authentischer Auff\xFChrungspraxis mit historischen Instrumenten.",
     category: "klassik",
     moods: ["festlich", "virtuos"],
-    image: eventBarockeNacht,
+    imageKey: "barockeNacht",
     externalTicketing: true
   },
   {
@@ -119,7 +121,7 @@ var events = [
     description: "Skandinavische Vokalmusik von mittelalterlichen Hymnen bis zu zeitgen\xF6ssischen Kompositionen.",
     category: "klassik",
     moods: ["meditativ", "international", "intim"],
-    image: eventKammermusik,
+    imageKey: "kammermusik",
     externalTicketing: false
   },
   {
@@ -134,7 +136,7 @@ var events = [
     description: "Arabische Oud-Tradition trifft auf europ\xE4ischen Jazz \u2013 eine einzigartige musikalische Begegnung.",
     category: "weltmusik",
     moods: ["international", "meditativ", "intim"],
-    image: eventTingvallTrio,
+    imageKey: "tingvallTrio",
     externalTicketing: true
   },
   {
@@ -149,7 +151,7 @@ var events = [
     description: "Atmosph\xE4rische Klanglandschaften zwischen Jazz, Electronica und Minimalismus.",
     category: "experimentell",
     moods: ["experimentell", "meditativ"],
-    image: eventEsbjornMemorial,
+    imageKey: "esbjornMemorial",
     externalTicketing: false
   },
   {
@@ -164,7 +166,7 @@ var events = [
     description: "Die franz\xF6sische Starpianistin mit einem Programm von Brahms und Rachmaninow.",
     category: "klassik",
     moods: ["virtuos", "romantisch", "intim"],
-    image: eventKlavierRezital,
+    imageKey: "klavierRezital",
     externalTicketing: false
   },
   {
@@ -179,7 +181,7 @@ var events = [
     description: "Israelischer Jazz voller Lyrik und Intensit\xE4t \u2013 eines der aufregendsten Trios der Szene.",
     category: "jazz",
     moods: ["intim", "virtuos", "international"],
-    image: eventFireOrchestra,
+    imageKey: "fireOrchestra",
     externalTicketing: false
   },
   {
@@ -194,10 +196,24 @@ var events = [
     description: "Eine faszinierende Verschmelzung von klassischer Violine und andalusischem Klavier.",
     category: "weltmusik",
     moods: ["festlich", "international", "virtuos"],
-    image: eventBarockeNacht,
+    imageKey: "barockeNacht",
     externalTicketing: true
   }
 ];
+
+// src/data/events.ts
+var eventImages = {
+  fireOrchestra: eventFireOrchestra,
+  tingvallTrio: eventTingvallTrio,
+  esbjornMemorial: eventEsbjornMemorial,
+  kammermusik: eventKammermusik,
+  klavierRezital: eventKlavierRezital,
+  barockeNacht: eventBarockeNacht
+};
+var events = eventContents.map(({ imageKey, ...event }) => ({
+  ...event,
+  image: eventImages[imageKey]
+}));
 
 // src/data/news.ts
 import eventFireOrchestra2 from "npm:@/assets/event-fire-orchestra.jpg";
