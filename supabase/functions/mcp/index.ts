@@ -9,14 +9,6 @@ import { defineMcp } from "npm:@lovable.dev/mcp-js@0.26.1";
 import { defineTool } from "npm:@lovable.dev/mcp-js@0.26.1";
 import { z } from "npm:zod@^4.4.3";
 
-// src/data/events.ts
-import eventFireOrchestra from "npm:@/assets/event-fire-orchestra.jpg";
-import eventTingvallTrio from "npm:@/assets/event-tingvall-trio.jpg";
-import eventEsbjornMemorial from "npm:@/assets/event-esbjorn-memorial.jpg";
-import eventKammermusik from "npm:@/assets/event-kammermusik.jpg";
-import eventKlavierRezital from "npm:@/assets/event-klavier-rezital.jpg";
-import eventBarockeNacht from "npm:@/assets/event-barocke-nacht.jpg";
-
 // src/data/events.content.ts
 var eventContents = [
   {
@@ -201,26 +193,8 @@ var eventContents = [
   }
 ];
 
-// src/data/events.ts
-var eventImages = {
-  fireOrchestra: eventFireOrchestra,
-  tingvallTrio: eventTingvallTrio,
-  esbjornMemorial: eventEsbjornMemorial,
-  kammermusik: eventKammermusik,
-  klavierRezital: eventKlavierRezital,
-  barockeNacht: eventBarockeNacht
-};
-var events = eventContents.map(({ imageKey, ...event }) => ({
-  ...event,
-  image: eventImages[imageKey]
-}));
-
-// src/data/news.ts
-import eventFireOrchestra2 from "npm:@/assets/event-fire-orchestra.jpg";
-import eventKammermusik2 from "npm:@/assets/event-kammermusik.jpg";
-import eventKlavierRezital2 from "npm:@/assets/event-klavier-rezital.jpg";
-import eventExperimental from "npm:@/assets/event-experimental.jpg";
-var news = [
+// src/data/news.content.ts
+var newsContents = [
   {
     id: "fire-orchestra-zusatztermin",
     date: "2026-05-14",
@@ -228,7 +202,7 @@ var news = [
     title: "Fire! Orchestra: Zusatztermin im Sendesaal Bremen",
     excerpt: "Nach kurzer Verkaufszeit ausverkauft \u2013 Mats Gustafsson und sein Ensemble kommen f\xFCr einen zweiten Abend zur\xFCck in den Sendesaal.",
     href: "/aktuelles/fire-orchestra-zusatztermin",
-    image: eventFireOrchestra2,
+    imageKey: "fireOrchestra",
     lead: "Die Resonanz war \xFCberw\xE4ltigend: Innerhalb weniger Tage war das Konzert des Fire! Orchestra restlos ausverkauft. Auf vielfachen Wunsch \xF6ffnen wir nun einen Zusatztermin am Folgeabend.",
     body: [
       "Mats Gustafsson und sein \xFCber zwanzigk\xF6pfiges Ensemble verbinden orchestralen Free Jazz mit elektronischen Texturen und kompromissloser Improvisation. Die einzigartige Akustik des Sendesaals macht dieses Klangerlebnis besonders intensiv erfahrbar.",
@@ -243,7 +217,7 @@ var news = [
     title: "Saison 2026/27: Das neue Programm ist da",
     excerpt: "\xDCber 60 Konzerte zwischen Klassik, Jazz und Neuer Musik. Ein erster Blick auf die H\xF6hepunkte der kommenden Spielzeit.",
     href: "/aktuelles/saison-2026-programm",
-    image: eventKammermusik2,
+    imageKey: "kammermusik",
     lead: "Mit \xFCber 60 Konzerten setzt die Saison 2026/27 ein klares Bekenntnis zur Vielfalt: Klassische Kammermusik, internationaler Jazz und neue Musik treffen in unserem Saal aufeinander.",
     body: [
       "Zu den H\xF6hepunkten z\xE4hlen Residenzen renommierter Ensembles, Wiederbegegnungen mit langj\xE4hrigen Wegbegleiterinnen und Wegbegleitern sowie zahlreiche Deb\xFCts junger Stimmen, die hier erstmals zu erleben sein werden.",
@@ -258,7 +232,7 @@ var news = [
     title: "Aufnahme aus dem Sendesaal mit ECHO Klassik ausgezeichnet",
     excerpt: "Die im Sendesaal Bremen entstandene Einspielung des Quatuor \xC9b\xE8ne wurde von der Jury als beste Kammermusikproduktion gew\xFCrdigt.",
     href: "/aktuelles/echo-klassik-auszeichnung",
-    image: eventKlavierRezital2,
+    imageKey: "klavierRezital",
     lead: "Eine besondere Anerkennung f\xFCr die Arbeit unseres Hauses: Die im Sendesaal entstandene Einspielung des Quatuor \xC9b\xE8ne ist mit dem ECHO Klassik in der Kategorie \u201EBeste Kammermusikproduktion\u201C ausgezeichnet worden.",
     body: [
       "Die Jury w\xFCrdigt die au\xDFergew\xF6hnliche Klangqualit\xE4t der Aufnahme und hebt insbesondere die R\xE4umlichkeit und Transparenz hervor \u2013 Eigenschaften, die seit Jahrzehnten den Ruf der Sendesaal-Akustik pr\xE4gen.",
@@ -273,7 +247,7 @@ var news = [
     title: "Tag der offenen T\xFCr: Akustik zum Anfassen",
     excerpt: "F\xFChrungen durch den historischen Saal, Live-Demonstrationen der Aufnahmetechnik und Gespr\xE4che mit Tonmeisterinnen und Tonmeistern.",
     href: "/aktuelles/tag-der-offenen-tuer",
-    image: eventExperimental,
+    imageKey: "experimental",
     lead: "Einmal im Jahr \xF6ffnen wir alle T\xFCren: Am Tag der offenen T\xFCr l\xE4dt der Sendesaal Bremen dazu ein, das Haus, seine Geschichte und seine Akustik aus n\xE4chster N\xE4he zu erleben.",
     body: [
       "Auf dem Programm stehen st\xFCndliche F\xFChrungen durch den gro\xDFen Saal und die Regie, Live-Demonstrationen aktueller Aufnahmetechnik sowie Gespr\xE4che mit Tonmeisterinnen, Tonmeistern und Musikerinnen und Musikern, die regelm\xE4\xDFig hier zu Gast sind.",
@@ -282,10 +256,6 @@ var news = [
     ]
   }
 ];
-
-// src/lib/mcp/content.ts
-var events2 = events.map(({ image: _image, ...event }) => event);
-var news2 = news.map(({ image: _image, href: _href, ...item }) => item);
 
 // src/lib/mcp/tools/list-events.ts
 var list_events_default = defineTool({
@@ -300,7 +270,7 @@ var list_events_default = defineTool({
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ category, query, limit }) => {
     const q = query?.trim().toLowerCase();
-    const items = events2.filter((e) => category ? e.category === category : true).filter(
+    const items = eventContents.filter((e) => category ? e.category === category : true).filter(
       (e) => q ? [e.title, e.artist, e.description, e.category].join(" ").toLowerCase().includes(q) : true
     ).slice(0, Math.max(1, Math.min(limit ?? 20, 100)));
     if (items.length === 0) {
@@ -333,7 +303,7 @@ var get_event_default = defineTool2({
   inputSchema: { id: z2.number().int().describe("Die Veranstaltungs-ID aus list_events.") },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ id }) => {
-    const event = events2.find((e) => e.id === id);
+    const event = eventContents.find((e) => e.id === id);
     if (!event) throw new ToolError(`Keine Veranstaltung mit der ID ${id} gefunden.`);
     return {
       content: [
@@ -368,7 +338,7 @@ var list_news_default = defineTool3({
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ limit }) => {
-    const items = [...news2].sort((a, b) => b.date.localeCompare(a.date)).slice(0, Math.max(1, Math.min(limit ?? 10, 50)));
+    const items = [...newsContents].sort((a, b) => b.date.localeCompare(a.date)).slice(0, Math.max(1, Math.min(limit ?? 10, 50)));
     return {
       content: [
         {
@@ -394,7 +364,7 @@ var get_news_article_default = defineTool4({
   inputSchema: { slug: z4.string().describe("Der Slug des Beitrags aus list_news.") },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ slug }) => {
-    const article = news2.find((n) => n.id === slug.trim());
+    const article = newsContents.find((n) => n.id === slug.trim());
     if (!article) throw new ToolError2(`Kein Beitrag mit dem Slug "${slug}" gefunden.`);
     return {
       content: [
