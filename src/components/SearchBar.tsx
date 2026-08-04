@@ -68,9 +68,9 @@ const SearchBar = ({ dark, className = "" }: Props) => {
         onKeyDown={(e) => {
           if (e.key === "Enter") submit();
         }}
-        placeholder={open ? "Konzerte, Künstler, Räume, FAQ …" : "Suche"}
+        placeholder="Suche"
         className={`flex-1 min-w-0 bg-transparent outline-none font-light ${text} ${placeholder} transition-all duration-300 ${
-          open ? "py-4 px-3 text-base md:text-xl" : "py-2 px-2 text-sm"
+          open ? "py-5 px-4 text-lg md:text-2xl" : "py-2 px-2 text-sm"
         }`}
       />
       {open && (

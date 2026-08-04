@@ -193,26 +193,15 @@ const Suche = () => {
             </p>
           )}
 
-          {/* Empty query → suggestions */}
+          {/* Empty query */}
           {!query.trim() && (
-            <div className="max-w-2xl">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">Beliebte Suchen</p>
-              <div className="flex flex-wrap gap-2">
-                {["Jazz", "Klassik", "Mieten", "Steinway", "Aufnahme", "Barrierefrei", "Gutschein"].map(
-                  (s) => (
-                    <button
-                      key={s}
-                      onClick={() => {
-                        setQuery(s);
-                        setParams({ q: s });
-                      }}
-                      className="px-4 py-2 border border-black text-sm font-light hover:bg-black hover:text-white transition-colors"
-                    >
-                      {s}
-                    </button>
-                  ),
-                )}
-              </div>
+            <div className="max-w-2xl py-12">
+              <p className="text-2xl font-light text-foreground mb-3">
+                Geben Sie einen Suchbegriff ein.
+              </p>
+              <p className="text-muted-foreground font-light">
+                Suchen Sie nach Konzerten, Künstlern, Räumen oder Fragen.
+              </p>
             </div>
           )}
 
