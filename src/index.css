@@ -169,6 +169,10 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  h1, h2, h3 {
+    font-family: 'Alegreya Sans', system-ui, sans-serif;
+  }
 }
 
 /* Custom animations */
