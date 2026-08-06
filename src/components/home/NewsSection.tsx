@@ -61,19 +61,15 @@ const NewsSection = () => {
       className="py-16 md:py-24 bg-background"
     >
       <div className="container mx-auto px-6 md:px-16">
-        <div className="flex flex-col gap-4 mb-12 md:mb-16 max-w-3xl">
-          <span className="text-primary text-sm tracking-[0.2em] uppercase">
-            Aktuelles
-          </span>
+        {/* Header */}
+        <div className="flex items-center gap-4 mb-12 md:mb-16">
+          <div className="w-10 h-px bg-primary" />
           <h2
             id="news-heading"
             className="text-foreground text-3xl md:text-4xl lg:text-5xl font-normal"
           >
-            Neues aus dem Sendesaal
+            Aktuelles
           </h2>
-          <p className="text-foreground/80 text-base md:text-lg font-normal">
-            Ankündigungen, Pressestimmen und Hintergründe – direkt aus unserem Haus.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
