@@ -14,10 +14,10 @@ const formatDate = (iso: string) => {
   return `${dd}.${mm}.${d.getFullYear()}`;
 };
 
-const NewsCard = ({ item }: { item: NewsItem }) => (
+const NewsCard = ({ item, featured = false }: { item: NewsItem; featured?: boolean }) => (
   <article className="group flex flex-col bg-card border border-border hover:border-primary transition-colors">
     {item.image && (
-      <div className="aspect-video overflow-hidden bg-muted">
+      <div className={`${featured ? "h-[260px] md:h-[360px]" : "aspect-video"} overflow-hidden bg-muted`}>
         <img
           src={item.image}
           alt=""
@@ -115,7 +115,7 @@ const NewsSection = () => {
         <div className={gridFor(count)}>
           {items.map((item) => (
             <div key={item.id} className="relative">
-              <NewsCard item={item} />
+              <NewsCard item={item} featured={count === 1} />
             </div>
           ))}
         </div>
