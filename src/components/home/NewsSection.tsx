@@ -55,8 +55,15 @@ const NewsCard = ({ item }: { item: NewsItem }) => (
   </article>
 );
 
+const gridFor = (count: CountOption) => {
+  if (count === 1) return "grid grid-cols-1 gap-6 lg:gap-8 max-w-xl";
+  if (count === 2) return "grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8";
+  return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
+};
+
 const NewsSection = () => {
-  const items = news.slice(0, 3);
+  const [count, setCount] = useState<CountOption>(3);
+  const items = news.slice(0, count);
 
   return (
     <section
@@ -66,17 +73,46 @@ const NewsSection = () => {
     >
       <div className="container mx-auto px-6 md:px-16">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-12 md:mb-16">
-          <div className="w-10 h-px bg-primary" />
-          <h2
-            id="news-heading"
-            className="text-foreground text-3xl md:text-4xl lg:text-5xl font-normal"
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-12 md:mb-16">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-px bg-primary" />
+            <h2
+              id="news-heading"
+              className="text-foreground text-3xl md:text-4xl lg:text-5xl font-normal"
+            >
+              Aktuelles
+            </h2>
+          </div>
+
+          {/* Demo toggle */}
+          <div
+            role="group"
+            aria-label="Anzahl der News-Beiträge"
+            className="flex items-center gap-2"
           >
-            Aktuelles
-          </h2>
+            {COUNT_OPTIONS.map((option) => {
+              const active = option === count;
+              return (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => setCount(option)}
+                  aria-pressed={active}
+                  className={[
+                    "h-9 px-4 text-sm font-normal border transition-colors",
+                    active
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "bg-transparent text-muted-foreground border-border hover:text-foreground hover:border-foreground/40",
+                  ].join(" ")}
+                >
+                  {option}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className={gridFor(count)}>
           {items.map((item) => (
             <div key={item.id} className="relative">
               <NewsCard item={item} />
