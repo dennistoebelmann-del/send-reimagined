@@ -56,7 +56,7 @@ const NewsCard = ({ item }: { item: NewsItem }) => (
 );
 
 const gridFor = (count: CountOption) => {
-  if (count === 1) return "grid grid-cols-1 gap-6 lg:gap-8 max-w-xl";
+  if (count === 1) return "grid grid-cols-1 gap-6 lg:gap-8";
   if (count === 2) return "grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8";
   return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8";
 };
