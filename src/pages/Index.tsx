@@ -18,11 +18,11 @@ const Index = () => {
         <OrangeBarsTransition />
         <AgendaSection />
         <OrangeBarsTransition />
+        <NewsSection />
+        <OrangeBarsTransition />
         <InfoSection />
         <OrangeBarsTransition />
         <NewsletterSection />
-        <OrangeBarsTransition />
-        <NewsSection />
       </main>
       <Footer sectionAbove="black" />
     </div>
