@@ -115,7 +115,7 @@ const NewsSection = () => {
         <div className={gridFor(count)}>
           {items.map((item) => (
             <div key={item.id} className="relative">
-              <NewsCard item={item} />
+              <NewsCard item={item} featured={count === 1} />
             </div>
           ))}
         </div>
