@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { news, type NewsItem } from "@/data/news";
+
+const COUNT_OPTIONS = [1, 2, 3] as const;
+type CountOption = (typeof COUNT_OPTIONS)[number];
 
 const formatDate = (iso: string) => {
   const d = new Date(iso);
